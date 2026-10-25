@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B1 L04 論牛肉麵 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "字形辨正", "text": "下列各組文句「」中的字形，何者完全正確？", "options": [{"key": "A", "text": "這碗牛肉麵湯頭濃郁，滋味令人「膾灸」人口"}, {"key": "B", "text": "廚師精準掌握火候，讓食材散發迷人的「鑊」氣"}, {"key": "C", "text": "在深夜裡喝上一碗熱湯，真是一大享受與「饕食」之樂"}, {"key": "D", "text": "大火翻炒下，辣椒散發出「炙熱」刺鼻的氣息"}], "answer": "B", "explanation": "B項正確。A項「膾炙人口」之「炙」從肉；C項「饕餮」；D項「熾熱」從火。"}, {"id": 2, "category": "飲食文化歷史", "text": "根據本文，臺灣紅燒牛肉麵之所以能在這座島嶼誕生並發揚光大，最關鍵的歷史背景為何？", "options": [{"key": "A", "text": "日治時期引進西餐牛肉文化"}, {"key": "B", "text": "戰後隨國民政府來台的川籍老兵，結合岡山空軍眷村自製辣豆瓣醬所融合創發"}, {"key": "C", "text": "古代宮廷御廚流落民間所傳下的秘方"}, {"key": "D", "text": "清代臺灣原住民傳統狩獵料理手法"}], "answer": "B", "explanation": "臺灣原本農耕社會不食牛肉，紅燒牛肉麵係戰後老兵結合四川鄉愁與岡山辣豆瓣醬發展出的獨特臺灣混血美食。"}, {"id": 3, "category": "修辭摹寫", "text": "「湯汁濃稠泛著琥珀光澤，半筋半肉在舌尖宛如輕盈融化，帶著微辣的花椒餘香。」這段文字主要結合了哪些感官摹寫？", "options": [{"key": "A", "text": "聽覺與觸覺"}, {"key": "B", "text": "視覺、觸覺（口感）與味覺（嗅覺）"}, {"key": "C", "text": "僅有視覺"}, {"key": "D", "text": "嗅覺與聽覺"}], "answer": "B", "explanation": "琥珀光澤（視覺）、舌尖融化（觸覺/口感）、微辣花椒餘香（味覺與嗅覺）。"}, {"id": 4, "category": "篇章旨趣", "text": "焦桐在文章中穿插對妻女共同享用牛肉麵的生活瑣憶，這種寫法對整篇文章產生何種效果？", "options": [{"key": "A", "text": "偏離美食考證主題，顯得拖泥帶水"}, {"key": "B", "text": "使客觀的飲食考證融入深厚的家庭溫度，呈現食物作為生命情感記憶的載體"}, {"key": "C", "text": "藉機宣傳自家經營的連鎖餐廳"}, {"key": "D", "text": "批評現代家庭缺乏共餐習慣"}], "answer": "B", "explanation": "飲食散文之高妙正在於「以食牽情」，將味覺昇華為親情與歲月流轉的深情見證。"}, {"id": 5, "category": "寫作素養實踐", "text": "撰寫段考作文「記憶裡的好滋味」時，若想達到高分水準，下列何種寫作策略最不可取？", "options": [{"key": "A", "text": "描寫食物色香味時，運用細緻的感官摹寫"}, {"key": "B", "text": "交代這道料理出現的時間、地點與共同進餐的人物背景"}, {"key": "C", "text": "從頭到尾抄錄維基百科的食材成分與營養卡路里表，隻字不提個人情感"}, {"key": "D", "text": "揭示食物背後象徵的親情、友誼或個人成長轉折點"}], "answer": "C", "explanation": "文學寫作重視真情實感與意象經營，單純羅列科學數據與食譜說明缺乏人情韻味。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B1 第 04 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">記敘文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高一奠基期（說寫明白）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【結構】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【特徵】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 空間和時間 × 個人和文化表達</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        論牛肉麵
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「飲食裡，存在什麼情感故事與文化記憶？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">發展情節・建立意象・辨認特徵</div>
+          <div class="text-sm text-slate-500 mt-1">透過豐富感官摹寫記錄飲食紋理，將日常小吃昇華為文化歷史記憶</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服一和）</div>
+          <div class="text-sm text-slate-500 mt-1">生活工藝與美學：食物講究火候與細節，如同服裝講究針線與剪裁，皆為匠人精神之展現</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：2-V-1, 5-V-1, 6-V-2</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ba-V-1 記敘的元素, Ba-V-3 摹寫手法, Ca-V-1 物質文化認知, Cb-V-1 制度風俗認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-B3 藝術涵養與美感素養, 國V-U-C3 多元文化與國際理解</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">焦桐</strong>：焦桐（1956～），本名葉振富，臺灣飲食文學重要奠基人，出版《臺灣味道》、《暴食江湖》等多部經典。他將文化考證、地方風土與家庭記憶熔鑄於一爐，文字洗鍊兼具幽默詼諧。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 臺灣味道的文化考據</div>
+              <p>焦桐將飲食寫作提升至文化史與人類學高度，探查牛肉麵在臺灣眷村的起源，揭示一碗麵背後所交織的大江南北流離記憶與落地生根的深情。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：從岡山辣豆瓣與眷村源頭考證紅燒牛肉麵身世，細膩描摹湯頭、牛肉與麵條之法度，並將味覺融匯於妻女相伴的溫暖歲月，見證常民文化的深厚底蘊。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：牛肉麵的起源考證</div>
+            <div class="text-slate-600 text-xs mt-0.5">從岡山眷村的辣豆瓣醬與川籍老兵談起，拆解紅燒牛肉麵在臺灣本土融合淬鍊的歷史身世。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：一碗好麵的審美法度</div>
+            <div class="text-slate-600 text-xs mt-0.5">講究湯頭（清燉/紅燒之醇厚）、牛肉（半筋半肉之口感）與麵條筋道，字字句句呈現職人講究。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：私密味覺記憶與親情情感</div>
+            <div class="text-slate-600 text-xs mt-0.5">敘說青年時期與妻子、女兒在台北街巷尋訪小吃之溫馨回憶，味覺連結生命深層記憶。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：昇華為島嶼多元飲食印記</div>
+            <div class="text-slate-600 text-xs mt-0.5">一碗牛肉麵融合了大江南北各省食材與臺灣人情味，成為最鮮活的文化熔爐縮影。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">臺灣紅燒牛肉麵的起源與哪些歷史背景、地方食材（如岡山辣豆瓣）息息相關？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">焦桐如何運用多重視角（視覺、味覺、嗅覺）與精準詞彙，生動描摹牛肉燉煮後的口感？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">為什麼每個人心中都有一道「無可替代的家常美味」？食物是如何超越卡路里，成為記憶與愛的載體？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">「鑊」氣</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄏㄨㄛˋ</td>
+          <td class="py-2 px-3">烹飪時食材在高溫鍋氣翻炒下所產生的獨特焦香氣味。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">饕「餮」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄊㄧㄝˋ</td>
+          <td class="py-2 px-3">古代傳說中貪吃的凶獸。後引申為貪吃之人，或代指精緻美食饕客。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">膾「炙」人口</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓˋ</td>
+          <td class="py-2 px-3">美味的肉人人都愛吃。引申為詩文事物廣受大眾讚美喜愛。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">「筋道」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄐㄧㄣ ㄉㄠˋ</td>
+          <td class="py-2 px-3">形容麵食具有韌性彈牙的絕佳口感。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">完全變態</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄨㄢˊ ㄑㄩㄢˊ ㄅㄧㄢˋ ㄊㄞˋ</td>
+          <td class="py-2 px-3">借用生物學名詞，幽默比喻食材經過巧手烹調後的徹底昇華與美味蛻變。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：飲食裡，存在什麼情感故事？——一碗牛肉麵所承載的庶民歷史與味覺鄉愁</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1MR8fgHc87kC3bimvVxzrSmm1Vj3Iko84vGRuLtxxb7k/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1MR8fgHc87kC3bimvVxzrSmm1Vj3Iko84vGRuLtxxb7k/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服一和學習實況）</h3>
+          <p class="text-sm text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：食物在人際關係中扮演的角色與邏輯魚骨圖</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">由飲食心理測驗開場，分析飲食影片與文章中食物扮演的角色（起因、經過、結果、人事時地物），畫出寫作邏輯魚骨圖標記核心關鍵與感官細節（對照 B1L4 簡報 Slide 10-26）</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：我的飲食故事 ➔ 段考作文「記憶裡的好滋味」</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">以個人飲食經驗為核心，描摹食物滋味、情感記憶與文化習俗，完成第一次段考作文（對照 113-1-1 記憶裡的好滋味段考作文）</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B3 第 03 課 礦村行 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": "b3-l03-q1", "category": "字形辨析", "text": "下列文句「」中的字詞，何者字形書寫完全正確？", "options": [{"key": "A", "text": "河壁陡「崎」，叢生著雜「蕪」的密草樹木"}, {"key": "B", "text": "礦工們體型魁梧，舉止性格十分粗「礦」"}, {"key": "C", "text": "坑道矮窄低陷，礦工必須「綣」伏著身子爬行掘進"}, {"key": "D", "text": "坑頂岩層一旦支撐不穩，極易發生「落盤」災變"}], "answer": "A", "explanation": "正解為 A。B 粗「獷」；C 「蜷」伏；D 落「磐」。"}, {"id": "b3-l03-q2", "category": "手法辨析", "text": "教案中深入解析陳列運用蒙太奇（Montage）的手法。關於「敘事蒙太奇」與「表現蒙太奇」，下列文本配對何者完全正確？", "options": [{"key": "A", "text": "「每三百公噸煤換一百條人命」並列「安全第一增產報國」標語——敘事蒙太奇"}, {"key": "B", "text": "「驚慌失措擁擠穿梭的人群。警察憲兵。哨音此起彼落。救護車的尖吼和紅燈……」——表現蒙太奇"}, {"key": "C", "text": "以大量短促名詞句快剪交代混亂緊迫現場為「敘事蒙太奇」；將殘酷死亡數據對撞官方標語產生批判荒謬感為「表現蒙太奇」"}, {"key": "D", "text": "兩者皆純粹屬於電影攝影機特效，文學作品中無法運用蒙太奇手法"}], "answer": "C", "explanation": "正解為 C。依據教案深度分析：敘事蒙太奇以快節奏短句畫面快速交代事件混亂全貌（如第四段首快剪）；表現蒙太奇透過截然矛盾之意象並置對撞產生諷刺批判與情緒張力（如人命換算煤礦對撞大模大樣標語）。"}, {"id": "b3-l03-q3", "category": "報導特質", "text": "陳列在〈礦村行〉中描繪礦工處境，展現了報導文學的獨特風貌。下列關於其筆法之分析，何者最為精確？", "options": [{"key": "A", "text": "大量使用激昂悲憤的口號，直接向礦場業主提出嚴厲的法律指控"}, {"key": "B", "text": "融合客觀精確的物理環境數據與冷靜克制的白描，讓事實本身說話產生強大震撼力"}, {"key": "C", "text": "採取浪漫主義筆法，美化礦村樸實無華的田園山居歲月"}, {"key": "D", "text": "完全依賴虛構的小說情節，刻劃礦工家庭生離死別的戲劇化衝突"}], "answer": "B", "explanation": "正解為 B。陳列的散文以沉靜節制著稱，在〈礦村行〉中詳實羅列深度、溫度、氣壓等精確數據，結合對礦村破敗、礦工下班神情之白描，拒絕濫情，卻具有深刻震撼人心的社會批判力道。"}, {"id": "b3-l03-q4", "category": "文意推論", "text": "課文中提及每次礦災發生後「政府官員層層指示，社會發起愛心捐款」，作者對此現象的真正態度為何？", "options": [{"key": "A", "text": "由衷讚嘆臺灣社會充滿人情味與救災效率"}, {"key": "B", "text": "批判體制往往藉由短暫的善款與公文式關懷轉移焦點，掩蓋長期的勞安責任與制度性怠惰"}, {"key": "C", "text": "建議提高每次募捐的金額，以徹底解決礦工家庭的經濟問題"}, {"key": "D", "text": "認為礦工災變純屬天災地變，非人力與制度所能防範"}], "answer": "B", "explanation": "正解為 B。作者深刻針砭事過境遷後制度依然故我的惡性循環，指出愛心捐款常常成了政府官員與社會良心的遮羞布，未能真正落實礦場安全法規與體制改革。"}, {"id": "b3-l03-q5", "category": "閱讀理解", "text": "課文開頭描寫「河水從村中穿過；這是一條有名的河流的上游，人們常遠來這附近郊遊看瀑布。水色鏽黃濃濁，不時冒出灰白的泡沫」。這段描寫的主要用意是什麼？", "options": [{"key": "A", "text": "宣傳北臺灣瀑布風景區的觀光潛力"}, {"key": "B", "text": "以觀光勝地的美名對照被採礦嚴重污染破壞的真實生態，凸顯礦村的殘破老邁"}, {"key": "C", "text": "說明河流上游富含鐵質與豐富的礦產資源"}, {"key": "D", "text": "暗示礦村即將轉型為生態旅遊勝地"}], "answer": "B", "explanation": "正解為 B。作者以世人熟知的「著名河流上游看瀑布」之觀光印象，反襯眼前的「鏽黃濃濁、灰白泡沫、河床垃圾」，形成強烈的認知落差，定調礦村被開採殆盡後的衰頹現實。"}, {"id": "b3-l03-q6", "category": "統測焦點", "text": "下列文句中「」內的字音，何者標音完全正確？", "options": [{"key": "A", "text": "河壁陡「崎」：ㄑㄧˊ"}, {"key": "B", "text": "個性粗「獷」：ㄎㄨㄤˋ"}, {"key": "C", "text": "雜草叢「生」：ㄕㄣ"}, {"key": "D", "text": "「蜷」伏坑內：ㄐㄩㄢˇ"}], "answer": "A", "explanation": "正解為 A。B 獷音ㄍㄨㄤˇ；C 生音ㄕㄥ；D 蜷音ㄑㄩㄢˊ。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B3 第 03 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">說明文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【邏輯】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【因果】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【系統】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【表達】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 公平性與發展 × 權利與社會正義</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        礦村行
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當一個產業支撐了國家的經濟騰飛，其背後基層勞動者的生命尊嚴與體制性風險，如何透過多元素材拼圖與蒙太奇寫作被看見與記憶？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">非連續文本判讀・蒙太奇手法辨析・社會議題顯影書寫</div>
+          <div class="text-xs text-slate-500 mt-1">透過課程任務包拼圖還原海山礦災真相，辨析敘事與表現蒙太奇之美學張力，並以老照片為媒介實踐同理關懷的社會書寫</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（勞動機能工裝考掘與防護面料設計）：深入探究 1980 年代臺灣礦工工作服（厚帆布耐磨工作褲、橡膠防滑長靴、蓄電池腰帶、吸汗毛巾與防塵口罩），分析地底 40 度高溫、高濕泥濘與瓦斯環境下，工作服的透氣、阻燃、耐磨與活動人體工學需求，並思辨現代時尚工裝（Workwear / Utilitarian Fashion）如何轉化勞動階級的歷史記憶與文化符碼。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-1, 2-V-3, 2-V-4, 5-V-2, 5-V-3, 6-V-1</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-1 篇章的意義, Ad-V-2 篇章的組織, Ad-V-3 篇章的表現, Bb-V-1 情志的抒發與省思, Bc-V-2 客觀資料的輔助, Bd-V-1 核心主張與論點, Cb-V-1 制度社群文化認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A2 系統思考與解決問題, 國V-U-B1 符號運用與溝通表達, 國V-U-C1 道德實踐與公民意識</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">陳列</strong>：陳列（1946～），本名陳瑞麟，臺灣嘉義大林人。淡江大學英文系畢業。曾任教於花蓮光復國中，1972 年因莫須有政治罪名被捕入獄四年八個月。出獄後以〈無怨〉、〈地上歲月〉連獲第三、四屆時報文學獎散文首獎，一舉躋身臺灣文壇巨擘。其文風格沉靜節制、凝鍊沉鬱，具深刻的人道關懷與社會反思，曾任國民大會代表。代表作有《地上歲月》、《永遠的山》、《人間印象》、《殘骸書》等。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 從白色恐怖黑牢到報導文學巨擘</div>
+              <p>陳列在獄中以客觀靜定的筆調反思囚徒處境，其散文拒絕情緒氾濫的控訴，而是以冷靜精準的文字素描勞動者與土地。〈礦村行〉一文展現臺灣報導文學標竿水準，將沉重的社會現實以純粹的文字沉積為歷史見證。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：本文透過作者實地走訪北臺灣老邁衰退的煤礦聚落，以冷靜精細的筆觸描摹礦村蕭索破敗的自然人文景觀、深入坑道四百公尺高溫瓦斯地底的非人生存條件，並精湛運用「敘事蒙太奇」（名詞短句快剪災變現場）與「表現蒙太奇」（人命代價對撞官方安全第一口號），揭露 1984 年海山、煤山接連礦災背後體制性的敷衍與「愛心捐款」遮蔽制度改革的沉痛現實，為被遺忘的臺灣底層勞動者立下歷史碑石。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 1 幕【起・迷霧尋蹤與感受速記】</div>
+            <div class="text-slate-600 text-xs mt-0.5">作者搭乘柴油慢車沿溪深入礦村，開篇描寫鏽黃濃濁的溪流、灰白泡沫、河床垃圾與老邁破落房舍，以感受先行引導讀者捕捉零散不完整的環境記憶。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 2 幕【承・地底深淵與表現蒙太奇】</div>
+            <div class="text-slate-600 text-xs mt-0.5">直擊礦坑垂直數百公尺、四十度地熱高溫與矽肺病威脅；將「每三百公噸煤換一百條人命」直接對撞坑口標語「安全第一，增產報國」，以表現蒙太奇凸顯制度荒謬。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 3 幕【轉・災變現場與敘事蒙太奇】</div>
+            <div class="text-slate-600 text-xs mt-0.5">重現 1984 年礦災現場，運用大量短促名詞句快剪（哨音、救護車紅燈、擔架、哭嚎），組合混亂緊迫的敘事蒙太奇，並深刻批判官員敷衍與「愛心捐款」規避勞安改革責任。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 4 幕【合・顯影真相與社會行動】</div>
+            <div class="text-slate-600 text-xs mt-0.5">從老礦工口述歷史與遺孤老照片回望歷史，作者以平實節制的語言留下深刻省思，促使青年走出旁觀冷漠，以文字書寫實踐同理與關懷的公民行動。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">課文開頭描寫老邁礦村具有哪些具體的自然與人文特徵？作者在描寫礦災現場時羅列了哪些緊迫的名詞短句？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何運用「敘事蒙太奇」（名詞短句快剪交代混亂全貌）與「表現蒙太奇」（殘酷死亡數據對撞官方大模大樣標語），產生巨大的批判與諷刺張力？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">教案指出「每次災變之後，官員總是層層指示，社會發動愛心捐款」。這種將勞安結構問題簡化為「樂捐善款」的現象，反映出何種體制盲點？當代青年如何藉由走近老照片與書寫實踐社會同理與公民行動？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">崎嶇</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄑㄧˊ ㄑㄩ</td>
+          <td class="py-2 px-3">山路高低不平、險峻難走。例句：河壁陡「崎」，叢生著雜蕪的密草樹木。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">雜蕪</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄗㄚˊ ㄨˊ</td>
+          <td class="py-2 px-3">雜草叢生，亦指雜亂混亂。例句：河壁上叢生著「雜蕪」的密草樹木。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">粗獷</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄘㄨ ㄍㄨㄤˇ</td>
+          <td class="py-2 px-3">粗野豪放。獷，音ㄍㄨㄤˇ，切勿誤讀為ㄎㄨㄤˋ。例句：礦工們體格健朗，性格「粗獷」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">蜷伏</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄑㄩㄢˊ ㄈㄨˊ</td>
+          <td class="py-2 px-3">彎曲身體趴臥。例句：坑道矮窄，必須「蜷伏」曲身爬行掘進。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">落磐</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄌㄨㄛˋ ㄆㄢˊ</td>
+          <td class="py-2 px-3">礦坑坑頂岩石崩塌掉落。例句：地底作業隨時都要面臨瓦斯爆炸與「落磐」之險。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：蒙太奇下的社會探索與書寫：從非連續文本拼圖到勞動尊嚴的顯影</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1wPjuACaxdC-n0e7y7akq1cNr-nWEdmaCvd7AEq-9ya4/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1wPjuACaxdC-n0e7y7akq1cNr-nWEdmaCvd7AEq-9ya4/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>迷霧尋蹤：課程任務包與海報拼圖探究</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">運用包含老照片（國家文化記憶庫）、工會募款公告、安全守則、聯合報剪報與夏潮老礦工口述訪談之任務包，判讀非連續文本還原事件脈絡，製作說明海報並進行 3 分鐘影音錄影發表。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>礦村顯影術：蒙太奇的視覺辯證學習單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">深入分析第四段首之「敘事蒙太奇（名詞短句快剪）」與第二段末之「表現蒙太奇（人命代價對撞安全第一標語）」，辨析畫面並置如何產生批判荒謬感與情感張力。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

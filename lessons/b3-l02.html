@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B3 第 02 課 飛魚的呼喚 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": "b3-l02-q1", "category": "字詞音義", "text": "下列文句「」中的字詞音義，何者標示完全正確？", "options": [{"key": "A", "text": "正在涼臺「綴補」魚網：ㄓㄨㄟˋ ㄅㄨˇ，修補縫合"}, {"key": "B", "text": "水波「粼粼」：ㄌㄧㄣˇ ㄌㄧㄣˇ，形容波浪洶湧危險"}, {"key": "C", "text": "月光「勻柔」：ㄐㄩㄣ ㄖㄡˊ，光線昏暗不明"}, {"key": "D", "text": "「突兀」冒出話來：ㄊㄨˊ ㄈㄟ，口齒不清"}], "answer": "A", "explanation": "正解為 A。B 粼粼音ㄌㄧㄣˊ ㄌㄧㄣˊ，水波明淨貌；C 勻柔音ㄩㄣˊ ㄖㄡˊ，均勻柔和；D 突兀音ㄊㄨˊ ㄨˋ，突然、突發之意。"}, {"id": "b3-l02-q2", "category": "文化符碼", "text": "小說中主角擁有「董志豪」與「達卡安」兩個名字，分別對應「零分先生」與「飛魚先生」的稱號。這種安排具有何種深層文學隱喻？", "options": [{"key": "A", "text": "暗示達卡安患有嚴重的雙重人格障礙"}, {"key": "B", "text": "揭示主角在「漢人主流升學評量體制（挫敗自卑）」與「達悟傳統海洋文化（光榮尊嚴）」之間的劇烈拉扯與身分困惑"}, {"key": "C", "text": "說明原住民族群經常更換名字以逃避警察查緝"}, {"key": "D", "text": "單純展現作者幽默風趣的取名技巧"}], "answer": "B", "explanation": "正解為 B。漢名董志豪在學校因考零分被主流體制羞辱貶抑為「零分先生」；達悟名達卡安則在海上奮力划槳、捕獲飛魚，得到部落長老的讚賞成為「飛魚先生」。兩者對比深刻反映了原住民青年身處兩個世界的撕裂宿命。"}, {"id": "b3-l02-q3", "category": "人物心理", "text": "父親夏曼・達卡安自己是深愛海洋的雅美勇士，為何卻在小說開頭嚴厲責備兒子想出海的心願，逼他回家讀書寫作業？", "options": [{"key": "A", "text": "討厭達卡安，不希望兒子繼承自己的捕魚裝備"}, {"key": "B", "text": "深刻體認原住民在臺灣主流社會缺乏學歷往往只能做粗工、遭受歧視，出於沉痛的父愛希望兒子藉由升學擺脫社會底層命運"}, {"key": "C", "text": "因為海象凶險，只有長子才能跟隨出海"}, {"key": "D", "text": "受到漢人學校老師的賄賂與威脅"}], "answer": "B", "explanation": "正解為 B。父親深知雅美勇士在部落雖受尊敬，但在整個臺灣現代體系中，缺乏學歷的達悟人到了臺灣工廠只能受盡剝削與歧視；其責備背後隱藏著少數族群父親對現實生存無奈妥協的沉重愛護。"}, {"id": "b3-l02-q4", "category": "小說主旨", "text": "夏曼・藍波安在文中藉由捕飛魚的描寫，試圖傳達的核心價值理念為何？", "options": [{"key": "A", "text": "宣導蘭嶼觀光季應全面開放遊客大量捕撈飛魚"}, {"key": "B", "text": "透過海洋勞動與傳統智慧重新確立族群主體性，讓被主流偏見壓抑的原住民驕傲再度甦醒"}, {"key": "C", "text": "鼓勵所有蘭嶼青年徹底放棄傳統母體文化，全面融入漢人都市生活"}, {"key": "D", "text": "批評傳統造舟與抓魚技術過於落後，應全引進工業化捕撈"}], "answer": "B", "explanation": "正解為 B。作者以勞動為信仰，強調藉由親身划槳捕魚、重溫古老祖靈詩歌，找回與土地海洋共生共榮的文化尊嚴，洗刷「被漢化、被邊緣化」的刻板印記。"}, {"id": "b3-l02-q5", "category": "生活素養", "text": "三民家商服裝科學生若以達悟族文化為靈感進行當代服飾設計，下列何種態度最符合本文倡導的多元文化素養？", "options": [{"key": "A", "text": "在不了解背景的情況下，隨意將神聖的拼板舟祭儀圖騰剪貼於休閒衛衣上促銷"}, {"key": "B", "text": "深入田調理解達悟族黑紅白幾何織紋與海洋信仰的文化脈絡，以尊重敬謹的態度與族人合作展開共創轉譯"}, {"key": "C", "text": "直接複製傳統丁字褲作為巴黎時裝週噱頭，不考慮族群情感"}, {"key": "D", "text": "認為原住民圖騰過於原始，必須完全抹除民族特徵才具有現代感"}], "answer": "B", "explanation": "正解為 B。文化轉譯的核心在於真誠理解與尊重，避免將神聖圖騰商品化與刻板化（避免文化挪用），並與族群建立平等的對話共創關係。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B3 第 02 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">記敘文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【人物】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【關係】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【情境】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【轉化】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 認同與關係 × 多元文化與世界公民</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        飛魚的呼喚
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當主流社會的單一成功標準（分數、文憑）否定了少數族群的世代智慧時，個體如何在勞動與土地中找回尊嚴？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">族群符碼解讀・兩代價值衝突剖析・身分認同深究</div>
+          <div class="text-xs text-slate-500 mt-1">辨析達卡安與董志豪之身分隱喻，剖析「讀書升學」與「海洋勞動」之價值拉扯，體認原住民文化主體性</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（臺灣原住民族群服飾工藝與當代時尚跨界文化轉譯）：深入探究蘭嶼達悟族傳統服飾（傳統織布經緯編織、黑紅白三色幾何條紋、丁字褲、銀盔與拼板舟傳統人形紋圖騰）所承載的海洋禁忌與神聖儀式文化；引導學生思考在現代時尚設計中，如何避免文化挪用（Cultural Appropriation），以嚴謹的文化田調與原住民族群社群建立平等的共創設計機制。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2, 2-V-2, 5-V-2, 5-V-3, 6-V-2</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ba-V-1 記敘的元素, Ba-V-2 敘述方式, Ba-V-3 摹寫手法, Bb-V-1 情志的抒發與省思, Ca-V-1 物質文化認知, Cb-V-1 制度風俗認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-B3 藝術涵養與美感素養, 國V-U-C3 多元文化與國際理解</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">夏曼・藍波安</strong>：夏曼・藍波安（1957～），漢名施努來，臺灣臺東蘭嶼達悟族人。淡江大學法文系畢業，清華大學人類學研究所碩士，成功大學臺灣文學研究所博士班。曾流浪臺灣本島從事多種粗重勞力工作，三十多歲毅然返回蘭嶼，潛水抓魚、學習造舟，重新皈依母體文化，並以漢語文字深情書寫達悟族的海洋哲學與神話世界。曾獲吳濁流文學獎、時報文學獎、九歌年度散文獎等。代表作有《八代灣的神話》、《黑色的翅膀》、《海浪的記憶》、《老海人》、《航海家的臉》等。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 臺灣海洋文學第一人與驕傲的再造</div>
+              <p>夏曼・藍波安被譽為「臺灣海洋文學第一人」。他親自參與造舟、捕飛魚，以勞動喚醒血液中的達悟文化靈魂，誓言「用勞動累積社會地位，用勞動深入探討自己文化的文明過程，廢除被漢化的汙名，讓被壓抑的驕傲再生！」。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：本文透過蘭嶼達悟少年達卡安渴望跟隨父親出海捕飛魚的親身歷程，細膩描繪父子之間在「傳統海洋勇士榮耀」與「主流社會讀書升學期待」之間的深沉衝突。透過學校裡的「零分先生（董志豪）」與海上的「飛魚先生（達卡安）」的對比，深刻揭露臺灣原住民在現代化與同化政策衝擊下的身分認同焦慮與堅毅的文化自覺。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 1 幕【起・央求出海與父子衝突】</div>
+            <div class="text-slate-600 text-xs mt-0.5">放學後的達卡安央求父親帶他出海捕飛魚，父親夏曼・達卡安卻斥責他書讀不好，命令他回家寫作業，展現傳統達悟文化與現代主流升學體制的初次交鋒。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 2 幕【承・處女航與祖靈詩歌】</div>
+            <div class="text-slate-600 text-xs mt-0.5">父親終究心軟帶兒子出海，默唸雅美古老祈福詩歌祈求祖靈庇佑魯鈍的兒孫；達卡安在同伴目送下奮力划槳，學校裡的「零分先生」在海上轉化為勇敢與光榮的代號。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 3 幕【轉・銀波星海與身分激盪】</div>
+            <div class="text-slate-600 text-xs mt-0.5">月光灑在銀波起伏的夜海，父子在船上敞開心扉；父親憂心兒子若不讀書將來在臺灣本島只能淪落工廠做粗工、被歧視沒尊嚴；達卡安親睹飛魚衝網與父親熟練收網，在向黑色大海的吶喊中立志成為真正的雅美英雄。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 4 幕【合・零分先生與飛魚英雄的迴響】</div>
+            <div class="text-slate-600 text-xs mt-0.5">回航港邊族人的誇讚讓達卡安深感榮耀；然而回到校園，被漢人老師嘲弄侮辱「零分先生」並跑腿買菸買檳榔，達卡安坐在海邊大石頭望著出海船隊，「飛魚先生的榮耀」與「零分先生的恥辱」在內心劇烈激盪，夕陽沉入大海，留下對族群身分與未來的深刻扣問。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">達卡安的父親為什麼一開始嚴厲拒絕帶他出海捕飛魚？學校老師如何對待數學考零分的達卡安？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何透過「雙重姓名（董志豪 vs 達卡安）」與「雙重稱號（零分先生 vs 飛魚先生）」的符碼對立，表現主角在兩個世界之間的撕裂與掙扎？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">父親自己是捕魚勇士，為何卻強迫兒子去讀不擅長的漢人教科書？這種兩代之間的價值矛盾，反映了臺灣原住民族群在現代化進程中面臨怎樣的結構性困境？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">雅瑪</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧㄚˇ ㄇㄚˇ</td>
+          <td class="py-2 px-3">達悟語 Yama，兒子對父親的親暱稱呼。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">綴補</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓㄨㄟˋ ㄅㄨˇ</td>
+          <td class="py-2 px-3">修補、縫補。例句：面對著正在涼臺「綴補」魚網的父親。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">粼粼</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄌㄧㄣˊ ㄌㄧㄣˊ</td>
+          <td class="py-2 px-3">形容水波在光照下明淨閃爍的樣子。例句：「粼粼」的銀色波光，此起彼落。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">勻柔</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄩㄣˊ ㄖㄡˊ</td>
+          <td class="py-2 px-3">均勻柔和。例句：月光「勻柔」，依舊公平地照在海上作業的船隻上。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">突兀</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄊㄨˊ ㄨˋ</td>
+          <td class="py-2 px-3">突然、出乎意料，亦有高聳之意。例句：小達卡安「突兀」地冒出興奮的話語來。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：在台灣土地上尋找自己——夏曼・藍波安與蘭嶼達悟族的海洋智慧與價值衝突</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1bB9gpfLYg_T0eHw8THx_EKw4aREN55rw8NJNfFZeNyw/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1bB9gpfLYg_T0eHw8THx_EKw4aREN55rw8NJNfFZeNyw/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：土地記憶與自我叩問破題單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">在台灣這片土地上，哪裡是你最熟悉的地方？哪裡是最陌生的地方？我是哪裡人？我想做什麼？探討地域形象、身分認同與存在的價值。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：小組文本細讀與父子衝突議題提煉（服二和分組任務）</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">研讀第一段達卡安央求出海抓飛魚展示小肌肉 vs. 父親罵光有力氣沒用、只配做台灣人工人；討論傳統文化傳承與現代升學主義的期待落差，連結自身與家人的價值觀衝突。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">03</span>
+            <span>任務三：處女航的勇氣——從「零分先生」到大海的勇士</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">分析第二段夏曼默唸祖靈祈福詩歌，達卡安在學校被冠上「零分先生」，在海上拼板舟卻成為勇敢光榮的代號；探討海洋生態智慧與漢人單一評量標準的文化撕裂。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

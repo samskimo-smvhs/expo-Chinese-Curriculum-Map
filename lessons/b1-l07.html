@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B1 L07 論孟選 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "文意理解", "text": "孔子說：「學而不思則罔，思而不學則殆。」這句話的主旨是在強調何種為學態度？", "options": [{"key": "A", "text": "學習必須博覽群書，無須深入思考"}, {"key": "B", "text": "單純冥想空想就能獲得真理"}, {"key": "C", "text": "學習獲取知識與獨立深入思考必須兼顧並重，缺一不可"}, {"key": "D", "text": "讀書太辛苦不如提早進入職場"}], "answer": "C", "explanation": "「罔」為迷茫，「殆」為危疑。孔子主張吸收客觀知識與發揮主觀思辨必須相輔相成。"}, {"id": 2, "category": "經典名句分析", "text": "顏淵說：「願無伐善，無施勞。」這展現出顏淵具備何種崇高修養？", "options": [{"key": "A", "text": "謙沖自牧，不誇耀自己的長處善行，不把辛勞委過於人"}, {"key": "B", "text": "個性自卑懦弱，不敢承擔社會責任"}, {"key": "C", "text": "好逸惡勞，逃避公眾事務"}, {"key": "D", "text": "善於推卸責任給同儕"}], "answer": "A", "explanation": "伐為誇耀，施為張揚勞績。不居功、不張揚，為儒家最高謙遜涵養。"}, {"id": 3, "category": "人物志向比較", "text": "在〈盍各言爾志〉中，子路、顏淵、孔子三人志向之境界由己及人，層次最高者為何？", "options": [{"key": "A", "text": "子路：願車馬衣輕裘與朋友共，敝之而無憾（重俠義友情）"}, {"key": "B", "text": "顏淵：願無伐善，無施勞（重個人修為克己）"}, {"key": "C", "text": "孔子：老者安之，朋友信之，少者懷之（胸懷天下蒼生之仁愛大同）"}, {"key": "D", "text": "三人境界完全相同，無分軒輊"}], "answer": "C", "explanation": "子路重友朋，顏淵重克己，孔子則關懷老弱幼小全社會，展現聖人之大同博愛。"}, {"id": 4, "category": "孟子思想", "text": "孟子說：「富貴不能淫，貧賤不能移，威武不能屈，此之謂大丈夫。」其中「貧賤不能移」之「移」字作何解釋？", "options": [{"key": "A", "text": "搬遷居所"}, {"key": "B", "text": "改變操守與志節"}, {"key": "C", "text": "轉移財產"}, {"key": "D", "text": "遺忘往事"}], "answer": "B", "explanation": "移為動搖改變。指在清貧困厄中依然堅守道德志節，不隨流俗變節。"}, {"id": 5, "category": "素養思辨", "text": "在當代網路社群「流量為王、譁眾取寵」的環境中，孔子提倡的「君子不器」與「訥於言而敏於行」能提供何種現代啟發？", "options": [{"key": "A", "text": "完全不要在網路上發言說話"}, {"key": "B", "text": "不應讓自己淪為單一功能的工具人，行事重在實踐而非誇大不實的網路人設"}, {"key": "C", "text": "只要能獲取點擊率，任何虛假言論都可以說"}, {"key": "D", "text": "徹底遠離智慧型手機以回歸古代"}], "answer": "B", "explanation": "君子不器強調多元厚度與人文主體，敏於行強調實做勝過空言浮誇。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B1 第 07 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-amber-100 text-amber-800 tracking-wide">議論文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高一奠基期（說寫明白）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【觀點】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【因果】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 認同與關係 × 公平／公義與發展</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        論孟選
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「認識儒家理想的人與世界」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">界定立場・組織順序・識別訊息／強化論點</div>
+          <div class="text-sm text-slate-500 mt-1">體悟儒家語錄體的微言大義，培養條理清晰的道德哲思與論辯力</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服一和）</div>
+          <div class="text-sm text-slate-500 mt-1">職場倫理與職人誠信：將儒家「己所不欲，勿施於人」與「富貴不能淫」化為專業職業道德守則</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2, 2-V-3, 5-V-2</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ac-V-1 句的意義, Bd-V-1 核心主張與論點, Bd-V-2 論點和論據的結構, Cc-V-1 思想流派認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-C1 道德實踐與公民意識</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">孔子、孟子</strong>：孔子（前551～前479），名丘，字仲尼，春秋魯國人。開平民教育之先河，首創儒家學派，萬世師表。孟子（前372～前289），名軻，字子輿，戰國鄒國人。發揚孔子思想，倡導性善說與仁政王道，後世尊為「亞聖」。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 洙泗杏壇與浩然正氣</div>
+              <p>面對禮崩樂壞、兼併弒君的春秋戰國亂世，孔孟以知其不可而為之的歷史擔當，高舉仁義道德旗幟，為後世確立了知識份子的社會良心與大丈夫浩然正氣。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：選讀《論語》關於求學、交友、君子立身之道與〈盍各言爾志〉，並對讀《孟子》論「大丈夫」之氣節，揭示儒家修己安人、仁愛淑世的理想境界。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：君子人格的修養與自律</div>
+            <div class="text-slate-600 text-xs mt-0.5">「君子不器」、「造次必於是，顛沛必於是」。論述仁德內化為不隨外在環境動搖的君子人格。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：為學與實踐的辯證關係</div>
+            <div class="text-slate-600 text-xs mt-0.5">「學而不思則罔，思而不學則殆。」結合學習與批判性思辨，知行合一。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：盍各言爾志的師生對話</div>
+            <div class="text-slate-600 text-xs mt-0.5">顏淵之「無伐善，無施勞」、子路之「願車馬衣輕裘」與孔子之「老者安之，朋友信之，少者懷之」。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：孟子之義利辨與大丈夫氣節</div>
+            <div class="text-slate-600 text-xs mt-0.5">「富貴不能淫，貧賤不能移，威武不能屈，此之謂大丈夫。」展現頂天立地的正氣與群體責任感。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">孔子如何定義「仁」？孟子認為「大丈夫」必須具備哪些骨氣？孔子與弟子的志向有何高下層次之別？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">《論語》語錄體與《孟子》雄辯體在論證說理手法上有何不同特色？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">在重視個人功利與利益交換的現代社會中，儒家強調的「仁愛、信義與社會擔當」如何轉化為職場人際基石？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">學而不思則「罔」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄨㄤˇ</td>
+          <td class="py-2 px-3">迷惑而無所得。盲目死記而不思考。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">思而不學則「殆」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄉㄞˋ</td>
+          <td class="py-2 px-3">危殆不安。胡思亂想而無實質知識基礎。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">「造次」顛沛</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄗㄠˋ ㄘˋ</td>
+          <td class="py-2 px-3">匆忙緊迫、倉猝之際。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">盍各「言爾志」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧㄢˊ ㄦˇ ㄓˋ</td>
+          <td class="py-2 px-3">何不各自談談你們的志向呢？「盍」為「何不」之合音字。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">無「伐」善</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄈㄚˊ</td>
+          <td class="py-2 px-3">誇耀。不自我誇大才能善行。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">富貴不能「淫」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧㄣˊ</td>
+          <td class="py-2 px-3">惑亂。不被金錢財富迷惑本心。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：認識儒家理想的人與世界——仁義淑世的道德勇氣與生命風骨</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1UyQ0nc7NRTN4Pa9b3M50FpmNMWL5F3YwkdL2go7ZfKg/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1UyQ0nc7NRTN4Pa9b3M50FpmNMWL5F3YwkdL2go7ZfKg/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服一和學習實況）</h3>
+          <p class="text-sm text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：論語選筆記與孔門弟子志向（搭配盍各言爾志）</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">梳理孔門師生對話（搭配補充文選〈盍各言爾志〉），整理子路、顏淵與孔子之志，建立儒家仁愛與修己安人思想圖譜（對照論孟選作業與筆記參考簡報）</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：如何做一個自我要求的讀者（自學篇目深度實踐）</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">研讀自學篇目莫提默・艾德勒〈如何做一個自我要求的讀者〉，實踐提出問題、主動思考的閱讀心法</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

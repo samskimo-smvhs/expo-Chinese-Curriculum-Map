@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B2 專題任務 作文專題：這個故事告訴我們……——誠信價值與考試誠實的思辨 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "概念探究・寓言寓意", "text": "在濟水溺商的寓言中，山東富商第二次翻船時，當初救他的漁夫為何拒絕再次相救？", "options": [{"key": "A", "text": "漁夫身體疲憊划不動船"}, {"key": "B", "text": "富商第二次沒有出任何酬金"}, {"key": "C", "text": "富商第一次獲救後背信賴帳，失去了最基本的誠信與信任"}, {"key": "D", "text": "河流浪大危險，漁夫不敢冒險"}], "answer": "C", "explanation": "寓言核心在於「承諾與信用」。富商在危急時許百金，上岸後卻賴帳給十金並羞辱漁人，破壞了人際互信的基石，導致再度遇險時無人願救而溺亡。"}, {"id": 2, "category": "情境反思・職人哲學", "text": "微電影《幸福．勻勻仔行》中，標題「勻勻仔行」所蘊含的核心職人哲學為何？", "options": [{"key": "A", "text": "追求高效率產出，能省成本就盡量省"}, {"key": "B", "text": "一步一步慢慢走，腳步踩穩，堅持良心品質而不投機取巧"}, {"key": "C", "text": "順應市場流行趨勢，以精美包裝取代內部檢驗"}, {"key": "D", "text": "凡事隨遇而安，不必對未來做任何規劃"}], "answer": "B", "explanation": "「勻勻仔行」是閩南語俗諺，意指「一步一步慢慢走，走得穩、走得扎實」。影片藉此勉勵在艱困誘惑前堅守良知、不偷工減料，才是立身處世長久之計。"}, {"id": 3, "category": "時事思辨・誠信紅線", "text": "在高中生將「單場優秀辯士」包裝為「最佳辯士」遭醫學系撤銷錄取的時事案例中，楊斯棓醫師專文所指出的核心省思是什麼？", "options": [{"key": "A", "text": "只要不被抓到，升學履歷稍微誇大包裝是常態"}, {"key": "B", "text": "在軍備競賽的升學窄門前，青年不應將『包裝』跨越成『造假』，碰觸誠信的道德紅線"}, {"key": "C", "text": "大學招生審查過於嚴苛，應該對學生錯誤全面包容"}, {"key": "D", "text": "辯論比賽的獎項名稱容易混淆，責任完全在於主辦單位"}], "answer": "B", "explanation": "楊斯棓專文指出：學習歷程應是真實成長的軌跡，而非包裝修圖的軍備競賽；跨越誠信紅線的造假行為，將摧毀個人人格信譽並承擔嚴重的體制後果。"}, {"id": 4, "category": "倫理實踐・考場自省", "text": "在課堂 Slido 互動「如果你是老師，發現學生考試作弊，你會如何處理？」中，多數同學體認到最重要的教育價值是什麼？", "options": [{"key": "A", "text": "當場羞辱學生讓所有人引以為戒"}, {"key": "B", "text": "裝作沒看見以免得罪學生與家長"}, {"key": "C", "text": "給予適當制度處分與真誠溝通，引導其體認投機的代價，學會對自己誠實負責"}, {"key": "D", "text": "直接開除學籍不再給任何機會"}], "answer": "C", "explanation": "學生的討論呈現出高度的成熟度：重視證據與合理制度處分，但更重要的是引導學生誠實面對錯誤，體會「腳踏實地走每一步」的誠信才是可長可久的基石。"}, {"id": 5, "category": "技職連結・服裝專業", "text": "將本專題之「誠信」價值對接至技高服裝科之專業職能，下列何者最符合本課倡導的精神？", "options": [{"key": "A", "text": "為了趕交件進度，可以忽略車縫走線的牢固度"}, {"key": "B", "text": "在面料成分標籤上如實標記、打版剪裁不偷工減料，誠實對待每一件作品與顧客"}, {"key": "C", "text": "只要設計圖好看，打樣穿一次就壞也無所謂"}, {"key": "D", "text": "考取專業證照時若遇到不會的題目，可以偷看鄰座解答"}], "answer": "B", "explanation": "服裝專業之誠信體現在材料真確、工藝細膩與品質保證上；無論是成衣品管、個人履歷還是專業檢定，誠信都是職人立足社會最不可或缺的核心素養。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B2 專題任務</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-indigo-100 text-indigo-800 border-indigo-200 tracking-wide">議論文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高一奠基期（說寫明白）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【誠信】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【抉擇】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【責任】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: ['公平與發展', '認同與關係', '倫理與抉擇']</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        作文專題：這個故事告訴我們……——誠信價值與考試誠實的思辨
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「在利益與誘惑的關頭，人該如何守住誠信的底線？為什麼考試誠實與真實面對自己，是青年不可退讓的品德？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">辨析寓意・多角思辨・論辯闡述・自我省察</div>
+          <div class="text-xs text-slate-500 mt-1">解構古典寓言之隱含寓意與因果邏輯；透過微電影與時事新聞進行跨文本與多角度倫理思辨；運用 Slido 進行即時情境角色抉擇，最後以文字論述誠信與考試誠實的生命價值。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服一和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服一和）：從服裝職人之誠信品管、不偷工減料，到職場履歷真實陳述與專業證照考試誠實，體會「一步一步勻勻仔行」的職人立身之本。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2, 2-V-1, 2-V-3, 5-V-2, 6-V-2, 6-V-3</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-2 篇章的組織, Bd-V-1 核心主張與論點, Bd-V-2 論點和論據的結構, Be-V-2 應用文本的表達要領, Cb-V-1 制度社群文化認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-A2 系統思考與解決問題, 國V-U-C1 道德實踐與公民意識</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">三民家商國文科・課堂教學專題</strong>：三民家商國語文教學團隊結合素養導向設計，針對高一下學期第二次段考作文評量，整合經典寓言、法務部廉政署微電影與當代升學誠信新聞，發展兼具語文表達、數位互動（Slido）與品格價值反思之跨域作文專題。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 專題設計理念與教學脈絡</div>
+              <p>本專題設計直面高中生現實成長課題。由經典寓言《商賈抮溺》出發，透過寫作引導學生由淺入深提煉「人無信不立」之寓意；繼而導入微電影《幸福．勻勻仔行》，將道德教條轉化為「腳踏實地、勻勻仔行」的生命節奏；最後連結台中學霸醫學系審查造假與考場作弊真實情境，讓學生在角色扮演中體悟：誠信不是給別人看的包裝，而是決定自己一生靈魂高度的基石。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：以寓言為鏡照見背信之果，以微電影為橋接軌踏實職人精神，以時事與考場為場域引導學生誠實面對自我、守住誠信底線。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：起【古典寓言——濟水溺商與諾言破產的悲劇】</div>
+            <div class="text-slate-600 text-xs mt-0.5">分析山東富商落水許百金、獲救後食言只給十金、再度遇險終致溺亡之故事脈絡；指導學生以「這個故事告訴我們……；……」提煉中心寓意，開展生活與職場面向之思辨寫作。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：承【影像叩問——微電影《幸福．勻勻仔行》與踏實腳步】</div>
+            <div class="text-slate-600 text-xs mt-0.5">觀摩微電影《幸福．勻勻仔行》，對比「求快投機」與「勻勻仔行（腳步踩穩）」的價值衝突；透過 Slido 探討誠信對個人良知與社會信任鏈之深遠影響。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：轉【真實風暴——升學履歷膨風事件與誠信紅線】</div>
+            <div class="text-slate-600 text-xs mt-0.5">剖析高中生將辯論賽「單場優秀辯士」美化包裝為「最佳辯士」遭陽交大、北醫撤銷正取資格之真實新聞與楊斯棓評論，探討學習歷程軍備競賽下包裝與造假的界線。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：合【考場自省——拒絕投機取巧，做一個誠實負責的人】</div>
+            <div class="text-slate-600 text-xs mt-0.5">回歸高中生身邊最切身之考場倫理：「如果你是老師，發現學生考試作弊，你會如何處理？」引導學生放下僥倖心態，認識到考試誠實與真實面對自己才是終生最重要的資產。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">【事實擷取】這篇寓言中富商兩次落水時分別做出了什麼承諾與行為？微電影中的父親因何堅持不用農藥？新聞中高中生因何被兩所大學醫學系取消錄取資格？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">【推論解釋】作者與教師如何透過「濟水溺商」的因果對比，說明背信者終將自食其果？微電影如何透過「勻勻仔行」台語意象傳達踏實倫理？ Slido 互動如何激盪出學生對考場作弊的多角度觀點？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">【省思評鑑】身為技高服裝科青年，在講求效率與包裝的當代社會中，若面臨同儕競爭或考試升學壓力，我們該如何在個人利益與道德誠信之間做出無悔的抉擇？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">抮</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓㄣˇ</td>
+          <td class="py-2 px-3">拔出、引導或拯救。《商賈抮溺》指商人落水獲得拯救之寓言。【辨析】「抮」讀ㄓㄣˇ，勿讀作ㄓㄣ；本義為牽引、拯救。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">肆虐</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄙˋ ㄋㄩㄝˋ</td>
+          <td class="py-2 px-3">任意為害、狂暴殘害。微電影中描述天災風雨肆虐果園之艱困情境。【用法】肆行暴虐，常用以形容天災、瘟疫或暴政。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">懲處</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄔㄥˊ ㄔㄨˇ</td>
+          <td class="py-2 px-3">處罰、處置。指考場舞弊或升學資料造假依校規與法規所施予之處分。【審定音】「懲」讀ㄔㄥˊ，二聲，勿讀成三聲ㄔㄥˇ。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">膨風</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄆㄥˊ ㄈㄥ</td>
+          <td class="py-2 px-3">臺語俚語，形容人吹噓誇大、言過其實。新聞中指將單場表現膨風為全場最佳。【用法】常用於批評履歷造假或自我吹擂不實。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">駟馬難追</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄙˋ ㄇㄚˇ ㄋㄢˊ ㄓㄨㄟ</td>
+          <td class="py-2 px-3">一句話說出了口，四匹馬拉的快車也追不上。比喻話一說出口就無法收回，必須言而有信、恪守承諾。【出處】《論語・顏淵》：「駟不及舌。」形容說話與諾言必須極端慎重。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：從濟水溺商寓言、微電影《幸福．勻勻仔行》到高中生履歷膨風事件——引導學生發現誠信與考試誠實的重要性</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1PDJ8Tb2BphlyLtdceByHApzMZI4x1kXRhF4Ca3FBip4/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1PDJ8Tb2BphlyLtdceByHApzMZI4x1kXRhF4Ca3FBip4/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      
+      <!-- 專題影音播放器：法務部廉政署微電影《幸福．勻勻仔行》 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4"
+           x-data="{
+             isLocalFile: window.location.protocol === 'file:',
+             forceEmbed: false
+           }">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-xs font-bold flex items-center space-x-1">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                <span>廉政倫理微電影</span>
+              </span>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">專題影音：法務部廉政署微電影《幸福．勻勻仔行》（Happiness, Walking Firmly）</h3>
+            </div>
+            <p class="text-sm text-slate-500 mt-1">二代接班農產加工廠，在天災歉收與誘惑面前堅守品質檢驗合格，展現踏實走出每一步的誠信職人精神。</p>
+          </div>
+          <div class="flex items-center space-x-2">
+            <template x-if="isLocalFile && !forceEmbed">
+              <button @click="forceEmbed = true" class="text-xs text-slate-500 hover:text-slate-700 underline px-2 py-1">
+                嘗試內嵌播放
+              </button>
+            </template>
+            <a href="https://www.youtube.com/watch?v=zf7SD17o8jI" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white shadow-sm hover:shadow transition-all">
+              <span>在 YouTube 中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 本機 file:// 環境專屬安全預覽卡（避免 YouTube 官方限制拋出錯誤 153） -->
+        <div x-show="isLocalFile && !forceEmbed" class="space-y-3">
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-950 shadow-inner group cursor-pointer" style="padding-top: 56.25%;" @click="window.open('https://www.youtube.com/watch?v=zf7SD17o8jI', '_blank')">
+            <img 
+              src="https://img.youtube.com/vi/zf7SD17o8jI/hqdefault.jpg" 
+              alt="微電影封面" 
+              class="absolute top-0 left-0 w-full h-full object-cover opacity-85 group-hover:opacity-95 group-hover:scale-105 transition-all duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col items-center justify-center p-6 text-center">
+              <div class="w-16 h-16 sm:w-20 sm:h-20 bg-rose-600 hover:bg-rose-500 text-white rounded-full flex items-center justify-center shadow-2xl transition-transform transform group-hover:scale-110 mb-3">
+                <svg class="w-8 h-8 sm:w-10 sm:h-10 fill-current translate-x-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <p class="text-white font-serif font-bold text-base sm:text-lg drop-shadow">點擊在新分頁播放微電影《幸福．勻勻仔行》</p>
+              <p class="text-white/80 text-xs sm:text-sm mt-1">「做對的事慢慢來，比做錯的事有效率來得好」——堅持原則的職人精神</p>
+            </div>
+          </div>
+          <div class="p-3.5 bg-amber-50 border border-amber-200 rounded-xl flex items-start space-x-2.5 text-xs sm:text-sm text-amber-800">
+            <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+              <p class="font-semibold text-amber-900">播放說明：</p>
+              <p class="mt-0.5 text-amber-800 leading-relaxed">
+                若透過本機檔案雙擊開啟（<code>file://</code> 協議），受 YouTube 安全防護政策限制請點擊上方紅色按鈕於 YouTube 開啟觀賞；若於網頁伺服器環境開啟，下方播放器將直接完整內嵌呈現。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 伺服器環境或強制內嵌播放器 -->
+        <div x-show="!isLocalFile || forceEmbed" class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://www.youtube.com/embed/zf7SD17o8jI" 
+            title="微電影《幸福．勻勻仔行》"
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服一和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：「這個故事告訴我們……」寓意推展寫作學習單（服一和真實學生習作與教師手寫評析）</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據簡報第 2~5 頁學生真實習作與教師評語：以「這個故事告訴我們……；……」破題，解構濟水溺商許百金卻賴帳給十金之寓意，探討守諾重信的常識，進而推展至現代社會之生活、職場與個人身分尊重。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：微電影《幸福．勻勻仔行》觀影省思與 Slido 即時互動</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據簡報第 6~9 頁：觀賞微電影後進行 Slido 投票——「影片傳述的價值，對於個人與社會有什麼影響？」學生熱烈發表：「腳踏實地做任何事」、「做對的事慢慢來，比做錯的事有效率來得好」、「堅持品質與誠信才會被信賴」。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">03</span>
+            <span>任務三：從「最佳辯士」膨風事件看履歷真確性——角色扮演 Slido 抉擇</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據簡報第 10~15 頁：研讀高中生將「單場優秀辯士」包裝為「最佳辯士」遭醫學系撤銷錄取之焦點新聞與楊斯棓專文，透過 Slido 進行情境問答：「如果你是大學面試教授，看見學生自傳履歷可能造假，你會怎麼做？」</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">04</span>
+            <span>任務四：校園與考場倫理——「如果你是老師，發現學生考試作弊，你會如何處理？」</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據簡報第 16~18 頁：回歸高中生身邊最切身之考場誠信議題，透過 Slido 探討面對考試作弊之態度，引導學生反思投機取巧的代價，體悟「對自己坦誠、腳踏實地走每一步」才能行穩致遠。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

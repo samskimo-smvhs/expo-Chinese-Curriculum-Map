@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B5 專題任務 經典對讀專題：大同與小康 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"q": "依據《禮記・禮運》，下列關於「大同之世」與「小康之世」的比較，何者完全正確？", "options": ["大同是「天下為公，選賢與能」，小康是「天下為家，大人世及以為禮」", "大同依靠「城郭溝池以為固」，小康則是「夜不閉戶，盜竊亂賊不作」", "大同講求「以正君臣，以篤父子」，小康則是「講信修睦，人不獨親其親」", "大同盛世由禹、湯、文、武、成王、周公治理，小康則是三代以前的遠古傳說"], "answer": 0, "explanation": "大同之世行大道，天下為人民共有，選賢與能；小康之世大道既隱，天下成為一家私產，王位由世襲（大人世及）繼承，以禮義維持秩序。故 A 完全正確。"}, {"q": "文中「貨惡其棄於地也，不必藏於己；力惡其不出於身也，不必為己」，展現了大同社會怎樣的崇高價值？", "options": ["珍惜物力資源、人盡其才，且毫無自私自利、佔為己有之私心", "強調平均主義，禁止人民擁有任何私人財產與多餘勞動力", "要求百姓將所有財物皆繳納給國君庫房，勞役全由國家徵調", "說明物資匱乏時必須強制配給，避免引發大規模搶奪暴動"], "answer": 0, "explanation": "此二句意為：憎惡物資被棄擲浪費，但珍惜物資並非為了私藏在自己身邊；憎惡有力氣卻不使出，但出力服務並非只為了自身利益。展現各盡所能、無私利他的最高精神。"}, {"q": "在〈禮運・大同與小康〉中，孔子對「小康之治」的態度為何？", "options": ["肯定在人性趨私的現實中，「禮義」是維護國家秩序不可或缺的制度治具", "全盤否定禮治，認為小康之世充滿虛偽與階級壓迫，一文不值", "認為小康制度超越大同，是人類政治文明所能達到的最高巔峰", "主張廢除法律禮儀，完全回歸茹毛飲血的原始自然狀態"], "answer": 0, "explanation": "孔子雖然嚮往大同世界，但他深明歷史發展現實，舉禹、湯、文、武、成王、周公為例，盛讚其「由禮之德」，肯定「禮」在約束私慾、維繫社會正義上的核心價值。"}, {"q": "下列文句中的字音與字義解釋，何者錯誤？", "options": ["昔者仲尼「與」於蜡賓：音ㄩˇ，給予、贊同", "仲尼之嘆，「蓋」嘆魯也：音ㄍㄞˋ，副詞，大概、推想之詞", "出遊於「觀」之上：音ㄍㄨㄢˋ，名詞，宮門兩側的望樓", "「矜」、寡、孤、獨、廢、疾者皆有所養：音ㄍㄨㄢ，通「鰥」，老而無妻者"], "answer": 0, "explanation": "「與於蜡賓」之「與」，音ㄩˋ，動詞，參加、參與之意，非「給予」或「贊同」。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B5 專題任務</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-amber-100 text-amber-800 tracking-wide">議論文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高三成熟期（應對自如）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【觀點】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【系統】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【發展】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 公平與發展（公義社會、禮治與德治之政治倫理）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        經典對讀專題：大同與小康
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「在社會制度與人性弱點交織的現實世界中，我們如何透過「外在規範（禮制）」的維持，朝向「內在互信與無私（道德教化）」的理想社會邁進？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">政治哲學比較・文本矩陣對照・生涯關係書寫・理想社會省思</div>
+          <div class="text-xs text-slate-500 mt-1">深入剖析孔子因魯國蜡祭禮廢而興嘆之背景；建構「大同之世」與「小康之世」在政治、社會、經濟、治安四個維度的思維對比矩陣；對讀賴和〈一桿「稱仔」〉，思辨執法制度與公義精神；結合「生涯書寫與關係建立」進行高三自我定位與群己倫理反思。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服三和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服三和）：從《禮記》對「大道之行，天下為公」與「禮義以為紀」之群己互動規範，省思現代服裝時尚產業的團隊協作倫理。連結服裝科高三畢業展覽分組——從「各親其親、各子其子」的個人本位，邁向「講信修睦、人盡其才、物盡其用」的跨組合作體系，並落實課堂學習單「生涯書寫：敘述一段建立關係的故事」。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 2-V-2 結合生活經驗與專業知識，進行跨領域思辨, 5-V-2 統整各類文本資訊，提出個人多元觀點, 6-V-1 體會文化與生活之關聯，深化人文關懷</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-2 篇章的組織與結構, Ad-V-3 篇章的表現, Bb-V-2 社會群體意識的省思, Cb-V-1 傳統文化與現代生活的關聯, Cc-V-1 經典儒家文類認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-A2 系統思考與解決問題, 國V-U-C1 道德實踐與公民意識, 國V-U-C2 人際關係與團隊合作</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">戴聖（禮記・禮運）</strong>：《禮記》為儒家重要經典，十三經與三禮之一。戰國至漢初儒者解釋《儀禮》、闡述「禮」之精神與制度的文獻總集。西漢禮學家戴聖（字次君，世稱小戴）自太史公及諸儒手稿中輯錄四十九篇，定名為《小戴禮記》，東漢鄭玄為之注，唐代孔穎達作正義，南宋朱熹取其中〈大學〉、〈中庸〉與《論語》、《孟子》合為「四書」。內容包羅政治哲學、倫理規範、祭祀喪葬、生活修養等，為先秦儒家社會理想與制度文化之總匯。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 蜡祭興嘆與天下為公的宏偉藍圖</div>
+              <p>孔子於歲末蜡祭助祭畢，登宮門樓臺喟然而嘆。面對春秋時代禮崩樂壞、魯國權臣僭越的殘酷現實，孔子未曾絕望，而是透過回答弟子言偃之問，展開了一場貫通古今的偉大社會哲學建構。一軒老師在簡報中特別將「大同」與「小康」對比現代社會學制度，引導高三學生從「關係的建立」反思個人在家庭、班級、職場到國家社會中的角色與責任。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：藉由孔子與言偃的問答，對比「大同」德治理想與「小康」禮治現實的治理模式，肯定禮制維繫社會秩序的重要性，並期勉世人以無私奉獻、選賢與能、講信修睦之精神，共同營造各得其所的和樂世界。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：起（蜡賓興嘆・言偃發問）</div>
+            <div class="text-slate-600 text-xs mt-0.5">孔子參與魯國歲末蜡祭，事畢出遊於觀臺之上喟然而嘆；弟子言偃在側，探問夫子因何而嘆，開啟對理想政治秩序之宏論。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：承（天下為公・大同治世）</div>
+            <div class="text-slate-600 text-xs mt-0.5">闡述大道實行之大同盛世：天下為公，選賢與能，講信修睦。人不獨親其親，不獨子其子；鰥寡孤獨廢疾者皆有所養；貨惡棄地、力惡不出於身，夜不閉戶。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：轉（大道既隱・小康禮治）</div>
+            <div class="text-slate-600 text-xs mt-0.5">分析大道既隱之小康社會：天下為家，各親其親，貨力為己，大人世及以為禮。以城郭溝池為固，以禮義為紀，藉制度法度規範君臣、父子、兄弟與夫婦之倫常。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：合（六君典範・禮為治具）</div>
+            <div class="text-slate-600 text-xs mt-0.5">舉禹、湯、文、武、成王、周公六位賢君為例，指出其皆謹遵禮制以立信彰過；證明在人性自私之現實世界中，「禮」是維繫國家安定與社會正義不可或缺之治具。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">孔子在〈禮運・大同與小康〉中，分別從政治領導、人倫親情、社會福利、財富觀與治安五個面向，描繪了大同與小康怎樣的具體景象？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">文章如何運用嚴謹的排比、對偶句式（如「人不獨親其親，不獨子其子」、「貨惡其棄於地也，不必藏於己」）與對比手法，清晰建構兩大治世的理論架構？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">身處當代高科技與資本高度發達的社會，孔子所提出的「天下為公」精神與「老有所終、壯有所用、幼有所長」之理想，如何指引技高青年反思自我生涯與社會公平？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">與於蜡賓</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄩˋ ㄩˊ ㄓㄚˋ ㄅㄧㄣ</td>
+          <td class="py-2 px-3">參加蜡祭，擔任助祭的人。與，音ㄩˋ，參加。蜡，音ㄓㄚˋ，歲末大祭。賓，協助祭典之人。例：「昔者仲尼與於蜡賓」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">喟然</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄎㄨㄟˋ ㄖㄢˊ</td>
+          <td class="py-2 px-3">長聲嘆息的樣子。喟，音ㄎㄨㄟˋ。例：「出遊於觀之上，喟然而嘆」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">選賢與能</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄒㄩㄢˇ ㄒㄧㄢˊ ㄩˇ ㄋㄥˊ</td>
+          <td class="py-2 px-3">推選賢德、推舉有才能的人。與，音ㄩˇ，通「舉」，推舉、選拔。例：「大道之行也，天下為公，選賢與能，講信修睦」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">矜寡孤獨</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄍㄨㄢ ㄍㄨㄚˇ ㄍㄨ ㄉㄨˊ</td>
+          <td class="py-2 px-3">泛指社會上孤苦無依的人。矜，音ㄍㄨㄢ，同「鰥」，老而無妻。寡，老而無夫。孤，幼而無父。獨，老而無子。例：「矜寡孤獨廢疾者皆有所養」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">男有分</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄋㄢˊ ㄧㄡˇ ㄈㄣˋ</td>
+          <td class="py-2 px-3">男子有其職分、工作或差事。分，音ㄈㄣˋ，職分。例：「男有分，女有歸」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">貨惡其棄</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄏㄨㄛˋ ㄨˋ ㄑㄧˊ ㄑㄧˋ</td>
+          <td class="py-2 px-3">憎惡財貨被白白丟棄於地。惡，音ㄨˋ，憎恨、厭惡。例：「貨惡其棄於地也，不必藏於己」。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：禮制秩序與理想社會的建構——從個人生涯關係到天下為公的政治哲學</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/14CcDnNTmbWTa7OFN5pd8Z_bejz3HxSyW6ebNWa6T4zE/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/14CcDnNTmbWTa7OFN5pd8Z_bejz3HxSyW6ebNWa6T4zE/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服三和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>單元實作任務一：大同 vs. 小康四維矩陣深度比較表</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">研讀文本，填妥「時期、政治領導、社會倫常、經濟資源分配、社會治安與防禦」五大維度矩陣對比圖表，分析「天下為公（德治）」與「天下為家（禮治）」的根本差異與現代啟示。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>單元實作任務二：生涯書寫與關係的建立（300字深度反思）</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">連結一軒老師課堂引導，敘述一段高三求學或生活歷程中「建立深刻人際關係的故事」——分析情境細節、遭遇之變化或衝突，以及這段關係對自我生涯性格與價值觀的轉化意義。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

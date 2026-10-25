@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B3 第 10 課 隔閡 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "知識與應用・字詞音義", "text": "下列有關〈隔閡〉中文句詞語的理解，何者前後完全正確？", "options": [{"key": "A", "text": "放「灰誌」：音 ㄏㄨㄟ ㄓˋ，指泥作施工時測量牆面平整之基準點標記"}, {"key": "B", "text": "互相「鬥嘴鼓」：音 ㄉㄡˋ ㄗㄨㄟˇ ㄍㄨˇ，指工人間因薪資分配不均爆發肢體鬥毆"}, {"key": "C", "text": "連工「帶料」：音 ㄉㄞˋ ㄌㄧㄠˋ，指業主提供所有昂貴建材，工人純賺工錢"}, {"key": "D", "text": "水泥「咬人」：音 ㄧㄠˇ ㄖㄣˊ，指水泥裡含有害蟲會咬傷人體肌肉"}], "answer": "A", "explanation": "A項完全正確。B項鬥嘴鼓為閩南語開玩笑互虧拌嘴，非肢體鬥毆；C項帶料指包商自行購買材料，費用包含大額建材支出；D項咬人指水泥強鹼腐蝕皮膚致使富貴手與龜裂。"}, {"id": 2, "category": "文意理解・真相拆解", "text": "雜誌報導宣稱「三個泥水工人一週賺走三十萬，週薪十萬比教授多三倍」，泥作師傅們為何斥之為「放屁」與笑話？", "options": [{"key": "A", "text": "因為該筆金額包含大筆瓷磚材料費、水電拆包、廢料清運等沉重成本，並非工人淨利所得"}, {"key": "B", "text": "因為泥水工人實際上每人每週賺超過一百萬元，雜誌嚴重低估行情"}, {"key": "C", "text": "因為泥水工人都是志願服務，根本不收取任何金錢報酬"}, {"key": "D", "text": "因為雜誌採訪對象是外籍移工，本國師傅工資遠低於此數字"}], "answer": "A", "explanation": "報導將「連工帶料的總營業額」誤認為「工人的純勞動所得」，忽視了材料費（往往佔三分之二以上）、損料、工具折舊與水電配合款項。"}, {"id": 3, "category": "推論解釋・勞動處境", "text": "作者在文中描寫泥作師傅們的身體狀況（如富貴手、關節炎、五十肩、膝蓋過早耗損），其深刻用意為何？", "options": [{"key": "A", "text": "藉此宣傳醫藥廣告，推銷類固醇藥膏"}, {"key": "B", "text": "突顯體力技術勞動者的每一分收入都是用肉體健康換來的沉重代價，反襯社會對其收益的輕浮誤解"}, {"key": "C", "text": "批評師傅們不注重個人衛生，才會導致皮膚與關節病變"}, {"key": "D", "text": "呼籲政府立法禁止五十歲以上勞工在營造工地現場工作"}], "answer": "B", "explanation": "作者揭示技術工人在水泥粉塵與高強度重複搬運下換得的溫飽，強調其每一分錢皆為血汗代價，絕非外界想像的輕鬆暴利。"}, {"id": 4, "category": "主旨省思・隔閡本質", "text": "作者篇末寫道：「而我很清楚，這來自於我親身的感受和所在的位置，與那些撰書者或是創作者不同」，文中所謂「隔閡」最根本的根源在於：", "options": [{"key": "A", "text": "營造廠監工與勞力派遣公司之間的合約糾紛"}, {"key": "B", "text": "都會區與偏鄉地區網路資訊基礎設施的貧富差距"}, {"key": "C", "text": "身處不同社會階層與生存處境所導致的生命體驗斷層，以及主流論述對底層勞動者的想當然耳與無知傲慢"}, {"key": "D", "text": "年輕新世代勞工與傳統老一輩師傅在施工工法上的技術代溝"}], "answer": "C", "explanation": "「隔閡」源於撰寫理財書與新聞的知識精英身在冷氣房中，憑空幻想勞動生活，與泥作師傅真實承擔材料虧損與身軀殘疾之間存在巨大經驗鴻溝。"}, {"id": 5, "category": "技職連結・媒體識讀", "text": "對於即將踏入技術專業領域的技職學生而言，〈隔閡〉一文提供了怎樣的職人素養啟示？", "options": [{"key": "A", "text": "不應盲目相信未經查證的「暴富」宣傳，必須建立財務成本分析與風險評估意識，並學會以同理心尊重基層勞動者"}, {"key": "B", "text": "只要擁有專業技能，就應不斷跳槽爭取最高的按件計酬薪水"}, {"key": "C", "text": "體力勞動毫無前途，技職學生應全面放棄技術改行從事金融投資"}, {"key": "D", "text": "在工地或工坊工作時應盡量偷工減料，以追求最高利潤"}], "answer": "A", "explanation": "本課引導技高學生看清按件計酬、成本損料與職災風險，建立健全的勞動財務觀，並培養思辨媒體訊息與尊重各行各業職人尊嚴的公民素養。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B3 第 10 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">說明文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【邏輯】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【系統】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 認同與關係 × 全球化與永續發展</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        隔閡
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「大眾媒體的獵奇報導與真實勞動者的處境之間，存在著怎樣巨大的認知隔閡？我們如何跨越偏見，理解基層職人的尊嚴？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">媒體識讀・事實查核・拆解偏見</div>
+          <div class="text-xs text-slate-500 mt-1">運用商農-韋佛傳播模式與事實查核技巧，拆解「泥水工週薪十萬」媒體聳動標題背後的真實勞動成本、職業傷害與社會偏見</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服二和）：由泥水工勞動現實反思工藝打版師、車縫技工之工時與健康代價；探討「按件計酬」與材料耗損背後的職人財務自律與專業價值。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2, 2-V-3, 5-V-2, 5-V-3, 6-V-2</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ac-V-1 句的意義, Ad-V-2 篇章的組織, Ba-V-1 記敘的元素, Bc-V-1 理路的安排, Bc-V-2 客觀資料的輔助, Bd-V-1 核心主張與論點, Cb-V-1 制度社群文化認知, Cc-V-2 人文藝術精神認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A2 系統思考與解決問題, 國V-U-B2 科技資訊與媒體素養, 國V-U-C1 道德實踐與公民意識</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">林立青</strong>：林立青（1980～），本名林亞歷，生於臺灣臺北。曾任工地監工十餘年，長年穿梭於大臺北地區各營造工地的泥作、板模、鋼筋基層勞動現場。2017 年出版首部散文集《做工的人》，以平實真摯、帶著同理與溫度的筆觸，寫下工地底層勞動者的生存樣貌與生命尊嚴，震撼社會輿論並榮獲多項文學大獎，改編為同名暢銷電視劇。後創立「友洗社創」，協助街友與弱勢者重返職場。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 工地監工的社會人類學凝視</div>
+              <p>林立青以第一線工程監工身分深入工地，他不居高臨下同情，亦不刻意浪漫化勞動，而是精確還原「連工帶料」、「水泥咬人」與勞保缺席的真實帳本，撕下媒體光鮮報導的假面，為沈默的基層工人發聲。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：透過年終尾牙與泥作師傅同桌喝酒的生動對話，由一則「泥水工週薪十萬比教授多三倍」的聳動媒體報導切入，層層揭露施工現場連工帶料、材料損耗、機具百萬成本以及水泥侵蝕皮膚等沉重職害。反思社會主流話語對體力勞動者的無知與標籤化，進而批判現代社會中因身分階級與資訊落差所造成的深刻隔閡。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：尾牙登場・營造廠監工與泥作工群像</div>
+            <div class="text-slate-600 text-xs mt-0.5">以年終尾牙同桌生魚片、開高粱開場；監工與平日嚴格管制的師傅同席拚酒，阿文泥作工夫妻檔攜子同來，勾勒出生動真實的工地勞動生態。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：工藝細說・放灰誌工序與殘酷職害</div>
+            <div class="text-slate-600 text-xs mt-0.5">細緻解析純泥作、砌磚、放灰誌、抹壁防水到鋪貼瓷磚之高難度工法；筆鋒轉向「水泥會咬人」之富貴手、手腕關節炎與膝蓋耗損，道出身體掙得每分錢之辛酸。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：真相拆解・戳破週薪十萬之媒體謊言</div>
+            <div class="text-slate-600 text-xs mt-0.5">人力派遣老祥敬酒引出粗工發票之爭；師傅們七嘴八舌拿出改修報價單，逐一扣除材料費、瓷磚款、水電拆包、廢料清理與運費，徹底戳破雜誌報導「週薪十萬」之神話。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：尾牙沉思・階級視角與社會深刻隔閡</div>
+            <div class="text-slate-600 text-xs mt-0.5">散會後的深沉反思：大眾將聳動報導當作取笑話題，卻無視工人連勞保都沒有的殘酷現實。反思個人所在身分與論述者間無法跨越的認知落差與隔閡。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">雜誌媒體宣稱「泥水工週薪十萬」的依據是什麼？現場泥作師傅們翻出報價單後，指出了哪些被忽視的成本與開銷？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">林立青如何藉由尾牙餐桌上的生動「鬥嘴鼓」與具體報價數字，形成強烈反諷，駁斥不負責任的媒體報導？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">當我們在社群媒體看到各行各業「年薪數百萬」、「暴富月入數十萬」的聳動資訊時，該如何運用事實查核與系統思維，識破資訊幻象並理解勞動的真實代價？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">門窗填縫放「灰誌」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄏㄨㄟ ㄓˋ</td>
+          <td class="py-2 px-3">泥作工程中為使牆面平整而在牆上用灰泥預先做好的基準標誌點。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">水泥「咬人」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧㄠˇ ㄖㄣˊ</td>
+          <td class="py-2 px-3">水泥呈強鹼性，施工接觸皮膚會吸附油脂水分，造成乾燥龜裂、紅腫甚至化學灼傷。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">彼此「鬥嘴鼓」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄉㄠˋ ㄘㄨㄟˇ ㄍㆦˋ</td>
+          <td class="py-2 px-3">閩南語，互相鬥嘴、開玩笑爭論。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">連工「帶料」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄉㄞˋ ㄌㄧㄠˋ</td>
+          <td class="py-2 px-3">承包工程時同時負責施工勞務與建材採購，費用中包含大筆材料成本。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">社會的「隔閡」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄍㄜˊ ㄏㄜˊ</td>
+          <td class="py-2 px-3">彼此情意不相通或因認知落差而產生障礙、阻隔。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：判讀與理解職業真實面貌——林立青的假消息查核、傳播模式與泥作帳本</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1-z_sxjjvo6jaoSMtGFDjIwDhk5DuzMqAXpFa4UMGYlM/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1-z_sxjjvo6jaoSMtGFDjIwDhk5DuzMqAXpFa4UMGYlM/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：假消息地毯式查核工作表（MyGoPen 查核）</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">查核西藏寶塔花、波蘭蛤蜊、泥水工週薪十萬比教授多三倍；記錄查核關鍵字、來源網站屬性、查獲證據、最終判定真偽。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：商農-韋佛傳播模式（Shannon-Weaver Model）剖析</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">運用傳播模式分析新聞來源、背後金主、撰寫人、媒介平台、雜訊干擾與受眾，辨別訊息背後的立場、風向與企圖。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">03</span>
+            <span>任務三：改修報價單拆解與泥水工真實勞動帳本</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">翻出 44 萬改修報價單，逐一扣除材料費 9 萬、瓷磚款、水電拆包、廢料清運與工具折舊；探討水泥咬人富貴手、手腕關節炎與無勞保之沉重代價，反思社會階級之深刻隔閡。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B3 Lsp01 第一次段考寫作任務：舊時光與我的對話 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": "b3-sp01-q1", "category": "概念理解", "text": "在記敘寫作中，「場景」最核心的文學功能是什麼？", "options": [{"key": "A", "text": "僅為了湊足作文規定的字數，可任意堆砌辭藻"}, {"key": "B", "text": "作為作品時代背景的物理空間，提供人物活動的具體舞台並烘托心理氛圍"}, {"key": "C", "text": "證明作者具備豐富的地理水文專有名詞知識"}, {"key": "D", "text": "取代文章的主旨與核心情節"}], "answer": "B", "explanation": "正解為 B。如簡報所言，「場景是作品時代背景的物理空間，也是事情發生的地方」，能具象化人物的生存狀態並渲染情調。"}, {"id": "b3-sp01-q2", "category": "技法鑑賞", "text": "寫作簡報中引用《散戲》「金發伯站在稍遠的地方，木然地看著他們……秀潔從人與人之間的縫隙裡望過去，看到紙菸上那一點火光在他臉上一閃一滅」。這段描寫運用了何種運鏡手法？", "options": [{"key": "A", "text": "從稍遠處的遠景逐漸「拉近」穿透縫隙，聚焦於紙菸火光與臉部神情的特寫"}, {"key": "B", "text": "從金發伯的手指極速「推遠」至外太空全景"}, {"key": "C", "text": "固定角度不動的監控錄影機視角"}, {"key": "D", "text": "完全抽離客觀畫面，純粹進行抽象哲學評論"}], "answer": "A", "explanation": "正解為 A。從「站在稍遠的地方」的遠景，透過秀潔視線穿過人群縫隙，精準「拉近」到紙菸上一閃一滅的特寫，層次分明、張力強烈。"}, {"id": "b3-sp01-q3", "category": "寫作構思", "text": "若要以「舊時光與我的對話」為題撰寫一篇動人的記敘抒情文，下列哪一種立意取材策略最為切題且深刻？", "options": [{"key": "A", "text": "空泛抒發歲月如梭的成語感嘆，不提及任何具體事物"}, {"key": "B", "text": "選定一件具體承載歲月痕跡的物件（如阿嬤的老縫紉機或老匠人斑駁的手工具），藉由空間營造與細部特寫，寄託生命的情感溫度與省思"}, {"key": "C", "text": "從盤古開天闢地開始依序流水帳記錄歷史年表"}, {"key": "D", "text": "抄錄名言佳句十則拼湊成文"}], "answer": "B", "explanation": "正解為 B。優秀的散文強調「借物抒情、即事即景」，以具體的場景與有溫度的細節物件作為時空對話的錨點，才能引發深刻共鳴。"}, {"id": "b3-sp01-q4", "category": "修辭摹寫", "text": "下列文句中，何者最符合「推遠（建立環境空間感）」的寫作運鏡手法？", "options": [{"key": "A", "text": "老裁縫師掌心的厚繭，深深刻著一條條被剪刀磨出的灰白印痕"}, {"key": "B", "text": "夕陽斜斜映照在老舊的工坊街角，整排低矮的紅磚平房在暮色中拉出長長的暗影，遠處傳來平交道叮咚的鈴聲"}, {"key": "C", "text": "那枚古銀戒指內側，刻著幾乎辨識不清的民國六十年字樣"}, {"key": "D", "text": "這件衣服的鈕釦是貝殼磨製的"}], "answer": "B", "explanation": "正解為 B。B 描寫整體街角、整排紅磚平房、暮色暗影與遠處平交道聲響，屬於標準的推遠全景空間建立；A、C、D 皆為微距特寫。"}, {"id": "b3-sp01-q5", "category": "跨域結合", "text": "三民家商服裝科學生若將本專題之「運鏡與場景」美學應用於未來的「服裝作品集（Portfolio）」文案，下列何種表述最能展現設計的專業深度與人文故事？", "options": [{"key": "A", "text": "只放衣服尺寸規格表與布料價格清單"}, {"key": "B", "text": "透過形象大片的全景工坊空間建立氛圍，配合領口滾邊、抽紗手工藝的微距特寫，敘述設計靈感如何與傳統工藝對話"}, {"key": "C", "text": "複製貼上網路流行用語，強調衣服非常好看"}, {"key": "D", "text": "完全不提供任何影像，僅以口頭敘述"}], "answer": "B", "explanation": "正解為 B。時尚產業極重氛圍（Lookbook 空間場景）與工藝細節（Detail 特寫），能將文學運鏡轉化為視覺與文案敘事，是技高服裝科極具競爭力的跨域素養。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B3 專題任務</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-amber-100 text-amber-800 tracking-wide">應用文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【表達】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【價值】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【風格】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【載體】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 個人和文化表達 × 時空定位</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        第一次段考寫作任務：舊時光與我的對話
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當我們凝視一件陳舊物件或一段流逝的歲月，如何藉由鏡頭聚焦與空間還原，讓逝去的時光在字裡行間重獲新生？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">空間場景營造・電影運鏡技巧・生命時空對話</div>
+          <div class="text-xs text-slate-500 mt-1">學習建立作品時代物理空間，運用推遠（全景）與拉近（特寫）運鏡手法，完成記敘抒情綜合寫作任務</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服裝攝影構圖、復古時尚美學與展示陳列敘事）：服裝設計不僅是衣服本身，更需要透過「攝影運鏡」與「時空場景」的建構來傳遞品牌靈魂。本專題引導學生將寫作中的「遠景（時裝秀整體舞台、工業廢墟空間）」與「特寫（刺繡滾邊微距、老裁縫師手部繭痕、布料抽紗質感）」應用於服裝作品集（Portfolio）的文案撰寫與展場視覺敘事，以文字與影像共同訴說設計背後的時代記憶。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：5-V-2, 6-V-1, 6-V-2, 6-V-3</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ba-V-1 記敘的元素, Ba-V-2 敘述方式, Ba-V-3 摹寫手法, Bb-V-1 情志的抒發與省思, Be-V-2 應用文本的表達要領, Ca-V-1 物質文化認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A3 規劃執行與創新應變, 國V-U-B1 符號運用與溝通表達, 國V-U-B3 藝術涵養與美感素養</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">高二語文教學團隊</strong>：本單元為高雄市立三民家商高二國文教學團隊依據 108 課綱技術型高級中等學校國語文領綱精心設計之第一次段考統整寫作表現任務。專題緊扣高二「開展期」的思辨與創作目標，統整第一階段《岳陽樓記》、《礦村行》、《散戲》等經典篇章之空間美學與人物描摹手法。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 電影運鏡美學與技高視覺敘事</div>
+              <p>本專題打破傳統命題作文框架，以「電影運鏡美學」為鷹架，結合技高學生敏銳的視覺與美感特質，引導學生將日常觀察與專業技藝化為有溫度的文字敘事。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：本專題以「舊時光與我的對話」為核心命題，引導學生整合《散戲》中的舞台今昔對比與《礦村行》中的空間氛圍刻劃。透過兩大關鍵寫作技術——「時代物理空間場景營造」與「推遠／拉近電影運鏡」，培養學生從宏觀時代視野切入微觀生命特寫的深層文字表達力。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 1 幕【起・時空召喚】</div>
+            <div class="text-slate-600 text-xs mt-0.5">回顧第一階段閱讀篇章中的經典場景（《散戲》廟前鐵皮油桶搭成的戲台、《礦村行》鏽黃濃濁的河川與老邁聚落），界定「場景」是作品時代背景的物理空間，也是人物故事萌發的溫床。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 2 幕【承・運鏡心法】</div>
+            <div class="text-slate-600 text-xs mt-0.5">解析電影運鏡原理——「推遠（建立環境與全景關係）」與「拉近（聚焦細節與神情特寫）」，剖析《散戲》中秀潔從人群縫隙望向金發伯抽菸、紙菸上一閃一滅的特寫鏡頭。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 3 幕【轉・情感共振】</div>
+            <div class="text-slate-600 text-xs mt-0.5">由外在物理場景轉入內在心靈時空，引導學生尋找自我生命中承載回憶的舊物件（如祖母的老縫紉機、泛黃的老照片、斑駁的手工具），建立跨越時空的心靈對話。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 4 幕【合・筆落成篇】</div>
+            <div class="text-slate-600 text-xs mt-0.5">設定段考寫作規範與評量規準（Rubric），從立意取材、結構佈局到修辭摹寫，產出具備電影感與深刻情感溫度的原創作文成果。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">什麼是寫作中的「場景」？在簡報範例中，《散戲》與《礦村行》分別呈現了怎樣的物理空間與時代背景？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">如何在寫作中運用「電影運鏡」技巧？「推遠」與「拉近」分別能為讀者帶來什麼樣的視覺引導與心理感受？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">為什麼當我們描述舊時光時，需要先確立具體的「場景」與「焦點物件」，而不是直接抒發抽象的懷舊感慨？具體細節如何賦予抽象情感不可替代的真實力量？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">運鏡</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄩㄣˋ ㄐㄧㄥˋ</td>
+          <td class="py-2 px-3">攝影或電影拍攝時移動攝影機或變更焦距的手法，寫作中借指視覺焦點的推移。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">微距</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄨㄟˊ ㄐㄩˋ</td>
+          <td class="py-2 px-3">近距離拍攝細微物體的手法，象徵對生活細節的敏銳捕捉。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">佝僂</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄍㄡ ㄌㄡˊ</td>
+          <td class="py-2 px-3">脊背彎曲的體態，常用於特寫老年長者歷經歲月滄桑的身影。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">定格</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄉㄧㄥˋ ㄍㄜˊ</td>
+          <td class="py-2 px-3">電影鏡頭突然停住成靜止畫面，借指深深刻在記憶中的永恆瞬間。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">凝練</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄋㄧㄥˊ ㄌㄧㄢˋ</td>
+          <td class="py-2 px-3">簡潔精準而富有內涵，形容文字表達緊湊有力。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：鏡頭運鏡與時代物候：從《散戲》與《礦村行》出發的時空敘事專題</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1TE6W1g1aNC5QEdPfd8cSH3R_7XSR5kxcqIIwlkyxBmg/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1TE6W1g1aNC5QEdPfd8cSH3R_7XSR5kxcqIIwlkyxBmg/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服一和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>鏡頭分鏡腳本規劃單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">選定一個承載舊時光回憶的真實場景（如老裁縫工坊、鄉下老家廚房、黃昏的老火車站），繪製 3 格分鏡草圖，並分別寫出「遠景全貌（推遠）」、「中景走位」與「特寫細節（拉近）」的文字描寫段落。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>第一次段考寫作正式任務：舊時光與我的對話</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據引導提示，選定核心物件或人物，撰寫一篇 600~800 字的記敘抒情文，完整展現場景氛圍、鏡頭推拉運鏡與深刻生命省思。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

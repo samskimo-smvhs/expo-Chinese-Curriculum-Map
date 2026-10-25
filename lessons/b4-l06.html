@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B4 第 06 課 應用科技文選：天工開物選 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "文本脈絡・工藝精神", "text": "《天工開物》一書的命名由來，下列敘述何者完全正確？", "options": [{"key": "A", "text": "純粹是宋應星個人的夢境啟發，毫無歷史文獻根據"}, {"key": "B", "text": "融合《尚書》「天工人其代之」與《易經》「開物成務」，寓意巧用人力代天行工、開發萬物以成民生大業"}, {"key": "C", "text": "源自明代宮廷太監的占卜結果"}, {"key": "D", "text": "指天上的神仙工匠所遺留下來的開箱寶物"}], "answer": "B", "explanation": "宋應星取《尚書》「天工人其代之」之「天工」，與《易經・繫辭上》「夫《易》開物成務」之「開物」，合成書名。強調人類工匠以技術和智慧轉化自然資源，創造人類物質文明。"}, {"id": 2, "category": "說明文法・結構分析", "text": "宋應星在〈殺青〉緒言中說明造紙之利，其核心邏輯與價值主張為何？", "options": [{"key": "A", "text": "紙張製作極度浪費林木，主張全面恢復甲骨刻字"}, {"key": "B", "text": "竹麻纖維經過工藝轉化為紙張，使前賢聖人的智慧思想得以擺脫隨草木同腐的命運，實現文明萬世的跨代傳承"}, {"key": "C", "text": "造紙純粹是為了滿足宮廷畫師繪製仕女圖之娛樂需求"}, {"key": "D", "text": "造紙是明代唯一受官方壟斷的專賣事業"}], "answer": "B", "explanation": "宋應星指出文字若無紙張承載，聖人之道隨軀體而滅；紙張輕便易傳，使思想跨越時空不朽，是人類文化傳承的最偉大載體。"}, {"id": 3, "category": "修辭字詞・精確辨析", "text": "「凡服食之需，若膏液之無所不在」，句中「膏液」在古代日常生活中扮演了哪些角色？", "options": [{"key": "A", "text": "純粹用於毒害敵軍的化學武器"}, {"key": "B", "text": "飲食烹飪、夜間照明點燈、機械軸承潤滑與醫藥調配等民生核心領域"}, {"key": "C", "text": "古代建築砌牆時專用的特殊水泥"}, {"key": "D", "text": "專供皇帝飲用的珍稀宮廷飲料"}], "answer": "B", "explanation": "油脂（膏液）在傳統社會是民生不可或缺的能源與材料，從果腹烹飪、長夜照明到各類農具車輛潤滑，皆賴膏液滋潤。"}, {"id": 4, "category": "跨領域思辨・AI時代反思", "text": "在服二和學生的〈殺青〉AI協同思辨作業中，學生寫道：「AI 工具能提升效率，但不能因此依賴其放棄思考，成為受制於人。」這段話與宋應星思想如何形成共鳴？", "options": [{"key": "A", "text": "兩者都主張全面砸毀機器與電腦，回到原始採集時代"}, {"key": "B", "text": "兩者皆強調人才是駕馭工具的主體；科技與工具是用來輔助人類實現「開物成務」，絕不能因工具發達而喪失主動探究與批判反思能力"}, {"key": "C", "text": "兩者皆認為人工智慧已經完全超越人類，人類應該全面服從"}, {"key": "D", "text": "純粹是因應考試而寫的違心之論，毫無價值"}], "answer": "B", "explanation": "宋應星讚頌工匠巧思而非盲目崇拜工具；當代學生在人機協作中體認到：算力再快也無法取代人的審美價值與道德反思，精準呼應了人文實學精神。"}, {"id": 5, "category": "字詞音義・成語辨正", "text": "「殺青」一詞在現代出版與影視產業中，最常見的引申義為何？", "options": [{"key": "A", "text": "指清除森林中的青苔雜草"}, {"key": "B", "text": "指書籍著述定稿、校對完成，或電影、電視劇拍攝工作全部結束"}, {"key": "C", "text": "指青銅器氧化生鏽變綠的過程"}, {"key": "D", "text": "指茶葉採摘後的第一道發酵程序"}], "answer": "B", "explanation": "古代製竹簡以火烤去水分稱殺青，後指定稿；現代廣泛用於影視界指影片拍攝工作順利完成。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B4 第 06 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">說明文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【邏輯】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【組織】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【策略】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 科技創新（工藝系統、生產模型與物質文化）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        應用科技文選：天工開物選
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「在科技日新月異、生成式 AI 崛起的時代，我們該如何重新理解「工具」與「人」的關係，並守住無可替代的工匠職人靈魂？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">工藝剖析・流程圖解・工具駕馭・科技對話</div>
+          <div class="text-xs text-slate-500 mt-1">分析明代工藝製程說明之條理與圖文配合手法；評析宋應星重視實學之科學精神；引導服裝科學生將傳統裁縫工具與現代 AI 科技協作進行跨時代對話。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服二和）：《天工開物》詳述紡織（乃服）、造紙（殺青）、舟車造作之精妙工序。引導服二和同學對照車縫機、立裁假人模具、電腦打版軟體與現代 AI 工具之演進，理解「工欲善其事，必先利其器」不僅在於駕馭工具，更在於人機協作中對材料質地與剪裁工藝的敬畏堅持。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 2-V-1 結合生活經驗與專業知識，進行跨領域思辨, 5-V-2 統整各類文本資訊，提出個人多元觀點, 5-V-3 鑑賞文本之思想意涵與藝術表現, 6-V-3 體會科技與人文之互動，反思數位時代之倫理與價值</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-2 篇章的組織與結構, Bc-V-1 理路的安排, Bc-V-2 客觀資料的輔助, Ca-V-1 物質文化認知, Cc-V-2 人文藝術精神認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A2 系統思考與解決問題, 國V-U-A3 規劃執行與創新應變, 國V-U-B2 科技資訊與媒體素養</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">宋應星</strong>：宋應星（1587～約1666），字長庚，江西奉新人。明末著名科學家、實學家。青年時期數次應鄉試皆未第，轉而深入田野考察農業、手工業生產技術。崇禎十年（1637）刊行代表作《天工開物》十八卷，圖文並茂，詳細記錄中國古代各項農業、手工業生產技術、工具構造與操作工序，被英國科學史學者李約瑟（Joseph Needham）譽為「中國十七世紀的工藝百科全書」。明亡後棄官歸隱，拒絕清廷招納，堅持民族氣節以終。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 經世致用的實學寶典——天工人其代之</div>
+              <p>一軒老師在簡報中特別以「天工開物與 AI 教學設計」引導服二和同學深究書名由來：取自《尚書》「天工人其代之」與《易經》「開物成務」，寓意巧用人力代天行工、善用自然資源開創文明。宋應星擺脫傳統士大夫輕視勞動生產、空談性理的腐儒風氣，親訪工匠農人，精確記錄原料比例與機械運作流程。在當代 AI 浪潮下，宋應星所展現的實踐精神，正是技術高中青年理解「巧思實作、經世致用」的最佳典範。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：透過〈舟車〉、〈膏液〉、〈殺青〉三篇緒言，展現明代手工業技術與物流、民生、文化傳播的密切關聯，闡揚「天工人其代之」之科學實用精神，啟發當代青年理解人與工具的協作智慧。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：舟車緒言・交通萬里</div>
+            <div class="text-slate-600 text-xs mt-0.5">以「人群分而居，道路難通」起筆。闡述造舟造車巧借水木之性、風帆車輪之利，將人力物力發揮極致，促進社會流通與經濟繁榮。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：膏液緒言・民生潤滑</div>
+            <div class="text-slate-600 text-xs mt-0.5">系統分類植物與動物油脂來源（芝麻、油菜、大豆、牛脂等），詳述壓榨蒸餾技術；說明油脂於飲食、照明與機械潤滑之不可或缺。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：殺青緒言・文明長存</div>
+            <div class="text-slate-600 text-xs mt-0.5">詳述造紙之法：斬竹、漂塘、煮楻、舂臼、蕩料、焙乾等嚴密工序。盛讚紙張使聖賢之道「不隨草木同腐」，功蓋千秋萬代。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：當代省思・人機協作</div>
+            <div class="text-slate-600 text-xs mt-0.5">總結宋應星實學精神。引導學生對比現代生成式 AI 與數位自動化工具，確立「工具由人而生，價值由人賦予」之核心定位，堅持專注細緻的工匠靈魂。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">《天工開物》三篇緒言各自探討哪三種產業技術（舟車交通、油脂榨取、竹木造紙）？宋應星在〈殺青〉中如何界定紙張對於文明傳承的價值？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何運用客觀數據、工序分類與「因果邏輯」展開說明？宋應星如何突破當時士大夫階層重道輕器的成見，賦予工匠技藝崇高的人文定位？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">身為三民家商服裝科學生，當生成式 AI 能在一秒鐘內生成上百款服裝效果圖時，我們手工打版、精準剪裁的手作工藝具有何種無可替代的價值？我們該如何駕馭新工具而不被工具奴役？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">膏液</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄍㄠ ㄧㄝˋ</td>
+          <td class="py-2 px-3">油脂、液態油。膏，凝固的油脂；液，流質的油。指從植物種子或動物體內萃取的油料。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">殺青</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄕㄚ ㄑㄧㄥ</td>
+          <td class="py-2 px-3">古代製竹簡以火烤去其水分與青皮防蠹，稱殺青；後亦指造紙之原料處理。今多引申為書籍定稿或影視作品拍攝完成。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">緒言</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄒㄩˋ ㄧㄢˊ</td>
+          <td class="py-2 px-3">前言、序言、導言。緒，端緒，事情的開端。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">杼柚</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓㄨˋ ㄓㄡˊ</td>
+          <td class="py-2 px-3">杼，織布時用來穿引緯線的梭子；柚，織布機上捲經線的木軸。借代為織布機或紡織勞作。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">埏埴</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄕㄢ ㄓˊ</td>
+          <td class="py-2 px-3">揉和泥土製造陶器。埏，揉和；埴，黏土。引申為陶冶、培育人才。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：理解與駕馭你的工具——從明代工藝百科到生成式 AI 時代的職人精神</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/1VMgw0gbyJtZ3MeEOGONWKcNnZfSDYc3dKnmgRH13B7Y/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/1VMgw0gbyJtZ3MeEOGONWKcNnZfSDYc3dKnmgRH13B7Y/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：《天工開物》× AI：開物者反思單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">以「匠心到算力」展開深度對話：①提問策略：在運用 AI 進階產出心智圖時，輸入了哪些關鍵 Prompt 設定理解框架？②工具助益：AI 在邏輯層次或數據歸類（規格比例）提供了哪些忽略細節？③真實省思：AI 標準答案是否遺漏了宋應星對百工之人的敬意與抱屈感？你讀到了哪些 AI 讀不出的情感溫度？④查證反思：面對 AI 回答，是否有實務查證？你是在「開 AI 之物」，還是被 AI「開物」？</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：〈殺青〉緒言拆解與 AI 協同思辨草稿</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">深入篇章緒言架構：從天地蓄物到紙張誕生，梳理『提問➔對比➔核心➔轉化➔反思』邏輯鏈；文末寫下震撼反思：『#AI 工具能讓人快速知道文章結構與訊息，使效率提升，補足忽略的部件，但不能因此依賴其放棄思考，成為受制於人。』</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">03</span>
+            <span>任務三：《天工開物選》重要文句翻譯練習</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">針對舟車之利、膏液滋潤、造紙殺青之古代科技文言語法進行精確現代漢語對譯，強化技職學生的精準閱讀與資訊提取能力。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

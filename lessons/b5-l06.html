@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B5 第 06 課 現代生態散文：一株苦苓樹 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"q": "依據王家祥〈一株苦苓樹〉，作者以這株孤獨生長於重劃區廢土邊緣的苦苓樹，主要象徵了什麼？", "options": ["在資本主義與無度都市擴張巨輪下，脆弱卻依舊頑強展現生命尊嚴的臺灣本土自然生態", "證明苦楝樹木材堅硬，最適合砍伐來作為建築模板使用", "說明政府公共工程進度極度落後，連一株雜草都無法清除", "象徵地主發大財、土地重劃即將帶來龐大房地產暴利"], "answer": 0, "explanation": "苦苓樹生長於被廢土包圍的夾縫中，面對怪手威脅依舊繁花盛開，王家祥藉此象徵臺灣土地與自然生態在經濟開發壓力下令人心痛的困境與最後的生命尊嚴。"}, {"q": "文中土地開發人員冷冷地說出「反正不會為了一株苦苓樹……」，這句話深刻揭示了現代社會何種價值取向？", "options": ["將所有自然萬物完全以經濟利益與金錢產值衡量，漠視生命尊嚴與生態多樣性的功利主義盲點", "展現企業家關愛自然、計畫將苦苓樹移植至五星級飯店大廳的高尚品德", "說明政府極度重視單一植物的品種保護，將頒布緊急保護令", "代表施工單位嚴格遵守工安防護標準，值得全面嘉獎"], "answer": 0, "explanation": "「不會為了一株樹放棄整塊地」代表在現代經濟掛帥的邏輯下，生命的價值完全被坪數、地價與商業利潤所取代，凸顯了極端物化自然的人類中心主義。"}, {"q": "下列關於苦苓樹（苦楝）的自然特徵與文化常識，何者說明正確？", "options": ["為臺灣常見原生落葉喬木，春季綻放淡紫色清香碎花，秋季葉落並結金黃色果實，生命力極為強韌", "屬於熱帶雨林特有的常綠針葉樹種，終年不開花也不落葉", "其花朵含有劇烈神經毒素，政府明令嚴禁在市區栽植", "古代詩人皆厭惡苦苓，文學作品中從未出現任何描寫苦楝的詩詞"], "answer": 0, "explanation": "苦楝（苦苓）是臺灣低海拔極為普遍的原生喬木，春開紫花、香氣宜人，秋結果實如金鈴，王安石曾有「小雨輕風落楝花」之名句。故 A 正確。"}, {"q": "下列文句中畫底線詞語的字音與字義解釋，何者完全正確？", "options": ["面對工程機具的「掣肘」：音ㄔㄜˋ ㄓㄡˇ，比喻從旁牽制阻礙", "春風中「落英」繽紛：音ㄌㄨㄛˋ ㄧㄥ，指樹上枯死的老鷹", "怪手在塵土中發出「轟鳴」：音ㄑㄧㄤ ㄇㄧㄥˊ，形容微弱無聲的震動", "心中泛起無限的「喟嘆」：音ㄨㄟˋ ㄊㄢˋ，讚美喜悅之情"], "answer": 0, "explanation": "B 落英指落花；C 轟鳴音ㄏㄨㄥ ㄇㄧㄥˊ；D 喟嘆音ㄎㄨㄟˋ ㄊㄢˋ（嘆息）。A 選項完全正確。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B5 第 06 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">記敘文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高三成熟期（應對自如）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【人物】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【結構】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【特徵】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 全球化和永續性（環境生態危機、都市化衝突與生物多樣性反思）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        現代生態散文：一株苦苓樹
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當現代都市經濟的開發巨輪碾過每一寸土地時，一株看似無用的老樹、一片荒蕪的濕地，究竟蘊藏著怎樣不可被金錢量化的生命尊嚴與文明記憶？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">生態敘事架構・擬人化手法鑑賞・衝突情境解構・自然寫作倫理</div>
+          <div class="text-xs text-slate-500 mt-1">解析王家祥作為臺灣自然寫作先鋒之生態觀察筆法；深入探討土地重劃與都市擴張背景下，一株孤獨盛開紫花的苦苓樹如何成為臺灣鄉土自然被物化吞噬之象徵；剖析「經濟開發利益」與「生態物種保存」之間的殘酷矛盾；引導學生體會人與土地共生之深刻倫理。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服三和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服三和）：苦苓樹（苦楝）在臺灣四季中展現極致色彩變化——春季綻放夢幻般的淡紫色碎花並飄散幽香，秋季葉落結成如珍珠般的金黃苦楝子。本單元引導服裝科高三學生觀察苦苓樹的天然植物形態與季節色彩遞變，連結現代時尚產業熱門的「天然草木染（苦楝葉植物染）」與「永續綠色纖維」，反思快時尚對自然環境造成的污染與消耗，建立生態友善的設計哲學。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 2-V-2 結合生活經驗與專業知識，進行跨領域思辨, 5-V-1 檢核文本訊息，探討文本所呈現的核心價值與時代背景, 5-V-2 統整各類文本資訊，提出個人多元觀點</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-2 篇章的組織與結構, Ad-V-3 篇章的表現, Ba-V-1 身體與自然環境的互動省思, Bb-V-2 社會群體意識的省思, Ca-V-2 科技發展與當代生活</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A2 系統思考與解決問題, 國V-U-B1 符號運用與溝通表達, 國V-U-C1 道德實踐與公民意識</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">王家祥</strong>：王家祥（1966－），臺灣高雄岡山人，中興大學森林學系肄業。臺灣著名自然寫作作家、歷史小說家。熱愛登山、賞鳥與田野調查，長期投入生態保育與原住民文化研究，為「柴山自然公園」主要催生者之一。曾任《臺灣時報》副刊主編、臺東大學駐校作家。其創作融合深厚的自然科學知識與細膩深情的文學筆觸，記錄臺灣土地的傷痛與美麗，著有散文集《打狗丹露》、《四季的聲音》、《自然禱告者》，歷史小說《倒風內海》、《海中鬼》、《關於拉馬達仙仙與荷拉克蝶》等，屢獲時報文學獎、聯合報讀書人年度好書獎及吳濁流文學獎。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 為土地與生靈發聲的自然禱告者</div>
+              <p>王家祥出生於高雄岡山，童年在果園與灌溉圳溝間奔跑，見證了高雄因重工業開發而使田野變工廠、清流變臭水溝的劇變。他毅然投身自然保育，以文字作為捍衛土地的武器。在《一株苦苓樹》中，他沒有聲嘶力竭的控訴，而是透過冷靜溫柔的目光凝視廢土堆邊緣一株奮力開出繁茂紫花的老樹。商人冷漠的一句「反正不會為了一株苦苓樹而放棄這塊地」，道盡了現代文明對大自然最傲慢的暴行。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：藉由一株孤立生長於重劃區廢土邊緣的苦苓樹，描繪其在推土機轟鳴威脅下依舊傲然綻放滿樹紫花之旺盛生命力，深刻揭露現代資本開發對自然生態的無情摧殘，呼籲人類反思自身與土地共生之關係。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：起（重劃廢地・孤樹特寫）</div>
+            <div class="text-slate-600 text-xs mt-0.5">在怪手與推土機環伺的土地重劃開發區邊緣，一片塵土飛揚的廢土堆上，矗立著一株孤獨的野生苦苓樹，在荒涼的現代化工地中顯得格格不入。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：承（春意盎然・紫霧生機）</div>
+            <div class="text-slate-600 text-xs mt-0.5">春天來臨，苦苓樹無視即將降臨的厄運，昂然抽發新綠，繼而爆發出繁密如煙雲的淡紫色碎花，香氣隨風飄散，吸引了無數蜜蜂與野鳥前來棲息歌唱。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：轉（資本計算・冷酷宣判）</div>
+            <div class="text-slate-600 text-xs mt-0.5">土地開發商與地政人員前來勘驗地界，在以坪數與鋼筋水泥計價的經濟眼光中，這株孕育無數生靈的大樹只是一個「妨礙施工的障礙物」，「反正不會為了一株樹而停工」。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：合（生命尊嚴・無聲抵抗）</div>
+            <div class="text-slate-600 text-xs mt-0.5">在怪手即將揮臂開挖的前夕，大樹依舊靜默佇立，落英如雨。作者以深沉的筆觸向這株樹致敬，寫下人類文明在無度貪婪擴張下，對土地根柢最令人心痛的失落。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">文章中的苦苓樹生長在怎樣的環境中？春天時展現出怎樣的生命景象？周遭的土地開發商與工程人員對待這株樹的態度是什麼？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">王家祥如何運用「強烈對比」（如怪手鋼鐵轟鳴 vs. 紫花柔弱幽香、千萬元土地利益 vs. 一株老樹的生命尊嚴）來深化文章的批判張力？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">「反正不會為了一株苦苓樹」這句話反映了現代社會怎樣的思維盲點？當都市更新與經濟發展不可逆時，我們如何透過永續思維為自然保留一片喘息的空間？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">苦苓</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄎㄨˇ ㄌㄧㄥˊ</td>
+          <td class="py-2 px-3">苦楝樹的閩南語俗稱。臺灣常見原生落葉喬木，春季開滿淡紫色芬芳小花，秋季葉落並結黃色果實（苦楝子）。例：廢土堆上生長著一株苦苓樹。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">轟鳴</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄏㄨㄥ ㄇㄧㄥˊ</td>
+          <td class="py-2 px-3">巨大沉重而連續不斷的轟隆聲響。例：「推土機在塵土中發出沉重的轟鳴」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">掣肘</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄔㄜˋ ㄓㄡˇ</td>
+          <td class="py-2 px-3">拉住別人的手肘，比喻從旁牽制阻礙、使人難以順利行事。掣，音ㄔㄜˋ。例：開發商深恐生態團體的抗議會掣肘工程進度。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">落英</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄌㄨㄛˋ ㄧㄥ</td>
+          <td class="py-2 px-3">飄落的花瓣。英，花。例：「落英如雨，覆蓋了冰冷的施工警示帶」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">格格不入</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄍㄜˊ ㄍㄜˊ ㄅㄨˋ ㄖㄨˋ</td>
+          <td class="py-2 px-3">形容彼此抵觸阻隔、互不協調融洽。例：大樹蓬勃的生命力與四周灰暗的鋼筋水泥格格不入。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">喟嘆</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄎㄨㄟˋ ㄊㄢˋ</td>
+          <td class="py-2 px-3">長聲嘆息。喟，音ㄎㄨㄟˋ。例：目睹大樹即將被伐，作者心中發出深沉的喟嘆。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：推土機轟鳴下的土地嘆息——現代化工程巨輪與自然生命記憶的衝突寓言</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/13ulRUzngHypaF-Li9jvNnXeuX3cLiopk/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/13ulRUzngHypaF-Li9jvNnXeuX3cLiopk/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服三和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>單元實作任務一：校園老樹生態檔案與擬人獨白卡</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">走進三民家商校園，挑選一株常年陪伴師生的老樹（如菩提樹、榕樹或黑板樹），進行實地樹種特徵觀察與素描；以第一人稱「樹的獨白」撰寫一段 200 字微散文，訴說它看見的校園歲月與人倫記憶。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>單元實作任務二：經濟開發 vs. 生態保育角色模擬公聽會</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">模擬一場「城市綠帶老樹保留與科技園區擴建」的公聽會，分組扮演「建設局官員、環保倡議者、在地居民與土地開發商」，依據文本中的論點與現代《森林法／樹木保護自治條例》，撰寫各自立場的發言綱要。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

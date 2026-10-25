@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B4 專題任務 第二次段考寫作專題：不完美中的完美 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "審題立意・核心辨析", "text": "寫作題目「不完美中的完美」，下列哪一種立意方向最能展現深刻的思想維度？", "options": [{"key": "A", "text": "通篇抱怨自己運氣不好，考試題目太難，所以自己的人生完全不完美"}, {"key": "B", "text": "透過一次具體的挫折或缺陷（不完美），誠實描寫內心的痛苦掙扎，最終在接納與體悟中發現缺口所帶來的成長、同理心與獨特價值（完美）"}, {"key": "C", "text": "宣稱自己從小到大每一件事都拿一百分，自己從來沒有任何不完美"}, {"key": "D", "text": "通篇抄錄名人名言，完全不寫任何自己的經歷"}], "answer": "B", "explanation": "好的思辨散文貴在「真實」與「昇華」。不完美是客觀現實，完美則是主觀認知與意義賦予的超越，兩者形成強大張力。"}, {"id": 2, "category": "材料剪裁・細節刻畫", "text": "在描述「不完美」的具體事件時，下列何種寫作策略最能避免流於「千篇一律吐苦水」的俗套？", "options": [{"key": "A", "text": "不斷重複使用「我很傷心、我非常難過、大家都對不起我」等抽象大詞"}, {"key": "B", "text": "選取極具代表性的具體微物細節（如一條歪斜拆了五次的車縫線、一雙長滿老繭破皮的手指），透過動態白描呈現內在心理壓迫感"}, {"key": "C", "text": "把生活中的每一件小倒楣事從早到晚流水帳全部列出"}, {"key": "D", "text": "直接借抄同桌同學的真實故事"}], "answer": "B", "explanation": "細節是散文的靈魂。藉由具體微物與感官動作的刻畫，能讓讀者直接共感其挫折情境，而非被動接受情緒勒索。"}, {"id": 3, "category": "修辭象徵・意象營造", "text": "加拿大詩人歌手李歐納・柯恩（Leonard Cohen）名句「萬物皆有裂痕，那是光照進來的地方」，在《不完美中的完美》寫作中可發揮何種功能？", "options": [{"key": "A", "text": "說明建築物防震係數不足，必須重新灌漿"}, {"key": "B", "text": "作為精闢的金句點睛，象徵生命中的缺口與創傷正是讓我們學會謙卑、同理並接納溫暖的關鍵契機"}, {"key": "C", "text": "批評玻璃工廠的製造技術太差"}, {"key": "D", "text": "鼓勵大家破壞家裡的牆壁以增加採光"}], "answer": "B", "explanation": "「裂痕」與「光」形成極美妙的視覺反差，將負面的殘缺轉化為正面希望與溫度的入口，極具哲思震撼力。"}, {"id": 4, "category": "跨領域美學・服飾文化", "text": "三民家商服裝科同學在論述「不完美中的完美」時，引用服裝設計中的「解構主義（Deconstruction）」理念，其最能闡發何種哲思？", "options": [{"key": "A", "text": "把衣服故意剪成碎布條丟掉，展現暴躁脾氣"}, {"key": "B", "text": "打破傳統對稱、平整與精確的僵化標準，露出粗糙毛邊、未完成線頭或非對稱輪廓，展現真實而前衛的生命活力"}, {"key": "C", "text": "證明設計師偷工減料，可以賣更便宜的價錢"}, {"key": "D", "text": "穿破爛的衣服上學可以節省洗衣服的時間"}], "answer": "B", "explanation": "解構主義正是對「刻板完美」的革命。在殘破與未完成中尋找新的秩序與審美張力，與本課主旨完美契合。"}, {"id": 5, "category": "後設認知・自我評量", "text": "在段考寫作自我後設整理活動中，老師請同學進行「二次覆盤修訂」，其最主要的教育價值為何？", "options": [{"key": "A", "text": "為了懲罰第一次考試寫得不好的同學"}, {"key": "B", "text": "透過拉開時間距離客觀審視自己的思維盲點，學會從讀者視角修剪贅詞、強化論點結構，培養終身受用的寫作監控能力"}, {"key": "C", "text": "為了讓國文老師有更多作業可以批改打成績"}, {"key": "D", "text": "用來與同學比較誰被扣的分數比較多"}], "answer": "B", "explanation": "後設認知的核心在於「監控與調控」。透過考後自我覆盤，寫作者能從被動受試者躍升為主動的文字雕刻師。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B4 專題任務</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">應用文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【表達】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【價值】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【風格】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 哲學思辨與自我定位（脆弱的力量、自我悅納與生命敘事）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        第二次段考寫作專題：不完美中的完美
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當我們在專業實習或生命歷程中遭遇失誤、缺陷與挫敗時，我們如何透過書寫的凝視，在不完美中提煉出獨一無二的深刻力量？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">審題立意・材料剪裁・情感提煉・後設反思</div>
+          <div class="text-xs text-slate-500 mt-1">破除「空洞正能量」與「千篇一律吐苦水」之寫作盲點；以審題核心（從自身經歷失敗中找到意義）引導發想十面向；落實段考寫作後設整理單自我覆盤。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服二和）：在服裝設計中，日本『侘寂（Wabi-Sabi）』美學正是讚頌不對稱、破損與歲月痕跡的不完美之美。引導服二和同學將服裝立裁失誤或布料毛邊瑕疵轉化為解構主義（Deconstruction）風格，在作文中展現專業素養與人生哲學之深層融合。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 4-V-1 運用多元表意方式，進行自我反思與生命敘事, 5-V-2 統整各類文本資訊，提出個人多元觀點, 6-V-1 體會文化與生活之關聯，深化人文關懷與美感素養</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-1 篇章的敘事手法, Bb-V-1 情志的抒發與省思, Ca-V-1 生命哲學與美學文化認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-B1 符號運用與溝通表達, 國V-U-C1 個人成長與生涯規劃</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">三民家商國文教學團隊引導</strong>：三民家商國文科在第二次段考後，針對全校技高二年級同學所設計之高階後設寫作專題。跳脫傳統作文只給分數不給鷹架的單向批改模式，由一軒老師親自帶領學生展開「寫作自我後設整理」：從審題（不完美是什麼？完美是什麼？）、立意（兩者的辯證關係）到十個具體發想切面（容貌焦慮、工藝挫折、家庭缺口、人際摩擦等），引導學生寫出不落俗套、真情流露的優秀範文。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 課堂教學脈絡：一軒老師的寫作後設整理鷹架</div>
+              <p>一軒老師在簡報中特別以『段考寫作專題後設學習──不完美中的完美』為引導，破除學生寫作常見的『千篇一律吐苦水』或『空洞口號正能量』兩大盲點。引導服二和同學向內挖掘自身真實生命經驗，從課堂手寫整理單出發，建立審題核心（透過自身經歷從失敗中找到意義）與立意十面向發想點，讓文字兼具真誠感性與深刻哲思。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：透過段考作文後的自我後設梳理，引導學生直面成長中的脆弱與失落，將客觀的挫敗轉化為滋養心靈的肥沃養分，在接納缺陷中體現最高境界的成熟與包容。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：痛點診斷・破除平庸</div>
+            <div class="text-slate-600 text-xs mt-0.5">剖析段考作文常見盲點：平鋪直敘流水帳、通篇抱怨發牢騷、空洞背誦勵志金句。指出好文章始於「敢於直面真實的脆弱」。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：審題立意・核心拆解</div>
+            <div class="text-slate-600 text-xs mt-0.5">深度拆解題目：「不完美」是客觀的裂痕與現實的局限，「完美」則是精神的超越與意義的賦予；兩者非非此即彼，而是辯證共生。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：十維發想・生活取材</div>
+            <div class="text-slate-600 text-xs mt-0.5">提供十面向取材支架：體育競賽之惜敗、服裝剪裁之瑕疵、人際摩擦之和解、家庭缺憾之包容等，引導學生鎖定具體細節。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：後設覆盤・升級重構</div>
+            <div class="text-slate-600 text-xs mt-0.5">填寫個人化後設寫作診斷表，針對自己的段考文章進行二次修訂與昇華，確立兼具文學美感與思辨厚度之寫作素養。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">在「不完美中的完美」題目中，「不完美」與「完美」各指涉何種具體或精神層面的涵義？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何透過「由具體事件（不完美）切入➔內心掙扎與轉折➔感悟沉澱（昇華為完美）」的四段推進結構，使文章情感真摯且富含哲理？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">為什麼學會「後設寫作反思」比單純在考試中拿高分更重要？它如何促進技術高中學生在往後生涯中形成自我修正與療癒的韌性？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">侘寂</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄔㄚˋ ㄐㄧˋ</td>
+          <td class="py-2 px-3">源自日本的美學概念（Wabi-Sabi），主張在不完整、殘缺、簡樸與歲月痕跡中欣賞純粹的生命之美。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">後設學習</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄏㄡˋ ㄕㄜˋ ㄒㄩㄝˊ ㄒㄧˊ</td>
+          <td class="py-2 px-3">在完成一項學習任務後，回過頭來檢視自己的思考過程、盲點與改進策略的學習方法。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">審題立意</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄕㄣˇ ㄊㄧˊ ㄌㄧˋ ㄧˋ</td>
+          <td class="py-2 px-3">寫作時仔細分析題目的核心內涵與限制條件，進而確立文章的主旨靈魂與思想深度。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">浮誇</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄈㄨˊ ㄎㄨㄚ</td>
+          <td class="py-2 px-3">虛浮不實、誇大其詞。常用以指稱作文中脫離真實感受的空洞辭藻。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">包容</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄅㄠ ㄖㄨㄥˊ</td>
+          <td class="py-2 px-3">寬容涵納。指以寬闊豁達的胸襟接納自身與他人的缺點與不完美。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：生命敘事與後設學習——接納瑕疵與脆弱，在裂隙中照見生命微光</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/1D4HLGhp7Go1a5LNll0uoY47Hm9VNMtfs6ZYzDJ7WaMg/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/1D4HLGhp7Go1a5LNll0uoY47Hm9VNMtfs6ZYzDJ7WaMg/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：114-2-2 寫作專題自我後設整理學習單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據段考寫作真實回饋單：①審題核心梳理（不完美的情境 vs 體會到的完美）；②檢視立意十面向發想點；③自我批改盲點（是否流於空泛抱怨？是否有具體情節支撐？論點是否能遷移昇華？）。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：段考作文二次升級寫作——我的瑕疵與光芒</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據自我檢討反思，挑選段考原稿中最關鍵的一個段落進行精雕細琢重寫，運用客觀對應物（如一件縫偏的衣領、一把磨損的尺）作為象徵，產出 500 字升級版美文。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B3 第 05 課 散戲 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": "b3-l05-q1", "category": "字詞音義", "text": "下列文句「」中的字音，何者標示完全正確？", "options": [{"key": "A", "text": "僅剩的那一點餘光照在他「佝僂」的身上：ㄍㄡ ㄌㄡˊ"}, {"key": "B", "text": "大家在後台互相挑「剔」：ㄊㄧˋ"}, {"key": "C", "text": "把身上的衣服拉「攏」合緊：ㄌㄨㄥˊ"}, {"key": "D", "text": "「晃」眼間天色已暗：ㄏㄨㄤˋ"}], "answer": "A", "explanation": "正解為 A。B 挑「剔」音ㄊㄧ；C 拉「攏」音ㄌㄨㄥˇ；D 「晃」眼音ㄏㄨㄤˇ。"}, {"id": "b3-l05-q2", "category": "人物心理", "text": "小說中秀潔憤怒指責阿旺嫂演戲草率，而阿旺嫂反駁：「沒有觀眾，大家都沒有精神。」這場後台衝突本質上反映了什麼矛盾？", "options": [{"key": "A", "text": "兩位主要旦角為了爭奪戲班女主角頭牌地位的私怨"}, {"key": "B", "text": "傳統職人對藝術尊嚴的純粹堅持與農村家庭生計生存邏輯的碰撞"}, {"key": "C", "text": "新舊戲班團員對於戲金酬勞分配不公的利益爭端"}, {"key": "D", "text": "劇團管理階層與基層臨時演員之間的權力對立"}], "answer": "B", "explanation": "正解為 B。秀潔代表的是對傳統戲曲藝術的崇敬與職人尊嚴（戲大於天），阿旺嫂則代表了向現實生存與母職顧家妥協的普通農村婦女，兩人的衝突深刻映射出民間藝術在沒落年代的生存困局。"}, {"id": "b3-l05-q3", "category": "象徵手法", "text": "小說多次描寫金發伯「木然抽著紙菸，菸頭上一閃一滅的火光」，此處意象具有何種象徵意涵？", "options": [{"key": "A", "text": "象徵金發伯性格暴躁，即將對團員大發雷霆"}, {"key": "B", "text": "象徵傳統歌仔戲如風中殘燭，在希望與幻滅間無奈掙扎的滄桑心境"}, {"key": "C", "text": "暗示廟前廣場光線充足，劇團演出即將迎來轉機"}, {"key": "D", "text": "單純描寫農村老人休閒嗜好，無特殊文學寄託"}], "answer": "B", "explanation": "正解為 B。在漸暗的天色中，一閃一滅的微弱火光映照著金發伯蒼老頹喪的身影，恰如玉山歌劇團乃至整個臺灣野臺歌仔戲文化在時代風暴中微弱掙扎、終將熄滅的命運象徵。"}, {"id": "b3-l05-q4", "category": "小說結局", "text": "小說末尾，金發伯刻意講笑話讓大家哈哈大笑鬧成一團，而秀潔卻轉頭看著「猶未燃燈的單薄的戲臺，便在她的眼中逐漸模糊起來」。作者運用這種結尾筆法的作用為何？", "options": [{"key": "A", "text": "以喜襯悲，藉由旁人表面的喧鬧嬉笑，更加襯托出主角內心深入骨髓的悲涼與淚水"}, {"key": "B", "text": "暗示戲團散戲後大家將各奔前程，迎接更美好的現代生活"}, {"key": "C", "text": "表明金發伯已經走出悲傷，打算隔天另組現代歌舞團"}, {"key": "D", "text": "說明秀潔視力退化，無法看清戲台佈景"}], "answer": "A", "explanation": "正解為 A。此為經典的「以樂景寫哀，以喜襯悲」手法。團員們狂放無奈的哄笑，反而更加凸顯出金發伯與秀潔這兩位真正熱愛戲曲者的無告悲哀；單薄戲台在淚眼中模糊，象徵一個輝煌民間藝術時代的終結。"}, {"id": "b3-l05-q5", "category": "統測焦點", "text": "下列文句何者具有「以具體感官細節表現抽象心靈感受」的摹寫效果？", "options": [{"key": "A", "text": "今天的天氣相當晴朗，廟前廣場風和日麗"}, {"key": "B", "text": "紙菸上那一點火光在他臉上一閃一滅，那蒼老憂鬱而頹喪的神情便一下子鮮明起來"}, {"key": "C", "text": "散戲之後，大家都收拾好自己的行李準備離開"}, {"key": "D", "text": "歌仔戲是臺灣相當重要且普及的傳統民間戲曲種類"}], "answer": "B", "explanation": "正解為 B。透過視覺焦點「紙菸上一閃一滅的火光」之微距特寫，映現出金發伯臉部陰影中的蒼老、憂鬱與頹喪，將抽象的心理悲哀具象化。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B3 第 05 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">記敘文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【人物】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【情境】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【選擇】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【轉化】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 個人與文化表達 × 認同與轉變</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        散戲
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當時代巨輪淘洗掉傳統民間藝術，置身其中的職人如何在「尊嚴堅持」與「生存現實」之間安頓自我？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">角色衝突剖析・雙線敘事解讀・虛實意象鑑賞</div>
+          <div class="text-xs text-slate-500 mt-1">梳理《秦香蓮》戲曲原型與角色映射，剖析舞台藝術與現實生計的三層衝突，鑑賞戲裡戲外的虛實交織</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（傳統戲曲行頭考究與當代舞台服裝創新）：探討歌仔戲傳統戲服（水袖、蟒袍、靠子、雲肩、盔頭、臉譜彩繪）的工藝美學與穿戴符號；對比野臺戲在 1970 年代受電影、電視衝擊時戲服日漸粗糙單薄的歷史轉折，引導學生思考傳統刺繡與華麗戲服工藝如何透過現代時尚走秀、微距視角與當代成衣跨界再生。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2, 2-V-2, 5-V-2, 6-V-2</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ba-V-1 記敘的元素, Ba-V-2 敘述方式, Ba-V-3 摹寫手法, Ca-V-1 物質文化認知, Cc-V-2 人文藝術精神認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-B3 藝術涵養與美感素養, 國V-U-C2 人際關係與團隊合作</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">洪醒夫</strong>：洪醒夫（1949～1982），本名洪媽從，臺灣彰化二林人。臺中師專畢業，長期任教於臺中縣神岡鄉社口國小。出身農村，作品深刻關注臺灣底層農民、民間藝人與勞動小人物的生活苦難與生命韌性，筆觸質樸誠懇、哀矜而動人。曾獲聯合報、中國時報小說獎。1982 年因車禍不幸逝世，年僅三十三歲。代表作有小說集《黑面慶仔》、《市井傳奇》、《田莊人》等。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 鄉土文學守護者與說真話的氣魄</div>
+              <p>洪醒夫被譽為「臺灣鄉土文學最忠誠的守護者」。他曾自述：「一個寫作的人，必須有說真實話的氣魄，在漫漫長夜中受盡折磨，依然堅信生活。人要真實，活得實在，才能活得無悔。」〈散戲〉為其榮獲聯合報小說獎之代表作，深刻記錄了臺灣農村野臺歌仔戲被現代影音娛樂取代的歷史悲情。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：本文透過玉山歌劇團在鄉村廟會演出的最後一場野臺戲，描寫台下空無一人的淒涼景象，以及後台主角秀潔與團員、團長金發伯之間的爭執與對話。以「戲裡角色（鍘美案、岳飛）」與「戲外人生（失業、改行賣唱或做工）」的虛實雙線交織，展現傳統民間藝人在時代浪潮衝擊下不甘隨波逐流的職業尊嚴與無可奈何的深沉悲哀。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 1 幕【起・台下冷清與後台爭執】</div>
+            <div class="text-slate-600 text-xs mt-0.5">玉山歌劇團在廟前演出《鍘美案》，台下寥寥十幾人；秦香蓮（阿旺嫂）未依劇本哭鬧便草草下台餵奶，引發飾演陳世美的秀潔強烈憤懣，兩人爆發激辯。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 2 幕【承・昔日繁華與今昔對比】</div>
+            <div class="text-slate-600 text-xs mt-0.5">秀潔在後台回憶起「玉山」全盛時期的風光體面——亭閣山水活動佈景裝滿大卡車，團員享有崇高尊嚴；對照今日觀眾散盡、流行歌曲廉價競爭、團員各謀出路的蕭條落寞。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 3 幕【轉・團長宣告散戲】</div>
+            <div class="text-slate-600 text-xs mt-0.5">團長金發伯在暗影中現身，宣布今晚演完最後一齣大戲〈十二道金牌〉後劇團正式解散，要大家「不管有沒有人看，認認真真演一場好戲」。秀潔震動哀痛，金發伯佝僂身影與一閃一滅的紙菸火光烙印人心。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 4 幕【合・以喜襯悲的苦笑收場】</div>
+            <div class="text-slate-600 text-xs mt-0.5">金發伯故意講笑話打破凝重，團員們哈哈大笑鬧成一團；秀潔抑制內心激動，轉頭凝望天色剛暗、猶未燃燈的單薄戲台，在淚眼模糊中見證了一個時代的落幕。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">秀潔為什麼對阿旺嫂草草下台餵奶如此憤怒？金發伯宣布劇團即將解散時，要求團員最後一場戲要怎麼演？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">小說如何透過「雙線交織」（戲台上包公陳世美的忠奸對峙 vs 戲台下團員為生計奔波的妥協）與「以喜襯悲」（團員最後狂暴的哄笑 vs 秀潔淚眼中模糊單薄的戲台）強化悲劇張力？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">面對傳統歌仔戲的沒落，阿旺嫂選擇生存顧家，秀潔堅持職業尊嚴，金發伯在掙扎後選擇解散。在當代快速變遷的文化產業中，你如何看待這三種不同的生命抉擇？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">佝僂</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄍㄡ ㄌㄡˊ</td>
+          <td class="py-2 px-3">脊背彎曲。例句：僅剩的那一點餘光照在他「佝僂」的身上，竟顯出他的單薄來。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">光景</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄍㄨㄤ ㄐㄧㄥˇ</td>
+          <td class="py-2 px-3">此處指境況、情形。例句：大家回憶起當年在戲班風光走紅的「光景」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">攏</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄌㄨㄥˇ</td>
+          <td class="py-2 px-3">聚攏、靠攏。例句：秀潔把身上的戲服拉「攏」緊貼著身體。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">晃蕩</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄏㄨㄤˋ ㄉㄤˋ</td>
+          <td class="py-2 px-3">搖晃擺動，形容步履遲緩無神。例句：他慢吞吞地「晃蕩」走回後台。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">挑剔</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄊㄧㄠ ㄊㄧ</td>
+          <td class="py-2 px-3">在細節上過分嚴苛苛責。例句：阿旺嫂覺得秀潔是在雞蛋裡「挑剔」骨頭。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：衝突中的角色與戲劇人生——洪醒夫筆下時代變遷與小人物的尊嚴</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1xK1NrnDg-UNkFCAmjBtH9M3yIdR2geobNVF6-BjHHRM/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1xK1NrnDg-UNkFCAmjBtH9M3yIdR2geobNVF6-BjHHRM/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：戲中戲情節搜索與角色演員對照單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">網路搜尋《秦香蓮》與《鍘美案》主要劇情，整理玉山歌仔戲團台上角色（秦香蓮、岳飛）與台下真實演員（秀潔、金發伯、阿旺嫂）之身分對照。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：人物關係圖整理與 3 分鐘說故事錄音發表</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">梳理人物態度、關係與情節走向，繪製人物關係圖；每位同學練習透過人物說〈散戲〉的故事，錄製 3 分鐘音檔上傳表單。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">03</span>
+            <span>任務三：三大衝突層次與雙線交織敘事剖析</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">深入剖析：1. 面對自我的衝突（秀潔之自尊）；2. 人與人的衝突（秀潔 vs. 阿旺嫂；金發伯唱流行歌之妥協）；3. 人與環境的衝突（野台戲沒落，理想 vs. 現實的掙扎）。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

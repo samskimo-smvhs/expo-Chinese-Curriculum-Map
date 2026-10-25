@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B3 第 07 課 結核 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": "b3-l07-q1", "category": "字詞音義", "text": "下列文句「」中的字詞音義，何者標示完全正確？", "options": [{"key": "A", "text": "肺「結核」病：ㄐㄧㄝˊ ㄎㄜˊ，咳嗽的痰液"}, {"key": "B", "text": "病菌「潛伏」體內：ㄑㄧㄢˊ ㄈㄨˊ，隱藏埋伏"}, {"key": "C", "text": "白袍上的「褶」痕：ㄓㄜˇ，破爛破損"}, {"key": "D", "text": "病容氣息「懨懨」：ㄧㄢˋ ㄧㄢˋ，大口喘氣"}], "answer": "B", "explanation": "正解為 B。A 結「核」音ㄏㄜˊ；C 「褶」痕音ㄓㄜˊ，指衣物摺疊折痕；D 「懨懨」音ㄧㄢ ㄧㄢ，形容病弱無力委靡之態。"}, {"id": "b3-l07-q2", "category": "寫作手法", "text": "課文開頭提及文人常將肺結核視為「詩意的疾病」，甚至聯想到濟慈、蕭邦與卡夫卡，作者緊接著描寫顯微鏡下烤乾膿液的真實情境。這種寫法具有何種修辭用意？", "options": [{"key": "A", "text": "論證藝術家比一般人更容易罹患傳染病"}, {"key": "B", "text": "透過破除文人的浪漫化幻想，以醫學臨床的真實感官震撼讀者，直視疾病的殘酷本質"}, {"key": "C", "text": "強調歐洲古典文學與浪漫主義對現代醫學的深遠貢獻"}, {"key": "D", "text": "批評古代文人缺乏基本的細菌傳染病學知識"}], "answer": "B", "explanation": "正解為 B。作者以強烈的反襯對比，將文化浪漫幻想中的「憂鬱消瘦病容」拉回現實臨床中令人窒息的不潔膿液與致命細菌，確立文章冷靜寫實的醫學人文視角。"}, {"id": "b3-l07-q3", "category": "文意推論", "text": "作者在非洲史瓦濟蘭服務時，寫道：「不知是否感染，不知何時會來。結核菌不曾被消滅……但是想歸想，幫病人急救插管時，結核的恐懼又被拋在腦後了。」這段話展現了醫護人員何種精神風貌？", "options": [{"key": "A", "text": "醫護人員天生毫無恐懼感，視死如歸"}, {"key": "B", "text": "面對感染的真實恐懼是人性本能，但在搶救生命的關鍵時刻，崇高的專業職責超越了個人安危"}, {"key": "C", "text": "非洲的醫療設備足以百分之百消除所有感染風險"}, {"key": "D", "text": "醫護人員因工作過度疲勞而產生知覺麻木"}], "answer": "B", "explanation": "正解為 B。作者坦承醫護人員並非無堅不摧的超人，同樣有「下一個會不會是我自己」的脆弱與恐懼，然而在臨床搶救病人的生死瞬間，專業素養與人道慈悲壓倒了恐懼，更加彰顯其偉大。"}, {"id": "b3-l07-q4", "category": "篇章主旨", "text": "綜觀全文，阿布在〈結核〉中試圖傳達的核心精神為何？", "options": [{"key": "A", "text": "呼籲各國應嚴格隔離並驅逐結核病患以自保"}, {"key": "B", "text": "在科學理性與病理知識之上，注入對生命苦難的深層同理，體認醫護專業在恐懼中的堅守與溫柔"}, {"key": "C", "text": "論證現代抗生素藥物研發已徹底終結結核病"}, {"key": "D", "text": "分享海外替代役旅遊見聞與異國風土人情"}], "answer": "B", "explanation": "正解為 B。文章跨越實驗室、臺灣負壓隔離病房與非洲前線，深刻描摹人類與傳染病漫長搏鬥的歷史，最終昇華至醫護人員超越恐懼、守護人性尊嚴的醫者慈悲。"}, {"id": "b3-l07-q5", "category": "生活素養", "text": "面對社會上對於慢性傳染病（如結核病或 COVID-19 康復者）常見的標籤化與恐懼排斥，依據本文精神，最適當的公民態度為何？", "options": [{"key": "A", "text": "對所有疑似病患採取全面封鎖與斷絕往來"}, {"key": "B", "text": "以科學知識理性防護，破除無謂污名與恐懼，給予患者與一線醫護支持與同理"}, {"key": "C", "text": "忽視一切傳染風險，不作任何防護措施"}, {"key": "D", "text": "僅依賴宗教祈禱，排斥正規醫療介入"}], "answer": "B", "explanation": "正解為 B。正如課堂討論所引導的，正確認識傳染途徑、做好科學防護，同時不將疾病道德化、不歧視病患與基層醫護，才是現代成熟公民應具備的素養。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B3 第 07 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">記敘文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【情境】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【因果】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【關係】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【轉化】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 科學與技術創新 × 全球化、可持續性與公共衛生</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        結核
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當面對看不見卻致命的微小病菌時，人類本能的恐懼如何被專業責任所昇華？醫護人員如何在自保防衛與人道關懷之間取得平衡？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">病理修辭鑑賞・醫護倫理思辨・跨文化醫療觀察</div>
+          <div class="text-xs text-slate-500 mt-1">解讀醫學顯微鏡下的形象化修辭，剖析負壓隔離病房與史瓦濟蘭前線醫護的恐懼與堅守，體會醫療專業的人性溫度</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（醫療防護服裝與智能機能織物設計）：從結核病氣溶膠飛沫防護（N95 口罩密封性、負壓隔離衣貼合與透氣）出發，探討高機能性醫療紡織面料（無紡布、高密度防水透濕微孔膜、抗菌纖維）在不同醫療防護等級中的結構原理；引導學生思考在重大疫情爆發時，設計師如何兼顧高階防護力、醫護長期穿著舒適度與人體工學動態摺襇剪裁。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2, 2-V-1, 5-V-2, 5-V-3, 6-V-3</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ba-V-3 摹寫手法, Bb-V-1 情志的抒發與省思, Bc-V-1 理路的安排, Ca-V-1 物質文化認知, Cb-V-1 制度風俗認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-B2 科技資訊與媒體素養, 國V-U-C1 道德實踐與公民意識</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">阿布</strong>：阿布（1986～），本名劉峻豪，臺灣臺中人。長庚大學醫學系畢業，國立東華大學華文文學研究所碩士。曾以醫學替代役資格加入臺灣駐史瓦濟蘭海外醫療團服務，現為精神科專科醫師。阿布兼具醫師與作家雙重身分，擅長以高度詩意與精微的手術刀式筆觸，剖析現代醫療現場的死生悲歡、疾病隱喻與人性深淵。曾獲聯合報文學獎、時報文學獎、教育部文藝創作獎等，著有散文集《實習醫生的祕密手記》、《說話的樹》、《太陽的橫切面》及詩集《頻率》。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 白袍下的文學眼：史瓦濟蘭前線與精神科診間</div>
+              <p>阿布的作品打破了傳統醫學衛教散文的單向說理，將病理學的枯燥名詞轉化為充滿現代詩感的語言意象。在史瓦濟蘭的異國行醫經驗，更讓他跳脫臺灣優渥醫療體制的同溫層，在資源極度匱乏的非洲前線見證人類與傳染病最原始的搏鬥。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：本文透過作者從醫學院實驗室的顯微鏡玻片染色、臺灣大型醫院負壓隔離病房見習，再到遠赴非洲史瓦濟蘭參與海外醫療的親身歷程，記錄結核病貫穿人類文明數千年的恐怖陰影。作者透過細膩形象化的修辭，描繪病菌帶來的本能恐懼與醫護人員在恐懼中依然堅守崗位的人道實踐，展現出洗鍊成熟的醫者慈悲與專業自覺。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 1 幕【起・玻片上的封印】</div>
+            <div class="text-slate-600 text-xs mt-0.5">從醫學院病理課切入，破除文人對肺結核「詩意消瘦」的浪漫幻想，以形象化語言描述在玻片上用打火機烤乾膿液、抗酸染色將「張牙舞爪的惡魔病菌」封印為浮雕圖騰。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 2 幕【承・隔離病房的戒懼】</div>
+            <div class="text-slate-600 text-xs mt-0.5">描述在臺灣教學醫院見習時初次接觸開放性結核病患，負壓隔離病房厚重的大門、嚴密佩戴 N95 口罩的窒息感，以及資深護理師面對重症咳血時凝重而熟練的防護警覺。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 3 幕【轉・史瓦濟蘭的孤島前線】</div>
+            <div class="text-slate-600 text-xs mt-0.5">視野跨越至非洲史瓦濟蘭，面對資源極度匱乏、艾滋病與結核病雙重夾擊的絕境。目睹同事接連被感染的恐慌，探問在無援的疾病長河中「下一個會不會是我自己？」。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第 4 幕【合・恐懼後的專業堅守】</div>
+            <div class="text-slate-600 text-xs mt-0.5">反思醫護人員在直面死生威脅時，雖然恐懼從未消逝，但在搶救生命、插管急救的當下，恐懼早已被更高的專業使命拋在腦後，體悟醫者在殘酷現實中綻放的人性光芒。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">歷史上曾有哪些文豪藝術家（如濟慈、蕭邦、卡夫卡）罹患肺結核？作者在實驗室是如何將腫塊抽出的膿液染色固定在玻片上的？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何運用「反浪漫化」的手法（對比文人詩意的幻想 vs 顯微鏡下真實的惡魔膿液與消瘦病體）與「意象化修辭」（將染色病菌比喻為透明圖騰、惡魔魔法消失），讓專業醫學知識兼具文學感染力？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">面對高傳染性疾病，人性的自我保護是本能，但醫護人員卻必須逆行迎向病患。課堂簡報探討「若是你身邊有人罹患類似慢性傳染病，你該如何與他們相處？」。這引發了怎樣的同理心與公共衛生素養反思？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">結核</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄐㄧㄝˊ ㄏㄜˊ</td>
+          <td class="py-2 px-3">由結核桿菌引起的一種慢性傳染病，常侵犯肺部。核，音ㄏㄜˊ。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">潛伏</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄑㄧㄢˊ ㄈㄨˊ</td>
+          <td class="py-2 px-3">隱藏埋伏，不露形跡。例句：張牙舞爪的結核病菌長年「潛伏」在體內。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">褶襇</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓㄜˊ ㄐㄧㄢˇ</td>
+          <td class="py-2 px-3">衣服上的褶痕、皺紋。褶，音ㄓㄜˊ。例句：防護服的「褶襇」深處需格外留意消毒。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">熠熠</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧˋ ㄧˋ</td>
+          <td class="py-2 px-3">光彩閃耀的樣子。例句：在暗室燈光下，「熠熠」閃爍著微光。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">懨懨</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧㄢ ㄧㄢ</td>
+          <td class="py-2 px-3">精神委靡、病弱無力的樣子。例句：病人病容枯槁，氣息「懨懨」。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：疾病下的醫護處境與責任——阿布的醫學現場觀察與生命反思</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1mRsqorjWDcD1xJ-2A2aWPwShqj0hI56O5Rs0nLjTrzo/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1mRsqorjWDcD1xJ-2A2aWPwShqj0hI56O5Rs0nLjTrzo/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：傳染病歷史與個人疫情記憶回顧單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">對照 COVID-19（2019）、SARS（2003）與肺結核（新石器時代）之歷史長河，回顧個人疫情時期的求學生活與恐懼經驗。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：疾病雙重視角辨析——浪漫文學 vs. 顯微鏡真實</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">分析文學中肺結核的浪漫詩意想像（濟慈、蕭邦、卡夫卡）與醫學實驗室玻片火烤、染色後藍綠色草原古戰場中豔紅桿菌的殘酷現實。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">03</span>
+            <span>任務三：同理互動與醫護人員「巨噬細胞」宿命思辨</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">討論如何與慢性傳染病患者同理相處；反思醫護人員如同人體巨噬細胞，用一生將恐懼與威脅妥善包裹的崇高責任。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

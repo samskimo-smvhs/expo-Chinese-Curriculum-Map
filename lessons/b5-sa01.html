@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B5 自學1 自學專題1：如何享受尼克 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "結構鋪陳", "text": "劉大任在〈如何享受尼克〉開篇大費周章描寫芝加哥公牛隊（喬丹）與鳳凰城太陽隊（巴克萊），其在論證結構上的主要用意為何？", "options": [{"key": "A", "text": "作者暗中支持公牛隊，藉此貶低尼克隊的戰術落後"}, {"key": "B", "text": "以反面鋪陳作為對比襯托，突顯欣賞尼克隊需要超越表層華麗視覺、深入理解團隊鐵血防守的成熟門道"}, {"key": "C", "text": "因為作者不熟悉尼克隊隊員，只好先以熱門明星球員充塞篇幅"}, {"key": "D", "text": "說明NBA聯盟裁判偏袒明星球員，造成賽事不公"}], "answer": "B", "explanation": "公牛與太陽代表「外行看熱鬧、一秒嗨翻」的華麗進攻；作者以此為襯底，反襯出欣賞尼克隊必須懂得「內行看門道」，欣賞其不可見資產與沉穩防守。"}, {"id": 2, "category": "文意理解", "text": "文中將尤恩在禁區的價值區分為「Tangibles」與「Intangibles」。下列何者屬於「Intangibles」的範疇？", "options": [{"key": "A", "text": "每場平均24.9分的得分紀錄"}, {"key": "B", "text": "每場11.1個籃板與2.58次阻攻"}, {"key": "C", "text": "在油漆區築起防守高牆，讓對手切入時產生沉重心理壓迫與命中率下降的威懾力"}, {"key": "D", "text": "高達五成以上的投籃命中率"}], "answer": "C", "explanation": "A、B、D皆為可量化之統計數據（Tangibles）；C選項指的是表格上算不出來、但真實存在的心理威懾與防守影響力（Intangibles）。"}, {"id": 3, "category": "團隊哲學", "text": "文中提及尼克隊教練帕特・萊利的帶兵哲學與歐克利等人的防守風格，下列哪一句話最能代表其核心精神？", "options": [{"key": "A", "text": "進攻是最好的防守，投不進就靠運氣"}, {"key": "B", "text": "態度是運氣之母，防守與耐操韌性是穿過黑暗隧道的唯一憑藉"}, {"key": "C", "text": "只要有超級巨星一人單打，其餘球員旁觀即可"}, {"key": "D", "text": "為了勝利可以隨意放棄團隊紀律與體能訓練"}], "answer": "B", "explanation": "尼克隊代表的是藍領勞動者的堅毅哲學：不投機取巧、不賣弄花俏，憑藉無比嚴謹的防守態度與強悍韌性贏得勝利。"}, {"id": 4, "category": "詞彙運用", "text": "下列文句中的成語，何者使用最為恰當？", "options": [{"key": "A", "text": "防守球員緊緊貼防，兩人之間的距離真是「間不容髮」"}, {"key": "B", "text": "他身為球隊當家球星，在場上「越俎代庖」投進絕殺球"}, {"key": "C", "text": "這部電影劇情緊湊刺激，看得大家「目不暇給、間不容髮」"}, {"key": "D", "text": "他在團隊中默默付出，真可謂是「剛愎自用」的模範"}], "answer": "A", "explanation": "「間不容髮」形容距離極近或情勢極為緊迫，A選項貼合貼身防守情境；B應作挺身而出；C成語誤用；D「剛愎自用」為負面詞，應作「任勞任怨」。"}, {"id": 5, "category": "素養遷移", "text": "三民家商服裝科進行畢業成果展演專案製作時，下列哪一種做法最符合本文倡導的「尼克隊板凳深度哲學」？", "options": [{"key": "A", "text": "將所有經費與讚美全數集中於少數幾套主秀禮服，後勤工作任其自生自滅"}, {"key": "B", "text": "重視打版、車縫、整燙、燈光及替補人員的扎實訓練，建立全員互相補位的抗壓系統"}, {"key": "C", "text": "只挑選最受歡迎的組員擔任設計師，其餘組員不需參與任何檢視"}, {"key": "D", "text": "只要伸展台視覺華麗，即便布料車線脫落也不必在意"}], "answer": "B", "explanation": "板凳深度指的是扎實的後勤儲備與全員補位能力；在服裝專案中，健全的後勤技術與除錯系統正是展演成功的關鍵防線。"}, {"id": 6, "category": "知人論世", "text": "關於作家劉大任的文學創作風格與背景，下列敘述何者精確？", "options": [{"key": "A", "text": "早年投身保釣運動，作品兼具深沉政治反思與優雅冷峻的運動生活美學，為臺灣運動文學開拓先驅"}, {"key": "B", "text": "專事臺灣本土鄉土文學創作，畢生未曾離開臺灣土地"}, {"key": "C", "text": "以唯美言情小說聞名，作品多描寫都市男女的情愛糾葛"}, {"key": "D", "text": "純粹轉播NBA賽事之體育記者，從未涉足純文學創作"}], "answer": "A", "explanation": "劉大任為著名小說家與散文家，早年參與保釣，後任職聯合國；其運動散文將競技提升至人生哲理與生命美學層次，開創運動文學新境界。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B5 自學1</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">說明文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高三成熟期（應對自如）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【邏輯】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【組織】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【策略】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 個人和文化表達（運動文學美學、職人敬業精神與團隊生態學）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        自學專題1：如何享受尼克
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「在講求個人明星光環與亮麗數據的時代，那些不在舞臺正中央、負責防守、卡位與苦幹的「隱性貢獻者」，如何決定一個團隊的真正上限與生命韌性？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">團隊結構剖析・反面鋪陳辨析・隱性價值評估・跨界管理思辨</div>
+          <div class="text-xs text-slate-500 mt-1">分析劉大任以反襯手法對比公牛隊（喬丹）的空中飛人神話與尼克隊（尤恩）的禁區肉搏防守；解構可見數據（Tangibles）與隱性威脅（Intangibles）之邏輯關聯；引導技職青年將「甘草球員哲學」遷移至專案製作與職場協作。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服三和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服三和）：一場耀眼的服裝畢業展演，伸展台上的模特兒與設計師正如「公牛隊喬丹」，但幕後的立體剪裁除錯、壓線針車、整燙物料與燈光音響協調，正是支撐整場大秀不崩潰的「尼克隊防守基石」。引導服三和同學重新評估個人在團隊畢業展中的多元角色與後勤價值。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 2-V-2 依據不同場合與對象，運用適當的語彙與策略進行溝通、說服與評論, 5-V-2 結合生活經驗與專業知能，探究各類文本的意涵、價值與文化內涵, 6-V-3 體會科技、產業與社會之互動</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-2 篇章的組織與結構, Bc-V-1 理路的安排, Bc-V-2 客觀資料的輔助, Ca-V-1 當代生活物質文化認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A2 系統思考與解決問題, 國V-U-B1 符號運用與溝通表達, 國V-U-C2 人際關係與團隊合作</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">劉大任</strong>：劉大任（1939年－），臺灣當代小說家、散文家。江西永新人，生於江西，長於臺灣。國立臺灣大學哲學系畢業，後赴美留學，獲夏威夷大學政治學碩士，並曾於加州大學柏克萊分校攻讀博士。早年曾參與保釣運動，熱血執著。長年旅居美國紐約，曾任職於聯合國秘書處二十餘年。其文學創作兼具深沉的政治歷史反思與優雅冷峻的運動生活美學。著有小說《晚啼》、《浮游群落》及運動散文集《強悍而美麗》、《紐約客隨筆》等。本文〈如何享受尼克〉選自《強悍而美麗》，為臺灣運動文學開拓之經典典範。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 保釣風雲後的生命韌性與運動美學</div>
+              <p>劉大任在經歷了理想與政治的挫折後，於運動競技中尋得了另一種生命韌性：真正的力量往往不是順境中的華麗翱翔，而是在逆境泥淖中咬牙防守的意志。他看NBA不是跟風崇拜巨星，而是以老辣的眼光拆解教練帕特・萊利的帶兵哲學與藍領球員的防守肌肉。一軒老師在學習單中設計「穿透聚光燈盲區」，引導技職同學跳脫「只有當主角才算成功」的焦慮，看見團隊中無名甘草的無可替代性。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：以先描繪公牛隊喬丹飛騰絕技與太陽隊巴克萊肉搏威力的「反面鋪陳」切入，進而深入剖析紐約尼克隊以尤恩為核心、教練萊利為靈魂的鐵血防守與厚實板凳深度，倡導「內行看門道」的成熟審美眼光，肯定團隊中甘草球員的不可見資產與沉穩敬業精神。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：起（反面切入・巨星震撼）</div>
+            <div class="text-slate-600 text-xs mt-0.5">由人人皆愛的芝加哥公牛隊「空中飛人」喬丹與鳳凰城太陽隊「屁股功」巴克萊起筆，點出華麗進攻最易吸引外行看熱鬧，但真正欣賞籃球需要更深層的審美維度。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：承（解碼尼克・可見與隱性）</div>
+            <div class="text-slate-600 text-xs mt-0.5">切入紐約尼克隊核心尤恩（Patrick Ewing），剖析其24.9分、11.1籃板的具體數據（Tangibles），更點出其坐鎮油漆區令對手不敢輕易切入的無形威脅（Intangibles）。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：轉（甘草球員・靈魂防線）</div>
+            <div class="text-slate-600 text-xs mt-0.5">光有尤恩不足以奪冠，關鍵在於歐克利（Charles Oakley）等藍領大前鋒的凶悍防守與「態度是運氣之母」的苦幹哲學；教練帕特・萊利建立起堅不可摧的鐵血防守體系。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：合（板凳深度・生命哲理）</div>
+            <div class="text-slate-600 text-xs mt-0.5">剖析板凳深度在漫長賽季中的戰略價值；總結「享受尼克」即是體會穿越黑暗隧道的堅持與堅毅，將運動競技昇華為對生命韌性與團隊協作的深沉體悟。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者在文章前半段花費許多篇幅介紹公牛隊的喬丹與太陽隊的巴克萊，其主要目的是什麼？尼克隊的尤恩具備哪些「不可見（intangibles）」的資產？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何運用「反襯對比（視覺享受 vs. 戰術深度）」與「專業術語（tangibles, intangibles, 油漆區, 板凳深度）」層層推展其論點？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">為什麼說「顯性明星吸引眼球，隱性基石決定勝負」？這項團隊運動哲學對於技高學生的群科專案製作或未來職場團隊合作有何深刻的實踐價值？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">間不容髮</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄐㄧㄢ ㄅㄨˋ ㄖㄨㄥˊ ㄈㄚˇ</td>
+          <td class="py-2 px-3">形容距離極近，或情勢危急緊迫到了極點。文中指防守極為緊密貼身，連一根頭髮的空隙都沒有。例：「在防守者間不容髮的緊逼之下，依然起跳命中」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">油漆區</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧㄡˊ ㄑㄧ ㄑㄩ</td>
+          <td class="py-2 px-3">籃球術語，指籃下禁區（Paint Area / Key），常漆有不同顏色。為攻守雙方爭奪籃板與身體肉搏最激烈的核心地帶。例：「尤恩往油漆區一站，本身就是一種巨大的戰術威懾」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">甘草</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄍㄢ ㄘㄠˇ</td>
+          <td class="py-2 px-3">中藥中常用的調和配藥；比喻劇團或團隊中不可或缺的綠葉配角。雖不搶鏡，卻能調和全局、穩定軍心。例：「他是球隊不可或缺的甘草球員」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">板凳深度</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄅㄢˇ ㄉㄥˋ ㄕㄣ ㄉㄨˋ</td>
+          <td class="py-2 px-3">運動術語，指球隊替補球員（板凳席）的人數與實力儲備。板凳深度越厚，球隊在漫長賽程中承受傷病與體力消耗的能力越強。例：「尼克隊擁有令各隊畏懼的厚實板凳深度」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">中流石</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓㄨㄥ ㄌㄧㄡˊ ㄕˊ</td>
+          <td class="py-2 px-3">立於江河急流之中的砥柱之石；比喻在混亂或動盪局勢中能屹立不倒、力挽狂瀾的中堅骨幹力量。例：「尤恩正是尼克隊禁區的中流石」。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：穿透聚光燈的盲區——從紐約尼克隊解構團隊生態與不可見的隱性價值</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/1bGlfRyunbyZmGBOL-yCilaOYn_jore5o81MFg8GwVaM/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/1bGlfRyunbyZmGBOL-yCilaOYn_jore5o81MFg8GwVaM/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服三和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：可見數據（Tangibles）vs. 隱性威嚇（Intangibles）解碼心智圖</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據課堂真實教案：比對公牛喬丹、太陽巴克萊與尼克尤恩，繪製「顯性數據 vs 隱性貢獻」解構心智圖，分析作者如何顛覆一般大眾單純追求華麗得分的表面審美。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：職場專案團隊「甘草球員」關鍵價值解構報告</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據一軒老師設計之表現任務：選擇一項群科專題或社團活動，挑出一位不常受聚光燈關注的「隱性貢獻者」，借用劉大任的分析架構（tangibles vs intangibles、耐操韌性、態度是運氣之母），撰寫一份250～300字的「關鍵價值評估報告」。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">03</span>
+            <span>任務三：三民家商服裝科「展演幕後基石」實踐提案</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">結合服裝畢業展演：將NBA「板凳深度」理念遷移至展演幕後的版型打樣、裁縫整燙、後勤催場與模特兒調度，撰寫一份「看不見的冠軍基石──服裝展演幕後協作工作指引」。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

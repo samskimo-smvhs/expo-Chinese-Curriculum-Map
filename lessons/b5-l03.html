@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B5 第 03 課 藝術科技文選：肚痛帖 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"q": "依據黃信恩〈肚痛帖〉一文，作者為何選擇以唐代張旭的〈肚痛帖〉作為全篇的核心線索？", "options": ["藉由古帖三十字因腹痛劇烈而字跡由收斂漸變為狂放的特質，巧妙呼應自身飽受腸胃隱疾與嚴父壓力折磨的心路歷程", "單純為了展現作者高超的古書畫鑑定能力與金石學考據成果", "因為作者計畫改行成為職業書法家，藉此篇向大眾推廣古代法帖", "奉醫院院長之命為張旭後代撰寫醫療診斷證明書"], "answer": 0, "explanation": "張旭〈肚痛帖〉以腹痛開帖，筆勢從前三字整飭到後文筆走龍蛇、狂飆不羈，黃信恩藉此具象化身體痛楚與心靈焦慮的爆發，並將「病歷」與「字帖」交織成父子關係的深層象徵。"}, {"q": "關於黃信恩散文的語言風格與文體定位，下列敘述何者最為貼切？", "options": ["融合醫學專業名詞與細膩感性意象，冷靜解剖與溫暖抒情並蓄，是典型的現代醫療人文散文", "全篇充斥艱澀難懂的先秦古漢語駢文，刻意堆砌辭藻以模擬古代名帖", "屬於激烈批判醫療體系與醫病糾紛的報告文學，言辭辛辣尖銳", "屬於純虛構的奇幻穿越小說，描述張旭穿越到現代高醫看診的經歷"], "answer": 0, "explanation": "黃信恩身兼醫師與作家雙重身分，其作品將專業醫學病理轉化為生活隱喻，文筆精準內斂，充滿對人性的溫厚觀察與省思。"}, {"q": "文中作者從對父親嚴厲管教的畏懼、身體焦慮，到最後穿上白袍後的釋懷，關鍵的心境轉變來自於：", "options": ["在臨床見習中親身體會疾病帶給人的脆弱與重荷，並目睹父親逐漸蒼老的身影，因而同理了威權背後的深沉掛念", "作者獲得文學大獎後終於揚眉吐氣，在家族中地位超越了父親", "父親主動向作者下跪道歉並承認當年的軍事化教育徹底失敗", "作者透過服用大黃湯徹底治癒了腸躁症，從此不再感到任何壓力"], "answer": 0, "explanation": "作者在行醫過程中見證了生命與身體的無常脆弱，當他看見父親老去的背影，終於明白父親當年的嚴苛實源自對子女前途的深沉擔憂，從而達成了跨越世代的理解與和解。"}, {"q": "下列關於張旭〈肚痛帖〉書法常識的說明，何者正確？", "options": ["張旭在唐代被譽為「草聖」，其草書逸勢奇狀、連綿迴繞，與李白之詩、裴旻之劍舞並稱「盛唐三絕」", "〈肚痛帖〉是現存於臺北故宮博物院的張旭真跡墨寶，從未刻石流傳", "〈肚痛帖〉字體屬於標準規整的楷書，字字獨立互不相連", "張旭是宋代著名理學家，撰寫〈肚痛帖〉主要是為了批評佛道兩教"], "answer": 0, "explanation": "唐文宗曾下詔以李白詩歌、裴旻劍舞、張旭草書為「三絕」。張旭嗜酒，常在醉後狂呼奔走、落筆成書，被稱為「草聖」或「張顛」。〈肚痛帖〉真跡已佚，現存者為宋代摹刻石拓本。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B5 第 03 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">說明文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高三成熟期（應對自如）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【邏輯】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【策略】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【資源】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 個人和文化表達（醫學科學與書法藝術之跨界交融、身體敘事與家庭關係）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        藝術科技文選：肚痛帖
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當身體的隱痛被轉化為紙上的墨痕與病歷上的診斷時，我們如何透過書寫與同理，解讀自我與至親之間難以言說的情感重荷？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">醫療跨域閱讀・書法線條審美・病理隱喻解讀・親情對話省思</div>
+          <div class="text-xs text-slate-500 mt-1">解構黃信恩以唐代張旭〈肚痛帖〉書法墨跡串聯現代醫學病理之高超筆法；說明腸躁症與神經官能病變的身心反應機制；剖析「病歷表」作為父子嚴肅互動與情感和解之象徵意象；體會現代醫學人文散文的專業深度與感性溫差。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服三和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服三和）：從張旭狂草由端正「忽肚痛」漸變為狂放飛動之筆勢線條，對比服裝設計中的立體剪裁與線條張力；從醫病關係中的同理心與傾聽，引申至服裝設計師面對客戶身形、穿著隱痛與心理需求的細緻溝通；反思高三備戰升學與專題展覽時的身心調適與壓力管理。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 2-V-2 結合生活經驗與專業知識，進行跨領域思辨, 5-V-2 統整各類文本資訊，提出個人多元觀點, 5-V-3 鑑賞文本之思想意涵與藝術表現</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-2 篇章的組織與結構, Ad-V-3 篇章的表現, Ba-V-1 身體與自我認同的追尋, Bb-V-1 情志的抒發與省思, Ca-V-2 科技發展與當代生活</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-B1 符號運用與溝通表達, 國V-U-B2 科技資訊與媒體素養</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">黃信恩</strong>：黃信恩（1982－），臺灣臺南人。高雄醫學大學醫學系畢業，現為家庭醫學科專科醫師。大學時期即展露文學才華，曾獲時報文學獎、聯合報文學獎、教育部文藝創作獎、梁實秋文學獎等。著有散文集《游牧醫師》、《體膚小事》，短篇小說集《高架橋》。其創作專注於「醫療散文」，以冷靜精準的醫學解剖筆觸，融合溫厚的人性觀察與精妙意象，探索疾病、身體、親情與人世流轉，為臺灣當代醫學文學青年世代之代表作家。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 穿白袍的文字觀察者與書法身心對話</div>
+              <p>黃信恩大五在腸胃科見習時，將自身自幼敏感易患腸疾、面對軍官父親嚴厲管教的心理重壓，借用唐代「草聖」張旭因腹痛難忍服「大黃湯」而留下的三十字〈肚痛帖〉墨跡，展開了一場文學與醫學的奇異共振。文章透過「病歷表／肚痛帖」的雙重符碼，巧妙將臨床醫學的生理症狀與家庭親情的心靈創傷相互對照，呈現出醫病之間、父子之間深層的理解與救贖。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：藉由唐代張旭草書名作〈肚痛帖〉的筆勢流變，引出自身自幼飽受腸胃疾病之苦與父親嚴苛要求的心理歷程，說明身心官能症之病理特徵，並透過自己穿上白袍後的行醫體悟，化解多年父子心結，展現醫學理性與人文關懷的深刻交融。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：起（肚痛墨寶・名醫開帖）</div>
+            <div class="text-slate-600 text-xs mt-0.5">由張旭〈肚痛帖〉前三字「忽肚痛」字跡端正、後續筆勢如暴風驟雨般狂放飛動之書法特質切入，帶出自身自幼腸胃敏感、動輒腹瀉陣痛的童年記憶。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：承（嚴父威權・身心焦慮）</div>
+            <div class="text-slate-600 text-xs mt-0.5">描繪父親如治軍般嚴厲的性格與對學業的極高期許，使少年時期的自己在心理重壓下頻頻引發腸躁症，父子之間築起一道如病歷般冰冷無語的隔閡高牆。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：轉（披上白袍・病理回眸）</div>
+            <div class="text-slate-600 text-xs mt-0.5">考入醫學系並進入臨床見習，以醫師專業視角重新審視「大腸激躁症」與自律神經失調之身心機制，並在診間與病房見證無數患者的身體痛楚與脆弱。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：合（父子釋懷・生命處方）</div>
+            <div class="text-slate-600 text-xs mt-0.5">看見父親日益蒼老的身影與微駝的背脊，終於理解父親嚴厲背後的焦慮與深情；心中的「肚痛病歷」逐漸闔上，開出了一劑理解與寬容的心靈處方。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">張旭的〈肚痛帖〉記錄了什麼內容？其書法字形在筆勢上有何奇特的轉折變化？作者黃信恩如何將這件古代書法與自身疾病相連結？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何運用醫學專業術語（如自律神經、平滑肌痙攣、腸胃激躁）搭配生動感性的文學意象，建構出一種兼具客觀知識解說與主觀心靈告解的「醫療散文」風格？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">現代高三學生面對升學、同儕與家庭期許，身體常會產生各類壓力反應（如偏頭痛、胃痛、失眠）。我們如何學會傾聽身體的警訊，並透過自我對話與溝通釋放壓力？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">狂草</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄎㄨㄤˊ ㄘㄠˇ</td>
+          <td class="py-2 px-3">草書的一種，字體變化多端、筆勢連綿、狂放不羈。唐代以張旭、懷素最負盛名。例：張旭以狂草書寫〈肚痛帖〉。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">懍然</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄌㄧㄣˇ ㄖㄢˊ</td>
+          <td class="py-2 px-3">嚴肅、令人敬畏或戒懼的樣子。懍，畏懼。例：「父親那懍然的面容，彷彿是一道無法逾越的指令」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">腸躁症</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄔㄤˊ ㄗㄠˋ ㄓㄥˋ</td>
+          <td class="py-2 px-3">大腸激躁症，一種常見的腸胃功能失調障礙，常因情緒緊張或壓力引發腹痛、腹瀉或便秘。例：「現代人常見的腸躁症，往往是心理壓力的生理投射」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">疾痛慘怛</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄐㄧˊ ㄊㄨㄥˋ ㄘㄢˇ ㄉㄚˊ</td>
+          <td class="py-2 px-3">疾病纏身、極度痛苦憂傷。怛，音ㄉㄚˊ，悲痛、憂傷。例：人在疾痛慘怛之際，常呼天喚母。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">大黃湯</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄉㄚˋ ㄏㄨㄤˊ ㄊㄤ</td>
+          <td class="py-2 px-3">古代中醫方劑名，以大黃為主藥，具有瀉熱通便、行氣止痛之功效。〈肚痛帖〉中張旭腹痛時曾服此劑。例：「不知是何疾，得差，大黃湯」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">游牧</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧㄡˊ ㄇㄨˋ</td>
+          <td class="py-2 px-3">逐水草而遷徙居住；作者引申為實習醫師在醫院各科病房輪替見習、身分未定之流動心境。例：《游牧醫師》記錄了作者白袍生涯的起點。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：墨色狂草與腸胃隱疾的病理對話——現代醫療人文與父子情感的解凍</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/18Was_gfxPeo6hazfdJeE3lq72a3Mi8Zf/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/18Was_gfxPeo6hazfdJeE3lq72a3Mi8Zf/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服三和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>單元實作任務一：身體病歷與心靈隱喻解碼卡</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">仿效黃信恩結合臨床醫學與感性書寫的散文筆法，盤點自身在高三階段面對大考與畢業時身體所發出的壓力警訊（如腸胃痙攣、肩頸僵硬、失眠），撰寫一段 200 字的「個人身體症候微散文」。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>單元實作任務二：書法線條與服裝剪裁的張力對話</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">觀察張旭〈肚痛帖〉由前三字之行草漸次演變為狂放暴烈墨跡之過程，將其筆勢的「徐疾、頓挫、粗細與飛白」，轉化為服裝設計中的線條律動設計草圖，並標註設計理念。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

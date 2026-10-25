@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B4 第 07 課 當代海洋文學：鬼頭刀 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "文本主旨・生態倫理", "text": "廖鴻基在《鬼頭刀》中對待海洋生物的態度，與傳統捕魚商業掠奪最大的不同為何？", "options": [{"key": "A", "text": "只關心魚獲能否賣出高價，完全不在乎海洋資源枯竭"}, {"key": "B", "text": "將鬼頭刀視為具有獨立尊嚴與高貴靈魂的生命對手，在搏鬥中產生惺惺相惜之敬畏，並對生命的消逝深感溫柔哀傷"}, {"key": "C", "text": "主張全人類應全面禁止出海，禁止所有漁業捕撈"}, {"key": "D", "text": "認為海洋生物是邪惡的妖魔，必須徹底消滅"}], "answer": "B", "explanation": "廖鴻基跳脫功利漁撈視角，以平等的生命維度與鬼頭刀對峙，將漁獵過程昇華為莊嚴的生命對話，深具海洋生態哲思。"}, {"id": 2, "category": "細節描摹・動態光影", "text": "文中描寫鬼頭刀被拉上甲板、生命逐漸垂危時，其體表色彩發生了何種震撼人心的轉變？", "options": [{"key": "A", "text": "由原本耀眼的金黃、青綠、寶藍等奇幻光澤，迅速黯淡褪色，最終化為毫無生氣的冰冷灰白"}, {"key": "B", "text": "由黑色變成鮮豔的粉紅色，並發出強烈的螢光"}, {"key": "C", "text": "身上長出金色鱗片，變得更加光彩奪目"}, {"key": "D", "text": "顏色毫無任何改變，與在海中一模一樣"}], "answer": "A", "explanation": "鬼頭刀的體色隨神經興奮而閃爍光彩，離水瀕死時色素細胞迅速萎縮，絢麗光澤瞬間消逝為死灰，成為全篇最悲壯的生命輓歌。"}, {"id": 3, "category": "寫作技巧・節奏營造", "text": "作者在描繪鬼頭刀追獵飛魚的場景時，運用了何種手法營造強烈的戲劇張力？", "options": [{"key": "A", "text": "通篇抄錄海洋生物百科全書的學名與骨骼構造數據"}, {"key": "B", "text": "透過空中飛魚驚惶滑翔與水下黑影迅疾如箭的雙重視角交替切換，以短促動詞烘托生死一線的緊迫節奏"}, {"key": "C", "text": "完全使用靜態描寫，專注於描繪海面風平浪靜"}, {"key": "D", "text": "以第一人稱視角採訪飛魚的受害心得"}], "answer": "B", "explanation": "廖鴻基善於以立體動態視角捕捉大洋獵殺。飛魚之慌亂與鬼頭刀之精準冷酷形成強烈對比，節奏明快凌厲。"}, {"id": 4, "category": "跨領域美學・服飾設計", "text": "在三民家商服裝科的課堂成果中，同學將鬼頭刀的體表光澤轉譯為服裝色彩設計。若要呈現鬼頭刀在深海游動時的視覺衝擊，下列何種布料工藝最為適宜？", "options": [{"key": "A", "text": "厚重粗糙的未漂白純棉帆布，呈現霧面泥土質感"}, {"key": "B", "text": "結合金屬絲織造的變色龍偏光面料（Iridescent Fabric），在不同光線角度下折射出金黃、青綠與海藍的動態流光"}, {"key": "C", "text": "純黑色的消光橡膠布料，完全吸收所有光線"}, {"key": "D", "text": "黏貼大量塑膠亮片，製作廉價的節慶派對圍裙"}], "answer": "B", "explanation": "B選項運用偏光布料技術，精準呼應了鬼頭刀體表隨角度與運動變幻色彩的生物光學特質，是文學意象向服裝專業之完美轉譯。"}, {"id": 5, "category": "字音字形・精確辨識", "text": "下列文句「 」中的字音與字形，何者完全正確？", "options": [{"key": "A", "text": "在大海中「泅」泳：音ㄑㄧㄡˊ"}, {"key": "B", "text": "色彩斑「斕」：字形正確，音ㄌㄢˊ"}, {"key": "C", "text": "性情「暴」烈：音ㄅㄠˋ"}, {"key": "D", "text": "以上選項之字音字形皆完全正確"}], "answer": "D", "explanation": "泅（ㄑㄧㄡˊ）、斑斕（ㄌㄢˊ）、暴（ㄅㄠˋ）烈，三者字形字音皆完全正確無誤。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B4 第 07 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">記敘文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【人物】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【場景】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【特徵】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 人與自然環境（海洋生態、生命競逐與環境永恆）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        當代海洋文學：鬼頭刀
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當人與自然在生存的競技場上相遇，我們如何在競爭與搏鬥之中，看見對手的光彩，並學會以謙卑溫柔的眼光看待萬物生命？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">海洋意象・搏鬥張力・生命同理・生態美學</div>
+          <div class="text-xs text-slate-500 mt-1">分析鬼頭刀體色隨生命起伏之動態描寫；掌握漁人與大洋掠食者生死搏鬥之心理轉折；從征服掠奪昇華為對海洋生靈的敬畏與溫柔共感。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服二和）：鬼頭刀在深海中閃爍的金黃、青藍、翠綠色澤，以及離水瀕死時瞬間褪為死灰的色素細胞變化，為服裝科提供了極具震撼力的「生物色彩美學」靈感。引導學生探討如何將海洋生物的立體流線造型與漸層反光質感，轉譯為現代時尚運動機能服裝之流線拼接。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 2-V-2 結合生活經驗與專業知識，進行跨領域思辨, 5-V-2 統整各類文本資訊，提出個人多元觀點, 5-V-3 鑑賞文本之思想意涵與藝術表現, 6-V-2 關懷環境生態與永續發展，展現人文行動力</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-1 篇章的敘事手法, Bb-V-1 情志的抒發與省思, Bb-V-2 物我相應的表現手法, Cb-V-1 臺灣海洋文學認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-B1 符號運用與溝通表達, 國V-U-C2 人際關係與團隊合作</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">廖鴻基</strong>：廖鴻基（1954～），花蓮人。臺灣當代著名海洋文學作家、討海人、鯨豚保育倡議者。早年曾從事多種職業，三十五歲毅然出海成為全職討海漁人，親身體驗黑潮風浪與漁撈生活。1996年發起「尋找花蓮鯨豚」計畫，後創立黑潮海洋文教基金會，長年致力於臺灣海洋生態調查、保育與海洋文化推廣。其文字粗獷中飽含深情，將討海人搏浪的生命經驗昇華為深沉哲思。著有《討海人》、《鯨生鯨世》、《來自深海》、《漂流監獄》、《海怪》等。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 課堂教學脈絡：一軒老師的海洋搏鬥圖解與人性特質剖析</div>
+              <p>一軒老師在簡報中特別以「溫柔共感的海洋書寫」引導服二和同學：透過兩大探究維度深讀文本：①【人物形象與搏鬥時間軸】：梳理漁人面對鬼頭刀時由「好奇➔激昂奮戰➔肅然起敬➔心痛憐惜」的情緒轉折；②【情節發展與生態情懷】：對比海翁（抹香鯨）之龐大深邃、飛魚之驚惶逃竄與鬼頭刀之迅猛豔麗，解析廖鴻基如何擺脫傳統海明威《老人與海》式的單向「人定勝天征服論」，轉而賦予鬼頭刀尊嚴高貴的生命主體性，在拉鋸搏鬥中體會萬物相生相剋的大洋和諧。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：描繪討海人在浩瀚太平洋上與大洋精靈「鬼頭刀」驚心動魄的搏鬥歷程，展現其高傲迅捷的美麗英姿；在生命消逝的剎那，漁人由征服的快感轉為對崇高生命的深深敬畏與同理溫柔。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：黑潮精靈・大洋魅影</div>
+            <div class="text-slate-600 text-xs mt-0.5">以黑潮大洋為壯闊背景，生動描寫鬼頭刀游速如箭、色彩斑斕的極致英姿。盛讚其為「大洋中的美麗精靈」，散發孤傲霸氣。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：海面獵殺・飛魚驚魂</div>
+            <div class="text-slate-600 text-xs mt-0.5">細膩捕捉鬼頭刀追捕飛魚的獵食場面：飛魚凌空滑翔，鬼頭刀如幽靈般在水下緊咬陰影，展現殘酷卻充滿張力的自然生存律動。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：生死拉鋸・巨力拔河</div>
+            <div class="text-slate-600 text-xs mt-0.5">漁人下鉤、鬼頭刀中餌！全篇最高潮：一人一魚在繩索兩端展開尊嚴對決。鬼頭刀躍出水面翻滾掙扎，金黃綠斑在陽光下耀眼奪目。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：光彩黯滅・溫柔同理</div>
+            <div class="text-slate-600 text-xs mt-0.5">鬼頭刀被拖上甲板，隨著生命氣息衰竭，體表絢爛色彩瞬間化為死灰。漁人心中毫無征服的狂喜，只有對壯烈生命的深沉敬畏與無盡疼惜。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">鬼頭刀在海水中游動、被釣起搏鬥與瀕死離水三個階段，體表色彩與姿態發生了哪些劇烈變化？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">廖鴻基如何透過動態動詞與色彩對比，營造出人魚搏鬥時千鈞一髮的緊張節奏？他又如何透過內心獨白，將殘酷的漁撈作業轉化為心靈的相互凝視？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">為什麼作者在戰勝鬼頭刀之後，感受到的不是征服的勝利，而是一種「深沉的失落與溫柔的悲傷」？這對現代人處理與自然、與競爭對手的關係有何啟發？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">泅泳</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄑㄧㄡˊ ㄩㄥˇ</td>
+          <td class="py-2 px-3">在水中游水。泅，音ㄑㄧㄡˊ，游水。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">暴烈</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄅㄠˋ ㄌㄧㄝˋ</td>
+          <td class="py-2 px-3">兇猛猛烈、剛強躁進。形容鬼頭刀掙扎反抗時狂野不屈的力量。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">斑斕</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄅㄢ ㄌㄢˊ</td>
+          <td class="py-2 px-3">色彩燦爛繁複、燦爛多彩之貌。形容鬼頭刀體表金黃與青綠交織之奇幻光澤。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">拉鋸</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄌㄚ ㄐㄩˋ</td>
+          <td class="py-2 px-3">比喻雙方相持不下、勝負反覆的激烈競爭狀態。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">精靈</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄐㄧㄥ ㄌㄧㄥˊ</td>
+          <td class="py-2 px-3">神仙鬼怪或天地純潔靈氣所化之物。文中盛讚鬼頭刀宛如大洋深處躍出的神秘生命神明。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：溫柔共感的海洋書寫——在搏鬥、凝視與同理中探尋生命之海</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/1qX-6r1sxfpxV3Uj1l6_H_bL1WTtAkMNGkheiQjJx06I/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/1qX-6r1sxfpxV3Uj1l6_H_bL1WTtAkMNGkheiQjJx06I/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：鬼頭刀──人物形象與搏鬥張力分析單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">課堂任務落地：①討海人心理狀態演進表（下鉤前之期待➔上鉤瞬間之激昂震顫➔拉鋸時之專注較量➔起鉤後之肅穆默然）；②手繪搏鬥時間軸：以波形圖標註人魚力量對抗頂點；③深入探討鬼頭刀雌雄雙游、相依相隨之生態特質，反思人類獵殺行為之倫理矛盾。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：鬼頭刀──情節發展與海洋生態書寫整理單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">精確梳理全篇情節節奏：從黑潮海域之環境交代、飛魚群受驚之動態描繪，到鬼頭刀色彩隨生命凋零之哀傷凝視；撰寫 300 字『給大洋對手的一封信』，展現對生命的敬畏與同理心。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

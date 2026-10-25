@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B4 第 08 課 古典文賦選：前赤壁賦 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "哲理思辨・核心觀點", "text": "蘇軾在《赤壁賦》中提出「自其變者而觀之，則天地曾不能以一瞬；自其不變者而觀之，則物與我皆無盡也」，這段話表達了何種宇宙人生哲學？", "options": [{"key": "A", "text": "主張天地萬物隨時都在爆炸，人類應該盡快逃離地球"}, {"key": "B", "text": "萬物在時間長河中雖瞬息萬變，但若從宇宙生生不息、物質能量循環的角度來看，生命與大自然皆具有永恆延續的本質；關鍵在於觀察者心境的切換"}, {"key": "C", "text": "認為月亮不會變大變小，只有江水會流動"}, {"key": "D", "text": "主張人只要閉上眼睛不看，時間就會徹底停止"}], "answer": "B", "explanation": "蘇軾以高超的相對論哲學破除客人的虛無感。執著於個體軀殼則感嘆須臾短暫，融身於天地造化則能享有與宇宙同在的無窮豐盈。"}, {"id": 2, "category": "主客問答・情感結構", "text": "客人在赤壁夜遊時之所以吹奏出「如怨如慕，如泣如訴」的哀傷簫聲，其內心最深沉的悲嘆是什麼？", "options": [{"key": "A", "text": "抱怨蘇軾準備的酒菜太少，自己沒有吃飽"}, {"key": "B", "text": "聯想到曹操等蓋世英雄終歸塵土，痛感個人生命的極度渺小與短暫（寄蜉蝣於天地，渺滄海之一粟），無法與長江明月般永恆"}, {"key": "C", "text": "因為夜裡風太冷，手指凍僵無法吹簫"}, {"key": "D", "text": "發現船底漏水，擔心沉船溺死"}], "answer": "B", "explanation": "客人的悲嘆代表了人類面對浩瀚宇宙與死亡必然性時最普遍的存在主義焦慮：英雄安在？吾生須臾！"}, {"id": 3, "category": "修辭寫作・文賦特色", "text": "《赤壁賦》在文體上屬於「文賦」（散賦），下列關於其文體藝術特色的敘述，何者完全正確？", "options": [{"key": "A", "text": "句句押韻，完全使用四六對仗，絕不允許出現任何散文句式"}, {"key": "B", "text": "保留了傳統漢賦主客問答的形式與駢偶音律之美，同時打破嚴格的字數與平仄限制，融入散文的流暢自然，駢散相間、氣勢汪洋"}, {"key": "C", "text": "是一首完全沒有情節的五言律詩"}, {"key": "D", "text": "純粹是官方頒布的刑法條文公告"}], "answer": "B", "explanation": "宋代文賦融漢賦之氣勢與散文之流動於一體，既有聲韻對偶之鏗鏘，又有說理抒情之跌宕，蘇軾《赤壁賦》即其最高典範。"}, {"id": 4, "category": "文言字詞・精確釋義", "text": "下列文句「 」中的字詞解釋，何者完全正確？", "options": [{"key": "A", "text": "「釃」酒臨江：音ㄙ，斟酒、濾酒"}, {"key": "B", "text": "橫「槊」賦詩：音ㄕㄨㄛˋ，長矛、長槍"}, {"key": "C", "text": "七月「既望」：農曆十六日（望為十五日，既望為十六日）"}, {"key": "D", "text": "以上選項之字詞解釋皆完全正確"}], "answer": "D", "explanation": "釃（ㄙ，斟酒）、槊（ㄕㄨㄛˋ，長矛）、既望（農曆十六日），三者字音與解釋皆完全正確無誤。"}, {"id": 5, "category": "情境遷移・生命境界", "text": "現代技高青年若遭遇專業考照失利或人際誤解等挫折時，蘇軾在《赤壁賦》中的處世姿態能提供何種具體引導？", "options": [{"key": "A", "text": "將所有精力投入網路遊戲以麻醉現實失敗"}, {"key": "B", "text": "走出封閉狹隘的得失心，走入大自然重新覺察感官，以更寬廣的歷史維度看待眼前困頓，在自處中完成精神蛻變"}, {"key": "C", "text": "怨天尤人，認為全世界都在刻意針對自己"}, {"key": "D", "text": "立刻放棄學業，認為努力毫無任何意義"}], "answer": "B", "explanation": "蘇軾身處極度委屈的黃州貶謫，卻能以詩酒賦文與清風明月自我救贖，將苦難淬鍊成全人類共同的精神資產。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B4 第 08 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-rose-100 text-rose-800 tracking-wide">抒情文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【情境】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【關係】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【轉化】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 時空定位與審美意境（豁達胸襟、文賦美學與宇宙生命哲思）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        古典文賦選：前赤壁賦
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當面對時光無情流逝、個體生命如滄海一粟的終極虛無時，我們該如何轉換視角，在當下與天地萬物達成和解？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">主客問答・哲理思辨・物我相應・生命轉念</div>
+          <div class="text-xs text-slate-500 mt-1">剖析主客問答中「客之悲（個體渺小、人生短暫）」與「蘇子之悟（變與不變、自其不變者而觀之）」之哲學對立；掌握駢散相間的文賦聲律之美。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服二和）：蘇軾在黃州貶謫逆境中展現的「生命轉念學」，正是技術高中學生在面臨專業技能檢定挫折、人際誤解或求職低潮時最深厚的心理定錨。結合服裝設計中「順應面料瑕疵、借力使力」的立裁智慧，探討如何化被動為靈動。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 2-V-2 結合生活經驗與專業知識，進行跨領域思辨, 5-V-2 統整各類文本資訊，提出個人多元觀點, 5-V-3 鑑賞文本之思想意涵與藝術表現, 6-V-1 體會文化與生活之關聯，深化人文關懷與美感素養</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-2 篇章的組織與結構, Bb-V-1 情志的抒發與省思, Bb-V-2 物我相應的表現手法, Ca-V-1 思想與藝術文化認知, Cb-V-2 唐宋八大家散文與辭賦認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-B1 符號運用與溝通表達, 國V-U-B3 藝術涵養與美感素養</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">蘇軾</strong>：蘇軾（1037～1101），字子瞻，一字和仲，號東坡居士，眉州眉山（今屬四川）人。北宋著名文學家、政治家、書畫家，唐宋八大家之一。嘉祐二年進士，早年直言敢諫、仕途坎坷。宋神宗元豐二年（1079）因「烏臺詩案」被捕入獄，幾瀕於死，後貶為黃州團練副使。在黃州期間躬耕東坡，體悟佛道哲思，文學創作達到巔峰。宋哲宗朝曾短暫起復，晚年又遠貶惠州、儋州（海南島）。其文汪洋恣肆，其詩清新豪健，其詞開豪放一派，書法自成「蘇體」，為中國文化史上不可多得之全才巨擘。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 課堂教學脈絡：一軒老師的探索蘇軾與生命轉念鷹架</div>
+              <p>一軒老師在簡報中特別以「蘇軾的生命轉念學」引導服二和同學：蘇軾以「烏臺詩案」黃州貶謫為背景，在壬戌之秋夜遊赤壁。面對浩浩江水與曹操「固一世之雄也，而今安在哉」之歷史英雄幻滅，客人發出「寄蜉蝣於天地，渺滄海之一粟」之極度虛無悲歎；蘇軾則以水月為喻，提出震撼千古的『變與不變』相對論——「自其變者而觀之，則天地曾不能以一瞬；自其不變者而觀之，則物與我皆無盡也」。將精神安頓於造物者之無盡藏（清風明月），完成由悲入喜的靈魂超越。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：藉由夜遊赤壁的主客問答，抒發對歷史興亡與人生短暫的深沉感傷，進而以「變與不變」的哲學洞見超脫世俗得失，展現胸懷宇宙、物我兩忘的曠達人生境界。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：月夜泛舟・羽化登仙（極致之樂）</div>
+            <div class="text-slate-600 text-xs mt-0.5">寫壬戌秋夜蘇子與客泛舟赤壁之下。清風徐來，水波不興；誦明月之詩，歌窈窕之章。浩浩乎如馮虛御風，飄飄乎如遺世獨立。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：洞簫幽咽・如怨如慕（樂極轉悲）</div>
+            <div class="text-slate-600 text-xs mt-0.5">扣舷而歌引發客吹洞簫相和。簫聲其聲嗚嗚然，如怨如慕，如泣如訴；舞幽壑之潛蛟，泣孤舟之嫠婦，將氣氛瞬間拉入沉鬱哀傷。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：主客問答・英雄安在（客之悲嘆）</div>
+            <div class="text-slate-600 text-xs mt-0.5">蘇子愀然探問。客引曹操「舳艫千里，旌旗蔽空」之赤壁往事，感嘆英雄今已安在；哀吾生之須臾，羨長江之無窮，深陷個體渺小的虛無悲劇。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：水月之喻・無盡之藏（蘇子解脫）</div>
+            <div class="text-slate-600 text-xs mt-0.5">蘇子以江水與明月為譬，精闢開解「變與不變」之理。主張苟非吾之所有，雖一毫而莫取；唯江上清風與山間明月，取之無禁用之不竭。客喜而笑，杯盤狼藉，相與枕藉。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">蘇軾如何用「水」與「月」這兩個自然景物，解釋宇宙與人生「變」與「不變」的雙重特質？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">文章如何運用「主客對答」的古典賦體傳統結構，使悲觀與豁達兩種人生哲學在激烈的觀點交鋒中，逐步推向心靈的自我超越？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">在高度競爭、充滿焦慮的現代社會，蘇軾「苟非吾之所有，雖一毫而莫取；唯江上清風與山間明月為無盡藏」的心態，能為青年提供怎樣的定力？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">馮虛御風</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄆㄧㄥˊ ㄒㄩ ㄩˋ ㄈㄥ</td>
+          <td class="py-2 px-3">憑藉著虛空駕風飛行。馮，通「憑」，乘、依託；虛，太空、虛空。形容凌空飛馳、超凡脫俗之快感。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">遺世獨立</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧˊ ㄕˋ ㄉㄨˊ ㄌㄧˋ</td>
+          <td class="py-2 px-3">超脫世俗之外，獨自獨立長存。形容達到超然灑脫的仙人境界。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">愀然</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄑㄧㄠˇ ㄖㄢˊ</td>
+          <td class="py-2 px-3">容色改變、神色嚴肅或哀傷的樣子。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">滄海一粟</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄘㄤ ㄏㄞˇ ㄧ ㄙㄨˋ</td>
+          <td class="py-2 px-3">大海中的一顆穀粒。比喻個體在大千世界中極其微小。粟，音ㄙㄨˋ，穀子。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">造物者之無盡藏</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄗㄠˋ ㄨˋ ㄓㄜˇ ㄓ ㄨˊ ㄐㄧㄣˋ ㄗㄤˋ</td>
+          <td class="py-2 px-3">大自然創造的取之不盡、用之不竭的豐富寶藏。藏，音ㄗㄤˋ，寶藏。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：蘇軾的生命轉念學——在清風明月與江水流逝中安頓有限人生</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/13tPtdCyliVOG4xCGiGo9xEIosk6jw2aSNjXgYqrM_ms/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/13tPtdCyliVOG4xCGiGo9xEIosk6jw2aSNjXgYqrM_ms/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：赤壁賦──探索蘇軾與主客對抗思辨單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">落實課堂學習單：①泛舟情境圖景解碼；②主客問答對抗圖表：客之視角（曹操英雄安在、寄蜉蝣羨長江） vs 蘇子之悟（水月變與不變、清風明月無盡藏）；③分析『自其變者而觀之』與『自其不變者而觀之』的哲學邏輯。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：蘇軾生命轉念筆記──我的無盡藏生活清單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">將東坡哲思遷移至技職日常：列出屬於自己的五樣「取之無禁、用之不竭」的精神資產（如專注車縫時的寧靜心流、晨曦斜射窗台的微光），寫下 200 字轉念反思札記。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

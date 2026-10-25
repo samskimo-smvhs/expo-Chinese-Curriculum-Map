@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B1 L08 孔乙己 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "細節動作刻劃", "text": "小說中寫孔乙己喝酒時「便排出九文大錢」，而後期腿被打折後卻是「摸出四文大錢」。作者將「排」改為「摸」，生動展現了孔乙己何種處境的變化？", "options": [{"key": "A", "text": "從近視眼演變為白內障"}, {"key": "B", "text": "從尚存一絲讀書人傲氣的炫耀與體面，徹底墮入重傷瀕死、毫無尊嚴的苟延殘喘"}, {"key": "C", "text": "為了向掌櫃表演魔術手法"}, {"key": "D", "text": "錢幣太髒不願直視"}], "answer": "B", "explanation": "動詞「排」充滿擺闊氣派，動詞「摸」寫出病殘無力、資囊空竭之悲涼絕境。"}, {"id": 2, "category": "諷刺筆法", "text": "魯迅塑造咸亨酒店中的眾人無論何時見到孔乙己，都總是「引得眾人都鬨笑起來，店內外充滿了快活的空氣」。作者寫「快活的空氣」其真實修辭意圖為何？", "options": [{"key": "A", "text": "讚揚紹興鄉土民風淳樸熱情、充滿歡樂"}, {"key": "B", "text": "以反諷手法，凸顯社會看客將弱者的痛苦當作消遣娛樂的極度麻木與冷血殘酷"}, {"key": "C", "text": "形容酒店老闆經營有方、氣氛溫馨"}, {"key": "D", "text": "說明酒精飲料有助於提升顧客幸福感"}], "answer": "B", "explanation": "以樂景襯哀情，弱者被凌辱之痛反成為眾人之狂歡笑柄，更顯世態涼薄入骨。"}, {"id": 3, "category": "敘事視角分析", "text": "本文透過咸亨酒店十二歲小夥計的視角來敘述，這樣的「限制視角」具有何種美學優勢？", "options": [{"key": "A", "text": "小夥計精通高深心理學，能看透每個人內心"}, {"key": "B", "text": "小夥計年幼懵懂、未脫世俗冷漠影響，客觀白描所見，反而讓讀者在平靜敘事中感受巨大的悲劇衝擊"}, {"key": "C", "text": "小夥計是孔乙己的親生兒子，情感特別深厚"}, {"key": "D", "text": "為了讓文章符合兒童文學規範"}], "answer": "B", "explanation": "冷眼旁觀的孩童視角不帶廉價同情，平鋪直敘社會的司空見慣，批判力道最為千鈞。"}, {"id": 4, "category": "象徵意義解讀", "text": "小說中「長衫」在當時社會脈絡下具有何種強烈的符號象徵意涵？", "options": [{"key": "A", "text": "防寒保暖的機能性冬裝"}, {"key": "B", "text": "象徵不用從事體力勞動的讀書人士大夫階級身分標籤與沉重精神枷鎖"}, {"key": "C", "text": "咸亨酒店規定的制服款式"}, {"key": "D", "text": "滿清官方特許的武官戰袍"}], "answer": "B", "explanation": "長衫是科舉讀書人的最後防線。孔乙己寧可穿著又髒又破的長衫，也不願脫下它求生，終成身心囚徒。"}, {"id": 5, "category": "修辭與結穴", "text": "小說末句：「我到現在終於沒有見——大約孔乙己的確死了。」關於此句中「大約」與「的確」看似矛盾的並用，下列解析何者最深刻？", "options": [{"key": "A", "text": "作者語法邏輯混亂，屬於病句"}, {"key": "B", "text": "「大約」因為孔乙己微不足道，死活無人關心證實；「的確」因為在冷酷殘暴的社會環境與斷腿重傷下，他絕無生存可能"}, {"key": "C", "text": "作者忘記查證戶政機關死亡證明紀錄"}, {"key": "D", "text": "孔乙己實際上改名換姓考上狀元"}], "answer": "B", "explanation": "矛盾修辭法之極致。大約顯其命如草芥無人掛懷，的確點出其悲劇命運之必然走向。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B1 第 08 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">記敘文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高一奠基期（說寫明白）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【順序】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【人物】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 公平／公義與發展 × 空間和時間</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        孔乙己
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「人物的悲劇，是如何形成的？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">描寫時序・形塑角色・組織材料／發展情節</div>
+          <div class="text-sm text-slate-500 mt-1">掌握第一人稱旁觀視角，運用冷峻反諷筆法刻劃小人物的靈魂悲劇</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服一和）</div>
+          <div class="text-sm text-slate-500 mt-1">社會階層與符號意識：解剖「破長衫」所代表的虛榮身分枷鎖，破除唯有升學讀書才能成功的單一價值觀</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：2-V-3, 5-V-2, 6-V-2</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ba-V-1 記敘的元素, Ba-V-2 敘述方式, Ba-V-3 摹寫手法, Cb-V-1 制度風俗認知, Cc-V-1 文類篇章認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A2 系統思考與解決問題, 國V-U-C1 道德實踐與公民意識</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">魯迅</strong>：魯迅（1881～1936），本名周樹人，浙江紹興人。五四新文學運動巨擘，開創中國現代白話小說先河。作品以深邃的冷峻目光揭露封建制度遺毒與國民劣根性，《吶喊》、《彷徨》傳誦百年。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 棄醫從文的國民靈魂解剖者</div>
+              <p>魯迅在日本留學時看到日俄戰爭幻燈片中中國百姓被砍頭而同胞圍觀歡呼，深受震動，深感「凡是愚弱的國民，即使體格如何健全，也只能做毫無意義的示眾的材料和看客」，遂毅然棄醫從文，以筆為手術刀。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：透過魯鎮咸亨酒店小夥計的旁觀眼光，描繪窮困潦倒卻死守讀書人架子的孔乙己，在眾人麻木冷酷的鬨笑與踐踏中走向毀滅，控訴科舉制度對人性的摧殘與社會看客的集體冷血。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：咸亨酒店的階級縮影</div>
+            <div class="text-slate-600 text-xs mt-0.5">短衣幫靠櫃外站著喝；長衫幫踱進房裡坐著慢慢喝。咸亨酒店就是封建殘酷階級社會的微型宇宙。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：唯一的異類——穿長衫而站著喝酒的人</div>
+            <div class="text-slate-600 text-xs mt-0.5">孔乙己是唯一站著喝酒而穿長衫的人。滿口之乎者也，窮困潦倒，既不願脫下象徵讀書人身分的破長衫，又無力自謀生計。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：看客的集體哄笑與殘酷</div>
+            <div class="text-slate-600 text-xs mt-0.5">眾人嘲笑他「臉上又添了新傷疤」、笑他「連半個秀才也沒撈到」。孔乙己成了所有人麻木生活的廉價笑料。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：被打折腿的最後餘光</div>
+            <div class="text-slate-600 text-xs mt-0.5">因偷丁舉人家被打折了腿，用手爬來喝最後一碗溫酒。掌櫃依然只記得他欠十九個錢。「大約孔乙己的確死了。」</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">孔乙己的外表衣著（穿長衫）、舉止（排九文大錢、之乎者也）有何特殊之處？咸亨酒店的客人與掌櫃如何對待他？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">魯迅為何選擇以十二歲的酒店小夥計視角進行第一人稱敘事？結尾「大約孔乙己的確死了」這句話在修辭上有何深刻效果？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">孔乙己的悲劇僅僅是他個人的性格缺陷，還是整個社會體制（科舉封建＋看客冷血）共同謀殺的結果？現代社會中有沒有類似的隱形「看客」現象？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">羼水</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄔㄢˋ ㄕㄨㄟˇ</td>
+          <td class="py-2 px-3">在酒中摻水以牟取暴利。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">之乎者也</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓ ㄏㄨ ㄓㄜˇ ㄧㄝˇ</td>
+          <td class="py-2 px-3">文言虛詞。諷刺孔乙己滿口迂腐書生腔調。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">排「九文大錢」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄆㄞˊ</td>
+          <td class="py-2 px-3">將錢一枚枚排出排在櫃檯上。細膩動作形塑出孔乙己在貧困中刻意炫耀、掩飾卑微的心態。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">君子固窮</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄐㄩㄣ ㄗˇ ㄍㄨˋ ㄑㄩㄥˊ</td>
+          <td class="py-2 px-3">語出《論語》。孔乙己拿先聖名言當作自己行竊被抓後的遮羞布。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">大約孔乙己「的確」死了</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄉㄚˋ ㄩㄝ ... ㄉㄧˊ ㄑㄩㄝˋ</td>
+          <td class="py-2 px-3">矛盾修辭法。「大約」顯其微不足道、無人確證；「的確」指其命運在無情體制下絕無生還可能。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：人物的悲劇，是如何形成的？——冷眼旁觀下的科舉囚徒與社會殘酷</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1Am_9jfS_eUM7J9GQFy2CQfuGZGfklKDXSls6WrJ-uw0/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1Am_9jfS_eUM7J9GQFy2CQfuGZGfklKDXSls6WrJ-uw0/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服一和學習實況）</h3>
+          <p class="text-sm text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：小說四要素初探與咸亨酒店空間分析</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">分析背景環境、第一人稱小夥計視角、孔乙己外貌（長衫與傷痕）與悲劇性格，完成小組文本討論發表（對照 B1L8 簡報 Slide 18-35）</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：魯迅文學關懷與「看客心理」社會反思</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">剖析群眾圍觀哄笑孔乙己之冷漠心態，反思傳統科舉異化與現代人際疏離（對照 Slide 14）</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

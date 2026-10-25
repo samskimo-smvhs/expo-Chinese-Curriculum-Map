@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B2 L02 范進中舉 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "字音字形・教育部審定音", "text": "下列各組「」中字的讀音，何者前後完全相同？", "options": [{"key": "A", "text": "前「倨」後恭 ／ 「鋸」木成材"}, {"key": "B", "text": "天上星「宿」 ／ 夜「宿」風餐"}, {"key": "C", "text": "門面「嗑」瓜子 ／ 闔「家」平安"}, {"key": "D", "text": "一盆大「腸」 ／ 慷「慨」陳詞"}], "answer": "A", "explanation": "A項皆讀作 ㄐㄩˋ（前倨後恭／鋸木）；B項 ㄒㄧㄡˋ（星宿） ／ ㄙㄨˋ（住宿）；C項 ㄎㄜˋ ／ ㄏㄜˊ；D項 ㄔㄤˊ ／ ㄎㄞˇ。"}, {"id": 2, "category": "小說情節・諷刺藝術", "text": "范進中舉後喜極發瘋，眾人商議治療之策，胡屠戶最初不敢掌摑的原因為何？", "options": [{"key": "A", "text": "心疼女婿身體虛弱，唯恐打壞筋骨"}, {"key": "B", "text": "畏懼鬼神報應，深信中舉者乃天上下凡的文曲星，打了要下拔舌地獄"}, {"key": "C", "text": "官府差役在場，毆打舉人將被治罪論處"}, {"key": "D", "text": "范進岳母死命護衛，胡屠戶不得不作罷"}], "answer": "B", "explanation": "胡屠戶迷信功名權貴，言：「雖然是我女婿，如今卻做了老爺，就是天上的星宿。天上的星宿是打不得的！我聽得齋公們說：打了天上的星宿，閻王就要拿去打一百鐵棍，發在十八層地獄……」極具諷刺意味。"}, {"id": 3, "category": "人物心理・性格刻劃", "text": "范進在窮困潦倒時面對胡屠戶的唾罵「唯唯連聲」，中舉被救醒後對胡屠戶的作揖問候依然稱「岳父」，這反映范進何種性格？", "options": [{"key": "A", "text": "深明大義、懂得尊師重道的孝子風範"}, {"key": "B", "text": "長期受科舉摧殘壓抑，養成怯懦猥瑣、麻木迂腐的奴性心理"}, {"key": "C", "text": "老謀深算、故意裝瘋賣傻以測試眾人忠誠"}, {"key": "D", "text": "狂放不羈、無視世俗禮法與長幼尊卑"}], "answer": "B", "explanation": "范進苦讀數十年，被封建體制與市井辱罵磨光了人的尊嚴，即便中舉後，依然顯露出長期受壓抑所形成的唯唯諾諾與麻木迂腐。"}, {"id": 4, "category": "文學常識・小說體例", "text": "關於《儒林外史》一書之敘述，下列何者正確？", "options": [{"key": "A", "text": "全書以范進一人為全書始終貫串的唯一主角"}, {"key": "B", "text": "作者為清代蒲松齡，為文言短篇志怪小說"}, {"key": "C", "text": "作者吳敬梓，為章回體諷刺小說，採串珠式結構展現士林百態"}, {"key": "D", "text": "全書文字華麗對仗，大量引用駢文辭賦"}], "answer": "C", "explanation": "《儒林外史》為吳敬梓所著長篇章回諷刺小說，其結構無單一主角，而是「一個人物帶出另一個人物」的串珠式結構；文筆長於寫實白描。"}, {"id": 5, "category": "素養評鑑・時代反思", "text": "從現代教育素養觀點來看，《范進中舉》中最引人深思的核心警訊是什麼？", "options": [{"key": "A", "text": "考試制度應全面廢除，任何人皆不應接受評量"}, {"key": "B", "text": "若教育與學習被單一的功名利祿與文憑主義綁架，將導致人性扭曲與人格尊嚴的喪失"}, {"key": "C", "text": "貧窮人家子弟絕不可能透過努力翻轉階級"}, {"key": "D", "text": "經商屠宰業者的道德操守必定低於讀書仕宦之人"}], "answer": "B", "explanation": "文章核心批判即在於科舉制度將讀書人引向單一的功名奴役，使學習喪失求真求善的本質，淪為追逐特權與財富的扭曲工具。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B2 第 02 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">記敘文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高一奠基期（說寫明白）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【人物】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【結構】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【因果】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 公平／公義與發展 × 空間和時間</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        范進中舉
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當讀書只為了功名利祿，教育與人性會扭曲成何種模樣？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">形塑角色・發展情節・批判諷刺</div>
+          <div class="text-sm text-slate-500 mt-1">掌握章回小說誇張反諷手法，剖析科舉制度對士人靈魂與世俗人心的毒害</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服一和）</div>
+          <div class="text-sm text-slate-500 mt-1">三民家商服裝科（服飾身分符號學）：范進中舉前「借盤費被胡屠戶唾罵癩蛤蟆、衣衫襤褸捉母雞」vs. 中舉發瘋後「鄉紳張靜齋奉送紋銀官袍、胡屠戶改口文曲星提豬大腸」，剖析科舉體制下「冠袍帶履」所代表的階級虛榮與市儈嘴臉。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：2-V-3, 5-V-2, 6-V-1</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ba-V-1 記敘的元素, Ba-V-2 敘述方式, Ba-V-3 摹寫手法, Cb-V-1 制度風俗認知, Cc-V-1 文類小說史認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A2 系統思考與解決問題, 國V-U-C1 道德實踐與公民意識</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">吳敬梓</strong>：吳敬梓（1701～1754），字敏軒，號粒民，清安徽全椒人。出身官宦望族，早年熱衷科舉，後目睹士人趨炎附勢與官場醜惡，憤而絕意仕進。移居南京後生活貧困，晚年著成《儒林外史》。此書為中國古代諷刺長篇章回小說的巔峰之作，無英雄主角，以串珠式結構描繪科舉社會百態。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 以辛辣之筆畫炎涼世態</div>
+              <p>魯迅在《中國小說史略》中盛讚《儒林外史》：「迨吳敬梓《儒林外史》出，乃秉持公心，疾惡產生……其感受即真，戚而能諧，婉而多諷。」以白描手法刻劃人性嘴臉，入木三分。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：藉由范進中舉前後家境貧富、身分尊卑的極致對比，以及胡屠戶、鄉鄰與張靜齋前倨後恭的市儈嘴臉，深刻諷刺科舉制度對士人精神的戕害，無情揭露世態炎涼與追逐功利的社會病態。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：借銀被唾・應考之窘</div>
+            <div class="text-slate-600 text-xs mt-0.5">范進進學後向丈人胡屠戶借鄉試盤費，遭胡屠戶以「癩蛤蟆想吃天鵝肉」痛罵，范進仍瞞著丈人私自赴考。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：飢寒交迫・喜報忽臨</div>
+            <div class="text-slate-600 text-xs mt-0.5">范進考後家中斷糧，抱母雞上集市求售；捷報報錄人忽至，宣佈范進中第七名亞元，形成戲劇性反差。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：驚喜狂喜・瘋癲失神</div>
+            <div class="text-slate-600 text-xs mt-0.5">范進見報帖確鑿，痰迷心竅拍手發瘋：「噫！好了！我中了！」在集市跌入泥塘鞋都跑掉，鬧劇達到最高潮。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：巴掌醒神・市儈嘴臉</div>
+            <div class="text-slate-600 text-xs mt-0.5">眾人商議由胡屠戶打巴掌治瘋，胡屠戶由前倨轉為後恭稱范進為「文曲星」；張靜齋送銀贈宅，顯盡世態炎涼。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">胡屠戶在范進中舉前後，對其稱呼、態度與禮物有哪些天壤之別？范進發瘋的關鍵誘因是什麼？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何運用白描、神態細節刻劃與極致對比，不用一句說教便讓人物的市儈醜態躍然紙上？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">在今日依舊講求學歷升學與名利標籤的社會中，「范進中舉」的荒謬性帶給現代教育制度什麼樣的警鐘？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">前「倨」後恭</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄐㄩˋ</td>
+          <td class="py-2 px-3">傲慢無禮。指先前傲慢而後來恭敬，形容人態度前後轉變極大。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">星「宿」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄒㄧㄡˋ</td>
+          <td class="py-2 px-3">星座。古稱天上二十八星宿，俗信文人為文曲星下凡。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">「嗑」瓜子</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄎㄜˋ</td>
+          <td class="py-2 px-3">用上下門牙咬開多油或堅硬的殼以取食。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">盤「費」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄈㄟˋ</td>
+          <td class="py-2 px-3">旅費、路費。例：「去向丈人借盤費」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">行「事」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄕˋ</td>
+          <td class="py-2 px-3">做人處事之規矩品格。例：「不知好歹，不知行事」。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：當讀書只為了功名利祿，教育與人性會扭曲成何種模樣？</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1eG9p9fNGzPve35IfYSZ_jqFwBsN7kT22sY8_ScLcwgc/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1eG9p9fNGzPve35IfYSZ_jqFwBsN7kT22sY8_ScLcwgc/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服一和學習實況）</h3>
+          <p class="text-sm text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：范進發瘋細節圈圈看與人物配音廣播劇</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">圈出范進發瘋的肢體動詞（拍手、笑、跌倒、咬緊牙關）；小組分配角色為課文八段進行廣播劇配音（融入情感變化與環境音效），重現戲劇張力（對照 B2L2 簡報 Slide 52-53）</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：胡屠戶市儈言行時間軸對比與「為什麼要讀書」思辨</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">小組研讀第六至八段填寫時間軸圖表分析胡屠戶態度變化；連結邊沁與彌爾的功利主義，深思「為什麼要讀書？為什麼要考試？」科舉異化與現代升學主義下學習的真諦（對照 Slide 69-83）</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

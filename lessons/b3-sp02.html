@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B3 SP02 體驗戲劇的多元創新型態：衛武營觀劇與立裁教室跨域收束專題 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": "b3-sp02-q1", "category": "劇場美學・肢體轉身", "text": "衛武營《Kiss & Cry》觀劇前導簡報中，如何對比「現代人的用手情境」與「劇場中的手」？", "options": [{"key": "A", "text": "認為現代人用手過度，劇場表演應全面禁止使用雙手"}, {"key": "B", "text": "現代人多將手當作滑手機、打鍵盤的工具；《Kiss & Cry》則讓手指跳起探戈、溜冰與攀爬，使手華麗轉身為擁有自我意識與無限生命力的生命主體"}, {"key": "C", "text": "強調只有穿戴高科技機器人手套，雙手才能具備藝術表現力"}, {"key": "D", "text": "主張手指表演純粹是雜技魔術，與當代舞蹈或戲劇藝術毫無關聯"}], "answer": "B", "explanation": "正解為 B。前導簡報指出，現代人用手情境多為工具性（滑手機、握飲料），而比利時阿斯特嘉舞蹈劇場《Kiss & Cry》打破常規，讓手指跳探戈、溜冰、游泳，成為擁有自主意識的劇場主角。"}, {"id": "b3-sp02-q2", "category": "文學語彙・鏡頭運鏡", "text": "前導簡報引用洪醒夫〈散戲〉中「金發伯站在稍遠處木然抽菸」與「秀潔從人與人縫隙裡望過去，看到紙菸火光一閃一滅」，分別示範了何種鏡頭語言？", "options": [{"key": "A", "text": "金發伯為「拉近特寫」；秀潔視角為「推遠全景」"}, {"key": "B", "text": "金發伯為「快動作縮時」；秀潔視角為「慢動作重播」"}, {"key": "C", "text": "金發伯為「推遠（遠景感受孤寂單薄）」；秀潔視角為「拉近（特寫火光與頹喪鮮明神情）」"}, {"key": "D", "text": "兩者皆為定焦空拍鏡頭，不具備視角焦距變化"}], "answer": "C", "explanation": "正解為 C。簡報明確標註：金發伯站在稍遠處由餘光照映為「推遠」；秀潔從縫隙望向紙菸火光一閃一滅、神情鮮明為「拉近」，引導學生掌握文字中的鏡頭景深。"}, {"id": "b3-sp02-q3", "category": "文本分析・人物特質", "text": "在立裁教室收束研讀之文本《更好的人》中，男主角陳威全「把 LINE 當備忘錄、把全世界當便利貼、把偷吃對象偽裝成車貸小姐」，反映出其怎樣的核心人格特質？", "options": [{"key": "A", "text": "極度熱心公益且重視他人感受的理想伴侶"}, {"key": "B", "text": "以自我為中心，習慣將人際關係工具化、資訊化，口頭宣稱要成為更好的人卻以陽奉陰違的方式逃避情感責任"}, {"key": "C", "text": "熱愛古典文學創作且生活作息嚴謹自律"}, {"key": "D", "text": "患有嚴重數位焦慮症，完全排斥使用任何智慧型手機通訊軟體"}], "answer": "B", "explanation": "正解為 B。陳威全懶得下載軟體便將商家與女友當作便利貼，口言「成為更好的人」卻私下偷吃並偽裝聯絡人，展現表層化、工具化且自我中心的情感模式。"}, {"id": "b3-sp02-q4", "category": "批判思辨・權力關係", "text": "關於《更好的人》中「我們要成為更好的人」這句承諾，以及微微分手後將陳威全傳來的採購食譜當作「免費教練」，下列深度解析何者最為深刻？", "options": [{"key": "A", "text": "這證明陳威全確實成功幫助微微成為更優秀的女性，兩人關係非常健康"}, {"key": "B", "text": "「更好」往往隱含著「誰在定義標準」的權力結構；微微將對方的工具化訊息重新詮釋為自我資源，雖是自我調適，卻也暴露出仍受過去情感牽連的無奈與矛盾"}, {"key": "C", "text": "只要勤跑健身房與低脂飲食，任何人都能解決現實中的所有親密關係衝突"}, {"key": "D", "text": "微微應該立刻點開訊息與對方復合，因為陳威全的食譜非常營養"}], "answer": "B", "explanation": "正解為 B。簡報核心提問指出：「我們要成為更好的人」隱含權力設定；微微不點開也不封鎖，用預覽被動觀看並視為免費教練，呈現出自我重塑與未盡釋懷之間的拉扯。"}, {"id": "b3-sp02-q5", "category": "跨域實踐・技職特色", "text": "從衛武營觀劇到三民家商「立裁教室」收束，朱怡文團長與服裝科（服二和）的這場跨域專題展現了怎樣的課程亮點？", "options": [{"key": "A", "text": "要求服裝科學生放棄服裝設計，全面轉行成為全職舞台劇演員"}, {"key": "B", "text": "單純在教室內背誦傳統戲劇年表，不接觸任何當代劇場節目"}, {"key": "C", "text": "將國家級藝文殿堂之當代劇場語彙引進校園，在服裝立裁專業場域中，結合國文文本人物、場景與數位情感反思，培育兼具空間美感與批判思辨之新世代職人"}, {"key": "D", "text": "僅在衛武營拍照打卡上傳社群媒體，未進行任何文本探究"}], "answer": "C", "explanation": "正解為 C。本專題串聯衛武營國家文化中心、斜槓青年創作體朱怡文團長與三民家商服二和，在立裁教室將劇場空間感知、經典篇章鏡頭美學與當代青年情感省思深度熔接。"}],
+        init() {
+          this.resetQuiz();
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.score = 0;
+          this.userAnswers = {};
+          this.questions.forEach(q => {
+            this.userAnswers[q.id] = null;
+          });
+        },
+        selectOption(qId, key) {
+          if (this.submitted) return;
+          this.userAnswers[qId] = key;
+        },
+        submitQuiz() {
+          let correct = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correct++;
+            }
+          });
+          this.score = Math.round((correct / this.questions.length) * 100);
+          this.submitted = true;
+          // 平滑滾動到測驗結果區塊
+          setTimeout(() => {
+            const resultEl = document.getElementById('quiz-result-banner');
+            if (resultEl) resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導航欄 (Navigation Bar) -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span>返回課程地圖</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="font-mono text-xs font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded border border-brand-200">B3 SP02</span>
+        <h1 class="text-sm font-serif font-bold text-slate-800 truncate max-w-[200px] sm:max-w-md">體驗戲劇的多元創新型態：衛武營觀劇與立裁教室跨域收束專題</h1>
+      </div>
+      <div class="flex items-center space-x-2">
+        <a href="#module-1" class="text-xs font-medium text-slate-600 hover:text-brand-600 px-2 py-1 rounded">課程導讀</a>
+        <a href="#module-2" class="text-xs font-medium text-slate-600 hover:text-brand-600 px-2 py-1 rounded">教學簡報</a>
+        <a href="#module-3" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors shadow-sm">自我測驗</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 課程標頭區 (Hero Header) -->
+  <section class="bg-gradient-to-b from-brand-900 via-brand-800 to-brand-700 text-white py-12 px-4 sm:px-6 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto space-y-4 relative z-10">
+      <div class="flex flex-wrap items-center gap-2 text-xs">
+        <span class="px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800 font-semibold">應用文本</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-white/10 text-slate-200 border border-white/20">第 2 次段考範圍</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-white/10 text-slate-200 border border-white/20">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-amber-400/20 text-amber-200 border border-amber-300/30">三民家商服裝科（服二和）</span>
+      </div>
+      
+      <div class="space-y-2">
+        <h2 class="text-2xl sm:text-4xl font-serif font-bold tracking-tight text-white leading-tight">
+          體驗戲劇的多元創新型態：衛武營觀劇與立裁教室跨域收束專題
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300 font-serif leading-relaxed max-w-3xl">
+          戲，只能散了嗎？——從《散戲》、《礦村行》、《Kiss & Cry》到《更好的人》，走進衛武營找到屬於服二和的獨特視角
+        </p>
+      </div>
+
+      <div class="pt-2 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-300 border-t border-white/10">
+        <div><strong>專題合作導引：</strong> 朱怡文（斜槓青年創作體團長／青年導聆）× 三民家商服二和語文團隊</div>
+        <div><strong>核心概念（Big Ideas）：</strong> 表達、載體、價值</div>
+        <div><strong>IB 全球情境：</strong> 個人與文化表達 × 認同與關係</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主內容區 (Main Content Layout) -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-12 flex-grow">
+
+    <!-- 模組 1：課程導讀與知人論世 -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：專業導讀與跨域情境核心</h2>
+      </div>
+
+      <!-- 核心大問題 (Core Question) 與重要技能 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-5 rounded-2xl bg-amber-50/80 border border-amber-200/80 space-y-2">
+          <div class="flex items-center space-x-2 text-amber-800 font-bold text-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>核心探究大問題（Core Question）</span>
+          </div>
+          <p class="font-serif text-slate-800 text-sm sm:text-base font-semibold leading-relaxed">
+            「當戲劇打破傳統鏡框式舞台，我們如何透過空間、身體、轉場與運鏡找到自己的獨特視角？在數位訊息充斥的世界中，何謂「成為更好的人」？」
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-brand-50/80 border border-brand-200/80 space-y-2">
+          <div class="flex items-center space-x-2 text-brand-800 font-bold text-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <span>重要技能與行為動詞（Skills & Actions）</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pb-1">
+            <span class="px-2 py-0.5 rounded bg-brand-100 text-brand-800 font-semibold text-xs">跨域鑑賞</span><span class="px-2 py-0.5 rounded bg-brand-100 text-brand-800 font-semibold text-xs">鏡頭語言轉譯</span><span class="px-2 py-0.5 rounded bg-brand-100 text-brand-800 font-semibold text-xs">批判反思</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            解構戲劇「空間/場景、人物/身體、轉場、運鏡」四維視角，透過衛武營《Kiss & Cry》觀劇與立裁教室《更好的人》文本探究，反思數位便利貼情感與真實自我
+          </p>
+        </div>
+      </div>
+
+      <!-- 三民家商服裝科真實連結 -->
+      <div class="p-5 rounded-2xl bg-indigo-50/70 border border-indigo-150 space-y-2">
+        <div class="flex items-center space-x-2 text-indigo-900 font-bold text-sm">
+          <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+          <span>三民家商服裝科（服二和）專屬情境連結</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-serif">
+          三民家商服裝科（服二和）：10/19 於衛武營戲劇院實地觀賞比利時阿斯特嘉舞蹈劇場《Kiss & Cry》，10/20 於校內「立裁教室」由朱怡文團長入校帶領課程收束，將劇場微觀身體美學與服裝立裁手藝、文本人物深度交融。
+        </p>
+      </div>
+
+      <!-- 108 技高課綱法規指標與核心素養對齊 -->
+      <div class="p-5 rounded-2xl bg-slate-100/90 border border-slate-200 space-y-3">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500">108 技高課綱對齊指標（技術型高級中等學校國語文領綱）</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div class="bg-white p-3 rounded-xl border border-slate-200">
+            <span class="font-bold text-brand-700 block mb-1">學習表現（Performance）</span>
+            <span class="text-slate-600">1-V-2, 2-V-2, 2-V-3, 5-V-2, 5-V-3, 6-V-2</span>
+          </div>
+          <div class="bg-white p-3 rounded-xl border border-slate-200">
+            <span class="font-bold text-amber-700 block mb-1">學習內容（Content）</span>
+            <span class="text-slate-600">Ba-V-1 記敘的元素, Ba-V-2 敘述方式, Ba-V-3 摹寫手法, Bb-V-1 情志的抒發與省思, Be-V-2 應用文本的表達要領, Ca-V-1 物質文化認知, Cc-V-2 人文藝術精神認知</span>
+          </div>
+          <div class="bg-white p-3 rounded-xl border border-slate-200">
+            <span class="font-bold text-emerald-700 block mb-1">核心素養（Competencies）</span>
+            <span class="text-slate-600">國V-U-A3 規劃執行與創新應變, 國V-U-B1 符號運用與溝通表達, 國V-U-B3 藝術涵養與美感素養, 國V-U-C2 人際關係與團隊合作</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 壹、知人論世與作者生命特寫 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-150 pb-3">
+          <h3 class="text-lg font-bold font-serif text-brand-700">壹、知人論世與生命特寫</h3>
+          <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">朱怡文（斜槓青年創作體團長／青年導聆）× 三民家商服二和語文團隊</span>
+        </div>
+        
+        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-serif text-justify">
+          朱怡文，現任「斜槓青年創作體」團長、青年戲劇導聆人、劇場導演與編劇。長期深耕當代跨域戲劇、青少年藝術推廣與劇場教育。本專題與高雄市立三民家商服裝科（服二和）攜手合作，結合衛武營國家藝術文化中心前衛節目《Kiss & Cry》，引導技高青年走進國家級藝術殿堂，打破語文課堂與劇場實務之界線。
+        </p>
+
+        <div class="p-4 rounded-xl bg-slate-50 border-l-4 border-brand-600 space-y-1">
+          <h4 class="font-bold text-slate-800 text-xs sm:text-sm">帶領技高青年走進衛武營的跨域引路人</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            朱怡文團長以「戲，只能散了嗎？」破題，引導學生從課本《散戲》走向衛武營戲劇院，再帶著劇場震撼回到學校「立裁教室」，透過當代情感文本《更好的人》收束課程，讓文學與劇場真正化為青年思辨生命課題的養分。
+          </p>
+        </div>
+      </div>
+
+      <!-- 貳、篇章主旨與結構四幕分析 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="border-b border-slate-150 pb-3">
+          <h3 class="text-lg font-bold font-serif text-brand-700">貳、篇章主旨與結構推進架構</h3>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">本專題為三民家商服二和專屬規劃之國家級藝文深度體驗課程。課程以「戲，只能散了嗎？」銜接第三冊課文洪醒夫〈散戲〉與陳列〈礦村行〉，解構戲劇與電影之四大核心維度——空間/場景、人物/身體、轉場、情節/運鏡（推遠與拉近）。引導學生實地走進衛武營觀賞比利時阿斯特嘉舞蹈劇場《Kiss & Cry》，見證手指轉化為擁有自主生命力的劇場主角；並於觀劇後在校內立裁教室，由朱怡文團長帶領深度研析當代微型小說／劇本《更好的人》，透過「便利貼式的數位情感」與「為誰而好的自我改造」，展開深刻的人際權力與自我追尋思辨。</p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500">結構四幕推進表（對齊課堂真實活動）</h4>
+          <div class="grid grid-cols-1 gap-2.5">
+            
+        <div class="flex items-start space-x-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs sm:text-sm">第一幕：起【文本出發・戲劇四大語彙解構】</div>
+            <div class="text-slate-600 text-xs mt-1 leading-relaxed">銜接洪醒夫〈散戲〉「戲台搭在廟前廣場上」之空間場景、陳列〈礦村行〉災變人群之蒙太奇氛圍、黃凡〈賴索〉由大稻埕擠青春痘至遇見老師之時空轉場，以及〈散戲〉金發伯抽菸由遠景推近至火光一閃一滅之鏡頭語言，建立觀劇分析鷹架。</div>
+          </div>
+        </div>
+        <div class="flex items-start space-x-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs sm:text-sm">第二幕：承【肢體轉身・指尖生命力與衛武營觀劇】</div>
+            <div class="text-slate-600 text-xs mt-1 leading-relaxed">突破現代人滑手機、打鍵盤的日常用手慣性；10/19 於捷運橘線衛武營站 6 號出口集合，實地觀賞比利時阿斯特嘉舞蹈劇場《Kiss & Cry》，目睹手指跳探戈、溜冰、游泳與沙灘攀爬，體驗手成為獨立生命主體的前衛震撼。</div>
+          </div>
+        </div>
+        <div class="flex items-start space-x-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs sm:text-sm">第三幕：轉【立裁教室收束・便利貼式的數位情感解碼】</div>
+            <div class="text-slate-600 text-xs mt-1 leading-relaxed">10/20 朱怡文團長入校於「立裁教室」主持課程收束。研讀文本《更好的人》，剖析女主角微微（健身、自律、受傷後的情緒殘片）與男主角陳威全（把 LINE 當備忘錄、把全世界當便利貼、把偷吃對象偽裝成車貸小姐）；揭露數位訊息（截圖、預覽、不回覆）如何模糊人際界線。</div>
+          </div>
+        </div>
+        <div class="flex items-start space-x-3 p-3.5 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs sm:text-sm">第四幕：合【權力省思・何謂「成為更好的人」？】</div>
+            <div class="text-slate-600 text-xs mt-1 leading-relaxed">深入反思「我們要成為更好的人」背後的權力架構：這句話由誰定義？誰在設定標準？誰在承擔改變的痛苦？微微將分手後的食譜當作「免費教練」是解脫還是被動牽連？在冷靜諷刺的敘事視角中，引導青年建構真實的自我認同。</div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">衛武營前導簡報中引用了哪些國文課本篇章來說明「場景、人物、轉場、運鏡」？在《更好的人》中，男主角陳威全有什麼樣的溝通壞習慣？微微在分手後如何面對陳威全傳來的訊息？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">《Kiss & Cry》如何將微小的人體部位（手指）轉化為具備獨立意志的舞台生命？《更好的人》作者如何藉由「健身動作、食譜、採購清單、預覽截圖」等極其冷靜的客觀細節，呈現情感的疏離與工具化？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">當伴侶或他人對我們說「我們要成為更好的人」時，這句話隱含了怎樣的權力結構？我們在日常中使用 LINE、截圖、已讀不回等數位行為，究竟是在保護自己還是製造更深的人際隔閡？我們該如何為自己定義真正的「成長」？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2.5 px-3 font-semibold text-slate-800">陽奉「陰違」</td>
+          <td class="py-2.5 px-3 font-mono text-brand-700 font-bold">ㄧㄣ ㄨㄟˊ</td>
+          <td class="py-2.5 px-3 text-slate-600 leading-relaxed">表面上裝著遵守，暗地裡卻違背。簡報中形容男主角在微微面前表面答應收斂，私底下卻依舊我行我素。</td>
+        </tr>
+        <tr>
+          <td class="py-2.5 px-3 font-semibold text-slate-800">轉場「黏合」</td>
+          <td class="py-2.5 px-3 font-mono text-brand-700 font-bold">ㄋㄧㄢˊ ㄏㄜˊ</td>
+          <td class="py-2.5 px-3 text-slate-600 leading-relaxed">電影或戲劇中將不同時空場景順暢銜接的手法，能承接情緒、強化戲劇張力。</td>
+        </tr>
+        <tr>
+          <td class="py-2.5 px-3 font-semibold text-slate-800">運鏡「推遠拉近」</td>
+          <td class="py-2.5 px-3 font-mono text-brand-700 font-bold">ㄩㄣˋ ㄐㄧㄥˋ</td>
+          <td class="py-2.5 px-3 text-slate-600 leading-relaxed">透過攝影鏡頭位置與焦距變化（Zoom in / Zoom out），引導觀眾聚焦於特定情感細節。</td>
+        </tr>
+        <tr>
+          <td class="py-2.5 px-3 font-semibold text-slate-800">訊息「外化」</td>
+          <td class="py-2.5 px-3 font-mono text-brand-700 font-bold">ㄨㄞˋ ㄏㄨㄚˋ</td>
+          <td class="py-2.5 px-3 text-slate-600 leading-relaxed">將內在記憶或情感寄託於外部工具。文中指將人當作備忘錄便利貼的工具化行為。</td>
+        </tr>
+        <tr>
+          <td class="py-2.5 px-3 font-semibold text-slate-800">情感「疏離」</td>
+          <td class="py-2.5 px-3 font-mono text-brand-700 font-bold">ㄕㄨ ㄌㄧˊ</td>
+          <td class="py-2.5 px-3 text-slate-600 leading-relaxed">關係雖然名義上維繫或互動，但心理上卻築起高牆、失去真實的溫度與同理。</td>
+        </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：雙簡報切換互動展示（前導觀劇簡報 × 立裁收束簡報） -->
+    <section id="module-2" class="space-y-6" x-data="{ activeSlide: 'slide1' }">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂教學投影片（雙簡報互動切換）</h2>
+      </div>
+
+      <!-- 簡報切換頁籤卡 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-3 pb-3 border-b border-slate-150">
+          <div class="flex items-center flex-wrap gap-2">
+            <button @click="activeSlide = 'slide1'"
+                    :class="activeSlide === 'slide1' ? 'bg-brand-600 text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                    class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-1.5">
+              <span>簡報一：【觀劇前導】衛武營觀劇與四大鏡頭語彙</span>
+            </button>
+            <button @click="activeSlide = 'slide2'"
+                    :class="activeSlide === 'slide2' ? 'bg-indigo-600 text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                    class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center space-x-1.5">
+              <span>簡報二：【立裁收束】立裁教室課程收束與《更好的人》探究</span>
+            </button>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <!-- 外部連結按鈕 -->
+            <a :href="activeSlide === 'slide1' ? 'https://docs.google.com/presentation/d/1cRHbDgCAlqaDtBmr32jpe7ZtjConIUbJSWTRLqlkqYs/edit?usp=sharing' : 'https://docs.google.com/presentation/d/1n2qjhZojJ7hrIhZ3Q8cKYBMvNvymauetbOtDmFBkF0I/edit?usp=sharing'" 
+               target="_blank" rel="noopener" 
+               class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中全螢幕開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 簡報 1 內嵌容器 -->
+        <div x-show="activeSlide === 'slide1'" class="space-y-3">
+          <div class="flex items-center justify-between text-xs text-slate-500">
+            <span>正在播放：體驗戲劇的多元創新型態──2025服二和衛武營觀劇前導</span>
+            <a href="https://www.npac-weiwuying.org/programs/67e60c18880d390007886f71" target="_blank" class="text-brand-600 hover:underline">衛武營《Kiss & Cry》節目專屬頁面 ↗</a>
+          </div>
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/1cRHbDgCAlqaDtBmr32jpe7ZtjConIUbJSWTRLqlkqYs/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- 簡報 2 內嵌容器 -->
+        <div x-show="activeSlide === 'slide2'" x-cloak class="space-y-3">
+          <div class="flex items-center justify-between text-xs text-slate-500">
+            <span>正在播放：10/20 三民家商「立裁教室」課程收束──當代微型小說《更好的人》探究</span>
+            <a href="https://theatretalk.com.tw/topic/slashiewithyouth/" target="_blank" class="text-indigo-600 hover:underline">斜槓青年創作體 朱怡文團長導聆專頁 ↗</a>
+          </div>
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/1n2qjhZojJ7hrIhZ3Q8cKYBMvNvymauetbOtDmFBkF0I/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+          <div class="flex items-center space-x-2">
+            <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+            <h4 class="font-bold text-slate-800 text-sm sm:text-base">任務一：經典篇章鏡頭語言分析工作表</h4>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pl-4">比對洪醒夫〈散戲〉、陳列〈礦村行〉、黃凡〈賴索〉，分析其如何透過「場景、人物、轉場、運鏡」四維語彙建構戲劇張力。</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+          <div class="flex items-center space-x-2">
+            <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+            <h4 class="font-bold text-slate-800 text-sm sm:text-base">任務二：《更好的人》人物關係與權力架構剖析單</h4>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pl-4">分析微微與陳威全從交往到分手的便利貼式互動，分組討論「誰在定義更好」並撰寫個人觀劇與立裁收束反思心得。</p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="flex justify-center pt-4">
+        <button @click="submitQuiz()" 
+                x-show="!submitted"
+                class="px-8 py-3 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 transition-all shadow-md hover:shadow-lg">
+          繳交測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="bg-slate-900 text-slate-400 py-8 px-4 text-center text-xs space-y-2 border-t border-slate-800">
+    <div class="max-w-5xl mx-auto space-y-1">
+      <p class="text-slate-300 font-serif font-bold text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>技術型高級中等學校國語文領綱・校本跨領域專題課程</p>
+      <p class="text-slate-500 pt-1">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

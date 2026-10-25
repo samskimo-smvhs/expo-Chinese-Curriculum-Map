@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B5 第 04 課 臺灣文學名作：一桿「稱仔」 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "象徵意義", "text": "小說中被日本巡查折斷的「稱仔」，在文學意涵中最核心的象徵為何？", "options": [{"key": "A", "text": "秦得參缺乏商業誠信，販賣偷工減料之度量衡器具"}, {"key": "B", "text": "代表人間客觀標準與法治公平的正義，遭到統治者以公權力粗暴摧毀"}, {"key": "C", "text": "象徵臺灣農村傳統手工業在現代化浪潮下的衰落"}, {"key": "D", "text": "暗示秦得參因精神恍惚而不慎自毀維生工具"}], "answer": "B", "explanation": "稱仔本是衡量物重、象徵買賣公道與法度公正的器具。巡查親手折斷合格稱仔，象徵殖民公權力對法治精神與社會正義的肆意踐踏。"}, {"id": 2, "category": "情節分析", "text": "日本巡查找秦得參麻煩並折斷其稱仔的真正原因為何？", "options": [{"key": "A", "text": "秦得參在市集公然聚眾抗稅"}, {"key": "B", "text": "巡查欲白拿花菜不成，惱羞成怒藉官威行報復勒索"}, {"key": "C", "text": "秦得參故意將爛菜混入好菜中欺騙日本主婦"}, {"key": "D", "text": "市集禁止販賣未經包裝之生鮮蔬菜"}], "answer": "B", "explanation": "巡查到攤位前挑選花菜，秦得參恭敬秤重並報出價錢，巡查自恃殖民特權習慣白拿，秦得參不知逢迎，巡查遂以稱仔未檢驗為由發難洩憤。"}, {"id": 3, "category": "角色命名", "text": "賴和將小說主角命名為「秦得參」，其臺語諧音之深層寓意為何？", "options": [{"key": "A", "text": "諧音「真的慘」，象徵臺灣底層殖民小民走投無路的苦難宿命"}, {"key": "B", "text": "諧音「禽獸不如」，諷刺不孝的子孫"}, {"key": "C", "text": "諧音「請得起」，暗示其家庭原本家境富裕"}, {"key": "D", "text": "諧音「勤勞生」，勉勵青年人只要努力必能致富"}], "answer": "A", "explanation": "賴和善用臺語雙關命名，「秦得參」諧音「真得慘」（真的慘），極具悲劇色彩地概括了殖民壓迫下底層人民的共同寫照。"}, {"id": 4, "category": "寫作手法", "text": "小說結尾寫道「元旦的早晨……市上盛傳著，昨夜巡查某某，在巡視的途中，被殺斃了……」，而秦得參的家中同時傳出哭聲。賴和採用此種「留白暗寫」手法之藝術效果為何？", "options": [{"key": "A", "text": "暗示秦得參趁夜逃亡大陸，從此隱姓埋名"}, {"key": "B", "text": "不直接描寫流血細節，而以兩端事實並置，留給讀者震撼的聯想與悲壯的抗暴餘韻"}, {"key": "C", "text": "證明巡查是被市集其他攤商圍毆致死，與秦得參無關"}, {"key": "D", "text": "表示賴和尚未想好結局，故匆忙收尾"}], "answer": "B", "explanation": "賴和避開血腥動作的直接描摹，以巡查暴斃與秦家哭聲並列，暗示秦得參用生命完成同歸於盡之抗暴復仇，筆法冷峻節制卻具備巨大的震撼力。"}, {"id": 5, "category": "法治思辨", "text": "在三民家商課堂任務中，一軒老師引導學生對讀日治時期警察執法與現代《勞動基準法》。若雇主因打工學生打破盤子而「預扣全額薪水5,000元充當賠償」，雇主直接違反了《勞動基準法》的哪一條核心規定？", "options": [{"key": "A", "text": "第26條：雇主不得預扣勞工工資作為違約金或賠償費用"}, {"key": "B", "text": "第38條：勞工在同一雇主工作滿一定期間應給予特別休假"}, {"key": "C", "text": "第53條：勞工自請退休之要件"}, {"key": "D", "text": "第62條：職業災害補償之連帶責任"}], "answer": "A", "explanation": "依《勞基法》第26條規定：「雇主不得預扣勞工工資作為違約金或賠償費用。」即便勞工造成損害，雇主亦不得直接扣薪，須經協商或法律訴訟確定責任。"}, {"id": 6, "category": "文學史定位", "text": "關於賴和在臺灣文學史上的地位與貢獻，下列敘述何者完全正確？", "options": [{"key": "A", "text": "開創臺灣浪漫主義詩派，以歌詠山川自然與個人唯美情愛著稱"}, {"key": "B", "text": "主編《臺灣民報》文藝欄，提攜後進，作品充滿寫實主義精神與人道批判，被譽為「臺灣新文學之父」"}, {"key": "C", "text": "主張臺灣文學應完全使用日本文言文書寫，反對任何白話文運動"}, {"key": "D", "text": "一生只以古典文言文創作，從未涉足現代短篇小說"}], "answer": "B", "explanation": "賴和以醫者身分懸壺濟世，更主持《臺灣民報》文藝欄培養無數本土作家，以寫實批判風格奠定臺灣新文學基石，被譽為「臺灣新文學之父」。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B5 第 04 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">記敘文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高三成熟期（應對自如）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【人物】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【場景】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【順序】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 公平／公義與發展（殖民統治、階級壓迫、人權自覺與勞動正義）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        臺灣文學名作：一桿「稱仔」
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當公權力淪為壓迫弱者的工具，法律失去了公平與正義的靈魂時，底層小民該如何在生存尊嚴與反抗代價之間做出抉擇？現代青年又該如何守護自身的勞動權益？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">小說衝突剖析・象徵意象解讀・歷史法治思辨・現代勞權檢索</div>
+          <div class="text-xs text-slate-500 mt-1">分析賴和以寫實手法刻畫日治時期殖民警察濫權與底層佃農秦得參之生存悲歌；解讀「稱仔」與「銀圓」之核心象徵；引導技職學生運用「全國法規資料庫」進行現代勞動基準法檢索，建構勞權自救武器。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服三和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服三和）：從秦得參因一條借錢買金借來的青草布被毀、銀圓被奪之底層困境，連結現代成衣代工體系中的外包小農、移工處境與快時尚供應鏈下的勞動尊嚴，探討服裝產業在追求美感之餘，必須承擔的公平貿易（Fair Trade）與勞動人權倫理。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 2-V-1 結合生活經驗與專業知識，進行跨領域思辨, 5-V-2 統整各類文本資訊，提出個人多元觀點, 5-V-3 鑑賞文本之思想意涵與藝術表現, 6-V-2 關懷環境與人權議題，展現社會參與行動力</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-2 篇章的組織與結構, Ad-V-3 篇章的表現, Bb-V-1 情志的抒發與省思, Ca-V-1 當代生活物質文化認知, Cb-V-1 臺灣文學發展與經典作家認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-A2 系統思考與解決問題, 國V-U-C1 道德實踐與公民意識, 國V-U-C3 多元文化與國際理解</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">賴和</strong>：賴和（1894年－1943年），本名賴河，字伯瑤，號懶雲，臺灣彰化人。臺灣總督府醫學校畢業。在彰化開設「賴和醫院」，懸壺濟世，對貧苦病患常免收診費甚至贈藥，彰化市民感佩尊稱其為「彰化媽祖」或「和仔仙」。1921年加入臺灣文化協會，積極投身臺灣民族獨立與文化啟蒙運動，兩度遭日本殖民政府逮捕入獄。創作用字融合漢文、白話文與臺灣話文，其作品批判殖民統治之殘暴、揭露封建迷信、同情農工弱勢，開創臺灣新文學寫實主義傳統，被後世尊崇為「臺灣新文學之父」與「臺灣的魯迅」。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 醫者仁心與臺灣新文學的脊梁</div>
+              <p>賴和一生堅持「醫者的文學，文學的醫者」。他深知醫藥僅能救治肉體之病，唯有文學能喚醒沉睡的心靈與民族尊嚴。小說〈一桿「稱仔」〉發表於1926年《臺灣民報》，以彰化二林農民運動為背景，透過微小的賣菜稱仔，精準刺穿日本「法治帝國」外衣下的殖民壓迫真面目。一軒老師在真實教學中，特別將日治「違警罪」與現代《勞動基準法》對讀，讓文學成為技職青年進入社會最堅實的人權防禦手冊。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：透過彰化底層菜販秦得參借錢買秤賣菜、因不肯向日本巡查阿諛獻媚而遭羅織罪名、折斷稱仔、羞辱拘禁的悲劇歷程，深刻揭露日本殖民統治以「現代法治」為名行「殘酷掠奪」之實的荒謬，讚頌弱者以死抗暴、捍衛尊嚴的精神。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：起（生計所迫・除夕搏生）</div>
+            <div class="text-slate-600 text-xs mt-0.5">秦得參家貧如洗，為使妻兒度過除夕，以微薄利錢向鄰人借得銀圓，購置新鮮蔬菜與一桿新稱仔，希冀於市集小本買賣換取一家團圓溫飽。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：承（市場勒索・稱仔折斷）</div>
+            <div class="text-slate-600 text-xs mt-0.5">日本巡查看中秦得參的花菜，欲索取不付錢；秦得參秉持本分老實稱重算錢，巡查看似尊嚴受損惱羞成怒，藉口稱仔未經檢定合格，強行拗折稱仔並擲於地上。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：轉（官廳受審・牢獄屈辱）</div>
+            <div class="text-slate-600 text-xs mt-0.5">秦得參遭押入巡查派出所，巡查偽造違警罪名，法官不聽辯解判處三圓罰金或拘留三日；妻子典當衣物勉強湊齊贖人，但秦得參深感人格已被徹底踩在泥淖中。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：合（鐘聲夜鳴・悲憤同歸）</div>
+            <div class="text-slate-600 text-xs mt-0.5">除夕深夜萬家團圓爆竹響起，秦得參家中卻死寂無光；翌日清晨市集傳出日警於巡邏途中離奇身亡，秦得參亦飲恨自盡，以決絕同歸於盡之抗暴，完成對不義政權的終極宣判。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">秦得參為什麼要借錢買一桿新「稱仔」？巡查是以什麼理由將他的稱仔折斷並將他送官法辦？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何透過「除夕迎春的歡樂氣氛」與「秦得參一家的走投無路」形成強烈反襯？「稱仔」在全篇小說中具有哪些層次的象徵意義？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">當象徵客觀標準與公平正義的「稱仔」被執法者親手折斷，這揭示了法治怎樣的危險本質？現代技高青年若在打工職場遭遇雇主違法苛扣時，該如何運用法律維護尊嚴？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">稱仔</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄔㄣˋ ㄗˇ</td>
+          <td class="py-2 px-3">臺語指小型的桿秤。用以秤量輕物，象徵公平、法度與人間良知。例：「買了一桿稱仔，借了一塊銀圓」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">巡查</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄒㄩㄣˊ ㄔㄚˊ</td>
+          <td class="py-2 px-3">日治時期基層警察的正式職稱。握有審查、罰鍰、拘留等廣大行政裁量權，為殖民統治壓迫臺灣百姓的最前線象徵。例：「巡查走過來，用兇狠的目光盯著他」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">違警</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄨㄟˊ ㄐㄧㄥˇ</td>
+          <td class="py-2 px-3">違反警察行政管理法規。日治時期訂有《違警例》，警察可不經法院審判直接對人民處以拘留或罰款。例：「巡查說他犯了違警例，強押回所」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">花菜</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄏㄨㄚ ㄘㄞˋ</td>
+          <td class="py-2 px-3">白花椰菜。秦得參在除夕市集叫賣以維持生計之蔬菜，亦為日警強索不成而發難之導火線。例：「賣花菜的秦得參，蹲在街角」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">銀圓</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧㄣˊ ㄩㄢˊ</td>
+          <td class="py-2 px-3">舊式銀質硬幣。秦得參妻子透過典當僅存衣服與借貸換來的微薄資本與贖金。例：「掏出藏在貼身口袋裡的銀圓」。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：正義的秤由誰定？——從賴和筆下被折斷的稱仔到現代法治與青年勞權防線</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/13SpVjeUPpKoW_etQS9igtdBta_ll4CqIkCiIR_RHNZ0/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/13SpVjeUPpKoW_etQS9igtdBta_ll4CqIkCiIR_RHNZ0/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服三和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：日治時期「違警罪」與秦得參法庭搜證錄（罪與罰真相解密）</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據一軒老師課堂教案：對讀日治時期《違警例》條文與小說文本，找出日本巡查在執法過程中的「羅織罪名、踰越職權、侵吞財物」三大程序違法事證，撰寫「秦得參案歷史法庭冤獄平反搜證訴狀」。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：【一桿稱仔現代實踐】全國法規資料庫檢索行動指南（打工族勞權自救）</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據課堂真實學習單：拆解「餐飲店長因打破盤子全額預扣秦同學5,000元工資、除夕拒給雙倍薪」情境，運用「全國法規資料庫」實測檢索《勞基法》第22條（全額直接給付）、第26條（不得預扣）、第39條（假日加倍）與罰則，完成勞動糾紛存證信函。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">03</span>
+            <span>任務三：三民家商服裝科「公平貿易與勞動倫理」思辨報告</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">結合技職專業實習：探討現代成衣代工廠移工超時勞動與薪資扣發爭議，將「一桿稱仔的公平精神」轉化為「透明生產履歷與友善勞工認證標籤」品牌提案。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

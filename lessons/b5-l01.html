@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B5 第 01 課 古典記敘文選：鴻門宴 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "情節推論", "text": "在鴻門宴中，范增數度「舉所佩玉玦以示之者三」，其核心意圖為何？", "options": [{"key": "A", "text": "讚賞劉邦謙虛示弱的態度，示意項羽封劉邦為漢王"}, {"key": "B", "text": "以玉玦象徵君子溫潤之德，勸項羽與劉邦結為異姓兄弟"}, {"key": "C", "text": "取「玦」與「決」同音，示意項羽當機立斷除掉劉邦"}, {"key": "D", "text": "提醒項羽時間已晚，該準備結束宴會整隊出兵"}], "answer": "C", "explanation": "「玦」音同「決」，古人常借物寓意。范增見項羽猶豫不決，故屢次舉起玉玦，暗示項羽應下定決心痛下殺手。"}, {"id": 2, "category": "文化常識", "text": "關於鴻門宴席間的座次安排，下列分析何者最為精確？", "options": [{"key": "A", "text": "古代堂上座位以「東向（坐西朝東）」為最尊，項羽東向而坐，顯示其自尊自大與壓倒性優勢"}, {"key": "B", "text": "劉邦北向而坐是宴席中的尊位，表示項羽對劉邦長者的尊重"}, {"key": "C", "text": "張良西向而坐，代表漢營處於軍事主導地位"}, {"key": "D", "text": "亞父范增南向而坐，象徵其為整場宴席的唯一發言人與決策者"}], "answer": "A", "explanation": "古人室內座次以坐西朝東（東向）為最尊，坐北朝南（南向）次之，坐南朝北（北向）再次之，坐東朝西（西向）為卑。項王東向坐顯其尊，沛公北向坐處客臣之卑位。"}, {"id": 3, "category": "人物性格", "text": "樊噲闖入帳中，怒目視項王，項王稱其為「壯士」並賜酒肉。項羽此舉最能顯現其何種性格特質？", "options": [{"key": "A", "text": "生性多疑，藉賜酒肉試探樊噲是否身懷利刃"}, {"key": "B", "text": "豪氣干雲、英雄相惜，重視個人勇武而輕忽軍政防範"}, {"key": "C", "text": "深謀遠慮，企圖以重金酒肉收買漢營大將"}, {"key": "D", "text": "心虛膽怯，企圖以禮遇安撫樊噲以防其刺殺"}], "answer": "B", "explanation": "項羽見樊噲氣宇軒昂闖帳，不僅不罪反稱壯士、賜酒彘肩，展現其身為西楚霸王對勇武豪邁之士的由衷激賞，亦暴露其缺乏政治機防的盲點。"}, {"id": 4, "category": "字詞音義", "text": "下列文句中「為」字的字義，何者與其他三者截然不同？", "options": [{"key": "A", "text": "「為」之奈何"}, {"key": "B", "text": "竊「為」大王不取也"}, {"key": "C", "text": "使子嬰「為」相"}, {"key": "D", "text": "誰「為」大王為此計者"}], "answer": "D", "explanation": "D選項前一個「為」字讀ㄨㄟˋ，介詞，替、給的意思；A、B、C選項皆為動詞（辦理／認為／擔任），讀ㄨㄟˊ。"}, {"id": 5, "category": "文意理解", "text": "范增在劉邦逃席、張良獻玉斗後，拔劍撞而破之，痛罵「豎子不足與謀！奪項王天下者，必沛公也」。范增憤怒的根本原因為何？", "options": [{"key": "A", "text": "嫌棄漢營贈送的玉斗品質粗糙不合禮數"}, {"key": "B", "text": "痛恨項莊劍術不精未能當場斬殺劉邦"}, {"key": "C", "text": "深知放虎歸山後患無窮，痛心項羽剛愎優柔痛失統一天下的千載良機"}, {"key": "D", "text": "察覺項伯私通漢營，憤怒無法當場將其軍法處置"}], "answer": "C", "explanation": "范增眼光深遠，洞悉劉邦有統一天下之野心，原本是徹底擊潰劉邦的絕佳機會，卻因項羽優柔寡斷而縱虎歸山，故悲憤絕望痛罵「豎子不足與謀」。"}, {"id": 6, "category": "素養思辨", "text": "一軒老師在課堂引導中對讀呂正惠〈項羽——超級巨星〉，請同學反思項羽的歷史定位。下列哪一項最符合現代管理與領導學的觀點？", "options": [{"key": "A", "text": "個人魅力極高但缺乏制度構建與團隊授權能力的領導者，容易在長期競爭中被制度化整合型團隊擊敗"}, {"key": "B", "text": "只要擁有絕對的個人勇武與個人號召力，就能自然獲得跨時代的永久勝利"}, {"key": "C", "text": "領導者應當像項羽一樣事必躬親，無需採納幕僚謀臣的建議"}, {"key": "D", "text": "劉邦的成功純屬僥倖運氣，缺乏值得現代企業借鑑的策略特質"}], "answer": "A", "explanation": "項羽具備極致的個人英雄魅力，但剛愎自用且缺乏組織整合與深層戰略；劉邦雖無卓越武力，但能屈能伸、知人善任、廣納群言，代表現代組織化與制度化領導的勝利。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B5 第 01 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">記敘文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高三成熟期（應對自如）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【人物】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【結構】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【場景】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 個人和文化表達（歷史敘事、英雄悲劇美學與權力博弈）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        古典記敘文選：鴻門宴
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「在決定命運的關鍵危機時刻，是一時的武力優勢還是深沉的性格特質、謀略佈局與知人善任，最終決定了一個人的成敗格局？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">人物性格解讀・情節張力辨析・危機應變決策・跨文本比較</div>
+          <div class="text-xs text-slate-500 mt-1">剖析司馬遷以人物言行動作刻畫性格之高超筆法；解構鴻門宴五幕交鋒中項羽陣營與劉邦陣營之決策得失；對讀呂正惠〈項羽——超級巨星〉，從歷史悲劇中提煉現代領導力與心理素質。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服三和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服三和）：從《史記》對項羽「受璧置之坐上」、劉邦「脫身獨騎」以及樊噲「帶劍擁盾入軍門」之服飾、佩飾與肢體符碼描寫，探討古代服飾在重大政治社交場合中彰顯的身分位階與心理防線，並連結高三服裝設計中的「戲劇服裝角色性格塑造」實踐。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 2-V-2 結合生活經驗與專業知識，進行跨領域思辨, 5-V-2 統整各類文本資訊，提出個人多元觀點, 5-V-3 鑑賞文本之思想意涵與藝術表現, 6-V-1 體會文化與生活之關聯，深化人文關懷</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-2 篇章的組織與結構, Ad-V-3 篇章的表現, Bb-V-1 情志的抒發與省思, Ca-V-1 當代生活物質文化認知, Cc-V-1 經典史傳文類認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-A2 系統思考與解決問題, 國V-U-B1 符號運用與溝通表達, 國V-U-C2 人際關係與團隊合作</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">司馬遷（史記）</strong>：司馬遷（約前145年－約前90年），字子長，西漢夏陽（今陝西韓城）人。太史令司馬談之子。早年漫遊天下，考察歷史遺蹟與風土人情。承父志繼任太史令，後因李陵之禍為其辯護，觸怒漢武帝而下獄受腐刑。出獄後忍辱負重，任中書令，發憤著述，歷經十餘年完成中國第一部紀傳體通史《史記》（原名《太史公書》）。全書共一百三十篇，五十二萬餘字，包括十二本紀、十表、八書、三十世家、七十列傳，記載從黃帝到漢武帝三千年間歷史。魯迅讚譽為「史家之絕唱，無韻之《離騷》」。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 發憤著書的偉大靈魂與太史公筆法</div>
+              <p>司馬遷在〈報任少卿書〉中痛陳「身毀不用，草創未就」，卻化奇恥大辱為史筆千鈞。其寫作不虛美、不隱惡，將楚漢爭霸中項羽的豪氣、婦人之仁與政治盲點，以及劉邦的機敏、無賴與政治成熟，描摹得入木三分。一軒老師在簡報中特別指出：鴻門宴不僅是一場宴席，更是一場高張力的時空棋局，雙方每一個眼神、座次、佩飾（玉玦、白璧、玉斗），都是決定帝國歸屬的命運符碼。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：藉由鴻門宴前後曲折跌宕的歷史情節，精細刻畫項羽、范增、項伯與劉邦、張良、樊噲兩大陣營人物的鮮明性格，揭示「性格決定命運」的深刻歷史規律，並展現古代史傳文學敘事與人物塑造的極致藝術。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：起（宴前密謀・風雲驟起）</div>
+            <div class="text-slate-600 text-xs mt-0.5">曹無傷告密引發項羽「大怒」下令擊劉；項伯私奔漢營夜告張良；劉邦虛心結納項伯，扭轉一觸即發之戰局。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：承（謝罪入席・座次暗湧）</div>
+            <div class="text-slate-600 text-xs mt-0.5">劉邦晨馳鴻門謙卑謝罪；項羽脫口出賣曹無傷；宴席座次排定（項王東向、亞父南向、沛公北向、張良西向），隱伏尊卑壓制之局。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：轉（項莊舞劍・樊噲闖帳）</div>
+            <div class="text-slate-600 text-xs mt-0.5">范增三舉所佩玉玦，項羽默然不應；召項莊舞劍欲刺沛公，項伯拔劍翼蔽；樊噲按劍入帳怒目而視，豪邁痛陳義理，震懾全場。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：合（尿遁脫險・玉斗成齏）</div>
+            <div class="text-slate-600 text-xs mt-0.5">劉邦藉故出帳獨騎脫逃；張良入帳獻白璧受納、玉斗遭范增拔劍撞碎；范增痛罵「豎子不足與謀」，楚滅漢興定局。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">鴻門宴上楚漢雙方陣營的主要核心決策為何？席間座次是如何安排的？樊噲入帳後說了哪些關鍵話語化解殺機？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">司馬遷如何透過言談、微表情、肢體動作（如項羽之大怒、范增之舉玦、項莊之舞劍、項伯之翼蔽、樊噲之目眥盡裂、范增之碎斗）形塑兩軍截然不同的人物性格與戲劇張力？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">為什麼說「性格決定命運」？項羽握有四十萬大軍何以痛失天下，劉邦十萬兵力何以逆轉局勢？這給予現代技高學生在人際協商、團隊領導與危機處理上有何深刻啟示？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">戮力</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄌㄨˋ ㄌㄧˋ</td>
+          <td class="py-2 px-3">通力合作、竭盡全力。戮，合、併。例：「臣與將軍戮力而攻秦」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">目眥</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄇㄨˋ ㄗˋ</td>
+          <td class="py-2 px-3">眼眶。眥，上下眼瞼相接處。例：「目眥盡裂」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">卮酒</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓ ㄐㄧㄡˇ</td>
+          <td class="py-2 px-3">一杯酒。卮，古代圓形盛酒器。例：「項王曰：『賜之彘肩。』則與一生彘肩」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">玉玦</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄩˋ ㄐㄩㄝˊ</td>
+          <td class="py-2 px-3">環形而有缺口的玉器，古常用以暗示行事應當果斷決絕。例：「范增數目項王，舉所佩玉玦以示之者三」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">參乘</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄙㄢ ㄕㄣˋ</td>
+          <td class="py-2 px-3">古時乘車，尊者居左，御者居中，參乘居右以備防護，故又稱驂乘。例：「沛公之參乘樊噲者也」。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：性格所決定的命運——楚漢風雲下的棋局智鬥與危機抉擇</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/1IDMSvQzL_bgDlCgarThC0Qq---fDFGLEmTPLlW2w0Lc/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/1IDMSvQzL_bgDlCgarThC0Qq---fDFGLEmTPLlW2w0Lc/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服三和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：楚漢群英性格解碼學習單（一軒老師真實課堂鷹架）</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">對照真實課堂設計：依行為證據一對一嚴格比對項羽（衝動易怒、優柔寡斷、英雄相惜、疏於謀略）、范增（深謀遠慮、越俎代庖、剛烈躁進）、項伯（為恩背主、重視情義）與劉邦（能屈能伸、知人善任）、張良（心思縝密、冷靜沉穩）、樊噲（豪邁威猛、智勇雙全），完成性格矩陣圖。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：鴻門前夕沙盤推演與時空棋局智鬥分析</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">以「時空棋局」為框架，拆解曹無傷告密、項伯夜奔、張良斡旋、樊噲闖帳的四道決策鏈，分析兩軍情報傳遞與危機管理機制，撰寫「鴻門宴危機管理復盤報告」。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">03</span>
+            <span>任務三：跨文本對讀──從〈項羽——超級巨星〉反思領導力與生涯決策</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">結合補充文選呂正惠〈項羽——超級巨星〉，思辨：在講求團隊合作與情緒智商的現代社會中，項羽式的「個人英雄主義」與劉邦式的「資源整合領導」，哪一種更具永續生存力？</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

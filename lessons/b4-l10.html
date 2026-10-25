@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B4 第 10 課 當代文化散文：生活美學的起點 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "概念理解・生活哲學", "text": "蔣勳在文中分析漢字「忙」，指出「心亡為忙」。這項語義剖析揭示了現代人生活中的何種危機？", "options": [{"key": "A", "text": "心臟跳動過快，容易引發高血壓"}, {"key": "B", "text": "當生活節奏過度忙碌、被外在瑣事填滿時，心靈的覺察力便會死亡麻木，喪失對生活細微美好的感知力"}, {"key": "C", "text": "指所有人工作太忙都會忘記自己的名字"}, {"key": "D", "text": "純粹是書法字帖練習時的筆畫記憶口訣"}], "answer": "B", "explanation": "「心亡為忙」精闢揭露現代病：忙碌使心靈枯竭。只有主動停下來放慢節奏，心靈才能重新恢復覺察與靈性。"}, {"id": 2, "category": "美學理念・辨析釐清", "text": "關於蔣勳所倡導的「生活美學」，下列敘述何者最符合其核心精神？", "options": [{"key": "A", "text": "美就是全身穿戴國際名牌珠寶，出入高級米其林餐廳炫耀財富"}, {"key": "B", "text": "美並非昂貴的奢侈品，而是回到日常生活五感的真實覺察，用心體驗一碗白飯的香氣、一片葉子的紋理與一件合身衣服的觸感"}, {"key": "C", "text": "美只能存在於國家美術館的防盜玻璃框裡，與老百姓生活無關"}, {"key": "D", "text": "美是天生基因決定的，後天完全無法培養與感受"}], "answer": "B", "explanation": "蔣勳的生活美學強調「美即生活」。美感不靠金錢堆砌，而是源於專注、深情與樸素的生活覺察。"}, {"id": 3, "category": "修辭寫作・論述策略", "text": "作者在文中透過「食、衣、住、行」等具體生活場景展開論述，其在寫作論說文上的主要優勢為何？", "options": [{"key": "A", "text": "藉由人人皆有親身體驗的日常事例，化深奧抽象的美學概念為親切生動的具體生活實踐，極易引發讀者深刻共鳴"}, {"key": "B", "text": "因為作者不知道任何外國美學家的理論，只能談吃飯穿衣"}, {"key": "C", "text": "為了替各大百貨公司撰寫促銷廣告文案"}, {"key": "D", "text": "說明生活美學只關心吃喝玩樂，完全沒有精神層次"}], "answer": "A", "explanation": "以日常微物切入宏大哲理，是蔣勳散文的獨特魅力。大美存在於日用平常之中，論述親切而深邃。"}, {"id": 4, "category": "跨領域素養・專業反思", "text": "身為三民家商服裝科同學，研讀本課後，在面對「快時尚（Fast Fashion）」的浪潮時，應確立何種專業價值觀？", "options": [{"key": "A", "text": "只追求每天生產越快越多越好，完全不管布料對皮膚與環境的傷害"}, {"key": "B", "text": "重新珍視面料的天然質地與細緻剪裁，將衣服視為陪伴穿著者生活、具有溫度與記憶的第二層肌膚，實踐慢時尚與工藝尊嚴"}, {"key": "C", "text": "鼓勵消費者每週把舊衣服全部燒毀以刺激經濟"}, {"key": "D", "text": "全面放棄服裝設計，改行做塑膠包裝代工"}], "answer": "B", "explanation": "真正的服裝美學反對快餐式的盲目消費。尊重材質、注重舒適與美感長存，是技術高中服裝人的核心靈魂。"}, {"id": 5, "category": "生活實踐・行動策略", "text": "若要在忙碌的高中求學生活中重拾「失落的感受力」，下列哪一項行動最具體有效？", "options": [{"key": "A", "text": "上課時一邊聽音樂、一邊滑手機、一邊寫作業，同時做五件事"}, {"key": "B", "text": "每天給自己十五分鐘的「主動留白時間」，關閉所有通訊軟體，專注於呼吸、伸展，或靜靜喝一杯溫水，感受當下的存在"}, {"key": "C", "text": "花光所有零用錢去買最新的智慧型手機以提升生活品味"}, {"key": "D", "text": "逃避所有學校考試，整天在家睡覺"}], "answer": "B", "explanation": "生活美學的關鍵在於「放慢」與「專注」。在日常中主動留白，重新與身邊的微小事物建立真實連結，就是重獲感受力的最好起點。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B4 第 10 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-amber-100 text-amber-800 tracking-wide">議論文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【觀點】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【選擇】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【發展】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 個人和文化表達（生活美學、感官復甦、慢活哲學與日常儀式）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        當代文化散文：生活美學的起點
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當科技加速了生活節奏、讓我們隨時隨地被螢幕訊息淹沒時，我們如何重新找回停下來凝視一朵花、觸摸一片布的敏銳感受力？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">五感復甦・節奏調控・生活審美・美感實踐</div>
+          <div class="text-xs text-slate-500 mt-1">批判現代消費主義與速食文化導致之感官麻木；建立視覺、聽覺、嗅覺、味覺、觸覺之深度覺察；引導服裝科學生將面料觸感與色彩美感融入日常生活美學。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服二和）：蔣勳強調「美，是回到五感真實的體驗」。服裝科的核心價值不僅在於成衣製造的工藝速度，更在於對布料纖維（羊毛之溫厚、絲綢之柔滑、亞麻之質樸）的手感撫摸與色澤共鳴。引導學生在快時尚濫觴的時代，找回對材質與剪裁的深層美感敬意。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 2-V-2 結合生活經驗與專業知識，進行跨領域思辨, 5-V-2 統整各類文本資訊，提出個人多元觀點, 5-V-3 鑑賞文本之思想意涵與藝術表現, 6-V-1 體會文化與生活之關聯，深化人文關懷與美感素養</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-2 篇章的組織與結構, Bc-V-1 理路的安排, Ca-V-1 物質文化認知, Cc-V-2 人文藝術精神認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-B1 符號運用與溝通表達, 國V-U-B3 藝術涵養與美感素養</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">蔣勳</strong>：蔣勳（1947～），生於西安，長於臺灣。文化大學史學系、藝術研究所畢業，後赴法國巴黎大學藝術研究所進修。曾任《雄獅美術》月刊主編、東海大學美術系創系主任。長年致力於美學推廣、藝術評論與文學創作，文字溫潤優美、兼具感性與哲思，善於從日常生活細節出發，喚醒大眾對天地萬物與人情世故的敏銳覺察。著有《美的沉思》、《生活十講》、《天地有大美》、《孤獨六講》、《池上日記》等，為華人世界最具影響力的生活美學導師之一。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 課堂教學脈絡：一軒老師的五感復甦與生活美學提案</div>
+              <p>一軒老師在簡報中特別以「尋找失落的感受力」引導服二和同學深思：現代人不是缺乏物質，而是缺乏「感受物質的能力」。整天盯著手機螢幕，眼看百萬畫素卻看不見身旁路樹的新芽；耳聽降噪耳機卻聽不見風吹過屋簷的聲音。蔣勳提出：美不是昂貴的奢侈品，而是「忙裡偷閒」的空白，是重溫晨光、品嘗白飯原味、撫摸純棉質地的敏銳覺察。生活美學的起點，就是從今天起為自己留下一刻鐘，安靜地與自己在一起。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：批判現代科技與消費社會導致的人類感官麻木與生活異化，主張「美」源於對日常五感的敏銳覺察與專注生活，呼籲放慢腳步，在物質極簡中找回心靈的自由與豐盈。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：現代困境・感官麻木</div>
+            <div class="text-slate-600 text-xs mt-0.5">剖析現代都市人忙碌盲目的通病：生活節奏飛快、被即時通訊綁架，感官在過度刺激下逐漸遲鈍退化，失去對微小美好的感動力。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：五感復甦・重拾覺察</div>
+            <div class="text-slate-600 text-xs mt-0.5">細緻梳理視覺、聽覺、嗅覺、味覺與觸覺的日常修行：從凝視晨昏天光、聆聽雨聲，到細嚼米飯甘甜與撫摸織物紋理，讓感官重新蘇醒。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：美非奢侈・忙裡留白</div>
+            <div class="text-slate-600 text-xs mt-0.5">打破「美需要巨額花費」的迷思。指出真正的美是生命的閒情與留白，是「天地有大美而不言」的心靈從容。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：生活實踐・職人雅致</div>
+            <div class="text-slate-600 text-xs mt-0.5">引導服裝科同學將美學落實於自身生活：從清晨穿搭的一抹配色、整理工作檯的一份專注，確立專屬於個人的生活風格。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">蔣勳在文中指出導致現代人「感受力失落」的最主要原因是什麼？「忙」這個字在字形與心理上有何隱喻？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何透過衣食住行的具體生活事例，將抽象玄奧的美學理論轉化為人人皆可在日常中實踐的五感體驗？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">身為技職體系服裝科青年，在強調產能與效益的產業競爭中，保持對微小材質、色彩變化的敏銳感受力，何以是成為頂尖設計師的最高核心競爭力？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">異化</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧˋ ㄏㄨㄚˋ</td>
+          <td class="py-2 px-3">哲學社會學術語，指人所創造的事物（如科技、金錢）反過來成為支配人、壓迫人的外在異己力量。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">留白</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄌㄧㄡˊ ㄅㄞˊ</td>
+          <td class="py-2 px-3">藝術創作中刻意保留的空白區域，亦引申為生活中不被排滿、主動留存的從容餘裕。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">五感</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄨˇ ㄍㄢˇ</td>
+          <td class="py-2 px-3">視覺、聽覺、嗅覺、味覺、觸覺五種生理知覺系統，為感受世界與體驗美感的生理基礎。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">質地</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓˊ ㄉㄧˋ</td>
+          <td class="py-2 px-3">物體的內在特質、構造與手感紋理。在服裝學中指面料的纖維組織與親膚手感。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">閒情</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄒㄧㄢˊ ㄑㄧㄥˊ</td>
+          <td class="py-2 px-3">閒適悠雅的情致，指擺脫功利目的、悠然自適的心靈狀態。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：尋找失落的感受力——在快節奏的時代慢下來，重拾五感的敏銳與豐盈</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/1XJKC6nZNjnSVtzzoYSO2Zn6YnQ7OqBFxbmwWMXxv4-w/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/1XJKC6nZNjnSVtzzoYSO2Zn6YnQ7OqBFxbmwWMXxv4-w/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold flex items-center space-x-1">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                  <span>數位互動看板</span>
+                </span>
+                <h3 class="font-serif font-bold text-slate-800 text-xl">校園美感發現──生活五感探究數位互動看板 (Padlet)</h3>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-500 mt-1">依據蔣勳生活美學理念，服二和同學實地走入三民家商校園角落，進行視覺、聽覺、觸覺等五感踏查與生活美感攝影發表，直接於下方看板互動瀏覽任務成果</p>
+            </div>
+            <a href="https://padlet.com/smvhs/padlet-6aok3y4fgxlh02fr" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm hover:shadow transition-all">
+              <span>在 Padlet 中全螢幕開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-md border border-slate-200" style="height: 640px;">
+            <iframe 
+              src="https://padlet.com/smvhs/padlet-6aok3y4fgxlh02fr" 
+              frameborder="0" 
+              class="w-full h-full"
+              allow="camera;microphone;geolocation"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：生活美學的起點──五感復甦自我診斷與探索工作表</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">課堂探究任務落地：①五感麻木指數自我檢測（上一次認真看晚霞是什麼時候？是否能在不加調味料下品味食物原味？）；②五感復甦實作紀錄：記錄一次放下手機、完全沉浸於觸覺或聽覺的二十分鐘體驗。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：校園美感發現──三民家商校園角落生活美學踏查與攝影發表（Padlet 任務成果）</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據一軒老師規劃之「校園美感發現」Padlet 專題任務：實地踏查三民家商校園各個角落（長廊光影、磚牆肌理、草木色相、實習教室工藝線條），以「失落的感受力復甦」為題進行五感觀察與美感攝影捕捉，成果發表於 Padlet 互動看板並撰寫 150 字美感發現札記。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">03</span>
+            <span>任務三：三民家商服裝科「觸覺美學──布料的手感日記」實踐提案</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">結合專業實習：挑選三款不同纖維特質的面料（如粗紡羊毛、水洗亞麻、生絲綢），蒙眼觸摸並寫下 200 字手感與情緒共鳴短文，打造生活美學穿搭提案。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

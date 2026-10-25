@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B2 L05 種樹郭橐駝傳 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "字音辨析・教育部審定音", "text": "下列各組「」中字的讀音，何者前後完全相同？", "options": [{"key": "A", "text": "樹木「孳」長 ／ 孜「孜」不倦"}, {"key": "B", "text": "「爪」其膚以驗 ／ 錦「繡」山河"}, {"key": "C", "text": "「促」爾耕 ／ 「捉」襟見肘"}, {"key": "D", "text": "早「繰」而絲 ／ 「躁」動不安"}], "answer": "A", "explanation": "A項皆讀作 ㄗ；B項 ㄓㄠˇ ／ ㄒㄧㄡˋ；C項 ㄘㄨˋ ／ ㄓㄨㄛ；D項 ㄙㄠ ／ ㄗㄠˋ。"}, {"id": 2, "category": "說明手法・類比推論", "text": "〈種樹郭橐駝傳〉通篇核心論證手法是：", "options": [{"key": "A", "text": "借古諷今，引用古代神話反對科技進步"}, {"key": "B", "text": "借事說理、設喻引類，以郭橐駝養樹之術類比為官養民之道"}, {"key": "C", "text": "純粹記錄農業種植技術之農事指引專篇"}, {"key": "D", "text": "以第一人稱自傳形式記述柳宗元個人的童年農耕經驗"}], "answer": "B", "explanation": "全文以「郭橐駝種樹」為喻體，層層類比推論至「官吏養民」之本體，為文人哲理寓言之典範。"}, {"id": 3, "category": "文意理解・橐駝心法", "text": "郭橐駝認為自己種樹之所以成活率極高，其核心秘訣在於：", "options": [{"key": "A", "text": "每日清晨與黃昏皆親自澆水施肥、反覆修剪枝條"}, {"key": "B", "text": "選用最昂貴的外來化學肥料與特殊土壤"}, {"key": "C", "text": "「順木之天，以致其性」，栽種時細心如撫育愛子，栽好後放手如置之不理"}, {"key": "D", "text": "日夜用指甲抓掐樹皮以測試水分是否充足"}], "answer": "C", "explanation": "「其蒔也若子，其置也若棄，則其天者全而其性得矣。」栽種規範嚴謹，栽好後順其自然成長，不橫加干預。"}, {"id": 4, "category": "社會批判・為政之道", "text": "柳宗元在第四幕指出，當時社會百姓之所以貧困困頓，主要原因何在？", "options": [{"key": "A", "text": "百姓天性怠惰，不願努力耕種紡織"}, {"key": "B", "text": "長安氣候常年乾旱，土地貧瘠無法耕種"}, {"key": "C", "text": "官吏政令繁苛，早晚催逼騷擾，「好煩其令」使百姓疲於奔命，不得安居生息"}, {"key": "D", "text": "外族頻繁入侵，戰火焚毀所有農具作物"}], "answer": "C", "explanation": "「好煩其令，若甚憐焉，而卒以禍。旦暮吏來而呼曰……鳴鑼而聚之，民人不得休息」，官府名為愛民，實以繁苛政令擾民殘民。"}, {"id": 5, "category": "現代遷移・教育反思", "text": "若將「旦視而暮撫，爪其膚以驗其生枯，搖其本以觀其疏密」的現象遷移至現代家庭教育，最接近下列何種行為？", "options": [{"key": "A", "text": "放任孩子自由冒險，完全不給予任何生活照料"}, {"key": "B", "text": "家長過度焦慮、隨時緊盯孩子成績、過度干涉其自主探索，導致孩子喪失自立動能"}, {"key": "C", "text": "鼓勵孩子多元探索、發展個人興趣長才"}, {"key": "D", "text": "支持孩子選讀技職群科，培養一技之長"}], "answer": "B", "explanation": "形容「愛之太恩，憂之太勤」的直升機式過度干預，反而戕害孩子的獨立生長天性。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B2 第 05 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">說明文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高一奠基期（說寫明白）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【邏輯】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【組織】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【目的】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 系統與科學創新 × 全球化與永續發展</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        種樹郭橐駝傳
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「順應天性與過度干預的界線在哪裡？養樹之道如何啟發管理與教育？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">展現條理・界定範疇・比照說理</div>
+          <div class="text-sm text-slate-500 mt-1">運用寓言傳記體裁與雙重正反對比，以「養樹之道」推展出「為官養民之理」</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服一和）</div>
+          <div class="text-sm text-slate-500 mt-1">三民家商服裝科（服裝工藝與材料適性）：郭橐駝種樹「順木之天，以致其性」vs. 他植者「旦視而暮撫，爪其膚以驗其生枯」，對照服裝設計「順應天然面料纖維特性（羊毛、麻、棉之彈性與垂墜）」，唯有尊重材質天性、不強加違背物理本質之繁瑣加工，方能裁製出渾然天成之服飾。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2, 2-V-3, 5-V-2</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Bc-V-1 理路的安排, Bd-V-2 論點和論據的結構, Ca-V-1 物質文化認知, Cb-V-1 制度風俗認知, Cc-V-2 精神文化認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A3 規劃執行與創新應變, 國V-U-B3 藝術涵養與美感素養</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">柳宗元</strong>：柳宗元（773～819），字子厚，唐河東人，世稱柳河東。曾參與王叔文永貞革新，失敗後被貶永州司馬，後移柳州刺史，病卒於任上，又稱柳柳州。柳宗元與韓愈同為唐代古文運動的倡導者，並稱「韓柳」。其文章雄深雅健、結構嚴謹，長於諷刺寓言、山水遊記（永州八記）與哲理政論散文。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 被貶謫磨出的民本思想</div>
+              <p>柳宗元被貶永州十年，身處底層社會，親見苛政擾民、民不聊生之慘狀。他假託郭橐駝種樹之技，將老子「無為而治」哲理融入儒家仁政，寫下這篇借事說理、極具現實批判力的千古寓言名作。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：藉由郭橐駝「順木之天，以致其性」的種樹之道，對比他植者「愛之太恩，憂之太勤」的害樹惡習，進一步類推至統治階級繁苛政令對百姓的殘害，闡明順應天性、寬簡休養生息的為政之道。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：橐駝身世・名號由來</div>
+            <div class="text-slate-600 text-xs mt-0.5">以傳記筆法破題，寫駝駝因患佝僂病被鄉人呼為「橐駝」，其人安於自號、性情樸實，以種樹為業且技冠長安。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：橐駝自述・種樹秘訣</div>
+            <div class="text-slate-600 text-xs mt-0.5">橐駝直言非能使木壽且孳，乃「能順木之天以致其性」：本根欲舒、培木欲平、土欲故、築欲密；種畢「其蒔也若子，其置也若棄」，全其天性。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：他植對比・反顯害木</div>
+            <div class="text-slate-600 text-xs mt-0.5">反觀他植者：根拳土易、築不密；更甚者「旦視而暮撫，爪其膚以驗其生枯，搖其本以觀其疏密」，愛之太恩實害之，憂之太勤實仇之。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：移事於理・養樹養民</div>
+            <div class="text-slate-600 text-xs mt-0.5">由種樹類推治道：官吏好煩其令，旦暮鳴鑼催租，促耕織、課督無已，百姓疲於奔命，深刻批判唐代苛政擾民之弊。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">郭橐駝種樹的具體步驟是什麼？他植者在種植過程中有哪些過度關心反而害死樹木的行為？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何透過「郭橐駝 vs. 他植者」以及「養樹之道 vs. 養民之政」的雙重對比類比手法，讓抽象政治哲理變得生動深刻？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">在今日家庭教養與學校教育中，郭橐駝「其蒔也若子，其置也若棄」的智慧，能如何解救現代父母「過度干預、直升機家長」的焦慮？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">能「順」木之天</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄕㄨㄣˋ</td>
+          <td class="py-2 px-3">順應。指依循樹木大自然生長之客觀規律。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">不害其長則「孳」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄗ</td>
+          <td class="py-2 px-3">繁殖、滋長。指樹木枝繁葉茂。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">旦視而「暮」撫</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄇㄨˋ</td>
+          <td class="py-2 px-3">傍晚。形容關照過於頻繁、擾動不休。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">「爪」其膚以驗其生枯</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓㄠˇ</td>
+          <td class="py-2 px-3">名詞作動詞，用指甲抓掐。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">鳴「鑼」而聚百姓</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄌㄨㄛˊ</td>
+          <td class="py-2 px-3">敲鑼集合百姓，形容差役催迫政令頻繁擾民。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：順應天性與過度干預的界線在哪裡？養樹之道如何啟發管理與教育？</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1HXJCs9j4yWy9xgsUWvo3NFOrkV_mMXxkm5JgcxD1mKk/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1HXJCs9j4yWy9xgsUWvo3NFOrkV_mMXxkm5JgcxD1mKk/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服一和學習實況）</h3>
+          <p class="text-sm text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：郭橐駝人物誌 Canva 實務製作（至少 5 頁）（真實任務單）</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">小組根據第一至三段探討郭橐駝的特殊技能、特別想法，為他設計一個 SLOGAN 標語，以 Canva 製作專業人物誌（Persona），包含基本介紹、形象照、職業理念，展現職人精神（對照 b2l5_task.txt 真實任務單與簡報 Slide 6-27）</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：領域轉移（Domain Transfer）與藉事說理</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">學習將種樹「順木之天以致其性」的指導原則跨越邊界轉移到其他領域（如紡織技術轉移到造船與街道佈局、三民家商服裝打版工藝與公共治理）（對照 Slide 71, 78）</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

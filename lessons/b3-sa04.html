@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B3 自學4 自學4：諫太宗十思疏 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "字詞音義・審定音查核", "text": "下列文句「」中字的讀音與字義，何者完全正確？", "options": [{"key": "A", "text": "欲流之遠者，必「浚」其泉源：音 ㄐㄩㄣˋ，指疏通挖深水源"}, {"key": "B", "text": "雖「董」之以嚴刑：音 ㄉㄨㄥˇ，指懂得明理"}, {"key": "C", "text": "奔車「朽」索：音 ㄑㄧㄠˇ，指巧妙精緻"}, {"key": "D", "text": "鳴琴「垂拱」：音 ㄔㄨㄟˊ ㄏㄨㄥˇ，指垂頭喪氣"}], "answer": "A", "explanation": "A項完全正確。浚讀作 ㄐㄩㄣˋ，意為疏通泉源。B項董意為督察約束；C項朽讀作 ㄒㄧㄡˇ，意為腐爛脆弱；D項垂拱讀作 ㄔㄨㄟˊ ㄍㄨㄥˇ，指垂衣拱手、從容無為而治。"}, {"id": 2, "category": "修辭手法・立論設譬", "text": "魏徵在〈十思疏〉開篇以「求木之長者，必固其根本；欲流之遠者，必浚其泉源」為喻，其所要確立的中心論點為何？", "options": [{"key": "A", "text": "倡導全民植樹造林與興修大型水利水壩工程"}, {"key": "B", "text": "思國之安者，必須累積深厚之道德仁義，方能使國家長治久安"}, {"key": "C", "text": "說明唐朝自然資源極其匱乏，需要對外擴張掠奪木材與水源"}, {"key": "D", "text": "警惕君王不要隨意砍伐宮殿周圍的大樹"}], "answer": "B", "explanation": "魏徵運用自然界「木固根方能茂盛、水浚源方能流遠」之常理設譬，緊扣「思國之安者必積其德義」之中心論點，邏輯嚴密有力。"}, {"id": 3, "category": "文意理解・歷史因果", "text": "文中指出歷代君王往往「莫不殷憂而道著，功成而德衰，有善始者實繁，能克終者蓋寡」，造成此種歷史現象的主要人性盲點為何？", "options": [{"key": "A", "text": "君王年老後記憶力減退"}, {"key": "B", "text": "在憂患時能竭誠以待下，而一旦功成得志則縱情傲物，失去初衷"}, {"key": "C", "text": "因為外族入侵過於頻繁導致國庫空虛"}, {"key": "D", "text": "群臣全都故意陷害皇帝所致"}], "answer": "B", "explanation": "魏徵精準剖析人性：處憂患時面臨危機自然竭誠待人、廣納言路；然而一旦大功告成、處於順境，便容易驕奢放縱、傲慢待下，導致民怨四起。"}, {"id": 4, "category": "跨篇對讀・奏疏風格", "text": "教學簡報將魏徵〈諫太宗十思疏〉與諸葛亮〈出師表〉相互參照比較，下列關於兩文風格與寫作策略之分析，何者最為精當？", "options": [{"key": "A", "text": "兩文皆為辭職告老還鄉之私人書信，不具政治實質建言"}, {"key": "B", "text": "諸葛亮兼具相父與人臣雙重身分，情理合一、語重心長；魏徵則以積德義為中心，理性設譬、條理分明、文氣充沛"}, {"key": "C", "text": "兩文作者都主張對外發動侵略戰爭以轉移國內階級矛盾"}, {"key": "D", "text": "魏徵的文章純粹抄襲諸葛亮，毫無個人創見"}], "answer": "B", "explanation": "簡報明確指出：諸葛亮〈出師表〉情理交融、真誠追恩；魏徵〈十思疏〉則以知性論述見長，結構嚴謹，為古代諫疏與理性說理之典範。"}, {"id": 5, "category": "治理哲學・載舟覆舟", "text": "魏徵在文中引述古語「怨不在大，可畏惟人，載舟覆舟，所宜深慎」，此處「舟」與「水」分別比喻什麼？", "options": [{"key": "A", "text": "「舟」比喻大自然；「水」比喻科學技術"}, {"key": "B", "text": "「舟」比喻君王／統治政權；「水」比喻天下百姓民心"}, {"key": "C", "text": "「舟」比喻外籍商人；「水」比喻長江黃河水運"}, {"key": "D", "text": "「舟」比喻軍隊戰船；「水」比喻敵方兵力"}], "answer": "B", "explanation": "「水能載舟，亦能覆舟」乃儒家民本思想核心，以舟比喻執政者與國家政權，以水比喻黎民百姓，強調唯有敬畏民意方能維持國祚安寧。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B3 自學4</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">應用文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【觀點】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【因果】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【系統】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 公平與發展 × 治理與公民倫理</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        自學4：諫太宗十思疏
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當個人或組織處於順境與成功頂峰時，如何克制慾望、居安思危以求長治久安？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">雙篇對讀・邏輯思辨・概念說明</div>
+          <div class="text-xs text-slate-500 mt-1">與諸葛亮《出師表》進行跨文本比較，掌握以「固本浚源、居安思危」為核心之十思知性論證結構，提升理性溝通力</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服二和）：從「固根本、浚泉源」反思服裝品牌經營與個人專業技藝——若基礎工法不深、品管道德不厚，徒然追求時尚外表之擴張，終將如「塞源而欲流長」般崩潰。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2, 2-V-1, 2-V-3, 5-V-2, 6-V-3</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ac-V-1 句的意義, Bc-V-1 理路的安排, Bd-V-1 核心主張與論點, Be-V-1 應用文本的格式, Be-V-2 應用文本的表達要領, Cb-V-1 制度風俗認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A2 系統思考與解決問題, 國V-U-B1 符號運用與溝通表達, 國V-U-C1 道德實踐與公民意識</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">魏徵</strong>：魏徵（580～643），字玄成，魏州曲城（今河北晉州）人。唐代著名政治家、思想家、史學家。隋末曾出家為道士，後入李密、竇建德幕府，歸唐後任太子洗馬。玄武門之變後，唐太宗深服其才能膽識，重用為諫議大夫，封鄭國公。魏徵以敢於犯顏直諫著稱，前後進諫數百事，成為貞觀之治的重要基石。去世時唐太宗悲慟感嘆：「以銅為鏡，可以正衣冠；以古為鏡，可以知興替；以人為鏡，可以明得失。朕常保此三鏡以防己過，今魏徵殂逝，遂亡一鏡矣！」
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 以人為鏡的千古第一名諫臣</div>
+              <p>魏徵不畏君威，始終堅持原則。他在唐太宗功成名就、漸生驕奢之際，上〈十思疏〉，以木之長必固根、水之遠必浚源設譬，層層剖析「載舟覆舟」之天理，樹立了理性進言、匡正國政的大師風骨。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：貞觀十一年，唐太宗在天下太平之後漸趨驕奢，欲大興土木修築飛山宮並行封禪之禮。魏徵遂上疏直諫，開篇以求木之長必固根本、欲流之遠必浚泉源為喻，確立「思國之安者必積其德義」之中心論點；繼而借歷史興衰指出人君往往「善始者實繁，克終者蓋寡」；最後具體提出「十思」之道德自律則例，力勸太宗居安思危、戒奢以儉、虛心納下，以達垂拱而治之無為境界。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：設譬立論・固本浚源以積德義</div>
+            <div class="text-slate-600 text-xs mt-0.5">以自然常理為喻：「求木之長者必固其根本，欲流之遠者必浚其泉源，思國之安者必積其德義」；批判人君德不處厚、情不勝欲，猶如伐根求木茂、塞源欲流長。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：引史為鑑・善始實繁而克終蓋寡</div>
+            <div class="text-slate-600 text-xs mt-0.5">回顧歷代元首往往「在殷憂必竭誠以待下，既得志則縱情以傲物」；痛切警醒「怨不在大，可畏惟人，載舟覆舟，所宜深慎，奔車朽索，其可忽乎」。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：條陳十思・戒奢知足與謙沖自牧</div>
+            <div class="text-slate-600 text-xs mt-0.5">系統提出「十思」治道：見可欲思知足自戒、將有作思知止安人、念高危思謙沖自牧、懼滿溢思江海下百川、樂盤遊思三驅為度、慮壅蔽思虛心納下等全方位自律準則。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：總結治理・文武爭馳與垂拱而治</div>
+            <div class="text-slate-600 text-xs mt-0.5">總括十思弘茲九德：簡能而任、擇善而從，則智者盡謀、勇者竭力、仁者播惠、信者效忠；君王鳴琴垂拱、不言而化，享受天下治平與松喬之壽。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">魏徵在文章開頭運用了哪兩種自然現象作為比喻？他向唐太宗提出了哪幾類具體的「十思」自律建言？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">魏徵如何運用排比、對偶與嚴密的因果推理，將原本可能激怒君王的嚴厲批評轉化為邏輯嚴整、文氣充沛的知性論述？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">當個人在課業、專業競賽或未來職場取得重大成就與順境時，魏徵「居安思危、戒奢以儉」的思維能為我們提供何種長遠的人生防護網？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">必「浚」其泉源</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄐㄩㄣˋ</td>
+          <td class="py-2 px-3">疏通、疏浚。指挖深水源使水流通暢。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">「董」之以嚴刑</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄉㄨㄥˇ</td>
+          <td class="py-2 px-3">督察、約束、糾正。指以嚴酷的刑罰來管束人民。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">鳴琴「垂拱」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄔㄨㄟˊ ㄍㄨㄥˇ</td>
+          <td class="py-2 px-3">垂衣拱手。形容毫不費力、從容不迫地治理好國家，達到無為而治的盛世。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">奔車「朽索」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄒㄧㄡˇ ㄙㄨㄛˇ</td>
+          <td class="py-2 px-3">腐爛的繩索。用腐爛繩索駕馭奔馳馬車，比喻隨時面臨傾覆滅頂之極端危險。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">將「崇」極天之峻</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄔㄨㄥˊ</td>
+          <td class="py-2 px-3">提高、增高。引申為達到極高地位。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：居安思危與積德義的治國哲學——魏徵知性奏議與為臣典範</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1q18ilbWdBi-phsuIN1HeZ_6aLhJsVISUAIgn6f8m4U4/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1q18ilbWdBi-phsuIN1HeZ_6aLhJsVISUAIgn6f8m4U4/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：雙篇跨文本對讀分析單——《出師表》vs.《諫太宗十思疏》</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">參照簡報比較：分析諸葛亮「情理交融、託孤報恩」之言臣立場，對比魏徵「以積德義為核心、說理詳盡邏輯充沛」之諫臣風格，整理兩篇奏議之結構異同。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：Gemini Gem AI 導讀與白紙口說錄音發表任務</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依簡報指示使用專屬 Gemini 連結進行對話，在白紙上整理寫作背景、主要想法、十思體系架構；並手持白紙錄音口說說明，上傳音檔至 Google Classroom。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

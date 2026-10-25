@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B3 自學3 自學3：琵琶行并序 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "字詞音義・審定音查核", "text": "下列〈琵琶行〉詩句「」中字的讀音與字義，何者完全正確？", "options": [{"key": "A", "text": "幽「咽」泉流冰下難：音 ㄧㄢ，指吞嚥食物"}, {"key": "B", "text": "「間」關鶯語花底滑：音 ㄐㄧㄢ，形容鳥鳴宛轉和悅"}, {"key": "C", "text": "銀瓶「乍」破水漿迸：音 ㄗㄚˋ，指炸裂破碎"}, {"key": "D", "text": "楓葉「荻」花秋瑟瑟：音 ㄏㄨㄛˋ，指收割稻穀"}], "answer": "B", "explanation": "B項完全正確。間關讀作 ㄐㄧㄢ，狀鳥聲宛轉流暢。A項幽咽音 ㄧㄝˋ，形容琴聲低沉哽咽；C項乍讀作 ㄓㄚˋ，意為突然；D項荻讀作 ㄉㄧˊ，指生長於水邊之草本植物。"}, {"id": 2, "category": "修辭手法・聽覺摹寫", "text": "白居易在描寫琵琶琴聲時，運用了極為精湛的「通感（比喻）」手法。下列各詩句與其所欲呈現的音樂節奏特徵，何者對應最為恰當？", "options": [{"key": "A", "text": "「大弦嘈嘈如急雨」——形容音樂極度輕柔悠揚如微風拂面"}, {"key": "B", "text": "「嘈嘈切切錯雜彈，大珠小珠落玉盤」——形容粗細弦交錯彈奏，音色清脆圓潤、錯落有致"}, {"key": "C", "text": "「銀瓶乍破水漿迸」——形容音樂完全靜止，無聲勝有聲"}, {"key": "D", "text": "「鐵騎突出刀槍鳴」——形容樂曲進入尾聲時的低沉哀怨與消沉"}], "answer": "B", "explanation": "「大珠小珠落玉盤」以晶瑩飽滿的珍珠落在玉盤中的清脆撞擊聲，絕妙形容粗細弦交錯彈奏時清越圓潤、節奏跳動的音質。"}, {"id": 3, "category": "文意推論・身分對比", "text": "琵琶女在自述身世時提到「今年歡笑復明年，秋月春風等閒度……商人重利輕買賣，前月浮梁買茶去」，這段敘述揭示了她怎樣的人生遭遇？", "options": [{"key": "A", "text": "成功擺脫賤籍，成為長安最有權勢的商賈富豪"}, {"key": "B", "text": "年輕時虛擲光陰於虛榮喧鬧的歡場，年老色衰後寄託於只重利益的商人，最終陷入孤獨守空的無奈淒涼"}, {"key": "C", "text": "主動離開繁華都市，專心致志在浮梁茶園修道隱居"}, {"key": "D", "text": "一直受到朝廷王公貴族的終身俸祿供養，無憂無慮"}], "answer": "B", "explanation": "琵琶女由昔日「一曲紅綃不知數」的長安名妓，隨著年老色衰淪落為商人婦，丈夫輕易遠走買茶，道盡底層藝伎隨人浮沉的悲哀命運。"}, {"id": 4, "category": "核心主旨・天涯共鳴", "text": "白居易寫下「同是天涯淪落人，相逢何必曾相識」這句千古名句，其之所以能跨越身分地位產生深刻共鳴的根本原因在於：", "options": [{"key": "A", "text": "兩人是失散多年的遠房親戚，終於在異鄉江頭相認"}, {"key": "B", "text": "兩人在政治理念與官場派系上擁有完全一致的政見"}, {"key": "C", "text": "詩人從琵琶女由盛轉衰的身世中，看見了自己由朝廷言官被貶謫江州的相似坎坷命運，從而在藝術共振中跨越階級隔閡，達成心靈相通"}, {"key": "D", "text": "白居易打算聘請琵琶女擔任自己的私人音樂顧問以賺取名聲"}], "answer": "C", "explanation": "「同是天涯淪落人」是這首長詩的靈魂穴位。白居易自京城直言進諫被斥退貶江州，與琵琶女離長安流落江湖同病相憐，兩者生命軌跡高度呼應。"}, {"id": 5, "category": "多元學習・科技與自學", "text": "在教學簡報與現代素養導向自學設計中，本單元引入了哪些自主探究的科技與互動工具？", "options": [{"key": "A", "text": "僅要求學生用毛筆默寫全詩五百字，禁止使用任何科技工具"}, {"key": "B", "text": "結合 YouTube 音樂朗誦影片、Gemini Gem AI 探究導學、Padlet 課堂互動牆與線上即時測驗系統"}, {"key": "C", "text": "要求每位學生購買昂貴的唐代仿古琵琶琴方可通過考核"}, {"key": "D", "text": "只看電視劇電影解說，完全不需要研讀原詩文句"}], "answer": "B", "explanation": "簡報明確提供 YouTube 鑑賞連結、Gemini Gem AI 互動引導、Padlet 學習牆與線上評量，充分體現現代化自主學習之多元數位鷹架。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B3 自學3</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-rose-100 text-rose-800 tracking-wide">抒情文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【關係】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【情境】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【轉化】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 個人與文化表達 × 認同與關係</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        自學3：琵琶行并序
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當人生的失意與流落不期而遇，藝術與音樂如何跨越階級與身分藩籬，達成心靈深處的理解與救贖？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">聽覺轉化・同理共情・跨媒介鑑賞</div>
+          <div class="text-xs text-slate-500 mt-1">掌握將無形聽覺音樂轉化為有形視覺意象之高超摹寫手法，體會詩人對底層藝人身世的深沉同理與自我生命共振</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服二和）：古代長安倡女服飾風尚與江州貶謫布衣之對比；從長詩跌宕起伏之音樂旋律感，思辨舞台時裝秀場音樂（Runway Soundtrack）與動態走秀節奏之情緒黏合美學。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2, 2-V-2, 5-V-2, 5-V-3, 6-V-1</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-3 篇章的表現, Ba-V-3 摹寫手法, Bb-V-1 情志的抒發與省思, Bb-V-2 物我相應的表現手法, Cc-V-1 唐代新樂府與文類認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-B1 符號運用與溝通表達, 國V-U-B3 藝術涵養與美感素養</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">白居易</strong>：白居易（772～846），字樂天，晚年號香山居士，祖籍太原（今山西太原），生於河南新鄭。唐代中期偉大詩人，與元稹共同倡導「新樂府運動」，主張「文章合為時而著，歌詩合為事而作」。其詩語言平易通俗、老嫗能解，長於敘事與抒情。元和十年（815）因直言進諫得罪權貴，被貶為江州司馬，於次年潯陽江頭送客時寫下千古名篇〈琵琶行〉。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 江州司馬的青衫淚與同理悲憫</div>
+              <p>白居易身處貶謫政治逆境，在秋夜潯陽江畔偶遇一位昔日長安歌妓。他不以官僚士大夫自居，而是以平等的生命視角傾聽其辛酸琴聲與飄零身世，發出「同是天涯淪落人」的永恆浩嘆，展現藝術超越階級的偉大人性光芒。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：元和十一年秋，白居易於潯陽江頭送客時聞琵琶聲，邀琵琶女移船相會。透過琵琶女自述少年歡場富貴到晚年漂泊憔悴的坎坷身世，結合自身貶謫江州的失意孤獨，達成心靈深層共鳴。詩中運用極致之比喻與通感手法，將琵琶琴聲的節奏高低、疾徐、頓挫化為具象畫面，鑄造出「同是天涯淪落人，相逢何必曾相識」之千古名句。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：潯陽江頭夜送客</div>
+            <div class="text-slate-600 text-xs mt-0.5">以「潯陽江頭夜送客，楓葉荻花秋瑟瑟」點出秋夜水畔送客之淒清寂寥；忽聞水上琵琶聲，主人忘歸客不發，展現音樂強烈的召喚力量。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：千呼萬喚與神乎其技之琴聲摹寫</div>
+            <div class="text-slate-600 text-xs mt-0.5">「千呼萬喚始出來，猶抱琵琶半遮面」；轉軸撥弦三兩聲，由大弦嘈嘈如急雨、小弦切切如私語，到大珠小珠落玉盤、幽咽泉流冰下難、銀瓶乍破水漿迸，達到聽覺意象之巔峰。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：自述身世與繁華落盡</div>
+            <div class="text-slate-600 text-xs mt-0.5">琵琶女自述十三學得琵琶成、名屬教坊第一部之長安少年歡樂；轉入年長色衰、門前冷落車馬稀，老大嫁作商人婦，獨守空船之落寞淒涼。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：青衫濕遍與天涯淪落共鳴</div>
+            <div class="text-slate-600 text-xs mt-0.5">白居易深感身世同病相憐，感嘆「同是天涯淪落人，相逢何必曾相識」；重請彈奏一曲，滿座重聞皆掩泣，江州司馬青衫濕遍，達成昇華。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">白居易在潯陽江頭聽見了什麼聲音？琵琶女少年時在長安的生活如何？後來她因何原因嫁給商人？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">詩人如何運用「比喻」與「通感（以視覺意象摹寫聽覺聲音）」？請列舉兩組經典名句並分析其動態節奏變化。</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">身為朝廷命官的白居易，為何會對一位地位低微的歌妓產生如此深刻的共鳴，甚至「青衫濕遍」？這種同理心對現代人際互動帶來什麼啟發？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">楓葉「荻」花</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄉㄧˊ</td>
+          <td class="py-2 px-3">多年生草本植物，生於水邊，秋天開紫白色花。常用以渲染淒涼清冷之秋景。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">大弦「嘈嘈」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄘㄠˊ ㄘㄠˊ</td>
+          <td class="py-2 px-3">聲音沉重而急促喧鬧的樣子。形容粗弦聲音低沉粗重。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">小弦「切切」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄑㄧㄝˋ ㄑㄧㄝˋ</td>
+          <td class="py-2 px-3">聲音細微急促的樣子。形容細弦聲音輕細如耳語。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">幽「咽」泉流</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧㄝˋ</td>
+          <td class="py-2 px-3">聲音受阻而低微淒楚。形容琴聲低沉凝滯，如同泉水流過冰層下方般受阻艱難。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">「間」關鶯語</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄐㄧㄢ</td>
+          <td class="py-2 px-3">形容鳥聲宛轉和悅。文中借指琵琶琴聲流暢悅耳如黃鶯鳴囀。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：同是天涯淪落人的生命共振——白居易敘事長詩與音樂摹寫的千古絕唱</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/17ikLMFf438OArr5OUCKEKqCcFtBy9svnKZK9Nxjs-TY/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/17ikLMFf438OArr5OUCKEKqCcFtBy9svnKZK9Nxjs-TY/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：聽覺轉化意象圖譜分析單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">比對詩中六段不同節奏之琴音（急雨、私語、落玉盤、泉流冰下、銀瓶乍破、四弦一聲裂帛），繪製音樂旋律與情緒起伏曲線圖。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：Padlet 互動牆與 Gemini Gem 深度自學探究</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">點擊教學簡報提供之專屬 Gemini 連結進行對話，深入理解白居易貶謫心境，並至 Padlet 課堂互動牆分享現代版「天涯淪落人」同理小故事。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

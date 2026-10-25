@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B1 L02 世說新語選 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "字音辨析・教育部審定音", "text": "下列各組「」中字的讀音，何者前後完全相同？", "options": [{"key": "A", "text": "乃「鎩」其翮 ／ 沉沙折「戟」"}, {"key": "B", "text": "鶴軒「翥」 ／ 著名「著」作"}, {"key": "C", "text": "外孫「齏」臼 ／ 「齎」志以歿"}, {"key": "D", "text": "有人「遺」其雙鶴 ／ 「遺」笑大方"}], "answer": "C", "explanation": "C項皆讀作 ㄐㄧ（齏臼／齎志以歿）；A項 ㄕㄚ ／ ㄐㄧˇ；B項 ㄓㄨˋ ／ ㄓㄨˋ（字形不同，著為ㄓㄨˋ，翥為ㄓㄨˋ音同但詞性與形構不同，C項為完全正確音同字辨）；D項 ㄨㄟˋ（贈送） ／ ㄧˊ（遺留）。"}, {"id": 2, "category": "文本理解・文意轉折", "text": "在〈支公好鶴〉一文中，促使支遁心境產生巨大轉折，由「愛而鎩鶴」轉變為「放鶴飛去」的關鍵原因為何？", "options": [{"key": "A", "text": "雙鶴食量過大，寺院無力繼續飼養"}, {"key": "B", "text": "見鶴軒翥不能、反顧垂頭之懊喪，深感惻隱，體悟愛物應順其自然本性"}, {"key": "C", "text": "朝廷官員索要珍禽，支遁被迫放生以避禍"}, {"key": "D", "text": "佛教戒律禁止僧人豢養動物，因而遵規處置"}], "answer": "B", "explanation": "依備課用書分析，支遁見鶴懊喪垂頭，「林曰：既有凌霄之姿，何肯為人作耳目近玩」，由佔有私慾昇華至推己及物、成全天性，充分體現魏晉人物我平等的審美與哲思。"}, {"id": 3, "category": "修辭技巧・拆字析字", "text": "曹娥碑背題「黃絹幼婦，外孫齏臼」八字，楊修解為「絕妙好辭」。下列關於其拆字邏輯之說明，何者完全正確？", "options": [{"key": "A", "text": "「黃絹」是色絲，合為「組」字"}, {"key": "B", "text": "「幼婦」是少女，合為「妙」字"}, {"key": "C", "text": "「外孫」是男兒之子，合為「孝」字"}, {"key": "D", "text": "「齏臼」是搗米之木，合為「杵」字"}], "answer": "B", "explanation": "B項「少女」合為「妙」字完全正確；A項色絲合為「絕」；C項女兒之子合為「好」；D項受辛之器合為「辭（辤）」。"}, {"id": 4, "category": "人物性格・名士風貌", "text": "在〈雪夜訪戴〉中，下列哪一個情節最能鮮明體現王子猷「任誕率真、重在過程體驗而非目的成效」的名士特質？", "options": [{"key": "A", "text": "夜大雪，眠覺，開室命酌酒"}, {"key": "B", "text": "四望皎然，因起彷徨，詠左思招隱詩"}, {"key": "C", "text": "夜乘小船前往剡縣，經宿方至"}, {"key": "D", "text": "經宿方至戴逵家門，造門不前而返，言「吾本乘興而行，興盡而返，何必見戴」"}], "answer": "D", "explanation": "王子猷訪戴逵「造門不前而返」，不帶任何功利目的，只為享受乘興的當下與審美過程，此舉徹底跳脫世俗結果論，是魏晉「任誕」風貌的極致特寫。"}, {"id": 5, "category": "文學常識・志人小說", "text": "關於《世說新語》一書的體例與文學成就，下列敘述何者最為正確？", "options": [{"key": "A", "text": "由南朝宋劉義慶招集門客編纂，為魏晉「志人筆記小說」之巔峰代表"}, {"key": "B", "text": "全書專門記載神仙鬼怪、幽冥靈異之奇聞，屬於志怪小說"}, {"key": "C", "text": "文字風格繁複華麗，偏重長篇大論與道德教條說教"}, {"key": "D", "text": "三篇課文〈支公好鶴〉、〈絕妙好辭〉、〈雪夜訪戴〉在原書中皆收錄於同一門類"}], "answer": "A", "explanation": "A項完全正確；B項《世說新語》記名士言行，為「志人小說」，干寶《搜神記》方為志怪；C項文字風格為清雅俊拔、言簡意賅；D項〈支公好鶴〉收於〈言語〉、〈絕妙好辭〉收於〈捷悟〉、〈雪夜訪戴〉收於〈任誕〉，分屬不同篇目。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B1 第 02 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">記敘文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高一奠基期（說寫明白）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【人物】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【結構】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 個人和文化表達 × 認同與關係</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        世說新語選
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「從人身上，我們能看到什麼？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">觀察細節・形塑角色・組織材料／發展情節</div>
+          <div class="text-sm text-slate-500 mt-1">觀察眼神、對話與動作細節，掌握截取定格特寫以形塑立體人物</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服一和）</div>
+          <div class="text-sm text-slate-500 mt-1">三民家商服裝科（服一和）：透過魏晉「褒衣博帶、任誕清雅」的服飾風格，探討穿著者性格、身分認同與內在風骨</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：2-V-1, 5-V-2, 6-V-1</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ab-V-2 字詞的意義和使用, Ba-V-1 記敘的元素, Ba-V-3 摹寫手法, Cc-V-1 思想流派與文類認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-B1 符號運用與溝通表達, 國V-U-B3 藝術涵養與美感素養</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">劉義慶</strong>：劉義慶（403～444），南朝宋宗室，襲封臨川王。喜好文學，禮納文士，《世說新語》即由其招聚門客編纂而成。此書為魏晉「志人小說」的巔峰代表，記錄自東漢末至東晉名士的言談逸事，展現士族獨特的精神風貌。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 魏晉風度與名士精神</div>
+              <p>魏晉時期政局動盪殘酷，名士們轉向追求個體心靈的超脫自適，講求真率不偽、注重審美與清談哲思。《世說新語》是了解這段「文學自覺時代」靈魂最鮮活的窗口。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：透過高僧、政治人物與世家子弟的趣味逸事（〈支公好鶴〉、〈絕妙好辭〉、〈雪夜訪戴〉三則），以簡練定格筆法，浮雕魏晉人順應天性、機敏捷悟與率真任誕的處世態度及時代風貌。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一則：〈支公好鶴〉（順應天性）</div>
+            <div class="text-slate-600 text-xs mt-0.5">高僧支遁愛鶴，先因惜鶴而鎩其翮；後見鶴軒翥反顧、神情懊喪，深自省察「既有凌霄之姿，何肯為人作耳目近玩」，待翮成放鶴高飛。展現由占有昇華至物我平等、順物之性的心靈境界。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二則：〈絕妙好辭〉（機敏巧思）</div>
+            <div class="text-slate-600 text-xs mt-0.5">曹操與楊修過曹娥碑，見碑背「黃絹幼婦，外孫齏臼」八字隱語。楊修當下解出，曹操行三十里乃悟出析字謎底。曹操自嘆「我才不及卿，乃覺三十里」，展現魏晉人的文字遊戲與智力機鋒。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三則：〈雪夜訪戴〉（任誕率真）</div>
+            <div class="text-slate-600 text-xs mt-0.5">王子猷居山陰，雪夜眠覺，開室酌酒、詠左思招隱詩。忽憶戴安道，夜乘小船冒雪前往，經宿方至，造門不前而返。曰：「吾本乘興而行，興盡而返，何必見戴？」體現重視當下性靈體驗、不為世俗功利目的所拘的任誕風度。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">統整：志人筆法與名士精神</div>
+            <div class="text-slate-600 text-xs mt-0.5">全文以極短篇幅截取人物眼神、動作與話語之「定格特寫」，言簡意賅、清雅俊拔，樹立了魏晉志人小說的最高典範。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">支遁見鶴懊喪後說了什麼話並採取何種行動？曹娥碑背八字隱語如何拆解為「絕妙好辭」？王子猷造訪戴逵門口後為何不進門就折返？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何透過「鎩其翮 vs. 置使飛去」、「曹操行三十里 vs. 楊修當下立悟」等對比手法，鮮明刻劃人物的性格與心理轉折？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">現代社會高度崇尚「目標績效與擁有占有」，支公「成全天性」與王子猷「乘興而行、興盡而返」的哲學，對青年生活與美感追尋有何啟發？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">有人「遺」其雙鶴</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄨㄟˋ</td>
+          <td class="py-2 px-3">贈送。在此指友人將雙鶴餽贈給支遁。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">乃「鎩」其「翮」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄕㄚ ㄏㄜˊ</td>
+          <td class="py-2 px-3">鎩，摧殘、剪截；翮，鳥羽中之硬梗。意指剪去鶴羽毛中的硬梗使其無法高飛。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">鶴軒「翥」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓㄨˋ</td>
+          <td class="py-2 px-3">高飛騰躍之貌。例：「鶴軒翥不復能飛，乃反顧翅垂頭」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">外孫「齏臼」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄐㄧ ㄐㄧㄡˋ</td>
+          <td class="py-2 px-3">齏，切碎的辛辣調味料；臼，春米石器。齏臼為「受辛」之器，受辛合為「辭（辤）」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">乃「覺」三十里</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄐㄧㄠˋ</td>
+          <td class="py-2 px-3">通「較」，相差。曹操自嘆才智遠遜楊修。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">「造」門不前而返</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄗㄠˋ</td>
+          <td class="py-2 px-3">到達、前往。例：「造門」即到了門口。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：從人身上，我們能看到什麼？——魏晉名士的性靈真率與風骨特寫</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1pn1XqyA2eFsZfFUUSn2cCzuX9auNtJdAxzLG_uggcz4/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1pn1XqyA2eFsZfFUUSn2cCzuX9auNtJdAxzLG_uggcz4/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服一和學習實況）</h3>
+          <p class="text-sm text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：世說新語人物觀察細節卡</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">細讀〈支公好鶴〉、〈絕妙好辭〉、〈雪夜訪戴〉，從人身上看見觀察與自省的細節，分析神情、動作與生命格局（對照 B1L2 簡報 Slide 2-5）</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：自我介紹故事書寫任務</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">運用《世說新語》擷取生活片段的筆法，以細膩情節描摹寫出一個能體現個人特質的自我介紹小故事（對照 L2 服一和世說新語作業）</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

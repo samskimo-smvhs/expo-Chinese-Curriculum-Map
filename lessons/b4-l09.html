@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B4 第 09 課 現代詩選與自學專題：以詩抒發自我情感 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "概念理解・意象本質", "text": "一軒老師在簡報中闡述現代詩「意象（Image）」的生成與解讀過程，下列說明何者最為精確？", "options": [{"key": "A", "text": "意象就是直接用照相機拍下來的照片，完全不需要文字表達"}, {"key": "B", "text": "詩人心中的抽象意念（意）➔ 轉化為外在具象景物（象）➔ 傳達至讀者心中還原為深刻情感（意）"}, {"key": "C", "text": "意象是指所有詩人都必須在腦海中想像一隻大象"}, {"key": "D", "text": "意象純粹是指詩集封面的美術插圖排版"}], "answer": "B", "explanation": "「意象」是詩的靈魂。藉由客觀具體之「象」（如孤狼、落花、馬蹄、鐘錶）承載抽象複雜之「意」，讀者方能透過感官體驗重新還原詩人的內在心境。"}, {"id": 2, "category": "文學常識・四大詩社", "text": "關於臺灣現代詩發展史上的「四大詩社」，下列配對與核心理念何者完全正確？", "options": [{"key": "A", "text": "現代詩社（紀弦主導，主張『橫的移植、主知』）；藍星詩社（覃子豪、余光中等人，強調抒情古典與健全理性）"}, {"key": "B", "text": "創世紀詩社主張完全復古，全面恢復唐代五言絕句格律"}, {"key": "C", "text": "笠詩社主張全盤西化，拒絕書寫任何臺灣本土土地題材"}, {"key": "D", "text": "現代詩社主張詩歌必須由政府統一審查發行"}], "answer": "A", "explanation": "A項完全正確：1950年代紀弦創立現代派確立主知前衛；藍星詩社則倡導健全的抒情風格；創世紀早期走超現實主義；笠詩社則深耕臺灣鄉土與現實批判。"}, {"id": 3, "category": "科技跨界・Suno應用", "text": "在「讓你的詩，成為歌」Suno AI 創作流程中，為何不能直接將寫好的詩整段複製貼上，而必須加上 [Verse 1]、[Chorus] 等標籤？", "options": [{"key": "A", "text": "因為 Suno 系統只認得英文字母，看不懂任何中文漢字"}, {"key": "B", "text": "這些音樂結構標籤能引導 AI 模型精準識別「主歌」的敘事鋪陳與「副歌」的情緒高潮旋律，從而生成結構完整、層次分明的歌曲"}, {"key": "C", "text": "標籤是為了避免被網路警察認定為作弊抄襲"}, {"key": "D", "text": "如果不加標籤，電腦螢幕會立刻黑屏故障"}], "answer": "B", "explanation": "音樂生成模型仰賴結構標籤確立編曲段落。主歌（Verse）負責推展情境，副歌（Chorus）負責昇華核心旋律，使現代詩成功轉譯為流行歌曲。"}, {"id": 4, "category": "名篇鑑賞・生活行板", "text": "瘂弦在〈如歌的行板〉中連用十多個「之必要」（如「溫柔之必要／肯定之必要／一點點酒和木樨花之必要」），其藝術效果與生活哲理為何？", "options": [{"key": "A", "text": "因為詩人辭彙匱乏，不知道該怎麼換別的詞寫"}, {"key": "B", "text": "透過平穩徐緩、不斷回環往復的節奏，將瑣碎平凡甚至荒謬的日常生活賦予神聖而堅定的韻律，展現對生命全心接納的溫柔情懷"}, {"key": "C", "text": "純粹是政府衛生局宣導生活飲食衛生的政令公文"}, {"key": "D", "text": "詩人藉此抱怨生活壓力太大，主張全面放棄生命"}], "answer": "B", "explanation": "「之必要」化平凡為神聖。在不斷重複的旋律中，生活的所有細節——無論微小或荒謬——都被賦予了存在的意義與如歌的行板節奏。"}, {"id": 5, "category": "技高素養・專業共創", "text": "三民家商服二和同學在班級共創《如歌的行板》時，將服裝科生活經驗融入其中（如「穿針引線之必要」、「拆線重車之必要」），這種跨領域轉譯體現了何種素養？", "options": [{"key": "A", "text": "抱怨服裝實習作業太多，希望老師不要再出功課"}, {"key": "B", "text": "將技職操作中的繁重勞動與技術挫折，轉化為修煉心性與追求精準的文學語言，展現專業工藝與人文感性之深度交融"}, {"key": "C", "text": "證明服裝科同學只想轉系去讀中文系"}, {"key": "D", "text": "單純展示裁縫工具的名稱，毫無文學價值"}], "answer": "B", "explanation": "工藝即修行。將穿針、拆線、熨燙等重複工序賦予「之必要」的崇高詩意，使專業實習昇華為深刻的生命敘事，是技術型高中素養導向教學的最高境界。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B4 第 09 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-rose-100 text-rose-800 tracking-wide">抒情文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【情境】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【主題】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【轉化】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 個人和文化表達（現代詩歌、隱喻美學、意象煉金術與跨界數位音樂生成）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        現代詩選與自學專題：以詩抒發自我情感
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當現代語言日益速食化與扁平化，我們如何透過意象淬鍊擦亮感受力，並藉由音樂與科技協作，讓內在的情感之詩真正化為動人的生命之歌？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">意象轉譯・四大詩社剖析・現代詩解讀與猜謎・Suno AI音樂生成・生活詩共創</div>
+          <div class="text-xs text-slate-500 mt-1">融匯紀弦〈狼之獨步〉、鄭愁予〈錯誤〉、余光中〈漂給屈原〉與自學篇目席慕蓉〈記得〉、洛夫〈因為風的緣故〉、瘂弦〈如歌的行板〉；掌握意象轉譯（意➔象➔意）；透過 Suno AI 將詩結構化改編為音樂歌曲；開展服二和《如歌的行板》生活之必要班級集體創作。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服二和）：現代詩的「意象剪裁」與服裝設計的「立體剪裁」本質相通——皆是去除冗餘、將無形意念具象化為線條、面料與造形。引導學生將車縫線、剪刀、布料邊緣化為詩眼，更在班級共創中仿作瘂弦〈如歌的行板〉，將服裝科「穿針引線之必要、拆線重整之必要、壓線精準之必要」昇華為神聖的職人生活韻律。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 4-V-1 運用多元表意方式，進行自我反思與生命敘事, 5-V-3 鑑賞文本之思想意涵與藝術表現, 6-V-1 體會文化與生活之關聯，深化人文關懷與美感素養, 6-V-3 體會科技與人文之互動，反思數位時代之倫理與價值</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-3 篇章的表現, Bb-V-1 情志的抒發與省思, Bb-V-2 物我相應的表現手法, Cc-V-1 現代詩歌與文類認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-B1 符號運用與溝通表達, 國V-U-B3 藝術涵養與美感素養, 國V-U-C2 人際關係與團隊合作</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">紀弦、鄭愁予、余光中、席慕蓉、洛夫、瘂弦</strong>：本單元整合高中第四冊第九課現代詩選與自學篇目，全面涵蓋臺灣現代詩壇六位巨擘之傳世代表作。紀弦（現代詩社創辦人，倡導主知與橫的移植）、鄭愁予（現代抒情浪子，音韻婉約流暢）、余光中（藍星詩社巨擘，融匯古典鄉愁與現代歷史雄渾）；並延伸自學篇章：席慕蓉（女性溫柔回眸與時光眷戀）、洛夫（創世紀詩社詩魔，意象奇詭深情）、瘂弦（創世紀重要詩人，融合超現實與人道關懷，其名作〈如歌的行板〉被譽為現代生活進行曲）。六位詩人共同構築了現代詩在冷峻、深情、壯美與日常瑣事間的多重交響。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 課堂教學脈絡：一軒老師的「讓你的詩，成為歌」Suno AI 跨界共創鷹架</div>
+              <p>一軒老師在簡報《B4L9現代詩選+自學：以詩抒發自我情感》（85頁完整架構）中，開創了極具震撼力的整合學習進程：①【意象煉金術】：以具象景物替代抽象心思（意➔象➔意），透過商禽〈長頸鹿〉、蓉子〈傘〉、鍾鼎文〈臂〉與〈臍〉之猜謎，點燃詩性解碼樂趣；②【臺灣四大詩社巡禮】：梳理現代詩社、藍星詩社、創世紀詩社、笠詩社的核心主張與代表詩人；③【跨界創作任務：讓你的詩，成為歌】：引導學生選擇【自我探索（自我顯影）】或【他者觀察型】，在完成 5 行以上現代詩後，透過 Suno AI 進行結構化改寫（主歌 [Verse]、副歌 [Chorus]、音樂風格 Custom Mode 設定為 chamber pop、post-rock 或 ambient electronic），生成歌曲並進行盲聽鑑賞；④【班級共創：服二和《如歌的行板》】：仿作瘂弦「……之必要」，將服裝科高二生活經驗化為集體共創的璀璨詩篇。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：透過精選六位現代詩名家之抒情代表作，掌握意象轉譯、節奏音樂性與解讀技巧；並將詩作結構化轉譯為數位音樂生成（Suno AI）與生活行板共創，實現文學與現代科技、生活美學之深度融合。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：意象轉化・詩社巡禮（意象解碼）</div>
+            <div class="text-slate-600 text-xs mt-0.5">解析意象之本質（具象景物替代抽象心思）；探索臺灣四大詩社（現代、藍星、創世紀、笠）之美學理念；透過動物、物品與人體素描之現代詩猜謎，掌握詩歌的形象性與陌生化技巧。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：經典名作・深情交響（六家薈萃）</div>
+            <div class="text-slate-600 text-xs mt-0.5">精讀紀弦〈狼之獨步〉之孤傲冷峻、鄭愁予〈錯誤〉之美麗落空、余光中〈漂給屈原〉之文化招魂，對讀席慕蓉〈記得〉、洛夫〈因為風的緣故〉與瘂弦〈如歌的行板〉，展現現代詩從孤絕到深情、從宏大到日常的多重面向。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：讓詩成歌・AI跨界（Suno 生成）</div>
+            <div class="text-slate-600 text-xs mt-0.5">落實跨界創作：完成自我探索或他者觀察之現代詩後，進行歌詞結構化（Verse/Chorus），在 Suno AI 中以自訂模式設定風格參數，生成原創歌曲並進行盲聽評選。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：服二和行板・生活必要（班級共創）</div>
+            <div class="text-slate-600 text-xs mt-0.5">以瘂弦〈如歌的行板〉為藍本，開展班級集體仿作：將服裝科專業實習、裁剪打版、深夜挑燈之瑣碎勞作，化為「……之必要」的神聖生活詩律動。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">現代詩中「意象（Image）」是如何形成的？四大詩社（現代詩社、藍星詩社、創世紀詩社、笠詩社）在文學理念上有哪些重要差異？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">一軒老師如何引導學生將 5 行現代詩，透過結構化標籤（[Verse]、[Chorus]）與風格關鍵詞（Style of Music），成功在 Suno AI 中轉譯為具備音樂節奏與情感氛圍的歌曲？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">瘂弦在〈如歌的行板〉中為什麼要反覆詠歎「……之必要」？三民家商服裝科同學將專業實習經驗融入這項創作，對確立自身的「職人認同」與「生活感受力」帶來了何種啟發？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">意象</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧˋ ㄒㄧㄤˋ</td>
+          <td class="py-2 px-3">將詩人心中抽象的情意（意），轉化為外在具象可感的客觀景物（象），使讀者還原其意之文學手法。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">之必要</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓ ㄅㄧˋ ㄧㄠˋ</td>
+          <td class="py-2 px-3">瘂弦詩中的獨特句法，意指某事物在生命中具有不可或缺的本質價值與神聖韻律。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">主知</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓㄨˇ ㄓ</td>
+          <td class="py-2 px-3">紀弦現代派的核心主張，強調詩歌創作應融入理性的智性思考、客觀冷靜的思辨，反對濫情與平庸抒情。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">音樂性</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧㄣ ㄩㄝˋ ㄒㄧㄥˋ</td>
+          <td class="py-2 px-3">詩歌透過押韻、重章疊唱、長短句交錯與聲調抑揚頓挫所營造出的聽覺旋律節奏。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">行板</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄒㄧㄥˊ ㄅㄢˇ</td>
+          <td class="py-2 px-3">音樂術語（Andante），指速度徐緩如平穩步行的節奏，象徵生活平靜深沉的持續前行。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：意象轉譯、四大詩社巡禮到「讓你的詩成為歌」——Suno AI 音樂生成與《如歌的行板》班級共創</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/1RzXXbiDLmMFGP2ykyzKWnNJAgoWU3h-Y6FGcqFsegoI/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/1RzXXbiDLmMFGP2ykyzKWnNJAgoWU3h-Y6FGcqFsegoI/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：現代詩意象心電圖、猜謎與臺灣四大詩社探究單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據簡報任務：①完成現代詩意象轉譯圖表（意➔象➔意）；②解碼商禽〈長頸鹿〉、蓉子〈傘〉、鍾鼎文〈臂〉與〈臍〉之譬喻象徵；③整理現代詩社（主知）、藍星詩社（抒情古典）、創世紀詩社（超現實）、笠詩社（本土在地）四大流派之主張與代表詩人。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：讓你的詩，成為歌──Suno AI 數位音樂跨界創作企劃</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據簡報第 40 至 56 頁實作流程：①主題發想：【自我探索（自我顯影）】或【他者觀察型】寫出 5 行以上現代詩；②階段一歌詞前置微調：加上 [Verse 1]、[Chorus] 音樂結構標籤；③階段二 Suno 核心參數設定：自訂模式（Custom Mode）、輸入風格詞彙（如 chamber pop, post-rock, poetic lyrics）；④階段三盲聽評選，將音樂連結繳交至班級平台。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">03</span>
+            <span>任務三：服二和《如歌的行板》班級生活之必要集體共創</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據簡報第 77 至 80 頁共創引導：仿作瘂弦「……之必要」句型，結合三民家商服裝科高二生活經驗（穿針引線之必要、拆線重整之必要、布剪鋒利之必要、深夜熨燙之必要等），每人貢獻兩行詩句，組裝成專屬於服二和的生命行板。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

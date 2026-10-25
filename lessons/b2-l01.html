@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B2 L01 髻 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "字音辨析・教育部審定音", "text": "下列各組「」中字的讀音，何者前後完全相同？", "options": [{"key": "A", "text": "一「綹」長髮 ／ 垂「涎」三尺"}, {"key": "B", "text": "時髦「鮑」魚頭 ／ 「庖」丁解牛"}, {"key": "C", "text": "愛「憎」貪痴 ／ 錦上「添」花"}, {"key": "D", "text": "發「怔」失神 ／ 猙「獰」面目"}], "answer": "D", "explanation": "D項皆讀作 ㄓㄥ（發怔／猙獰）；A項 ㄌㄧㄡˇ ／ ㄒㄧㄢˊ；B項 ㄅㄠˋ ／ ㄆㄠˊ；C項 ㄗㄥ ／ ㄊㄧㄢ。"}, {"id": 2, "category": "修辭象徵・篇章主旨", "text": "在琦君〈髻〉一文中，貫穿全文的核心意象「髻」最主要象徵什麼？", "options": [{"key": "A", "text": "古代婦女高超的理髮編織手藝"}, {"key": "B", "text": "母親與姨娘一生難解的心結與女性命運的悲喜消長"}, {"key": "C", "text": "家族富裕顯赫的經濟地位與社會威望"}, {"key": "D", "text": "作者反抗封建禮教、追求現代自由戀愛的決心"}], "answer": "B", "explanation": "依備課用書分析，琦君以「髻」貫串全篇，既是寫實的梳髮生活，更象徵著母親與姨娘爭寵、失寵的心結與女性被時代擺弄的無奈宿命。"}, {"id": 3, "category": "詞語運用・文意脈絡", "text": "下列文句「」中的詞語，何者運用最為恰當？", "options": [{"key": "A", "text": "聽到自己得獎的噩耗，他神情「愕然」，激動得雀躍萬分"}, {"key": "B", "text": "面對未知茫然的前途，少年心中不禁升起一陣「惘然」與失落"}, {"key": "C", "text": "會議上大家發言精簡，唯獨他「絮絮叨叨」一語中的、切中要害"}, {"key": "D", "text": "那位魁梧的壯漢「嫋嫋婷婷」地跨步走進摔角擂台"}], "answer": "B", "explanation": "B項「惘然」形容失意、心神不定的樣子，使用正確；A項「噩耗」指壞消息，與得獎雀躍矛盾；C項「絮絮叨叨」指話多雜亂，與一語中的相反；D項「嫋嫋婷婷」形容女子體態輕盈，不合壯漢。"}, {"id": 4, "category": "情節梳理・心理轉折", "text": "作者在〈髻〉中對母親與姨娘恩怨的情感態度，依時間先後推移的順序為何？", "options": [{"key": "A", "text": "天真無知的單純 ➔ 沉重哀傷的心境 ➔ 洞澈世事的領悟"}, {"key": "B", "text": "同情姨娘的處境 ➔ 怨恨母親的保守 ➔ 悔恨童年的任性"}, {"key": "C", "text": "崇拜父親的權威 ➔ 鄙視姨娘的虛榮 ➔ 痛恨家族的沒落"}, {"key": "D", "text": "離家求學的焦慮 ➔ 追求功名的熱切 ➔ 看破紅塵的冷漠"}], "answer": "A", "explanation": "備課用書解析：童年時不解母親憂愁，單純看待髮髻美醜；求學與成長中為母親梳頭，懂得姨娘帶給母親的深沉傷害；晚年見姨娘老病凋零，領悟世事無常，昇華為寬容釋懷。"}, {"id": 5, "category": "文意深究・生命境界", "text": "文中結尾作者寫道：「對於人間的愛、憎、貪、痴，已惘然無動於衷。」這句話展現作者何種心境？", "options": [{"key": "A", "text": "對人世徹底絕望，遁入虛無主義的消極冷血"}, {"key": "B", "text": "看透人世愛恨與權力恩怨終將被時間銷蝕，化為博大的悲憫與釋懷"}, {"key": "C", "text": "慶幸自己逃離家庭牢籠，不再過問親人死活"}, {"key": "D", "text": "對母親臨終未留下任何遺產感到麻木與諷刺"}], "answer": "B", "explanation": "結尾非消極冷漠，而是歷經死生與時代滄桑後，洞見所有爭寵、虛榮、嫉恨在死亡與時間面前皆歸於虛妄，展現超越世俗愛憎的豁達與慈悲。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B2 第 01 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">記敘文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高一奠基期（說寫明白）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【人物】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【關係】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【轉化】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 認同與關係 × 個人和文化表達</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        髻
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「在愛恨糾葛的人間情網中，生命如何走向釋懷與寬容？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">觀察細節・形塑角色・辨析情感轉折</div>
+          <div class="text-sm text-slate-500 mt-1">透過外在髮式象徵與眼神動作細節，剖析兩代女性的心結糾葛與生命釋懷</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服一和）</div>
+          <div class="text-sm text-slate-500 mt-1">三民家商服裝科（整體造形與髮飾設計）：從母親質樸的「老式螺髻」、姨娘時髦的「鮑魚頭/香水髮油」，到晚年兩人的「一握白髮」，探討髮型、面料與配飾如何映射女性地位消長、心理防衛與歲月年輪。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：2-V-2, 5-V-2, 6-V-2</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ba-V-1 記敘的元素, Ba-V-2 敘述方式, Ba-V-3 摹寫手法, Ca-V-1 物質文化認知, Cb-V-1 制度風俗認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-B1 符號運用與溝通表達, 國V-U-B3 藝術涵養與美感素養</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">琦君</strong>：琦君（1917～2006），本名潘希珍，浙江永嘉人。杭州之江大學中文系畢業，師事詞學大師夏承燾。曾任教於中央大學、中興大學等校。琦君長於散文，作品多取材自童年故鄉記憶、親情與女性命運，筆觸溫柔敦厚、哀而不傷，代表作有《煙愁》、《紅紗燈》、《三更有夢書當枕》等。《髻》為其懷舊散文的巔峰代表作。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 以柔克剛的溫厚美學</div>
+              <p>琦君筆下的家庭糾葛不見血淚控訴，而是透過日常細節（梳頭、雪花膏、髮飾）層層推進，將傳統婦女的壓抑與姨娘爭寵的虛榮，昇華為對生命無常的普遍悲憫。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：全文以「髮髻」作為核心視覺象徵與情感線索，貫串母親與姨娘一生的情感糾葛。透過作者從天真無知、同仇敵愾到洞察世事的視角轉變，展現時間如何洗盡人間的愛憎貪痴，歸結為對女性命運的博大寬容與釋懷。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：童年鄉居・母親之髻（保守純樸）</div>
+            <div class="text-slate-600 text-xs mt-0.5">寫母親烏黑豐盈的長髮與老式螺髻，洋溢純樸的鄉土之美與母女溫馨時光，母親的世界安寧而穩定。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：父親納妾・姨娘之髻（時髦爭寵）</div>
+            <div class="text-slate-600 text-xs mt-0.5">姨娘攜鮑魚頭、翡翠耳環入門，時髦耀眼；母親為討好父親學梳「螺絲髻」卻遭冷落，髮絲漸稀，心結深種。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：歲月流轉・母女梳髮（抽絲剝繭）</div>
+            <div class="text-slate-600 text-xs mt-0.5">作者離家求學至母親晚年，親手為母親梳頭。只剩一握黃髮與小小的核桃髻，體悟母親深鎖一生的哀怨與悲苦。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：人事皆非・釋懷同情（愛憎歸零）</div>
+            <div class="text-slate-600 text-xs mt-0.5">母親與父親相繼去世，作者在台北偶遇老病的姨娘。見昔日光鮮的姨娘亦只剩一把白髮，領悟人間愛憎貪痴終將隨歲月化為虛無與無盡悲憫。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">母親與姨娘在頭髮造型、髮飾配件及洗髮習慣上有哪些強烈對比？作者的心境經歷了哪三個階段的演變？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何運用「髮髻」這個具象物件作為雙關與象徵，將抽象複雜的家庭權力消長與嫉妒心結具象化？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">當我們面對生命中傷害過我們或至親的人，琦君「對於人間的愛、憎、貪、痴，已惘然無動於衷」的體悟，能給予我們何種心靈救贖？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">一「綹」綹</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄌㄧㄡˇ</td>
+          <td class="py-2 px-3">量詞。計算絲、線、頭髮等的單位。例：「一綹綹黑髮飄落在水盆中」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">「鮑」魚頭</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄅㄠˋ</td>
+          <td class="py-2 px-3">髮型名稱。形狀如鮑魚之橢圓時髦髮髻。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">「怔」怔地</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄓㄥ</td>
+          <td class="py-2 px-3">發愣、發呆、出神的樣子。例：「怔怔地望著鏡中人」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">愛「憎」貪痴</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄗㄥ</td>
+          <td class="py-2 px-3">憎恨、厭惡。佛家指眾生執著之四種苦惱情感。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">「嫋嫋婷婷」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄋㄧㄠˇ ㄋㄧㄠˇ ㄊㄧㄥˊ ㄊㄧㄥˊ</td>
+          <td class="py-2 px-3">形容女子體態輕盈美好的樣子。例：「姨娘嫋嫋婷婷地走進來」。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：在愛恨糾葛的人間情網中，生命如何走向釋懷與寬容？</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1JJk9c0m4e8y_oMP3DUVYwH2eynLfl1rdFOBEoUgcKho/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1JJk9c0m4e8y_oMP3DUVYwH2eynLfl1rdFOBEoUgcKho/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服一和學習實況）</h3>
+          <p class="text-sm text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：思念與「MIND THE GAP」象徵探索</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">從個人思念經驗切入，深入解構地鐵警語「MIND THE GAP（小心月台縫隙）」在生命情境與人際落差中的象徵意義，分析母親的黃楊木梳、髮髻演變（老式螺髻、鮑魚頭、一握白髮）與女性心結（對照 B2L1 簡報 Slide 5-13）</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：琦君文學的力量：廣大的同情心與生命釋懷</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">研讀李惠貞《給媽媽的信》與琦君寫作觀：「第一要有廣大的同情心，時時體驗人情，觀察物態，以溫柔敦厚之筆寫出真善美」，思考面對人世愛憎糾結如何走向寬容與釋懷（對照 Slide 15-16）</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

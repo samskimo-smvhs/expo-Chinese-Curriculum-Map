@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B4 第 04 課 古典散文選：蘭亭集序 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "哲學批判・思想意涵", "text": "王羲之在文中指出「固知一死生為虛誕，齊彭殤為妄作」，其批判的主要對象與哲學依據為何？", "options": [{"key": "A", "text": "批判儒家太過注重繁文縟節，主張全面廢除祭祀"}, {"key": "B", "text": "批判莊子將『生與死』、『長壽與夭折』等量齊觀的齊物論調，認為漠視生之喜悅與死之悲哀是虛偽且脫離人性的逃避"}, {"key": "C", "text": "批判法家嚴刑峻法，呼籲寬刑恤獄"}, {"key": "D", "text": "批判佛教輪迴轉世思想，認為人不應相信因果報應"}], "answer": "B", "explanation": "莊子主張「齊物」，認為生死如晝夜運轉，無足悲喜。王羲之則從真摯的人性情感出發，痛感生命有限與死亡殘酷，直斥將生死等同視之為「虛誕」、「妄作」，展現魏晉名士熱烈執著於生命存在的真實風骨。"}, {"id": 2, "category": "結構轉折・情感脈絡", "text": "《蘭亭集序》全篇情感轉折極為劇烈，下列哪一組詞彙能最精準概括其「三段式情緒推進」？", "options": [{"key": "A", "text": "怒 ➔ 懼 ➔ 喜"}, {"key": "B", "text": "樂（暢敘幽情） ➔ 痛（俛仰陳迹） ➔ 悲/感（死生亦大、後之覽者）"}, {"key": "C", "text": "疑 ➔ 悟 ➔ 迷"}, {"key": "D", "text": "怨 ➔ 懟 ➔ 恨"}], "answer": "B", "explanation": "全文先由春日宴集之「樂」發端，轉入時光易逝人事已非之「痛」，最終昇華為面對死亡必然性卻仍渴望跨越時空共鳴之「悲/感」，結構起伏跌宕，扣人心弦。"}, {"id": 3, "category": "文句字詞・精準詮釋", "text": "「向之所欣，俛仰之間，已為陳迹，猶不能不以之興懷」中，「俛仰之間」的意思為何？", "options": [{"key": "A", "text": "長時間的伏案苦讀"}, {"key": "B", "text": "低頭與抬頭之間，比喻極為短暫的時間"}, {"key": "C", "text": "在深山中四處張望"}, {"key": "D", "text": "形容身體姿態優雅柔美"}], "answer": "B", "explanation": "「俛」同「俯」，低頭；「仰」，抬頭。俯仰之間形容時間極其短暫、轉瞬即逝。"}, {"id": 4, "category": "書法藝術・神龍本賞析", "text": "關於被譽為「天下第一行書」的《蘭亭集序》（馮承素神龍本摹本），下列敘述何者錯誤？", "options": [{"key": "A", "text": "通篇字體飄若浮雲、矯若驚龍，展現晉代行書之妍美流暢"}, {"key": "B", "text": "文中二十個「之」字，寫法各有千秋，無一雷同，展現無與倫比的筆法變化"}, {"key": "C", "text": "稿本上有數處塗改與增補的痕跡，恰恰忠實記錄了王羲之隨思緒起伏的真實心境"}, {"key": "D", "text": "此帖為王羲之用規整嚴肅的狂草書寫於高檔宣紙上，筆墨毫無變化"}], "answer": "D", "explanation": "D選項錯誤：《蘭亭集序》為「行書」，非狂草；當年王羲之乘興以鼠鬚筆書於蠶繭紙上，字體千變萬化，絕非刻板規整。"}, {"id": 5, "category": "現代意義・文化共鳴", "text": "篇末「後之覽者，亦將有感於斯文」，這句話對現代讀者的啟示為何？", "options": [{"key": "A", "text": "提醒後代讀者考試必考這篇，一定要死背"}, {"key": "B", "text": "王羲之相信文字與藝術能穿透千百年的時空阻隔，讓後世心靈在閱讀時與古人同悲同喜，在精神共振中實現生命的永恆"}, {"key": "C", "text": "抱怨後世的人一定看不懂他的行書草稿"}, {"key": "D", "text": "預言後代社會必定因為科技發達而不再需要文學"}], "answer": "B", "explanation": "這是全篇最深邃動人的結穴：肉體生命雖必消亡，但人類對美好的眷戀與對死亡的追問卻能藉由「斯文」代代相傳，在文明歷史中達成心靈的永恆交會。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B4 第 04 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-rose-100 text-rose-800 tracking-wide">抒情文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【情境】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【關係】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【轉化】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 時空定位與審美意境（魏晉風骨、書法藝術與存在主義哲思）</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        古典散文選：蘭亭集序
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當美好時光注定隨風消逝、生命終將走向死亡，我們如何透過書寫與藝術，為當下的存在留下不朽的印記？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">結構轉折・情緒層遞・書法鑑賞・生命思辨</div>
+          <div class="text-xs text-slate-500 mt-1">剖析由「樂」轉「痛」入「悲」之情感節奏；鑑賞「天下第一行書」神龍本之筆墨神韻；理解對老莊虛無思想之批判，確立文化長河中的心靈共鳴。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服二和）：以王羲之神龍本《蘭亭集序》的行雲流水墨韻出發，探討書法線條的提按頓挫如何轉譯為現代服裝立體剪裁中的懸垂褶襇（Draping）與布料流動感；將文人雅集的春日情境轉化為現代生活美學策展提案。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2 依據文本脈絡，運用適當閱讀策略以增進閱讀理解, 2-V-2 結合生活經驗與專業知識，進行跨領域思辨, 5-V-2 統整各類文本資訊，提出個人多元觀點, 5-V-3 鑑賞文本之思想意涵與藝術表現, 6-V-1 體會文化與生活之關聯，深化人文關懷與美感素養</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-2 篇章的組織結構, Bb-V-1 情志的抒發與省思, Ca-V-1 思想與藝術文化認知, Cb-V-2 魏晉文士風骨與散文認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-A1 身心素質與自我精進, 國V-U-B1 符號運用與溝通表達, 國V-U-B3 藝術涵養與美感素養</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">王羲之</strong>：王羲之（303—361），字逸少，琅邪臨沂（今山東臨沂）人，東晉著名書法家、文學家，官至右軍將軍、會稽內史，世稱「王右軍」。出身魏晉頂級門閥琅邪王氏，早年師從衛夫人，後遍覽秦漢古名帖，博採眾長，開創妍美流暢之今體行草，被後世尊為「書聖」。其字勢飄若浮雲、矯若驚龍。東晉永和九年（353）三月三日，王羲之與謝安、孫綽等四十一人於會稽山陰蘭亭舉行春禊雅集，王羲之乘興以鼠鬚筆、蠶繭紙草擬《蘭亭集序》，其墨寶被譽為「天下第一行書」。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 課堂教學脈絡：一軒老師的情境還原、神龍本書法共感與情緒四階分析</div>
+              <p>一軒老師在課堂上透過兩份深度探索學習單，層層拆解這篇古典名作：①【春日風景與情境還原】：以 5W1H 檢索暮春山陰聚會，引導學生以手繪線條生動還原崇山峻嶺、茂林脩竹與曲水流觴空間；②【情緒心電圖四階演進】：精確繪出「樂（群賢畢至暢敘幽情）➔ 痛（向之所欣俛仰之間已為陳迹）➔ 悲（修短隨化終期於盡）➔ 感（後之覽者亦將有感於斯文）」的情感震盪曲線；③【批判老莊與文化永恆】：深入探討王羲之為何批判莊子『一死生為虛誕，齊彭殤為妄作』，指出唯有直面生死的沉重，熱愛生命的心靈才能在文明歷史中留下深刻共感。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：由蘭亭春日聚會之極致歡樂出發，感嘆時光飛逝、人事遷流與生命終將消逝之巨大悲痛；進而批判虛無的老莊哲學，將希望寄託於後世讀者的心靈共鳴，確立文字與藝術戰勝死亡的永恆價值。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：蘭亭雅集・信可樂也</div>
+            <div class="text-slate-600 text-xs mt-0.5">記述永和九年暮春會稽山陰之盛會，交代天時、地利、人和與「曲水流觴」之雅事；仰觀宇宙之大，俯察品類之盛，由感官之暢快總結出「信可樂也」。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：俯仰陳迹・豈不痛哉</div>
+            <div class="text-slate-600 text-xs mt-0.5">思緒急轉直下，洞察人情之「情隨事遷」：世人無論「取諸懷抱，悟言一室之內」或「放浪形骸之外」，當昔日欣喜轉瞬化為陳迹，生命短暫難以長久，引發「豈不痛哉」的沉痛嘆息。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：破斥虛妄・臨文嗟悼</div>
+            <div class="text-slate-600 text-xs mt-0.5">直面終極生死，痛陳「死生亦大矣」；正面批判老莊「一死生為虛誕，齊彭殤為妄作」之逃避心態；古人讀前人作品常「臨文嗟悼」，證明古今生命情感息息相通。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：斯文永續・心靈共鳴</div>
+            <div class="text-slate-600 text-xs mt-0.5">結穴於未來的深情呼喚：「後之視今，亦猶今之視昔。」縱使時代變遷、人事不同，後世讀者閱讀蘭亭諸人之詩文時，亦必將有深切的感發共鳴，使精神超越肉體永垂不朽。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">王羲之在序文中梳理了哪三種截然不同的情感層次（樂➔痛➔悲/感）？各是在何種思維轉折下觸發的？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">作者如何從寫景的「明快開朗」陡轉至寫情的「蒼涼沉鬱」，運用鮮明的反差筆法打破傳統雅集序文單純讚頌歡樂的世俗框架？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">王羲之為何嚴厲批評莊子「一死生為虛誕，齊彭殤為妄作」？這種對死亡的深沉抗議，如何轉化為對當下現實生命更熱烈、更真摯的擁抱？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">曲水流觴</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄑㄩ ㄕㄨㄟˇ ㄌㄧㄡˊ ㄕㄤ</td>
+          <td class="py-2 px-3">古代脩禊時的一種雅集活動。大家列坐曲折水渠旁，在上游放置酒杯隨流飄下，停在誰面前誰就取飲賦詩。觴，酒杯。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">流憩</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄌㄧㄡˊ ㄑㄧˋ</td>
+          <td class="py-2 px-3">流連休憩。形容文人雅士漫步賞景、駐足休歇之悠然自得。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">陳迹</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄔㄣˊ ㄐㄧ</td>
+          <td class="py-2 px-3">過去留下的痕跡、陳舊的往事。比喻一切美好的人事物終將化為不可挽回的過去。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">虛誕</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄒㄩ ㄉㄢˋ</td>
+          <td class="py-2 px-3">虛妄荒誕。王羲之以此批判莊子「齊生死」的觀點脫離現實、欺罔自我。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">妄作</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄨㄤˋ ㄗㄨㄛˋ</td>
+          <td class="py-2 px-3">胡作妄為、不合常理的妄誕之說。批判將長壽之彭祖與短命之夭折嬰兒視為同等之虛無論調。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">斯文</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄙ ㄨㄣˊ</td>
+          <td class="py-2 px-3">此文、這些詩作與序文。亦涵蓋人類崇高之文化精神與心靈記錄。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：穿越時空的生命共感——從曲水流觴之樂走向生死永恆的深層叩問</h3>
+              <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+            </div>
+            <a href="https://docs.google.com/presentation/d/183-aHdp9rkNl_pGrniTuZP4YPjhhq-A7IyNu6q6IsU0/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+              <span>在 Google 簡報中開啟</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+            <iframe 
+              src="https://docs.google.com/presentation/d/183-aHdp9rkNl_pGrniTuZP4YPjhhq-A7IyNu6q6IsU0/embed?start=false&loop=false&delayms=3000" 
+              frameborder="0" 
+              class="absolute top-0 left-0 w-full h-full"
+              allowfullscreen="true">
+            </iframe>
+          </div>
+        </div>
+        
+
+      <!-- 數位互動看板 (Padlet) -->
+      
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：《蘭亭集序》探索學習單（一）——春日風景與情境還原</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">課堂真實學習單落地：①基礎檢索（5W1H）：暮春之初／會稽山陰／群賢少長／驅除不祥之脩禊／流觴曲水；②【動手畫畫看】情境還原：以素描線條生動繪出崇山峻嶺、茂林脩竹、激湍流水與文人列坐曲水旁的示意圖；③生活連結：思考當下「悠閒放鬆」心境，並連結日常走春與親友相聚之溫馨對談。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：《蘭亭集序》探索學習單（二）——情感心電圖與生死思辨</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">課堂真實學習單落地：①情感四階曲線圖（樂➔痛➔悲➔感）；②作者書寫態度與神龍本墨寶塗改處（如『向之』、『悲夫』）之情緒呼應；③思辨『一死生為虛誕，齊彭殤為妄作』對莊子無情虛無之批判；④【生活經驗統整】以四格漫畫或圖文短記，記錄一次『當下極為快樂但事後感到失落』的真實經驗，並寫下對存在的深層感悟。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

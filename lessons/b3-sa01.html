@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B3 專題任務 自學專題：臺灣自然書寫——土地、生命與草木的對話 | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "篇章結構・寫作手法", "text": "在劉克襄〈臺灣最美麗的火車線〉中，作者在篇章開頭詳述「永保安康」路線的原因與手法為何？", "options": [{"key": "A", "text": "批評搭乘永保安康線的旅客盲目跟風，毫無審美素養"}, {"key": "B", "text": "採用「先抑後揚」手法，先肯定熱門路線的吉祥與便利，為後文突出吉安至壽豐的自然生態價值作鋪墊"}, {"key": "C", "text": "為了替鐵路局宣傳兩條路線的套票優惠"}, {"key": "D", "text": "單純記錄個人旅行流水帳，兩條路線並無任何優劣對比"}], "answer": "B", "explanation": "依據教學簡報結構分析：作者詳述「永保安康」熱門原因，是運用「先抑後揚」之筆法，肯定對比項的美好，藉以更強力地襯托後文吉安至壽豐路線無可取代的地理環境與生態壯麗。"}, {"id": 2, "category": "哲理思辨・生態批判", "text": "凌拂在〈遇見鴨兒芹〉中，由親手播種栽植野生鴨兒芹的經驗，進一步提出了何種深層哲學反思？", "options": [{"key": "A", "text": "野生植物營養價值不如改良品種，應全面人工溫室培植"}, {"key": "B", "text": "反思人類自以為是「上帝」主宰並馴化動植物的傲慢心態，可能破壞自然平衡造成生態僵局"}, {"key": "C", "text": "呼籲大家到山林隨意挖掘野苗回家販售以獲取商業利潤"}, {"key": "D", "text": "認為現代園藝技術已完全征服自然，人類無須向大自然學習"}], "answer": "B", "explanation": "簡報指出：凌拂由種植鴨兒芹聯想到人類馴化動植物的歷史，將個人栽種經驗提升到哲學高度，批判人類自居「上帝」掌控自然的霸權心態，主張順應自然、平淡相處。"}, {"id": 3, "category": "氣味感知・價值昇華", "text": "在凌拂〈氣味人生〉中，作者如何看待蕺菜（魚腥草）濃烈特殊的「臭味」？", "options": [{"key": "A", "text": "認為臭味令人作嘔，必須噴灑人工香精加以掩蓋"}, {"key": "B", "text": "肯定香臭是主觀好惡，蕺菜經火煮轉化為平澄湯汁，且具藥用美容功效，「正大的臭」遠勝於索然無味"}, {"key": "C", "text": "認為植物只要有臭味就表示腐敗變質，不可食用"}, {"key": "D", "text": "主張應該透過基因改造徹底消除植物的天然氣味"}], "answer": "B", "explanation": "簡報指出：作者認為香臭是世人主觀的好惡，蕺菜經烹煮後濃濁盡祛、湯汁明淨，具有藥用與美容之善美價值，其正大鮮明的特色遠勝於空洞平庸的「索然無味」。"}, {"id": 4, "category": "課堂任務・學習表現", "text": "一軒老師在簡報中特別規範的「白紙視覺化整理」學習單任務，其評量核心要求包含哪些要素？", "options": [{"key": "A", "text": "必須完全手抄課本全文並附上作者照片"}, {"key": "B", "text": "以白紙視覺化整理，必須包含寫作者、全篇主旨觀點、文章結構安排與個人自我想法，使理解成為藝術作品"}, {"key": "C", "text": "只需寫出 50 個生字注音即可繳交"}, {"key": "D", "text": "必須使用電腦繪圖軟體排版，禁止使用手繪手寫"}], "answer": "B", "explanation": "簡報明確揭示核心任務：「1. 請以白紙進行視覺化整理。2. 請包括：（1）寫作者；（2）全篇主旨（或主要觀點）；（3）文章結構安排；（4）一些自己的想法。從自己理解到成為藝術作品。」"}, {"id": 5, "category": "文化生態・原民智慧", "text": "教學簡報在探討當代自然書寫時，特別強調臺灣原住民族的生態哲學，其最核心的觀念為何？", "options": [{"key": "A", "text": "人定勝天，自然資源應盡可能快速開採以發展經濟"}, {"key": "B", "text": "萬物有靈的平等共生信仰，教導族人節制取用、尊重自然，追求人與土地的永續和諧"}, {"key": "C", "text": "大自然充滿危險與詛咒，人類應築牆將山林全面隔離"}, {"key": "D", "text": "只有罕見珍稀的動物才有保護價值，常見草木不須在乎"}], "answer": "B", "explanation": "簡報第 62 頁指出：原住民族信仰「萬物有靈」，強調人與自然的平等共生而非支配征服，傳統祭儀與口傳智慧教導族人節制取用、永續利用，為現代環境危機提供了深刻的反省契機。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B3 專題任務</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 border-emerald-200 tracking-wide">說明文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高二開展期（溝通思考）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【生態】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【觀察】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【和諧】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: ['全球化與永續性', '環境與生態', '認同與關係']</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        自學專題：臺灣自然書寫——土地、生命與草木的對話
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「當我們放慢腳步凝視土地與微小草木，人如何重新找回與萬物共生和諧的生命智慧？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">微觀觀察・結構梳理・意象轉譯・生態省思</div>
+          <div class="text-xs text-slate-500 mt-1">梳理自然書寫之敘事層次與觀察視角；透過白紙視覺化筆記整合篇章主旨、結構脈絡與生活感知；反思人與自然之倫理關係，涵育敬畏大地與萬物共生之情懷。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服二和）</div>
+          <div class="text-xs text-slate-500 mt-1">三民家商服裝科（服二和）：從花東地景之稻浪金黃、山脈蒼綠，到鴨兒芹與蕺菜之天然植物形態與纖維紋理，汲取自然染織、大地色系與永續環保服飾之美學靈感。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：1-V-2, 2-V-3, 5-V-2, 5-V-3, 6-V-2</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-2 篇章的組織, Ba-V-1 記敘的元素, Ba-V-2 敘述方式, Ba-V-3 摹寫手法, Bb-V-2 物我相應的表現手法, Ca-V-1 物質文化認知, Cc-V-2 人文藝術精神認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-B1 符號運用與溝通表達, 國V-U-C2 人際關係與團隊合作, 國V-U-C3 多元文化與國際理解</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">劉克襄、凌拂</strong>：劉克襄（1957～），臺灣自然觀察作家、生態攝影家，長期投身臺灣荒野與鳥類踏查，被譽為「鳥人」；凌拂（1952～），原名凌俊嫻，著名散文家與兒童文學作家，文字清疏有致，善於從日常草木食物微觀出發，結合細膩感知與生命哲理，著有《食野之苹》、《世人只有一隻眼》、《與荒野相遇》等。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 一軒老師導讀與專題設計理念</div>
+              <p>本自學專題由一軒老師統整規劃，將劉克襄〈臺灣最美麗的火車線〉與凌拂《食野之苹》草木疏選（〈遇見鴨兒芹〉、〈氣味人生〉）整併為完整的「自然書寫」探究地圖。引導學生打破傳統背誦框架，以「白紙視覺化筆記」為核心任務，從宏觀的花東鐵道地景穿梭至微觀的野菜氣味感知，並連結西方生態倫理與原住民「萬物有靈」之古老智慧，讓語文學習成為一場心靈與土地的深層對話。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：由鐵道慢遊拓展生活視野，從微觀草木體悟生命真味，結合生態省思與原民智慧，在白紙視覺化創作中建立人與自然和諧共生的永續態度。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：起【土地呼喚——臺灣自然書寫之萌芽與西方啟蒙】</div>
+            <div class="text-slate-600 text-xs mt-0.5">溯源 1980 年代臺灣自然書寫的興起，介紹西方經典啟蒙（梭羅《湖濱散記》、李奧帕德《沙郡年紀》、卡森《寂靜的春天》），建立從「抒情寄託」轉向「理性生態觀察與倫理省思」之閱讀視野。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：承【鐵道慢行——劉克襄〈臺灣最美麗的火車線〉地景對話】</div>
+            <div class="text-slate-600 text-xs mt-0.5">依據簡報「引子—對比—主體詳述—總結」四層次：以熱門「永保安康」為鋪墊，反襯吉安至壽豐之綺麗環境；融合稻浪瓜田、單車慢遊與珍稀鳥類生態，突顯開闊悠閒對都市鬱卒的療癒價值。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：轉【微觀草木——凌拂《食野之苹》（鴨兒芹、蕺菜）生命哲思】</div>
+            <div class="text-slate-600 text-xs mt-0.5">精讀凌拂兩大草木名篇：〈遇見鴨兒芹〉從種子細瘦深心、偶遇重逢到反思人類主宰自然之「上帝僵局」；〈氣味人生〉從生蕺菜魚腥臭氣到火煮後明淨平澄，昇華「香臭為主觀好惡，正大之臭勝過索然無味」之人生哲理。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：合【萬物共生——原民生態智慧與白紙視覺化實踐】</div>
+            <div class="text-slate-600 text-xs mt-0.5">對讀原住民族「萬物有靈、節制取用」之生態智慧（如夏曼·藍波安）；引導學生落實課堂核心任務——以白紙進行視覺化筆記，整合作者、主旨、結構與個人反思，使知識理解躍升為個人藝術作品。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">【事實擷取】劉克襄為何認為吉安至壽豐是臺灣最美麗的火車線？凌拂在種植鴨兒芹與烹煮蕺菜時，分別觀察到植物具備哪些獨特形態與氣味特徵？簡報中介紹了哪些西方與臺灣自然書寫代表人物？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">【推論解釋】劉克襄如何運用「先抑後揚」與「多角度對比」突出慢遊的療癒價值？凌拂如何從看似微不足道的野菜經驗，推展出對人類馴化行為的批判及「香臭好惡」之人生哲學？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">【省思評鑑】身為三民家商服裝科青年，在追求潮流、速度與效率的現代生活中，自然書寫所倡導的「慢遊態度」與「萬物平等共生智慧」，能如何啟發我們對服裝永續材質、色彩美學與生命節奏的省思？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">蕺</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄐㄧˊ</td>
+          <td class="py-2 px-3">植物名，即蕺菜（魚腥草）。三白草科蕺菜屬，莖葉揉碎有魚腥氣，可入藥或製茶。凌拂〈氣味人生〉以此展現獨特生命氣味。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">芹</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄑㄧㄣˊ</td>
+          <td class="py-2 px-3">植物名，此指「鴨兒芹」，繖形科多年生草本，野生於山地林緣，種子狹細而瘦，具有強韌生命力。凌拂著有〈遇見鴨兒芹〉。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">索然無味</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄙㄨㄛˇ ㄖㄢˊ ㄨˊ ㄨㄟˋ</td>
+          <td class="py-2 px-3">形容枯燥呆滯，毫無趣味。凌拂用以強調「正大的臭味」比起平庸空洞、索然無味更具生命本色與存在感。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">鬱卒</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄨˋ ㄗㄨˊ</td>
+          <td class="py-2 px-3">閩南語詞彙，心中鬱悶煩躁、心情不暢快。劉克襄形容花東開闊無際的綠野能沖銷都市現代人內心的鬱卒。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">抑揚</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄧˋ ㄧㄤˊ</td>
+          <td class="py-2 px-3">寫作修辭手法，此指「先抑後揚」。先以熱門的永保安康路線為抑，後文再大力弘揚吉安壽豐路線的深層地景與生態價值。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：從花東慢鐵、鴨兒芹與蕺菜氣味，到西方生態倫理與原民智慧——一軒老師自然書寫統整自學專題</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/1isjJ12tFqHncfLbE66kXX63Y3xTT-TSC48p8q_c1loI/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/1isjJ12tFqHncfLbE66kXX63Y3xTT-TSC48p8q_c1loI/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服二和學習實況）</h3>
+          <p class="text-xs text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：以白紙進行視覺化自然觀察筆記（一軒老師課堂核心任務）</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據簡報第 16~39 頁明確要求：以白紙進行視覺化整理，必須涵蓋：（1）寫作者觀察視角與生平；（2）全篇主旨或主要觀點；（3）文章結構安排；（4）個人想法與生活連結。強調細節組合與合作脈絡，使理解躍升為藝術作品。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：火車看見的世界——〈臺灣最美麗的火車線〉四層次結構剖析單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據簡報第 44~87 頁：拆解篇章「引子—對比—主體詳述—總結」四層次架構；深入分析作者如何以「永保安康」為引，鋪陳吉安至壽豐的壯闊山脈、金黃稻浪、單車慢活與珍稀鳥類生態觀察。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">03</span>
+            <span>任務三：日常微觀的哲理與感知——凌拂《食野之苹》草木疏對讀單</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據簡報第 90~150 頁：深入對讀〈遇見鴨兒芹〉（從種子生命力到反思人類自居上帝的主宰心態）與〈氣味人生〉（從生蕺菜魚腥臭氣到烹煮澄淨，思辨香臭主觀與生活哲理），記錄個人微觀植物感知。</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">04</span>
+            <span>任務四：原住民生態智慧與當代自然書寫多元面貌探究</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">依據簡報第 151~230 頁：研討原住民族「萬物有靈、節制取用」之共生倫理，對照朱天衣山居動物關懷、雪羊山林文化教育與陳列〈玉山去來〉，撰寫 300 字生態責任與永續生活反思短文。</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>

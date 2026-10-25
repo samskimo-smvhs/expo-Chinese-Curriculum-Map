@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>B2 L09 現代詩選（再別康橋） | 技高國語文課程地圖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6f8',
+              100: '#e5ebf0',
+              500: '#2c4f64',
+              600: '#203a4b',
+              700: '#172b38',
+              800: '#0f1d26',
+              900: '#091117'
+            },
+            accent: {
+              500: '#d97706',
+              600: '#b45309'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'Songti TC', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"PingFang TC"', '"Microsoft JhengHei"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html {
+      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+    }
+    @media (min-width: 1280px) {
+      html {
+        font-size: 19px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('lessonQuiz', () => ({
+        submitted: false,
+        score: 0,
+        userAnswers: {},
+        questions: [{"id": 1, "category": "字音辨析・教育部審定音", "text": "下列各組「」中字的讀音，何者前後完全相同？", "options": [{"key": "A", "text": "軟泥上的青「荇」 ／ 行「行」出狀元"}, {"key": "B", "text": "撐一支長「篙」 ／ 高「高」在上的官員"}, {"key": "C", "text": "向青草更青處漫「溯」 ／ 橫「槊」賦詩"}, {"key": "D", "text": "沈澱著「彩」虹似的夢 ／ 精彩「絕」倫"}], "answer": "B", "explanation": "B項皆讀作 ㄍㄠ；A項 ㄒㄧㄥˋ ／ ㄏㄤˊ；C項 ㄙㄨˋ ／ ㄕㄨㄛˋ；D項 ㄘㄞˇ ／ ㄐㄩㄝˊ。"}, {"id": 2, "category": "新詩流派・三美主張", "text": "徐志摩所屬的「新月詩派」提倡新格律詩，強調詩應具備「三美」，下列何者不屬於三美之一？", "options": [{"key": "A", "text": "音樂美（音節抑揚、押韻自然）"}, {"key": "B", "text": "繪畫美（辭藻富色彩、意象鮮明）"}, {"key": "C", "text": "建築美（節的勻稱、句的均齊）"}, {"key": "D", "text": "邏輯美（必須包含嚴格的三段論法推理）"}], "answer": "D", "explanation": "新月詩派聞一多提出「三美」為：音樂美、繪畫美、建築美，並無邏輯美。"}, {"id": 3, "category": "意象詮釋・詩人情懷", "text": "在〈再別康橋〉中，「軟泥上的青荇，油油的在水底招搖；在康河的柔波裡，我甘心做一條水草！」展現詩人何種情感？", "options": [{"key": "A", "text": "自暴自棄，自比為微不足道的漂浮水草"}, {"key": "B", "text": "對康河大自然的極致沉醉與甘心長伴母校柔波的深情繾綣"}, {"key": "C", "text": "抱怨康河水質混濁、水草過於茂盛妨礙泛舟"}, {"key": "D", "text": "諷刺英國留學生活缺乏樂趣、如同水草般單調"}], "answer": "B", "explanation": "以「甘心做一條水草」將主觀情感融入客觀景物，展現與康河水乳交融、甘願永遠停留的極致依戀。"}, {"id": 4, "category": "章法修辭・首尾呼應", "text": "詩歌首節「輕輕的我走了，正如我輕輕的來」與末節「悄悄的我走了，正如我悄悄的來」，在章法上運用了：", "options": [{"key": "A", "text": "首尾呼應與微調復沓，深化飄逸無牽掛的瀟灑告別姿態"}, {"key": "B", "text": "前後矛盾，顯示詩人不知所措的焦慮"}, {"key": "C", "text": "跳接倒敘，說明詩人其實並未離開康橋"}, {"key": "D", "text": "頂真修辭，每句字尾銜接下句字首"}], "answer": "A", "explanation": "首尾相應，由「輕輕」轉為「悄悄」，瀟灑中帶著更深沉的靜謐，深化不忍驚擾母校之深情。"}, {"id": 5, "category": "名句意蘊・生命哲思", "text": "詩末名句「揮一揮衣袖，不帶走一片雲彩」體現何種生命胸襟？", "options": [{"key": "A", "text": "囊空如洗、買不起紀念品的自嘲"}, {"key": "B", "text": "率真灑脫、愛而不私佔、珍惜過程而非結果的超凡美感"}, {"key": "C", "text": "憤世嫉俗、拒絕帶走英國殖民地任何文化的憤怒"}, {"key": "D", "text": "因搭機行李超重而無奈放棄物品的感嘆"}], "answer": "B", "explanation": "展現不執著於實質擁有、只珍藏心靈美好回憶的超然瀟灑，體現徐志摩浪漫愛美的靈魂核心。"}],
+        selectOption(qId, key) {
+          if (!this.submitted) {
+            this.userAnswers[qId] = key;
+          }
+        },
+        submitQuiz() {
+          let correctCount = 0;
+          this.questions.forEach(q => {
+            if (this.userAnswers[q.id] === q.answer) {
+              correctCount++;
+            }
+          });
+          this.score = Math.round((correctCount / this.questions.length) * 100);
+          this.submitted = true;
+          document.getElementById('quiz-result-banner').scrollIntoView({ behavior: 'smooth' });
+        },
+        resetQuiz() {
+          this.submitted = false;
+          this.userAnswers = {};
+          this.score = 0;
+        }
+      }));
+    });
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-2 text-slate-600 hover:text-brand-600 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="text-sm font-medium">返回課程地圖總覽</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">B2 第 09 課</span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#module-0" class="hover:text-brand-600 transition-colors">地圖坐標定錨</a>
+        <a href="#module-1" class="hover:text-brand-600 transition-colors">課程重點基石</a>
+        <a href="#module-2" class="hover:text-brand-600 transition-colors">課堂探究與學習單</a>
+        <a href="#module-3" class="px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700 transition-colors">隨堂互動測驗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主內容容器 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- 模組 0：課程地圖坐標定錨 -->
+    <section id="module-0" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-rose-100 text-rose-800 tracking-wide">抒情文本</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800 tracking-wide">Z 軸：高一奠基期（說寫明白）</span>
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【意象】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【節奏】</span> <span class="px-3 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 tracking-wide">Big Ideas:【轉化】</span> 
+        <span class="px-3 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 tracking-wide">IB: 個人和文化表達 × 空間和時間</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight mb-3">
+        現代詩選（再別康橋）
+      </h1>
+      <p class="text-lg sm:text-xl text-brand-600 font-serif italic mb-6">
+        「現代詩如何藉由精簡跳躍的語言與意象，捕捉生命中難以言說的悵惘與深情？」
+      </p>
+
+      <!-- 地圖定位指標矩陣網格 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-100 text-sm">
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">學科中樞重要技能</div>
+          <div class="font-medium text-slate-800">提煉意象・感知留白・情感節奏</div>
+          <div class="text-sm text-slate-500 mt-1">體會新格律詩三美主張（建築美、音樂美、繪畫美），捕捉依依惜別之性靈意境</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">技職專業與情境連結</div>
+          <div class="font-medium text-slate-800">三民家商服裝科（服一和）</div>
+          <div class="text-sm text-slate-500 mt-1">三民家商服裝科（新詩意象與面料節奏設計）：〈再別康橋〉全詩七節嚴謹對稱，如服飾之對稱版型；「金柳之艷影、青荇油油招搖、彩虹之夢、星輝斑斕」，啟發服裝科學生將水草擺動線條、晚霞金黃色彩轉化為絲巾印花與裙擺波浪垂墜感。</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4 border border-slate-150">
+          <div class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1.5">108 技高國語文領綱指標</div>
+          <div class="font-medium text-slate-800 text-xs sm:text-sm">表現：2-V-2, 5-V-1, 6-V-1</div>
+          <div class="text-xs text-slate-600 mt-1">內容：Ad-V-3 篇章的表現, Bb-V-1 情志的抒發與省思, Bb-V-2 物我相應的表現手法, Cc-V-1 新詩格律與流派認知</div>
+          <div class="text-xs text-indigo-600 font-medium mt-1">素養：國V-U-B1 符號運用與溝通表達, 國V-U-B3 藝術涵養與美感素養</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 1：課程重點整理（前導知識基石） -->
+    <section id="module-1" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 1：課程重點整理（前導知識基石）</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- 壹、作者與文本基石 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>壹、知人論世與文學傳承</span>
+          </h3>
+          <div class="prose text-base text-slate-700 space-y-3 leading-relaxed">
+            <p>
+              <strong class="text-slate-800">徐志摩</strong>：徐志摩（1897～1931），名章垿，字志摩，浙江海寧人。曾留學美、英，深受英國浪漫主義詩人（雪萊、濟慈）影響。回國後與胡適、梁實秋等人創立新月社，致力提倡「新格律詩」，主張詩應具備「音樂美（音節韻律）、繪畫美（辭藻意象）、建築美（節句對稱）」。1931 年因飛機失事罹難，得年三十五歲。代表作有詩集《志摩的詩》、《猛虎集》等。
+            </p>
+            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200/60 text-xs text-amber-900 space-y-1">
+              <div class="font-semibold text-amber-950">✦ 新月詩派的浪漫化身</div>
+              <p>徐志摩曾說「我的眼是康橋教我睜的，我的求知欲是康橋教我萌芽的，我的自我想法是康橋給我胚胎的」。康橋（劍橋大學）是他精神的原鄉，〈再別康橋〉融合其對康河的無盡眷戀與不捨，以輕靈飄逸之音律，成就新詩史上最動人一章。</p>
+            </div>
+            <p>
+              <strong class="text-slate-800">核心主旨</strong>：透過重遊英國劍橋大學康河時對金柳、青荇、潭水、星輝等自然景物的深情注視，藉景抒情、融情入景，在輕靈如歌的韻律與嚴謹對稱的詩節中，寄託對青春母校的依戀及離別時哀而不傷的瀟灑風姿。
+            </p>
+          </div>
+        </div>
+
+        <!-- 貳、篇章結構與四幕推進 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <h3 class="text-lg font-bold font-serif text-brand-700 flex items-center space-x-2">
+            <span>貳、篇章邏輯脈絡（四幕推進）</span>
+          </h3>
+          <div class="space-y-3 text-sm">
+            
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第一幕：飄然離去・輕聲告別</div>
+            <div class="text-slate-600 text-xs mt-0.5">首節連用三個「輕輕的」破題：輕輕的我走了，正如我輕輕的來；輕輕招手，作別西天雲彩，奠定全詩飄逸輕盈基調。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第二幕：康河倒影・物我神交</div>
+            <div class="text-slate-600 text-xs mt-0.5">第二至四節依序聚焦：河畔金柳如新娘、軟泥上青荇甘心做一條水草、榆蔭下深潭倒映彩虹似的夢，情感逐步融化於自然。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第三幕：尋夢高潮・夏蟲靜默</div>
+            <div class="text-slate-600 text-xs mt-0.5">第五至六節情緒起伏：撐一支長篙向青草更青處漫溯、滿載一船星輝放歌；轉折為不能放歌，夏蟲沉默，康橋陷入寂靜道別。</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+          <span class="flex-shrink-0 px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center">幕</span>
+          <div>
+            <div class="font-semibold text-slate-800 text-xs">第四幕：悄然作結・不帶雲彩</div>
+            <div class="text-slate-600 text-xs mt-0.5">末節與首節首尾呼應：悄悄的我走了，正如我悄悄的來；揮一揮衣袖，不帶走一片雲彩。飄然遠去，留下無窮迴盪。</div>
+          </div>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+
+      <!-- 參、探究式閱讀理解提問階梯 (黃國珍老師) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">參、探究式閱讀思考鷹架（What ➔ How ➔ Why）</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-sky-200 text-sky-800 font-bold text-xs mb-2">What 事實擷取</span>
+            <p class="font-semibold text-slate-800 mb-1">讀懂文本表面訊息：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">徐志摩在康河邊看見了哪些景物？他將金柳、水草與榆蔭下深潭分別比喻為什麼？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-indigo-50/70 border border-indigo-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-bold text-xs mb-2">How 推論解釋</span>
+            <p class="font-semibold text-slate-800 mb-1">理解作者鋪陳手法：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">全詩七節，每節四行、偶數句押韻，首尾兩節如何透過字句微調（輕輕的 ➔ 悄悄的）展現嚴整的「建築美」與「音樂美」？</p>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-150">
+            <span class="inline-block px-2 py-0.5 rounded bg-purple-200 text-purple-800 font-bold text-xs mb-2">Why 省思評鑑</span>
+            <p class="font-semibold text-slate-800 mb-1">價值評估與自我遷移：</p>
+            <p class="text-slate-600 text-xs leading-relaxed">面對生命中無可避免的告別，徐志摩「揮一揮衣袖，不帶走一片雲彩」的超脫姿態，能帶給我們面對離別與失去時怎樣的美感療癒？</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 肆、字詞形音義與語文基石 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="text-lg font-bold font-serif text-brand-700">肆、字詞形音義與常考精要辨析</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <th class="py-2.5 px-3">字詞</th>
+                <th class="py-2.5 px-3">字音</th>
+                <th class="py-2.5 px-3">詞義解析與用法範例</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-150 text-slate-700 text-base">
+              
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">青「荇」油油</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄒㄧㄥˋ</td>
+          <td class="py-2 px-3">一種生長於水中的多年生草本植物。葉圓形如荷葉，浮於水面。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">滿載一船「星輝」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄒㄧㄥ ㄏㄨㄟ</td>
+          <td class="py-2 px-3">繁星的光輝。形容夜色美好浪漫。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">撐一支長「篙」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄍㄠ</td>
+          <td class="py-2 px-3">撐船用的長竹竿或木竿。例：「撐篙漫溯」。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">向青草更青處漫「溯」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄙㄨˋ</td>
+          <td class="py-2 px-3">逆流而上，此處引申為隨意蕩漾漫遊。</td>
+        </tr>
+        
+        <tr>
+          <td class="py-2 px-3 font-semibold text-slate-800">斑「斕」</td>
+          <td class="py-2 px-3 font-mono text-brand-600">ㄌㄢˊ</td>
+          <td class="py-2 px-3">色彩錯雜燦爛的樣子。例：「彩虹斑斕」。</td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 2：課堂探究脈絡重現 -->
+    <section id="module-2" class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 2：課堂探究脈絡重現（簡報與學習單）</h2>
+      </div>
+
+      <!-- 簡報嵌入播放器 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="font-serif font-bold text-slate-800 text-lg">課堂教學投影片：現代詩如何藉由精簡跳躍的語言與意象，捕捉生命中難以言說的悵惘與深情？</h3>
+            <p class="text-xs text-slate-500 mt-0.5">點擊下方簡報可全螢幕預覽或翻頁複習</p>
+          </div>
+          <a href="https://docs.google.com/presentation/d/18RHN9VFeaX3zvtQy2SPXENuaCifl3KYKLB1ZqQ5c9II/edit?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+            <span>在 Google 簡報中開啟</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative w-full overflow-hidden rounded-xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
+          <iframe 
+            src="https://docs.google.com/presentation/d/18RHN9VFeaX3zvtQy2SPXENuaCifl3KYKLB1ZqQ5c9II/embed?start=false&loop=false&delayms=3000" 
+            frameborder="0" 
+            class="absolute top-0 left-0 w-full h-full"
+            allowfullscreen="true">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 課堂學習單任務與學生作業比對展示 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-800">真實學習單任務與思辨軌跡（服一和學習實況）</h3>
+          <p class="text-sm text-slate-500 mt-1">對照課堂學習單素材與學生真實完成成果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+        <div class="p-5 rounded-xl bg-slate-50/60 border border-slate-200 space-y-3">
+          <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-brand-100 flex items-center justify-center text-xs">01</span>
+            <span>任務一：詩與感受、詩的音樂性直覺卡</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">探討詩與流行歌曲的跨界形式，聆聽詩歌韻律並以直覺感受寫下形容詞與音樂性共鳴（對照 B2L9 簡報 Slide 42 與學期回顧）</p>
+        </div>
+        
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 space-y-3">
+          <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+            <span class="w-6 h-6 rounded-md bg-amber-100 flex items-center justify-center text-xs">02</span>
+            <span>任務二：跨越語言的一代：台灣現代詩人生命書寫</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">從徐志摩新月派詩作，延伸對話台灣本土重要詩人（詹冰、杜潘芳格、初安民、羅大岡等）的女性客語書寫與時代印記（對照學期回顧 P.196-199）</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- 模組 3：互動式隨堂自我測驗 -->
+    <section id="module-3" class="space-y-6" x-data="lessonQuiz">
+      <div class="flex items-center space-x-3">
+        <div class="w-2.5 h-8 bg-brand-600 rounded-full"></div>
+        <h2 class="text-2xl font-serif font-bold text-slate-900">模組 3：互動式隨堂自我測驗（Alpine.js 即時評量）</h2>
+      </div>
+
+      <div id="quiz-result-banner" x-show="submitted" x-cloak class="p-6 rounded-2xl bg-brand-700 text-white shadow-md space-y-3 transition-all">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-slate-300">測驗完成・學習成果總評</div>
+            <div class="text-3xl font-serif font-bold mt-1">
+              總分：<span x-text="score"></span> 分
+              <span class="text-base font-normal text-slate-200 ml-2" x-text="score >= 80 ? '🌟 精熟！完全掌握本文觀點與技能' : (score >= 60 ? '👍 及格！建議回顧錯題詳解加深記憶' : '💪 加油！可重新研讀課程基石後再測一次')"></span>
+            </div>
+          </div>
+          <button @click="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-brand-800 font-bold text-sm hover:bg-slate-100 transition-colors shadow">
+            重新測驗
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <template x-for="(q, idx) in questions" :key="q.id">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border transition-all"
+               :class="submitted ? (userAnswers[q.id] === q.answer ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20') : 'border-slate-200'">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-150 text-slate-600" x-text="`第 ${idx+1} 題 ・ ${q.category}`"></span>
+              <template x-if="submitted">
+                <span class="text-xs font-bold px-2 py-0.5 rounded"
+                      :class="userAnswers[q.id] === q.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+                      x-text="userAnswers[q.id] === q.answer ? '✓ 答對' : '✕ 答錯'"></span>
+              </template>
+            </div>
+
+            <p class="font-serif font-medium text-slate-900 text-lg sm:text-xl mb-4 leading-relaxed" x-text="q.text"></p>
+
+            <div class="space-y-2">
+              <template x-for="opt in q.options" :key="opt.key">
+                <div @click="selectOption(q.id, opt.key)"
+                     class="flex items-center space-x-3 p-3.5 rounded-xl border text-base cursor-pointer transition-all"
+                     :class="{
+                       'border-brand-600 bg-brand-50 text-brand-900 font-semibold shadow-sm': userAnswers[q.id] === opt.key && !submitted,
+                       'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                       'border-emerald-500 bg-emerald-100/70 text-emerald-950 font-bold': submitted && opt.key === q.answer,
+                       'border-rose-400 bg-rose-100/60 text-rose-950': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                       'opacity-60 border-slate-200': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                     }">
+                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="{
+                          'bg-brand-600 text-white': userAnswers[q.id] === opt.key && !submitted,
+                          'bg-slate-200 text-slate-700': userAnswers[q.id] !== opt.key && !submitted,
+                          'bg-emerald-600 text-white': submitted && opt.key === q.answer,
+                          'bg-rose-600 text-white': submitted && userAnswers[q.id] === opt.key && opt.key !== q.answer,
+                          'bg-slate-200 text-slate-500': submitted && opt.key !== q.answer && userAnswers[q.id] !== opt.key
+                        }"
+                        x-text="opt.key"></span>
+                  <span class="flex-grow" x-text="opt.text"></span>
+                </div>
+              </template>
+            </div>
+
+            <div x-show="submitted" class="mt-4 pt-3 border-t border-slate-150 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="text-slate-800">【解析】：</strong><span x-text="q.explanation"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="text-center pt-4" x-show="!submitted">
+        <button @click="submitQuiz()" 
+                class="px-8 py-3.5 rounded-xl bg-brand-600 text-white font-bold text-base hover:bg-brand-700 active:scale-98 transition-all shadow-md">
+          送出測驗並計算成績
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-serif font-bold text-slate-700 text-sm">市立三民家商國文科・素養導向課程地圖自學網頁系統</p>
+      <p>依據 108 課綱技高國語文領綱、鍾宗憲教授語文學習與運用階梯、黃國珍老師探究式閱讀設計</p>
+      <p class="text-slate-400">© 2026 版權所有・教學研究與自學專用</p>
+    </div>
+  </footer>
+
+</body>
+</html>
