@@ -47,6 +47,12 @@
     canvas {
       outline: none;
     }
+    .scrollbar-none::-webkit-scrollbar { display: none; }
+    .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+    html, body {
+      overscroll-behavior-y: none;
+      -webkit-tap-highlight-color: transparent;
+    }
     .hud-glass {
       background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(14px);
@@ -149,75 +155,78 @@
   </div>
 
   <!-- TOP HUD: Navigation & Atmosphere -->
-  <header class="absolute top-4 inset-x-4 z-20 flex flex-wrap items-center justify-between gap-3 pointer-events-none">
+  <header class="absolute top-2 sm:top-4 inset-x-2 sm:inset-x-4 z-20 flex flex-wrap items-center justify-between gap-1.5 sm:gap-3 pointer-events-none">
     
     <!-- Left: Brand & School Badge -->
-    <div class="hud-glass px-4 py-2.5 rounded-2xl flex items-center gap-3.5 pointer-events-auto shadow-md">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-amber-500 flex items-center justify-center text-white text-xl shadow-sm">
+    <div class="hud-glass px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl flex items-center gap-2 sm:gap-3.5 pointer-events-auto shadow-md shrink-0">
+      <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-emerald-500 to-amber-500 flex items-center justify-center text-white text-base sm:text-xl shadow-sm shrink-0">
         🌳
       </div>
       <div>
-        <div class="flex items-center gap-2">
-          <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">108 課綱</span>
-          <span class="text-xs font-semibold text-slate-500">高雄市立三民家商</span>
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <span class="text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.2 sm:py-0.5 rounded-full bg-amber-100 text-amber-800">108 課綱</span>
+          <span class="hidden sm:inline text-xs font-semibold text-slate-500">高雄市立三民家商</span>
         </div>
-        <h1 class="text-base font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-          五大文本殿堂・技高國語文課程地圖
+        <h1 class="text-xs sm:text-base font-extrabold text-slate-900 tracking-tight flex items-center gap-1 sm:gap-2">
+          <span class="sm:hidden">3D 課程宇宙</span>
+          <span class="hidden sm:inline">五大文本殿堂・技高國語文課程地圖</span>
         </h1>
       </div>
     </div>
 
-    <!-- Center: Palace Quick Jumps -->
-    <nav class="hud-glass px-3 py-1.5 rounded-2xl flex items-center gap-1.5 pointer-events-auto overflow-x-auto max-w-full shadow-md">
-      <button id="btn-cam-overview" class="btn-palace-jump px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-900 text-white shadow-sm flex items-center gap-1">
-        <span>🏛️</span><span>全景宏觀</span>
+    <!-- Center: Palace Quick Jumps (Horizontally swipeable on mobile) -->
+    <nav class="hud-glass px-2 py-1 sm:px-3 sm:py-1.5 rounded-xl sm:rounded-2xl flex items-center gap-1 sm:gap-1.5 pointer-events-auto overflow-x-auto max-w-full shadow-md scrollbar-none order-3 lg:order-2 w-full lg:w-auto justify-start lg:justify-center">
+      <button id="btn-cam-overview" class="btn-palace-jump px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all bg-slate-900 text-white shadow-sm flex items-center gap-1 shrink-0 whitespace-nowrap">
+        <span>🏛️</span><span>全景</span>
       </button>
-      <button data-palace="palace-narrative" class="btn-palace-jump px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-sky-800 hover:bg-sky-50 flex items-center gap-1">
-        <span>📖</span><span>記敘之殿</span><span class="text-[10px] px-1.5 py-0.2 rounded-full bg-sky-100">23</span>
+      <button data-palace="palace-narrative" class="btn-palace-jump px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all text-sky-800 hover:bg-sky-50 flex items-center gap-1 shrink-0 whitespace-nowrap">
+        <span>📖</span><span>記敘之殿</span><span class="text-[9px] sm:text-[10px] px-1 sm:px-1.5 py-0.2 rounded-full bg-sky-100">23</span>
       </button>
-      <button data-palace="palace-lyrical" class="btn-palace-jump px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-rose-800 hover:bg-rose-50 flex items-center gap-1">
-        <span>🌸</span><span>抒情之殿</span><span class="text-[10px] px-1.5 py-0.2 rounded-full bg-rose-100">9</span>
+      <button data-palace="palace-lyrical" class="btn-palace-jump px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all text-rose-800 hover:bg-rose-50 flex items-center gap-1 shrink-0 whitespace-nowrap">
+        <span>🌸</span><span>抒情之殿</span><span class="text-[9px] sm:text-[10px] px-1 sm:px-1.5 py-0.2 rounded-full bg-rose-100">9</span>
       </button>
-      <button data-palace="palace-expository" class="btn-palace-jump px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-amber-800 hover:bg-amber-50 flex items-center gap-1">
-        <span>⚙️</span><span>說明之殿</span><span class="text-[10px] px-1.5 py-0.2 rounded-full bg-amber-100">9</span>
+      <button data-palace="palace-expository" class="btn-palace-jump px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all text-amber-800 hover:bg-amber-50 flex items-center gap-1 shrink-0 whitespace-nowrap">
+        <span>⚙️</span><span>說明之殿</span><span class="text-[9px] sm:text-[10px] px-1 sm:px-1.5 py-0.2 rounded-full bg-amber-100">9</span>
       </button>
-      <button data-palace="palace-argumentative" class="btn-palace-jump px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-indigo-800 hover:bg-indigo-50 flex items-center gap-1">
-        <span>⚖️</span><span>議論之殿</span><span class="text-[10px] px-1.5 py-0.2 rounded-full bg-indigo-100">8</span>
+      <button data-palace="palace-argumentative" class="btn-palace-jump px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all text-indigo-800 hover:bg-indigo-50 flex items-center gap-1 shrink-0 whitespace-nowrap">
+        <span>⚖️</span><span>議論之殿</span><span class="text-[9px] sm:text-[10px] px-1 sm:px-1.5 py-0.2 rounded-full bg-indigo-100">8</span>
       </button>
-      <button data-palace="palace-applied" class="btn-palace-jump px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-emerald-800 hover:bg-emerald-50 flex items-center gap-1">
-        <span>✉️</span><span>應用之殿</span><span class="text-[10px] px-1.5 py-0.2 rounded-full bg-emerald-100">7</span>
+      <button data-palace="palace-applied" class="btn-palace-jump px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all text-emerald-800 hover:bg-emerald-50 flex items-center gap-1 shrink-0 whitespace-nowrap">
+        <span>✉️</span><span>應用之殿</span><span class="text-[9px] sm:text-[10px] px-1 sm:px-1.5 py-0.2 rounded-full bg-emerald-100">7</span>
       </button>
     </nav>
 
     <!-- Right: Atmosphere & Audio & Drawer Toggle -->
-    <div class="hud-glass px-3 py-2 rounded-2xl flex items-center gap-3 pointer-events-auto shadow-md">
-      <div class="flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl">
-        <button data-time="360" title="晨曦 (06:00)" class="btn-time-jump w-7 h-7 rounded-lg text-xs flex items-center justify-center hover:bg-white transition-all">🌅</button>
-        <button data-time="720" title="正午 (12:00)" class="btn-time-jump w-7 h-7 rounded-lg text-xs flex items-center justify-center bg-white shadow-sm transition-all">☀️</button>
-        <button data-time="1020" title="夕暮 (17:00)" class="btn-time-jump w-7 h-7 rounded-lg text-xs flex items-center justify-center hover:bg-white transition-all">🌇</button>
-        <button data-time="1260" title="星夜 (21:00)" class="btn-time-jump w-7 h-7 rounded-lg text-xs flex items-center justify-center hover:bg-white transition-all">🌌</button>
+    <div class="hud-glass px-2 py-1 sm:px-3 sm:py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-3 pointer-events-auto shadow-md order-2 lg:order-3 shrink-0">
+      <!-- Time Jumps -->
+      <div class="flex items-center gap-0.5 sm:gap-1 bg-slate-100/80 p-0.5 sm:p-1 rounded-lg sm:rounded-xl">
+        <button data-time="360" title="晨曦 (06:00)" class="btn-time-jump w-6 h-6 sm:w-7 sm:h-7 rounded-md sm:rounded-lg text-[11px] sm:text-xs flex items-center justify-center hover:bg-white transition-all">🌅</button>
+        <button data-time="720" title="正午 (12:00)" class="btn-time-jump w-6 h-6 sm:w-7 sm:h-7 rounded-md sm:rounded-lg text-[11px] sm:text-xs flex items-center justify-center bg-white shadow-sm transition-all">☀️</button>
+        <button data-time="1020" title="夕暮 (17:00)" class="btn-time-jump w-6 h-6 sm:w-7 sm:h-7 rounded-md sm:rounded-lg text-[11px] sm:text-xs flex items-center justify-center hover:bg-white transition-all">🌇</button>
+        <button data-time="1260" title="星夜 (21:00)" class="btn-time-jump w-6 h-6 sm:w-7 sm:h-7 rounded-md sm:rounded-lg text-[11px] sm:text-xs flex items-center justify-center hover:bg-white transition-all">🌌</button>
       </div>
 
-      <!-- Walking Speed Quick Control -->
-      <div class="flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl" title="調整人物漫步/奔跑速度 (快速鍵: 1-4 數字鍵)">
-        <span class="text-xs px-1 text-slate-500 font-bold flex items-center gap-0.5"><span>🚶</span><span class="hidden md:inline">步速</span></span>
+      <!-- Walking Speed Quick Control (Desktop / Tablet view) -->
+      <div class="hidden md:flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl" title="調整人物漫步/奔跑速度 (快速鍵: 1-4 數字鍵)">
+        <span class="text-xs px-1 text-slate-500 font-bold flex items-center gap-0.5"><span>🚶</span><span class="hidden lg:inline">步速</span></span>
         <button data-speed="0.6" class="btn-speed-option px-2 py-0.5 rounded-lg text-[10px] font-black transition-all bg-white/80 text-slate-700 hover:bg-amber-100" title="慢步漫遊 (0.6x)">0.6x</button>
         <button data-speed="1.0" class="btn-speed-option px-2 py-0.5 rounded-lg text-[10px] font-black transition-all bg-amber-600 text-white shadow-sm" title="標準步伐 (1.0x)">1.0x</button>
         <button data-speed="1.8" class="btn-speed-option px-2 py-0.5 rounded-lg text-[10px] font-black transition-all bg-white/80 text-slate-700 hover:bg-amber-100" title="快步前進 (1.8x)">1.8x</button>
         <button data-speed="3.0" class="btn-speed-option px-2 py-0.5 rounded-lg text-[10px] font-black transition-all bg-white/80 text-slate-700 hover:bg-amber-100" title="疾風奔馳 (3.0x)">3.0x</button>
       </div>
 
+      <!-- Music Genre Menu -->
       <div class="relative flex items-center">
-        <button id="btn-music-toggle" class="flex items-center gap-1.5 px-3 py-1.5 rounded-l-2xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-bold transition-all shadow-sm">
+        <button id="btn-music-toggle" class="flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-l-xl sm:rounded-l-2xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-[11px] sm:text-xs font-bold transition-all shadow-sm">
           <span id="music-icon">🎵</span>
-          <span id="music-label">古韻宮商</span>
+          <span id="music-label" class="hidden sm:inline">古韻宮商</span>
         </button>
-        <button id="btn-music-menu-toggle" class="px-2 py-1.5 rounded-r-2xl bg-amber-100 hover:bg-amber-200 text-amber-900 border-y border-r border-amber-200 text-xs font-bold transition-all shadow-sm" title="切換背景音樂曲風">
+        <button id="btn-music-menu-toggle" class="px-1.5 sm:px-2 py-1 sm:py-1.5 rounded-r-xl sm:rounded-r-2xl bg-amber-100 hover:bg-amber-200 text-amber-900 border-y border-r border-amber-200 text-xs font-bold transition-all shadow-sm" title="切換背景音樂曲風">
           ▾
         </button>
 
         <!-- Genre Dropdown Menu -->
-        <div id="music-genre-menu" class="absolute top-10 right-0 z-50 w-56 p-2 hud-glass rounded-2xl shadow-2xl border border-white/90 hidden space-y-1">
+        <div id="music-genre-menu" class="absolute top-10 right-0 z-50 w-52 sm:w-56 p-2 hud-glass rounded-2xl shadow-2xl border border-white/90 hidden space-y-1">
           <div class="text-[10px] font-black text-slate-500 px-2 py-1 flex items-center justify-between border-b border-slate-200/60 pb-1">
             <span>🎶 選擇背景音樂曲風</span>
             <span id="current-genre-badge" class="text-amber-700 font-bold">現正播放</span>
@@ -275,40 +284,46 @@
         </div>
       </div>
 
-      <button id="btn-toggle-labels" class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all">
+      <button id="btn-toggle-labels" class="flex items-center gap-1 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg sm:rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all">
         <span id="label-mode-icon">🏷️</span>
-        <span id="label-mode-text">殿堂巡覽</span>
+        <span id="label-mode-text" class="hidden sm:inline">殿堂巡覽</span>
       </button>
 
-      <button id="btn-open-drawer" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-all shadow-sm">
-        <span>👥</span><span>課程與師生名冊</span>
+      <button id="btn-open-drawer" class="flex items-center gap-1 sm:gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-all shadow-sm shrink-0">
+        <span>👥</span><span class="hidden sm:inline">課程與師生名冊</span><span class="sm:hidden">名冊</span>
       </button>
     </div>
   </header>
 
   <!-- BOTTOM HUD: Quick Help & Status Bar -->
-  <footer class="absolute bottom-4 inset-x-4 z-20 flex items-center justify-between pointer-events-none">
-    <div class="hud-glass px-3.5 py-2 rounded-2xl flex items-center gap-3 pointer-events-auto text-xs text-slate-600 shadow-sm">
+  <footer class="absolute bottom-2 sm:bottom-4 inset-x-2 sm:inset-x-4 z-20 flex items-center justify-between pointer-events-none">
+    <!-- Desktop Keyboard Shortcuts Bar -->
+    <div class="hud-glass px-3.5 py-2 rounded-2xl hidden lg:flex items-center gap-3 pointer-events-auto text-xs text-slate-600 shadow-sm">
       <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-200 font-mono text-[10px]">點擊人物</kbd> 進入第三人稱跟隨視角</span>
       <span class="text-slate-300">|</span>
-      <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-200 font-mono text-[10px]">點擊老師/文人</kbd> 觸發對話</span>
+      <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-200 font-mono text-[10px]">點擊他人</kbd> 觸發對話</span>
       <span class="text-slate-300">|</span>
-      <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-200 font-mono text-[10px]">自訂換裝</kbd> 自由選擇配件與穿搭</span>
+      <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-200 font-mono text-[10px]">自訂換裝</kbd> 自由選擇穿搭配件</span>
       <span class="text-slate-300">|</span>
-      <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-200 font-mono text-[10px]">1-4 鍵</kbd> 切換步速 (0.6x~3.0x)</span>
+      <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.5 rounded bg-slate-200 font-mono text-[10px]">1-4 鍵</kbd> 切換步速</span>
+    </div>
+
+    <!-- Mobile Touch Hint Pill -->
+    <div class="hud-glass px-2.5 py-1.5 rounded-xl flex lg:hidden items-center gap-1.5 pointer-events-auto text-[11px] text-slate-700 shadow-sm font-medium">
+      <span>👆</span><span>單指環視・雙指縮放・點選互動</span>
     </div>
 
     <!-- Active Island Status Pill -->
-    <div id="status-pill" class="hud-glass px-4 py-2 rounded-2xl flex items-center gap-2 pointer-events-auto text-xs font-bold text-slate-800 shadow-sm">
-      <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-      <span id="status-palace-name">中央星光文化廣場</span>
-      <span class="text-slate-400">・</span>
-      <span id="status-palace-info" class="text-slate-500 font-normal">三民家商「感恩樹」・心懷感恩・全島出發點</span>
+    <div id="status-pill" class="hud-glass px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 pointer-events-auto text-xs font-bold text-slate-800 shadow-sm max-w-[200px] sm:max-w-none truncate">
+      <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-500 animate-ping shrink-0"></span>
+      <span id="status-palace-name" class="shrink-0">中央星光文化廣場</span>
+      <span class="text-slate-400 hidden sm:inline">・</span>
+      <span id="status-palace-info" class="text-slate-500 font-normal hidden sm:inline truncate">三民家商「感恩樹」・心懷感恩・全島出發點</span>
     </div>
   </footer>
 
   <!-- FLOATING FOLLOW HUD CARD (When following a student, teacher, or author) -->
-  <div id="follow-hud-card" class="fixed bottom-16 right-4 z-30 hud-glass p-4 rounded-3xl shadow-2xl border border-white/80 hidden pointer-events-auto transition-all flex flex-col gap-2.5 w-80 sm:w-96">
+  <div id="follow-hud-card" class="fixed bottom-3 inset-x-3 sm:bottom-16 sm:inset-x-auto sm:right-4 z-30 hud-glass p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-2xl border border-white/80 hidden pointer-events-auto transition-all flex flex-col gap-2 sm:gap-2.5 w-auto sm:w-96 max-w-full max-h-[85dvh] overflow-y-auto">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-2.5">
         <div class="w-10 h-10 rounded-2xl bg-amber-500/20 border border-amber-300 flex items-center justify-center text-xl shadow-inner" id="follow-avatar">
@@ -365,8 +380,8 @@
   </div>
 
   <!-- FASHION WARDROBE CUSTOMIZER MODAL (自由換裝工坊) -->
-  <div id="wardrobe-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300 scale-95">
-    <div class="relative w-full max-w-md hud-glass rounded-3xl p-6 shadow-2xl border border-white/80 space-y-4">
+  <div id="wardrobe-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/60 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 scale-95">
+    <div class="relative w-full max-w-md hud-glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl border border-white/80 space-y-4 max-h-[92dvh] overflow-y-auto">
       <div class="flex items-center justify-between border-b border-slate-200/80 pb-3">
         <div class="flex items-center gap-2">
           <span class="text-2xl">👗</span>
@@ -460,8 +475,8 @@
   </div>
 
   <!-- COURSE REDIRECT / PRESET MODAL (指派前進課程) -->
-  <div id="redirect-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300 scale-95">
-    <div class="relative w-full max-w-lg hud-glass rounded-3xl p-6 shadow-2xl border border-white/80 space-y-4 max-h-[85vh] flex flex-col">
+  <div id="redirect-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/60 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 scale-95">
+    <div class="relative w-full max-w-lg hud-glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl border border-white/80 space-y-3.5 max-h-[92dvh] flex flex-col">
       <div class="flex items-center justify-between border-b border-slate-200/80 pb-3">
         <div class="flex items-center gap-2">
           <span class="text-2xl">🧭</span>
@@ -495,8 +510,8 @@
   </div>
 
   <!-- DUAL-CHARACTER INTERACTION / DIALOGUE MODAL -->
-  <div id="dual-dialogue-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 scale-95">
-    <div class="relative w-full max-w-xl hud-glass rounded-3xl p-6 shadow-2xl border border-white/80 space-y-4 max-h-[90vh] overflow-y-auto">
+  <div id="dual-dialogue-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 scale-95">
+    <div class="relative w-full max-w-xl hud-glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl border border-white/80 space-y-3 sm:space-y-4 max-h-[92dvh] overflow-y-auto">
       
       <!-- Header: Dual Avatars & Interaction Banner -->
       <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
@@ -662,46 +677,54 @@
   </aside>
 
   <!-- COURSE STUDIO IMMERSIVE MODAL -->
-  <div id="course-studio-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-900/60 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 scale-95">
-    <div class="relative w-full max-w-5xl h-[92vh] hud-glass rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-white/60">
+  <div id="course-studio-modal" class="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-4 bg-slate-950/70 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 scale-95">
+    <div class="relative w-full max-w-5xl h-[100dvh] sm:h-[90vh] bg-white rounded-none sm:rounded-3xl shadow-2xl border-0 sm:border border-slate-200 flex flex-col overflow-hidden">
       
       <!-- Modal Header -->
-      <div class="px-6 py-4 border-b border-slate-200/80 bg-white/70 flex items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <span id="studio-tag-type" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-100 text-amber-800">記敘文本</span>
-          <span id="studio-tag-book" class="text-xs font-semibold text-slate-500">B1 第02課</span>
-          <h3 id="studio-title" class="text-lg font-black text-slate-900">世說新語選</h3>
-          <span id="studio-author" class="text-xs text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">劉義慶</span>
+      <div class="px-3.5 py-2.5 sm:px-6 sm:py-4 border-b border-slate-200 bg-white flex items-center justify-between gap-2 sm:gap-4 shrink-0">
+        <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-white text-base sm:text-xl shadow-md shrink-0">
+            📖
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+              <span id="studio-tag-type" class="px-1.5 sm:px-2.5 py-0.2 sm:py-0.5 rounded-lg text-[10px] sm:text-xs font-bold bg-amber-100 text-amber-800">記敘文本</span>
+              <span id="studio-tag-book" class="text-[10px] sm:text-xs font-semibold text-slate-500">B1 第02課</span>
+              <span id="studio-author" class="text-[10px] sm:text-xs text-slate-600 bg-slate-100 px-1.5 sm:px-2 py-0.2 sm:py-0.5 rounded-full truncate">劉義慶</span>
+            </div>
+            <h3 id="studio-title" class="text-sm sm:text-lg font-black text-slate-900 mt-0.5 truncate">世說新語選</h3>
+          </div>
         </div>
-        <div class="flex items-center gap-2">
-          <a id="studio-btn-newtab" href="#" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-all flex items-center gap-1">
-            <span>🌐</span><span>開啟完整網頁</span>
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <a id="studio-btn-newtab" href="#" target="_blank" class="px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold transition-all flex items-center gap-1 shadow-sm">
+            <span class="hidden sm:inline">新分頁開啟 ↗</span>
+            <span class="sm:hidden">新分頁 ↗</span>
           </a>
-          <button id="btn-close-studio" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-all">✕</button>
+          <button id="btn-close-studio" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-all font-bold">✕</button>
         </div>
       </div>
 
       <!-- Studio Tabs Navigation -->
-      <div class="px-6 py-2 bg-slate-100/70 border-b border-slate-200/80 flex items-center gap-2 overflow-x-auto text-xs font-bold">
-        <button data-tab="selfpage" class="studio-tab-btn px-4 py-1.5 rounded-xl bg-slate-900 text-white transition-all flex items-center gap-1.5 shadow-sm">
+      <div class="px-3 py-2 sm:px-6 sm:py-2.5 bg-slate-100/70 border-b border-slate-200/80 flex items-center gap-1.5 sm:gap-2 overflow-x-auto text-xs font-bold scrollbar-none shrink-0">
+        <button data-tab="selfpage" class="studio-tab-btn shrink-0 whitespace-nowrap px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-xl bg-slate-900 text-white transition-all flex items-center gap-1.5 shadow-sm">
           <span>📖</span><span>自學單元網頁 (Unit Page)</span>
         </button>
-        <button data-tab="quiz" class="studio-tab-btn px-4 py-1.5 rounded-xl text-slate-600 hover:bg-white transition-all flex items-center gap-1.5">
-          <span>🎯</span><span>三階提問互動闖關</span>
+        <button data-tab="quiz" class="studio-tab-btn shrink-0 whitespace-nowrap px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-xl text-slate-600 hover:bg-white transition-all flex items-center gap-1.5">
+          <span>🎯</span><span>三階提問闖關</span>
         </button>
-        <button data-tab="fashion" class="studio-tab-btn px-4 py-1.5 rounded-xl text-slate-600 hover:bg-white transition-all flex items-center gap-1.5">
+        <button data-tab="fashion" class="studio-tab-btn shrink-0 whitespace-nowrap px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-xl text-slate-600 hover:bg-white transition-all flex items-center gap-1.5">
           <span>✂️</span><span>服裝科跨域筆記</span>
         </button>
-        <button data-tab="slides" class="studio-tab-btn px-4 py-1.5 rounded-xl text-slate-600 hover:bg-white transition-all flex items-center gap-1.5">
+        <button data-tab="slides" class="studio-tab-btn shrink-0 whitespace-nowrap px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-xl text-slate-600 hover:bg-white transition-all flex items-center gap-1.5">
           <span>🎦</span><span>教學簡報 (Slides)</span>
         </button>
-        <button data-tab="worksheets" class="studio-tab-btn px-4 py-1.5 rounded-xl text-slate-600 hover:bg-white transition-all flex items-center gap-1.5">
-          <span>📑</span><span>學習單與任務成果</span>
+        <button data-tab="worksheets" class="studio-tab-btn shrink-0 whitespace-nowrap px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-xl text-slate-600 hover:bg-white transition-all flex items-center gap-1.5">
+          <span>📑</span><span>學習單與任務</span>
         </button>
       </div>
 
       <!-- Tab Content Area -->
-      <div class="flex-1 overflow-y-auto p-6">
+      <div class="flex-1 overflow-y-auto p-3.5 sm:p-6">
         
         <!-- TAB 1: SELFPAGE (無縫內嵌自學單元網頁) -->
         <div id="tab-selfpage" class="studio-tab-pane w-full h-full flex flex-col">
@@ -4441,9 +4464,9 @@
       audioEngine.playClick();
       document.querySelectorAll('.studio-tab-btn').forEach(btn => {
         if (btn.getAttribute('data-tab') === tabName) {
-          btn.className = 'studio-tab-btn px-4 py-1.5 rounded-xl bg-slate-900 text-white transition-all flex items-center gap-1.5 shadow-sm';
+          btn.className = 'studio-tab-btn shrink-0 whitespace-nowrap px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-xl bg-slate-900 text-white transition-all flex items-center gap-1.5 shadow-sm';
         } else {
-          btn.className = 'studio-tab-btn px-4 py-1.5 rounded-xl text-slate-600 hover:bg-white transition-all flex items-center gap-1.5';
+          btn.className = 'studio-tab-btn shrink-0 whitespace-nowrap px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-xl text-slate-600 hover:bg-white transition-all flex items-center gap-1.5';
         }
       });
       document.querySelectorAll('.studio-tab-pane').forEach(p => p.classList.add('hidden'));
@@ -5363,14 +5386,26 @@
       labelRenderer.render(scene, camera);
     }
 
-    window.addEventListener('resize', () => {
+    function handleResponsiveViewport() {
       const w = window.innerWidth;
       const h = window.innerHeight;
       camera.aspect = w / h;
+      // Widen FOV on portrait mobile to capture full island architecture and character comfortably
+      if (w < h) {
+        camera.fov = 54;
+      } else {
+        camera.fov = 45;
+      }
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
       labelRenderer.setSize(w, h);
+    }
+
+    window.addEventListener('resize', handleResponsiveViewport);
+    window.addEventListener('orientationchange', () => {
+      setTimeout(handleResponsiveViewport, 150);
     });
+    handleResponsiveViewport();
 
     const loadingBar = document.getElementById('loading-bar');
     const loadingScreen = document.getElementById('loading-screen');

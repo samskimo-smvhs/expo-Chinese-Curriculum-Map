@@ -39,13 +39,26 @@
   <style>
     [x-cloak] { display: none !important; }
     html {
-      font-size: 18px; /* 全站基礎字級調大，提供舒適清晰的閱讀體驗 */
+      font-size: 15px; /* 手機端最適基礎字級 */
+      -webkit-tap-highlight-color: transparent;
+    }
+    @media (min-width: 640px) {
+      html {
+        font-size: 16px; /* 平板端基礎字級 */
+      }
+    }
+    @media (min-width: 1024px) {
+      html {
+        font-size: 18px; /* 筆電與桌機閱讀字級 */
+      }
     }
     @media (min-width: 1280px) {
       html {
         font-size: 19px;
       }
     }
+    .scrollbar-none::-webkit-scrollbar { display: none; }
+    .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
   <script>
     document.addEventListener('alpine:init', () => {
