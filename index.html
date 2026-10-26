@@ -73,6 +73,18 @@
         highlightedLessonId: 'b1-l01',
         tableSearchQuery: '',
         coverTimestamp: Date.now(),
+        showTheoryModal: false,
+        theoryTab: 'concept',
+        getTextTypeTheme(type) {
+          switch(type) {
+            case '記敘文本': return { bg: 'from-sky-950 via-slate-900 to-indigo-950', badge: 'bg-sky-500/20 text-sky-300 border-sky-400/30', accent: 'text-sky-400', icon: '📖' };
+            case '抒情文本': return { bg: 'from-rose-950 via-slate-900 to-purple-950', badge: 'bg-rose-500/20 text-rose-300 border-rose-400/30', accent: 'text-rose-400', icon: '🌸' };
+            case '說明文本': return { bg: 'from-emerald-950 via-slate-900 to-teal-950', badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-400/30', accent: 'text-emerald-400', icon: '🔬' };
+            case '議論文本': return { bg: 'from-amber-950 via-slate-900 to-stone-900', badge: 'bg-amber-500/20 text-amber-300 border-amber-400/30', accent: 'text-amber-400', icon: '⚖️' };
+            case '應用文本': return { bg: 'from-purple-950 via-slate-900 to-slate-950', badge: 'bg-purple-500/20 text-purple-300 border-purple-400/30', accent: 'text-purple-400', icon: '🧵' };
+            default: return { bg: 'from-brand-900 via-brand-800 to-slate-900', badge: 'bg-white/20 text-white border-white/20', accent: 'text-accent-400', icon: '📚' };
+          }
+        },
         refreshCovers() {
           this.coverTimestamp = Date.now();
         },
@@ -12779,14 +12791,20 @@
       </p>
 
       <!-- 導引捷徑 -->
-      <div class="pt-4 flex flex-wrap gap-3 text-xs font-medium text-slate-300">
+      <div class="pt-4 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-300">
         <span class="flex items-center space-x-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span><span>全站 56 門精選單元全面上線（B1-B5）</span></span>
         <span class="text-white/30">•</span>
-        <span>Z 軸：鍾宗憲教授學習程序</span>
+        <button @click="showTheoryModal = true; theoryTab = 'concept'" class="hover:text-accent-300 underline underline-offset-4 flex items-center gap-1 cursor-pointer">
+          <span>📐 五大文本與重要概念</span>
+        </button>
         <span class="text-white/30">•</span>
-        <span>How 軸：黃國珍老師探究提問</span>
+        <button @click="showTheoryModal = true; theoryTab = 'domain'" class="hover:text-accent-300 underline underline-offset-4 flex items-center gap-1 cursor-pointer">
+          <span>🎯 重點領域學習圖</span>
+        </button>
         <span class="text-white/30">•</span>
-        <span>108 課綱 19 大融入議題</span>
+        <button @click="showTheoryModal = true; theoryTab = 'ladder'" class="hover:text-accent-300 underline underline-offset-4 flex items-center gap-1 cursor-pointer">
+          <span>🪜 黃國珍閱讀探究階梯</span>
+        </button>
       </div>
     </div>
   </header>
@@ -12816,8 +12834,16 @@
           </div>
         </div>
 
-        <!-- 控制組件：模式切換 + 3D博覽會入口 + 收合按鈕 -->
+        <!-- 控制組件：模式切換 + 3D博覽會入口 + 課綱理論圖解 + 收合按鈕 -->
         <div class="flex items-center space-x-2 sm:space-x-3">
+          <button 
+            @click="showTheoryModal = true"
+            class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs shadow-md transition-all flex items-center space-x-1.5 cursor-pointer hover:scale-105 active:scale-95"
+            title="查看五大文本與重要概念、國語文重點領域學習圖、黃國珍三階提問核心理論圖解"
+          >
+            <span>🏛️</span>
+            <span>課綱理論圖解</span>
+          </button>
           <a href="expo.html"
              class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-xs shadow-md transition-all flex items-center space-x-1.5 cursor-pointer hover:scale-105 active:scale-95">
             <span>🎪</span>
@@ -13190,31 +13216,46 @@
           
           <div>
             <!-- 課次投影片首頁封面圖卡 / 專題視覺 -->
-            <a :href="lesson.url || lesson.link" class="block relative w-full aspect-[16/9] overflow-hidden bg-slate-900 border-b border-slate-100 cursor-pointer">
-              <!-- 投影片封面圖片（大尺寸高清縮圖） -->
-              <img 
-                :src="getLessonCover(lesson)" 
-                :alt="lesson.title"
-                loading="lazy"
-                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                @error="$el.classList.add('hidden'); $el.nextElementSibling.classList.remove('hidden')"
-              />
-
-              <!-- 備援視覺卡（當網路受限或尚未快取時之古典典雅漸層底圖） -->
-              <div class="hidden absolute inset-0 bg-gradient-to-br from-brand-900 via-brand-800 to-slate-900 p-5 flex flex-col justify-between text-white">
-                <div class="flex items-center justify-between text-xs">
-                  <span class="font-mono px-2 py-0.5 rounded bg-white/20 backdrop-blur-md" x-text="(lesson.lesson_num && lesson.lesson_num.startsWith('SA')) ? (lesson.is_special_project ? `${lesson.book} 自學專題` : `${lesson.book} 自學${parseInt(lesson.lesson_num.slice(2))}`) : (lesson.is_special_project ? '專題活動' : `${lesson.book} L${lesson.lesson_num}`)"></span>
-                  <span class="text-white/80" x-text="lesson.text_type"></span>
+            <a :href="lesson.url || lesson.link" class="block relative w-full aspect-[16/9] overflow-hidden bg-slate-950 border-b border-slate-100 cursor-pointer select-none">
+              
+              <!-- 基礎經典視覺底卡（恆常呈現，絕不白屏或破圖） -->
+              <div class="absolute inset-0 p-5 flex flex-col justify-between text-white bg-gradient-to-br transition-all duration-300 group-hover:scale-[1.02]"
+                   :class="getTextTypeTheme(lesson.text_type).bg">
+                <div class="flex items-center justify-between text-xs relative z-10">
+                  <span class="font-mono px-2 py-0.5 rounded backdrop-blur-md border text-[11px]"
+                        :class="getTextTypeTheme(lesson.text_type).badge"
+                        x-text="(lesson.lesson_num && lesson.lesson_num.startsWith('SA')) ? (lesson.is_special_project ? `${lesson.book} 自學專題` : `${lesson.book} 自學${parseInt(lesson.lesson_num.slice(2))}`) : (lesson.is_special_project ? '專題活動' : `${lesson.book} L${lesson.lesson_num}`)"></span>
+                  <span class="text-white/80 text-[11px] font-sans flex items-center gap-1">
+                    <span x-text="getTextTypeTheme(lesson.text_type).icon"></span>
+                    <span x-text="lesson.text_type"></span>
+                  </span>
                 </div>
-                <div class="my-auto">
-                  <div class="font-serif font-bold text-xl text-white drop-shadow leading-snug" x-text="lesson.title"></div>
-                  <div class="text-xs text-slate-300 mt-1" x-text="`作者：${lesson.author}`"></div>
+                <div class="my-auto relative z-10 py-1">
+                  <div class="font-serif font-bold text-xl sm:text-2xl text-white drop-shadow-md leading-snug tracking-wide line-clamp-1" x-text="lesson.title"></div>
+                  <div class="text-xs text-slate-300 mt-1 flex items-center gap-1.5 font-sans" x-text="`作者：${lesson.author}`"></div>
                 </div>
-                <div class="flex items-center space-x-1.5 text-xs text-accent-400 font-medium">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                  <span>點擊進入課堂投影片</span>
+                <div class="flex items-center justify-between text-xs relative z-10 border-t border-white/10 pt-2">
+                  <div class="flex items-center space-x-1.5 font-medium" :class="getTextTypeTheme(lesson.text_type).accent">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    <span>點擊進入課堂自主學習</span>
+                  </div>
+                  <span class="text-[10px] text-white/50 font-mono">108課綱・素養導向</span>
                 </div>
+                <!-- 背景高雅字形浮水印 -->
+                <div class="absolute -right-3 -bottom-5 text-7xl font-serif font-black text-white/[0.04] pointer-events-none select-none" x-text="lesson.text_type ? lesson.text_type[0] : '文'"></div>
               </div>
+
+              <!-- 投影片高清縮圖（若可載入則柔和浮現於底卡之上；若不可載入則直接隱藏移除，絕無破圖圖示） -->
+              <template x-if="getLessonCover(lesson)">
+                <img 
+                  :src="getLessonCover(lesson)" 
+                  :alt="lesson.title"
+                  loading="lazy"
+                  class="absolute inset-0 w-full h-full object-cover object-top opacity-0 transition-opacity duration-500 group-hover:scale-105"
+                  @load="$el.classList.remove('opacity-0')"
+                  @error="$el.remove()"
+                />
+              </template>
 
               <!-- 浮動漸層與覆蓋標籤 -->
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40 pointer-events-none"></div>
@@ -13371,6 +13412,144 @@
       <p class="text-slate-600 pt-2">© 2026 版權所有・教學研究與自學專用</p>
     </div>
   </footer>
+
+  <!-- 🏛️ 課綱理論架構圖解 LIGHTBOX MODAL -->
+  <div 
+    x-show="showTheoryModal" 
+    x-cloak
+    @keydown.escape.window="showTheoryModal = false"
+    class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/75 backdrop-blur-md transition-all duration-300"
+  >
+    <div 
+      @click.outside="showTheoryModal = false"
+      class="relative w-full max-w-5xl bg-white rounded-3xl p-5 sm:p-7 shadow-2xl border border-slate-200 max-h-[92dvh] flex flex-col space-y-4 animate-in fade-in zoom-in-95 duration-200"
+    >
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white flex items-center justify-center text-xl shadow">
+            🏛️
+          </div>
+          <div>
+            <h3 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 tracking-wide">
+              108 課綱與技高國語文核心理論圖解
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+              三大核心支柱：五大文本矩陣・領域學習向度・黃國珍三階探究提問
+            </p>
+          </div>
+        </div>
+        <button 
+          @click="showTheoryModal = false"
+          class="p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-700 transition cursor-pointer"
+          aria-label="關閉"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="flex space-x-2 border-b border-slate-100 pb-2 overflow-x-auto">
+        <button 
+          @click="theoryTab = 'concept'"
+          :class="theoryTab === 'concept' ? 'bg-emerald-600 text-white font-bold shadow' : 'bg-slate-100 text-slate-700 hover:bg-slate-200 font-medium'"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm transition flex items-center space-x-2 whitespace-nowrap cursor-pointer"
+        >
+          <span>📐</span>
+          <span>五大文本與重要概念</span>
+        </button>
+        <button 
+          @click="theoryTab = 'domain'"
+          :class="theoryTab === 'domain' ? 'bg-emerald-600 text-white font-bold shadow' : 'bg-slate-100 text-slate-700 hover:bg-slate-200 font-medium'"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm transition flex items-center space-x-2 whitespace-nowrap cursor-pointer"
+        >
+          <span>🎯</span>
+          <span>國語文重點領域學習圖</span>
+        </button>
+        <button 
+          @click="theoryTab = 'ladder'"
+          :class="theoryTab === 'ladder' ? 'bg-emerald-600 text-white font-bold shadow' : 'bg-slate-100 text-slate-700 hover:bg-slate-200 font-medium'"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm transition flex items-center space-x-2 whitespace-nowrap cursor-pointer"
+        >
+          <span>🪜</span>
+          <span>黃國珍閱讀探究階梯</span>
+        </button>
+      </div>
+
+      <!-- Modal Body (Image & Narrative) -->
+      <div class="flex-grow overflow-y-auto space-y-4 pr-1">
+        <!-- Tab 1: 五大文本與重要概念 -->
+        <div x-show="theoryTab === 'concept'" class="space-y-4">
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 shadow-inner flex items-center justify-center p-2">
+            <img 
+              src="data/五大文本與重要概念.jpg" 
+              alt="五大文本與重要概念"
+              class="max-h-[60vh] w-auto object-contain rounded-lg"
+            />
+          </div>
+          <div class="bg-emerald-50/80 border border-emerald-200 rounded-2xl p-4 text-xs sm:text-sm text-emerald-950 space-y-2">
+            <div class="font-bold flex items-center gap-1.5 text-emerald-900">
+              <span>💡</span>
+              <span>教學架構對照指引：</span>
+            </div>
+            <p class="leading-relaxed">
+              本圖整合理論矩陣，橫跨<strong>記敘文本</strong>（經驗情感的敘說）、<strong>抒情文本</strong>（生命情意的抒發）、<strong>說明文本</strong>（客觀事理的解析）、<strong>議論文本</strong>（思辨論證與主張）、<strong>應用文本</strong>（生活實用與溝通）五大面向，每篇課文均明確對齊 108 課綱重要概念與核心技能，落實縱向三年能力螺旋。
+            </p>
+          </div>
+        </div>
+
+        <!-- Tab 2: 國語文重點領域學習圖 -->
+        <div x-show="theoryTab === 'domain'" class="space-y-4">
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 shadow-inner flex items-center justify-center p-2">
+            <img 
+              src="data/國語文重點領域學習圖jpg.jpg" 
+              alt="國語文重點領域學習圖"
+              class="max-h-[60vh] w-auto object-contain rounded-lg"
+            />
+          </div>
+          <div class="bg-teal-50/80 border border-teal-200 rounded-2xl p-4 text-xs sm:text-sm text-teal-950 space-y-2">
+            <div class="font-bold flex items-center gap-1.5 text-teal-900">
+              <span>🎯</span>
+              <span>領綱學習表現與內容對照：</span>
+            </div>
+            <p class="leading-relaxed">
+              對照技術型高級中等學校國語文領綱，包含三大面向、九項核心素養，結合閱讀理解、語文表達、文化省思與跨領域專業融合（三民家商服裝科專題情境），使技高語文成為學生跨入職場與高教的堅定羽翼。
+            </p>
+          </div>
+        </div>
+
+        <!-- Tab 3: 黃國珍閱讀探究階梯 -->
+        <div x-show="theoryTab === 'ladder'" class="space-y-4">
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 shadow-inner flex items-center justify-center p-2">
+            <img 
+              src="data/黃國珍閱讀探究.jpg" 
+              alt="黃國珍閱讀探究階梯"
+              class="max-h-[60vh] w-auto object-contain rounded-lg"
+            />
+          </div>
+          <div class="bg-amber-50/80 border border-amber-200 rounded-2xl p-4 text-xs sm:text-sm text-amber-950 space-y-2">
+            <div class="font-bold flex items-center gap-1.5 text-amber-900">
+              <span>🪜</span>
+              <span>三階提問思維階梯（What ➔ How ➔ Why）：</span>
+            </div>
+            <p class="leading-relaxed">
+              全站 56 門單元均實作「黃國珍三階提問自學互動」：第一階 <strong>擷取訊息（What）</strong> 掌握文本表層事實；第二階 <strong>統整解釋（How）</strong> 洞察結構修辭與理路安排；第三階 <strong>省思評鑑（Why）</strong> 引導學生跳脫文本連結自我生命與職涯專業。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Action -->
+      <div class="pt-3 border-t border-slate-200 flex justify-end">
+        <button 
+          @click="showTheoryModal = false"
+          class="px-5 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold rounded-xl transition cursor-pointer"
+        >
+          完成閱讀並返回
+        </button>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
